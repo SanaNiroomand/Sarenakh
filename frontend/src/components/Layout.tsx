@@ -58,7 +58,7 @@ export function Layout({ children, wide }: { children: ReactNode; wide?: boolean
       </header>
       <main className={cx("mx-auto w-full flex-1 px-4 py-6 sm:py-8", wide ? "max-w-6xl" : "max-w-4xl")}>{children}</main>
       <footer className="border-t border-ink-100 py-5 text-center text-xs text-ink-400">
-        سرنخ — پیدا کردن مشتری در دل گفتگوها، با شواهد و هزینه شفاف
+        سرنخ
       </footer>
     </div>
   );
