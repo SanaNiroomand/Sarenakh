@@ -116,7 +116,8 @@ async def execute_run(run_id: int, *, replay_delay: float | None = None, use_cac
     budget = Budget(run.budget_usd, s.global_spend_cap_usd, run_id=run_id, user_id=run.user_id)
     ctx = RunContext(
         profile=profile, index=ChatIndex(msgs), llm=get_llm(), budget=budget, settings=s, emit=rec.emit,
-        run_id=run_id, user_id=run.user_id, product_id=product.id, dataset_id=ds.id, embeddings=emb,
+        run_id=run_id, user_id=run.user_id, product_id=product.id, dataset_id=ds.id,
+        dataset_key=(f"sample:{ds.stats.get('source_hash')}" if ds.sample_key else f"ds:{ds.id}"), embeddings=emb,
         fewshot=fewshot, on_new_embeddings=lambda new: _persist_embeddings(ds.id, new),
     )
     ctx.use_cache = use_cache

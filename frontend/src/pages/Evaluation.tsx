@@ -15,7 +15,7 @@ const STAGE_FA: Record<string, string> = {
   critic: "منتقد",
   draft: "سرنخ + پاسخ",
 };
-const PRODUCT_FA: Record<string, string> = { pystart: "دوره پایتون (پای‌استارت)", cheshmaram: "عینک چشم‌آرام" };
+const PRODUCT_FA: Record<string, string> = { quera_python: "دوره پایتون مقدماتی کوئرا کالج", bluecut_glasses: "عینک بلوکات (عینک نوین تفرش)" };
 
 function Metric({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (

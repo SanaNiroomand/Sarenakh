@@ -2,7 +2,7 @@
  "chat_file": "python_iran_export.json",
  "note": "Leads are counted per person (a lead's user_id), matching the never-pitch-twice rule.",
  "products": {
-  "pystart": {
+  "quera_python": {
    "leads": [
     {
      "label": "A-L1",
@@ -51,7 +51,7 @@
      "msg_id": 1356,
      "user_id": "user5552501001",
      "author": "کیان",
-     "note": "جویای کار با فارسیِ پر از اصطلاح انگلیسی؛ بوت‌کمپ job-ready با منتور، نمونه‌کار و آمادگی مصاحبه، با ضرب‌الاجل آخر سال"
+     "note": "جویای کار با فارسیِ پر از اصطلاح انگلیسی؛ دوره پایتون از پایه با تمرین زیاد، بازخورد روی کد و منتور، با ضرب‌الاجل آخر سال"
     },
     {
      "label": "A-L8",
@@ -144,11 +144,11 @@
      "msg_id": 1099,
      "user_id": "user5682004974",
      "author": "Pooya",
-     "note": "برنامه‌نویس متوسط دوره پیشرفته FastAPI می‌خواهد — پای‌استارت برای مبتدی‌هاست"
+     "note": "برنامه‌نویس متوسط دوره پیشرفته FastAPI می‌خواهد — دوره پایتون مقدماتی کوئرا برای مبتدی‌هاست"
     }
    ]
   },
-  "cheshmaram": {
+  "bluecut_glasses": {
    "leads": [
     {
      "label": "B-L1",

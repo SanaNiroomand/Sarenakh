@@ -61,11 +61,11 @@ def test_persian_password_longer_than_72_bytes(client):
 def test_products_and_isolation(client):
     _signup(client, "owner@example.com")
     samples = client.get("/api/products/samples").json()
-    assert {s["key"] for s in samples} == {"pystart", "cheshmaram"}
+    assert {s["key"] for s in samples} == {"quera_python", "bluecut_glasses"}
 
-    p = client.post("/api/products/sample/pystart").json()
-    assert p["sample_key"] == "pystart"
-    assert client.post("/api/products/sample/pystart").json()["id"] == p["id"]  # idempotent
+    p = client.post("/api/products/sample/quera_python").json()
+    assert p["sample_key"] == "quera_python"
+    assert client.post("/api/products/sample/quera_python").json()["id"] == p["id"]  # idempotent
 
     r = client.post("/api/products", json={"description": "یک اپ مدیریت مالی شخصی برای فریلنسرها که درآمد و مالیات را حساب می‌کند"})
     assert r.status_code == 200
@@ -124,7 +124,7 @@ def test_run_validation(client):
     bare = client.post("/api/products", json={"description": "یک محصول آزمایشی بدون پروفایل برای تست اعتبارسنجی اجرا"}).json()
     r = client.post("/api/runs", json={"product_id": bare["id"], "dataset_id": ds["id"], "budget_usd": 0.1})
     assert r.status_code == 400 and _is_persian(r.json()["detail"])
-    sample = client.post("/api/products/sample/pystart").json()
+    sample = client.post("/api/products/sample/quera_python").json()
     r = client.post("/api/runs", json={"product_id": sample["id"], "dataset_id": ds["id"], "budget_usd": 50})
     assert r.status_code == 422 and _is_persian(r.json()["detail"])
     assert client.get("/api/runs/999999/results").status_code == 404

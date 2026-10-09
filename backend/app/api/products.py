@@ -20,10 +20,12 @@ router = APIRouter(prefix="/api/products", tags=["products"])
 
 
 def product_out(p: Product) -> dict[str, Any]:
+    sp = sample_products().get(p.sample_key or "")
     return {
         "id": p.id, "name": p.name, "description": p.description, "sample_key": p.sample_key,
         "profile": p.profile, "setup_chat": p.setup_chat or [], "created_at": p.created_at,
         "updated_at": p.updated_at,
+        "source": {"url": sp["source_url"], "checked_at": sp["checked_at"]} if sp else None,
     }
 
 
@@ -37,7 +39,8 @@ def own_product(db: Session, user: User, product_id: int) -> Product:
 @router.get("/samples")
 def list_samples() -> list[dict[str, Any]]:
     return [
-        {"key": k, "name": v["name"], "emoji": v["emoji"], "pitch": v["pitch"], "description": v["description"]}
+        {"key": k, "name": v["name"], "emoji": v["emoji"], "pitch": v["pitch"], "description": v["description"],
+         "source_url": v["source_url"], "checked_at": v["checked_at"]}
         for k, v in sample_products().items()
     ]
 

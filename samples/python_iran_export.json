@@ -6333,11 +6333,11 @@
    "date_unixtime": "1791355231",
    "from": "کیان",
    "from_id": "user5552501001",
-   "text": "سلام. کسی یه bootcamp پایتون آنلاین سراغ داره که واقعا job-ready کنه؟ من تا آخر سال deadline دارم که یه کار junior پیدا کنم. ready-am که هزینه کنم، فقط می‌خوام portfolio و interview prep داشته باشه",
+   "text": "سلام. کسی یه دوره پایتون آنلاین سراغ داره که از پایه با کلی تمرین practical یاد بده؟ من تا آخر سال deadline دارم که برای یه کار junior آماده بشم. ready-am که هزینه کنم، فقط می‌خوام feedback روی کدم بگیرم",
    "text_entities": [
     {
      "type": "plain",
-     "text": "سلام. کسی یه bootcamp پایتون آنلاین سراغ داره که واقعا job-ready کنه؟ من تا آخر سال deadline دارم که یه کار junior پیدا کنم. ready-am که هزینه کنم، فقط می‌خوام portfolio و interview prep داشته باشه"
+     "text": "سلام. کسی یه دوره پایتون آنلاین سراغ داره که از پایه با کلی تمرین practical یاد بده؟ من تا آخر سال deadline دارم که برای یه کار junior آماده بشم. ready-am که هزینه کنم، فقط می‌خوام feedback روی کدم بگیرم"
     }
    ]
   },
@@ -6349,11 +6349,11 @@
    "from": "رامین",
    "from_id": "user5559578136",
    "reply_to_message_id": 1356,
-   "text": "interview prep خیلی مهمه، کمتر دوره‌ای داره",
+   "text": "تمرین زیاد با feedback خیلی مهمه، کمتر دوره‌ای داره",
    "text_entities": [
     {
      "type": "plain",
-     "text": "interview prep خیلی مهمه، کمتر دوره‌ای داره"
+     "text": "تمرین زیاد با feedback خیلی مهمه، کمتر دوره‌ای داره"
     }
    ]
   },

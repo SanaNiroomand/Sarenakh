@@ -169,6 +169,11 @@ export default function ProductSetup() {
             <div>
               <h1 className="text-2xl font-extrabold">{product.name}</h1>
               <p className="text-sm text-ink-500">{product.profile ? "پروفایل آماده است. بررسی کنید و ادامه دهید." : "عامل در حال ساختن پروفایل مشتری است."}</p>
+              {product.source && (
+                <p className="mt-1 text-xs text-ink-400">
+                  محصول واقعی نمونه — واقعیت‌ها از <a href={product.source.url} target="_blank" rel="noopener noreferrer" className="underline" dir="ltr">صفحه محصول</a> (بررسی‌شده در {product.source.checked_at})؛ صرفا برای نمایش و بدون وابستگی.
+                </p>
+              )}
             </div>
             {product.profile && <Button variant="thread" onClick={() => nav(`/app/products/${product.id}/data`)}>ادامه: پیام‌های گروه ←</Button>}
           </div>

@@ -187,6 +187,9 @@ class RunContext:
     user_id: int | None = None
     product_id: int | None = None
     dataset_id: int | None = None
+    # Identity used in cache keys: the sample chat is keyed by its content hash (portable across
+    # servers, invalidated when the data changes); user datasets by their id.
+    dataset_key: str = ""
     embeddings: dict[int, np.ndarray] = field(default_factory=dict)
     fewshot: list[FewShot] = field(default_factory=list)
     use_cache: bool = True

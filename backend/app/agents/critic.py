@@ -12,7 +12,7 @@ async def critique(
     ctx: RunContext, cand: ChatMessage, verdict: Verdict, fit: float, res: Reservation
 ) -> tuple[CriticResult, float, bool]:
     """Returns (result, cost, cached)."""
-    key = cache_key("critic", ctx.settings.critic_model, PROMPT_VERSIONS["critic"], ctx.profile_fp, ctx.dataset_id,
+    key = cache_key("critic", ctx.settings.critic_model, PROMPT_VERSIONS["critic"], ctx.profile_fp, ctx.dataset_key,
                     cand.id, verdict.model_dump())
     if ctx.use_cache and (hit := cache_get(key)):
         ctx.budget.credit_cache("critic", hit[1])

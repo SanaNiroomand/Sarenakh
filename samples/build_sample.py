@@ -26,7 +26,7 @@ TEHRAN = timezone(timedelta(hours=3, minutes=30))
 FIRST_ID = 1001
 SEED = 1405
 NOT_INCLUDED = "(File not included. Change data exporting settings to download.)"
-PRODUCT_OF = {"A": "pystart", "B": "cheshmaram"}
+PRODUCT_OF = {"A": "quera_python", "B": "bluecut_glasses"}
 
 # People who drop random reaction stickers (never leads/decoys, so labels stay clean).
 REACTORS = ["javad", "farhad", "niloofar", "taha", "golnaz", "parisa", "sina"]

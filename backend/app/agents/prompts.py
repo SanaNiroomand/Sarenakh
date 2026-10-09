@@ -6,7 +6,7 @@ from __future__ import annotations
 from ..schemas import Profile
 
 # Bump a stage's version to invalidate only that stage's cache after changing its prompt.
-PROMPT_VERSIONS = {"triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v2"}
+PROMPT_VERSIONS = {"triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v3"}
 
 
 def profile_block(p: Profile, with_examples: bool = False) -> str:

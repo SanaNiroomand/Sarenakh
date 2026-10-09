@@ -15,7 +15,7 @@ Legend: `[x]` done · `[~]` in progress · `[ ]` todo · `[-]` cut
 
 ## Phase 1 — Data
 - [x] Sample chat: 391 msgs / 40 people / 7 days, Telegram Desktop JSON, Finglish + code-switching
-- [x] PyStart course: 9 leads + 11 decoys; Cheshm-Aram glasses: 5 leads + 5 decoys
+- [x] Real products: Quera College beginner Python (9 leads + 11 decoys); Novin Optic blue-cut glasses on Basalam (5 + 5)
 - [x] Ground truth (per person) + products.json (facts for grounding)
 - [x] Parser (Telegram export, full-account export, pasted text), Persian normalization, ChatIndex
 - [ ] Persian notes in ground truth (shown on the evaluation page)

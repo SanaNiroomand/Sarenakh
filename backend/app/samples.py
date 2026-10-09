@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from functools import lru_cache
 from typing import Any
 
-from sqlalchemy import insert, select
+from sqlalchemy import delete, insert, select
 from sqlalchemy.orm import Session
 
 from .chat.parse import ParsedChat, parse_telegram_export
@@ -59,9 +60,32 @@ def store_parsed(
 
 
 def ensure_sample_dataset(db: Session) -> Dataset:
+    """Seed the shared sample chat; if the bundled file changed since seeding, refresh it in place
+    (same dataset id and message ids; embeddings kept for messages whose text did not change)."""
+    raw = (_dir() / ground_truth()["chat_file"]).read_bytes()
+    digest = hashlib.sha256(raw).hexdigest()[:16]
     ds = db.scalar(select(Dataset).where(Dataset.sample_key == SAMPLE_DATASET_KEY))
-    if ds:
+    if ds and (ds.stats or {}).get("source_hash") == digest:
         return ds
-    chat_file = ground_truth()["chat_file"]
-    parsed = parse_telegram_export((_dir() / chat_file).read_bytes())
-    return store_parsed(db, parsed, user_id=None, name=parsed.name, sample_key=SAMPLE_DATASET_KEY)
+    parsed = parse_telegram_export(raw)
+    if ds is None:
+        ds = store_parsed(db, parsed, user_id=None, name=parsed.name, sample_key=SAMPLE_DATASET_KEY)
+    else:
+        old = {m.msg_id: m for m in db.scalars(select(Message).where(Message.dataset_id == ds.id))}
+        keep = {mid: m.embedding for mid, m in old.items() if m.embedding is not None}
+        old_norm = {mid: m.norm for mid, m in old.items()}
+        db.execute(delete(Message).where(Message.dataset_id == ds.id))
+        db.flush()
+        rows = [
+            {
+                "dataset_id": ds.id, "msg_id": m.id, "ts": m.ts, "date": m.date, "author_id": m.author_id,
+                "author": m.author, "text": m.text, "norm": m.norm, "reply_to": m.reply_to, "kind": m.kind,
+                "lang": m.lang, "forwarded_from": m.forwarded_from, "emojis": m.emojis,
+                "embedding": keep.get(m.id) if old_norm.get(m.id) == m.norm else None,
+            }
+            for m in parsed.messages
+        ]
+        db.execute(insert(Message), rows)
+        ds.name = parsed.name
+    ds.stats = {**parsed.stats, "source_hash": digest}
+    return ds

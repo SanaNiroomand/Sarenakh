@@ -175,7 +175,7 @@ def _as_input(output_items) -> list[dict]:
 def investigation_key(ctx: RunContext, cand: ChatMessage) -> tuple[str, list]:
     fewshot = select_fewshot(ctx, cand)
     key = cache_key("inv", ctx.settings.investigator_model, PROMPT_VERSIONS["investigate"], ctx.profile_fp,
-                    ctx.dataset_id, cand.id, cand.norm, [(f.text, f.vote, f.note) for f in fewshot])
+                    ctx.dataset_key, cand.id, cand.norm, [(f.text, f.vote, f.note) for f in fewshot])
     return key, fewshot
 
 

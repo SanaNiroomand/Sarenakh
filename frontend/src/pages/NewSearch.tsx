@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
+import { SampleSource } from "../components/SampleSource";
 import { Button, Card, ErrorBox, SectionTitle, Steps, TextArea } from "../components/ui";
 import { api, errorText } from "../lib/api";
 import type { Product, SampleProduct } from "../lib/types";
@@ -60,7 +61,8 @@ export default function NewSearch() {
 
       {error && <div className="mb-4"><ErrorBox message={error} /></div>}
 
-      <SectionTitle title="یا با یک محصول نمونه شروع کنید" sub="پروفایل آماده دارند؛ می‌توانید ویرایششان کنید." />
+      <SectionTitle title="یا با یک محصول واقعی نمونه شروع کنید" sub="پروفایل آماده دارند؛ می‌توانید ویرایششان کنید." />
+      <div className="mb-3"><SampleSource samples={samples} /></div>
       <div className="mb-8 grid gap-3 sm:grid-cols-2">
         {samples.map((s) => (
           <button key={s.key} onClick={() => fromSample(s.key)} disabled={!!busy}

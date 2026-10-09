@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Layout } from "../components/Layout";
+import { SampleSource } from "../components/SampleSource";
 import { Badge, Button, Card, Empty, ErrorBox, LinkButton, Loading, SectionTitle } from "../components/ui";
 import { ApiError, api, errorText } from "../lib/api";
 import { useAuth } from "../lib/auth";
@@ -40,6 +41,7 @@ export function SampleButtons({ compact }: { compact?: boolean }) {
         ))}
       </div>
       {error && <ErrorBox message={error} />}
+      {!compact && <SampleSource samples={samples} />}
     </div>
   );
 }
@@ -62,7 +64,7 @@ export default function Dashboard() {
       )}
 
       <Card className="mb-6 border-thread-200 bg-gradient-to-l from-thread-50 to-white">
-        <SectionTitle title="امتحان سریع با داده نمونه" sub="گروه «پایتونیست‌های ایران» با ۳۹۱ پیام فارسی، فینگلیش و انگلیسی‌قاطی — یک کلیک، کمتر از یک دقیقه." />
+        <SectionTitle title="امتحان سریع با داده نمونه" sub="دو محصول واقعی ایرانی روی گروه «پایتونیست‌های ایران» (۳۹۱ پیام فارسی، فینگلیش و انگلیسی‌قاطی) — یک کلیک، کمتر از یک دقیقه." />
         <SampleButtons />
       </Card>
 

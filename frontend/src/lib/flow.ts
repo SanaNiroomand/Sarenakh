@@ -13,7 +13,7 @@ export const getConfig = () => (configCache ??= api.get<PublicConfig>("/api/conf
 export const BUDGET_OPTIONS = [0.05, 0.1, 0.25, 0.5, 1.0];
 
 /** One click: sample product (prebuilt profile) + sample chat + default budget -> a run id. */
-export async function startSampleRun(productKey = "pystart"): Promise<number> {
+export async function startSampleRun(productKey = "quera_python"): Promise<number> {
   const [product, dataset, cfg] = await Promise.all([
     api.post<Product>(`/api/products/sample/${productKey}`),
     api.get<Dataset>("/api/datasets/sample"),

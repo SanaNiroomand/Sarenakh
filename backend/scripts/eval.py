@@ -1,7 +1,7 @@
 """Run the full pipeline on the sample chat and print precision, recall and cost vs ground truth.
 
-    cd backend && python -m scripts.eval --product pystart --budget 1.0
-    python -m scripts.eval --product cheshmaram --no-cache        # force fresh model calls
+    cd backend && python -m scripts.eval --product quera_python --budget 1.0
+    python -m scripts.eval --product bluecut_glasses --no-cache        # force fresh model calls
     python -m scripts.eval --run 12                               # re-score an existing run
 """
 
@@ -84,7 +84,7 @@ def _report(rep: dict) -> None:
 
 async def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--product", default="pystart", choices=list(sample_products()))
+    ap.add_argument("--product", default="quera_python", choices=list(sample_products()))
     ap.add_argument("--budget", type=float, default=1.0)
     ap.add_argument("--no-cache", action="store_true")
     ap.add_argument("--quiet", action="store_true")

@@ -12,18 +12,22 @@ from .prefilter import embed_texts_cached
 from .prompts import DRAFT_CHECK_SYSTEM, DRAFTER_SYSTEM, PROMPT_VERSIONS
 from .schemas import DraftCheck, ReplyDraft, Verdict
 
-TOP_FACTS = 5
+TOP_FACTS = 6
+_PRICE = ("قیمت", "تومان", "تومن", "ریال", "$", "price")
 
 
 async def retrieve_facts(ctx: RunContext, query: str, res: Reservation) -> list[tuple[int, str]]:
-    """Most relevant product facts for this person, with their original indexes."""
+    """Most relevant product facts for this person (embedding retrieval), with their original indexes.
+    Price facts are always included: they matter to nearly every buying decision but embed poorly
+    against phrasings like "under one million"."""
     facts = ctx.profile.facts
     if len(facts) <= TOP_FACTS:
         return list(enumerate(facts))
+    pinned = {i for i, f in enumerate(facts) if any(k in f for k in _PRICE)}
     vecs = await embed_texts_cached(ctx, facts + [query], stage="draft", res=res)
     sims = vecs[:-1] @ vecs[-1]
-    top = sorted(np.argsort(-sims)[:TOP_FACTS].tolist())
-    return [(i, facts[i]) for i in top]
+    top = [i for i in np.argsort(-sims).tolist() if i not in pinned][: max(0, TOP_FACTS - len(pinned))]
+    return [(i, facts[i]) for i in sorted(pinned | set(top))]
 
 
 def _hard_issues(ctx: RunContext, draft: ReplyDraft, mode: str, allowed: set[int]) -> list[str]:
@@ -44,7 +48,7 @@ async def draft_reply(
     ctx: RunContext, cand: ChatMessage, verdict: Verdict, mode: str, res: Reservation
 ) -> tuple[dict, float, bool]:
     """Returns ({reply, mode, facts_used, help_points, check, revised}, cost, cached)."""
-    key = cache_key("draft", ctx.settings.drafter_model, PROMPT_VERSIONS["draft"], ctx.profile_fp, ctx.dataset_id,
+    key = cache_key("draft", ctx.settings.drafter_model, PROMPT_VERSIONS["draft"], ctx.profile_fp, ctx.dataset_key,
                     cand.id, mode, verdict.stated_need)
     if ctx.use_cache and (hit := cache_get(key)):
         ctx.budget.credit_cache("draft", hit[1])

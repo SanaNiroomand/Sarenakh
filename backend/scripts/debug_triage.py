@@ -1,6 +1,6 @@
 """Debug: run raw triage batches for a sample product and show output sizes / failures.
 
-    cd backend && python -m scripts.debug_triage cheshmaram
+    cd backend && python -m scripts.debug_triage bluecut_glasses
 """
 
 import asyncio
@@ -41,4 +41,4 @@ async def main(key: str) -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main(sys.argv[1] if len(sys.argv) > 1 else "cheshmaram"))
+    asyncio.run(main(sys.argv[1] if len(sys.argv) > 1 else "bluecut_glasses"))

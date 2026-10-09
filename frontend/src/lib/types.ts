@@ -32,9 +32,12 @@ export type Product = {
   profile: Profile | null;
   setup_chat: ChatTurn[];
   turn_cost_usd?: number;
+  source?: { url: string; checked_at: string } | null;
 };
 
-export type SampleProduct = { key: string; name: string; emoji: string; pitch: string; description: string };
+export type SampleProduct = {
+  key: string; name: string; emoji: string; pitch: string; description: string; source_url: string; checked_at: string;
+};
 
 export type Dataset = {
   id: number;
