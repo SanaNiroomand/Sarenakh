@@ -1,30 +1,29 @@
-# سرنخ — Sarenakh
+# Sarenakh (سرنخ)
 
-**Find real customers inside Telegram group chats.**
+Sarenakh helps a business find people in Telegram groups who need what it sells.
 
-Describe your product, give Sarenakh a group's messages, set a budget. An AI agent reads the conversations
-and returns the people who actually need your product — with the messages that prove it, a score,
-and a helpful reply you can copy. You see what every step cost.
+You tell it what you sell. Then you give it the messages of a group, either the JSON export from
+Telegram Desktop or just pasted text. It reads the messages, follows the conversations and shows you the
+people who are actually looking for something like your product. For each person you see the messages
+it based that on, and a reply you can send them. You also see how much it cost to check the messages.
 
-## Run it on your computer
+It doesn't send anything by itself. You decide who to reply to.
 
-1. Copy `.env.example` to `.env` and put your OpenAI key in it.
-2. Run `.\start.ps1` (Windows). It installs what's needed the first time and opens http://localhost:8000.
-3. Sign up, then click **«امتحان سریع با داده نمونه»** to see a full run on sample data.
+## Running it
 
-Needs Python 3.11+ and Node.js.
+You need Python 3.11 and Node.js. Copy `.env.example` to `.env` and put your OpenAI key in it,
+then run `start.ps1`. The site opens at http://localhost:8000. Sign up and press the sample data
+button to see how it works.
 
-## Put it online
+## Putting it online
 
-The server must be **outside Iran** (OpenAI blocks Iranian IPs).
-
-- **One server:** `docker compose up -d` (see `docker-compose.yml`; set `SITE_ADDRESS` in `.env` for HTTPS).
-- **Kubernetes:** see [deploy/helm/DEPLOY.md](deploy/helm/DEPLOY.md).
-
-Every push to `main` builds the image `ghcr.io/sananiroomand/sarenakh`.
+The server has to be outside Iran, because OpenAI doesn't accept requests from Iranian IPs.
+On a single server you can use `docker compose up -d`. For Kubernetes there's a Helm chart in
+`deploy/helm`, and `deploy/helm/DEPLOY.md` explains the steps.
 
 ## Tests
 
-```bash
-cd backend && python -m pytest
+```
+cd backend
+python -m pytest
 ```
