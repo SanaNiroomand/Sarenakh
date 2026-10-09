@@ -75,7 +75,7 @@ export function Signup() {
     setError(null);
     try {
       setUser(await api.post<User>("/api/auth/signup", { email, password, name }));
-      nav("/app?welcome=1", { replace: true });
+      nav("/app", { replace: true });
     } catch (err) {
       setError(errorText(err));
     } finally {
