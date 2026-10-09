@@ -14,6 +14,7 @@ from fastapi.staticfiles import StaticFiles
 from .api import auth, datasets, products, runs
 from .config import get_settings
 from .db import init_db, session
+from .golden import load_golden
 from .model_check import check_models, format_report
 from .runner import recover_stale_runs
 from .samples import ensure_sample_dataset
@@ -42,6 +43,7 @@ async def lifespan(app: FastAPI):
     recover_stale_runs()
     with session() as db:
         ensure_sample_dataset(db)
+    load_golden()
     app.state.model_status = {"ok": None, "skipped": True, "results": []}
     recheck: asyncio.Task | None = None
     if s.model_check != "off":

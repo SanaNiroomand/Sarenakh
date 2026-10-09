@@ -64,7 +64,7 @@ function EvalView({ runId }: { runId: number }) {
                 <tr key={l.label}>
                   <td className={td}>{l.found ? "✅" : "❌"}</td>
                   <td className={cx(td, "font-bold")}>{l.author}<div className="text-xs font-normal text-ink-400">#{mid(l.msg_id)}</div></td>
-                  <td className={cx(td, "text-ink-600")} dir="ltr" style={{ textAlign: "left" }}>{l.note}</td>
+                  <td className={cx(td, "text-ink-600")}>{l.note}</td>
                   <td className={td}>{STAGE_FA[l.stage] ?? l.stage} · {DECISION_FA[l.decision] ?? l.decision}</td>
                   <td className={td}>{l.fit != null ? num(l.fit, 1) : "—"}</td>
                 </tr>
@@ -84,7 +84,7 @@ function EvalView({ runId }: { runId: number }) {
                 <tr key={d.label}>
                   <td className={td}>{d.fooled ? "❌ فریب خورد" : "✅"}</td>
                   <td className={cx(td, "font-bold")}>{d.author}<div className="text-xs font-normal text-ink-400">#{mid(d.msg_id)}</div></td>
-                  <td className={cx(td, "text-ink-600")} dir="ltr" style={{ textAlign: "left" }}>{d.note}</td>
+                  <td className={cx(td, "text-ink-600")}>{d.note}</td>
                   <td className={td}>{STAGE_FA[d.stage] ?? d.stage}{d.relevance != null ? ` (تریاژ ${num(d.relevance)})` : ""}</td>
                 </tr>
               ))}

@@ -9,63 +9,63 @@
      "msg_id": 1079,
      "user_id": "user5091272307",
      "author": "Reza K",
-     "note": "Finglish beginner wants a serious Python course with a mentor after failing alone twice; money is not a problem"
+     "note": "مبتدی فینگلیش‌نویس که دو بار تنهایی شروع کرده و ول کرده؛ دوره جدی با منتور می‌خواهد و پول مشکلش نیست"
     },
     {
      "label": "A-L2",
      "msg_id": 1132,
      "user_id": "user5551447525",
      "author": "مهسا",
-     "note": "32-year-old accountant switching careers; wants a structured course with a mentor through to a job; has a budget"
+     "note": "حسابدار ۳۲ساله در حال تغییر شغل؛ دوره منظم با منتور تا پیدا کردن کار می‌خواهد و بودجه کنار گذاشته"
     },
     {
      "label": "A-L3",
      "msg_id": 1186,
      "user_id": "user5907377146",
      "author": "Amir.dev",
-     "note": "University student behind in his Python course, midterm next week; cost doesn't matter, needs it fast (urgent)"
+     "note": "دانشجویی که در درس پایتون عقب افتاده و هفته بعد میان‌ترم دارد؛ هزینه مهم نیست، فوری است"
     },
     {
      "label": "A-L4",
      "msg_id": 1243,
      "user_id": "user5271913259",
      "author": "حامد",
-     "note": "Six months in tutorial hell; considering a paid bootcamp with mentor and code review"
+     "note": "شش ماه گیر «tutorial hell»؛ به بوت‌کمپ پولی با منتور و بازبینی کد فکر می‌کند"
     },
     {
      "label": "A-L5",
      "msg_id": 1257,
      "user_id": "user5446136029",
      "author": "پروین صادقی",
-     "note": "Mother looking for an organized online Persian Python course for her 17-year-old son (buyer for someone else)"
+     "note": "مادری که برای پسر ۱۷ساله‌اش دوره آنلاین فارسی و منظم می‌خواهد (خرید برای دیگری)"
     },
     {
      "label": "A-L6",
      "msg_id": 1301,
      "user_id": "user5465772968",
      "author": "Nima",
-     "note": "Ambiguous \"is a paid course worth it?\" — user history shows a struggling self-taught beginner who wishes for a mentor"
+     "note": "سوال مبهم «دوره پولی ارزش دارد؟» — سابقه پیام‌هایش نشان می‌دهد مبتدی تنهایی است که آرزوی منتور دارد"
     },
     {
      "label": "A-L7",
      "msg_id": 1356,
      "user_id": "user5552501001",
      "author": "کیان",
-     "note": "Code-switched job seeker: wants a job-ready bootcamp with mentor, portfolio and interview prep; deadline end of year"
+     "note": "جویای کار با فارسیِ پر از اصطلاح انگلیسی؛ بوت‌کمپ job-ready با منتور، نمونه‌کار و آمادگی مصاحبه، با ضرب‌الاجل آخر سال"
     },
     {
      "label": "A-L8",
      "msg_id": 1309,
      "user_id": "user5011956740",
      "author": "الهام",
-     "note": "Excel data analyst told to learn Python + pandas; needs evening classes; employer pays"
+     "note": "تحلیل‌گر داده اکسلی که مدیرش گفته پایتون و pandas یاد بگیرد؛ کلاس عصر می‌خواهد و شرکت هزینه را می‌دهد"
     },
     {
      "label": "A-L9",
      "msg_id": 1151,
      "user_id": "user5268760111",
      "author": "Babak",
-     "note": "\"Me too\" reply in another user's thread — only understandable through the reply chain; employed, needs evenings/weekends"
+     "note": "پاسخ «منم دنبال همینم» در رشته گفتگوی دیگری — فقط با خواندن رشته فهمیده می‌شود؛ شاغل است و عصرها وقت دارد"
     }
    ],
    "decoys": [
@@ -74,77 +74,77 @@
      "msg_id": 1088,
      "user_id": "user5905121729",
      "author": "آرش",
-     "note": "Senior developer asking about free-threading/GIL internals — topic match, not a buyer"
+     "note": "برنامه‌نویس ارشد که درباره free-threading و GIL می‌پرسد — موضوع مرتبط است ولی خریدار نیست"
     },
     {
      "label": "A-D2",
      "msg_id": 1084,
      "user_id": "user5352992972",
      "author": "یاسمن",
-     "note": "Asked for a beginner course, but later in the thread says she already enrolled elsewhere (resolved)"
+     "note": "دوره مقدماتی خواسته بود ولی بعدا در همان رشته می‌گوید جای دیگری ثبت‌نام کرده (حل‌شده)"
     },
     {
      "label": "A-D3",
      "msg_id": 1104,
      "user_id": "user5062949939",
      "author": "فرهاد 😎",
-     "note": "Sarcasm about 2-hour courses making you senior"
+     "note": "طعنه درباره دوره‌های دوساعته‌ای که آدم را سینیور می‌کنند"
     },
     {
      "label": "A-D4",
      "msg_id": 1103,
      "user_id": "user5571964109",
      "author": "آکادمی پایتون‌پرو 🔥",
-     "note": "Competitor course advertisement (removed by admin)"
+     "note": "تبلیغ دوره رقیب (ادمین حذفش کرد)"
     },
     {
      "label": "A-D5",
      "msg_id": 1137,
      "user_id": "user5074418147",
      "author": "محسن",
-     "note": "Explicitly wants only free resources and refuses to pay"
+     "note": "صریحا فقط منابع رایگان می‌خواهد و حاضر نیست پول بدهد"
     },
     {
      "label": "A-D6",
      "msg_id": 1189,
      "user_id": "user5363746409",
      "author": "استاد کریمی (تدریس خصوصی)",
-     "note": "Private tutor advertising his own classes (a seller, not a buyer)"
+     "note": "مدرس خصوصی که کلاس خودش را تبلیغ می‌کند (فروشنده است، نه خریدار)"
     },
     {
      "label": "A-D7",
      "msg_id": 1033,
      "user_id": "user5682004974",
      "author": "Pooya",
-     "note": "Intermediate dev with a Flask TypeError — needed debugging help, solved in thread"
+     "note": "برنامه‌نویس متوسط با خطای TypeError در Flask — کمک رفع اشکال لازم داشت و در همان رشته حل شد"
     },
     {
      "label": "A-D8",
      "msg_id": 1196,
      "user_id": "user5589489736",
      "author": "شیرین",
-     "note": "Wants a Java/Spring course, not Python"
+     "note": "دوره جاوا و اسپرینگ می‌خواهد، نه پایتون"
     },
     {
      "label": "A-D10",
      "msg_id": 1020,
      "user_id": "user5243461529",
      "author": "امید",
-     "note": "Asked about a Python course, but later says he dropped Python for Go and bought a Go course (user history)"
+     "note": "درباره دوره پایتون پرسیده بود ولی بعدا می‌گوید پایتون را کنار گذاشته و دوره Go خریده (سابقه پیام‌ها)"
     },
     {
      "label": "A-D11",
      "msg_id": 1045,
      "user_id": "user5034913238",
      "author": "جواد",
-     "note": "Snake/Python pun meme"
+     "note": "شوخی و جناس «پایتون یا مار»"
     },
     {
      "label": "A-D12",
      "msg_id": 1099,
      "user_id": "user5682004974",
      "author": "Pooya",
-     "note": "Intermediate dev wants an advanced FastAPI course — PyStart is for beginners"
+     "note": "برنامه‌نویس متوسط دوره پیشرفته FastAPI می‌خواهد — پای‌استارت برای مبتدی‌هاست"
     }
    ]
   },
@@ -155,35 +155,35 @@
      "msg_id": 1065,
      "user_id": "user5407901580",
      "author": "ندا",
-     "note": "Burning eyes from late-night screen work plus insomnia; tried Night Light, wants something more serious"
+     "note": "سوزش چشم از کار شبانه پای مانیتور و بی‌خوابی؛ Night Light کمک نکرده و راه‌حل جدی‌تر می‌خواهد"
     },
     {
      "label": "B-L2",
      "msg_id": 1146,
      "user_id": "user5697282383",
      "author": "Kaveh",
-     "note": "Finglish: asks if blue-light glasses are worth it and where to buy genuine ones — purchase intent"
+     "note": "فینگلیش: می‌پرسد عینک نور آبی ارزش دارد و اصلش را از کجا بخرد — قصد خرید"
     },
     {
      "label": "B-L3",
      "msg_id": 1199,
      "user_id": "user5884174863",
      "author": "سعید",
-     "note": "Headaches behind the eyes after 10-hour coding days; tried dark theme; asks where to buy protective glasses"
+     "note": "سردرد پشت چشم بعد از روزهای ده‌ساعته کدنویسی؛ تم تیره را امتحان کرده و می‌پرسد عینک محافظ را از کجا بخرد"
     },
     {
      "label": "B-L4",
      "msg_id": 1330,
      "user_id": "user5946787602",
      "author": "مریم",
-     "note": "Looking for a useful gift under 1M toman for her programmer husband who complains of eye strain"
+     "note": "برای همسر برنامه‌نویسش که از خستگی چشم می‌نالد هدیه کاربردی زیر یک میلیون می‌خواهد"
     },
     {
      "label": "B-L5",
      "msg_id": 1291,
      "user_id": "user5444055307",
      "author": "بهنام",
-     "note": "Night on-call engineer with dry red eyes; wants a filter, glasses or anything to reduce the strain"
+     "note": "مهندس شیفت شب با چشم‌های خشک و قرمز؛ فیلتر، عینک یا هر چیزی که فشار را کم کند می‌خواهد"
     }
    ],
    "decoys": [
@@ -192,35 +192,35 @@
      "msg_id": 1114,
      "user_id": "user5262903397",
      "author": "حسین",
-     "note": "Idiom/sarcasm: \"my eyes bled\" from reading legacy code"
+     "note": "اصطلاح و طعنه: «چشمام خون اومد» از خواندن کد قدیمی"
     },
     {
      "label": "B-D2",
      "msg_id": 1147,
      "user_id": "user5543996729",
      "author": "زهرا",
-     "note": "Already owns blue-light glasses and is happy with them"
+     "note": "خودش عینک نور آبی دارد و راضی است"
     },
     {
      "label": "B-D3",
      "msg_id": 1314,
      "user_id": "user5679828448",
      "author": "مجید",
-     "note": "Blurred vision and light flashes — needs an ophthalmologist urgently, must not be pitched"
+     "note": "تاری دید و جرقه نور — باید فوری چشم‌پزشک برود و نباید به او محصول معرفی کرد"
     },
     {
      "label": "B-D4",
      "msg_id": 1213,
      "user_id": "user5810298244",
      "author": "پیمان",
-     "note": "Wants a 144Hz gaming monitor — not about eye strain"
+     "note": "مانیتور گیمینگ ۱۴۴ هرتز می‌خواهد — ربطی به خستگی چشم ندارد"
     },
     {
      "label": "B-D5",
      "msg_id": 1262,
      "user_id": "user5231605151",
      "author": "عینک‌سرای نور 👓",
-     "note": "Competitor optical shop advertisement (removed by admin)"
+     "note": "تبلیغ عینک‌فروشی رقیب (ادمین حذفش کرد)"
     }
    ]
   }

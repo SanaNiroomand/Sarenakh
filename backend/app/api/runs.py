@@ -61,14 +61,17 @@ async def create_run(body: RunIn, request: Request, user: User = Depends(current
         raise HTTPException(422, f"بودجه هر اجرا باید بین ۰٫۰۲ تا {s.max_run_budget_usd:.2f} دلار باشد.")
     if active_runs_for(user.id):
         raise HTTPException(409, "یک اجرای دیگر هنوز در حال انجام است. صبر کنید تا تمام شود.")
-    ms = request.app.state.model_status
-    if not (ms.get("ok") or ms.get("skipped")):
-        raise HTTPException(503, "سرویس هوش مصنوعی موقتا در دسترس نیست. نتایج قبلی قابل مشاهده‌اند؛ کمی بعد دوباره تلاش کنید.")
 
-    # A sample product, unchanged, on the sample chat replays stored results: (almost) free.
+    # A sample product, unchanged, on the sample chat replays stored results: free, and it works
+    # even when OpenAI is unreachable (the golden cache ships with the image).
+    # Feedback changes the investigator's few-shot examples (and so its cache keys): not a replay then.
     is_replay = (ds.sample_key == SAMPLE_DATASET_KEY and product.sample_key is not None
-                 and product.profile == sample_profile(product.sample_key))
+                 and product.profile == sample_profile(product.sample_key)
+                 and db.scalar(select(Feedback.id).where(Feedback.product_id == product.id).limit(1)) is None)
     if not is_replay:
+        ms = request.app.state.model_status
+        if not (ms.get("ok") or ms.get("skipped")):
+            raise HTTPException(503, "سرویس هوش مصنوعی موقتا در دسترس نیست. اجرای داده نمونه همچنان کار می‌کند؛ کمی بعد دوباره تلاش کنید.")
         if GlobalSpend.get() + budget > s.global_spend_cap_usd:
             raise HTTPException(403, "سقف هزینه این نسخه نمایشی پر شده است. اجرای نمونه (Try sample) همچنان کار می‌کند.")
         spent_today = user_spend_since(db, user.id, time.time() - 86400)
