@@ -10,26 +10,46 @@ Legend: `[x]` done · `[~]` in progress · `[ ]` todo · `[-]` cut
 - [x] `/health` + SPA static serving
 - [x] Frontend scaffold: React 19 + Vite 8 + Tailwind 4, RTL, bundled Vazirmatn UI FD (Persian digits)
 - [x] Dockerfile (multi-stage), docker-compose (app + Caddy auto-HTTPS), deploy script
-- [ ] Run model check with real key (needs `.env`)
-- [ ] Deploy hello-world to the server (needs server details)
+- [x] Model check with the real key: gpt-6-luna, gpt-6.1-sol, text-embedding-3-small all OK ($0.001)
+- [ ] Deploy to the server (waiting for a VPS outside Iran)
 
 ## Phase 1 — Data
-- [x] Sample chat: 391 msgs / 40 people / 7 days, Telegram Desktop JSON, Finglish + code-switching,
-      stickers, edits, forwards (source script `samples/source/python_iran.chat` → `samples/build_sample.py`)
-- [x] PyStart course: 9 leads + 11 decoys (senior, already enrolled, sarcasm, competitor ad, free-only,
-      tutor ad, debugging-only, wrong language, changed mind via history, meme, too advanced)
-- [x] Cheshm-Aram glasses (2nd product): 5 leads + 5 decoys (idiom, already owns, medical, gaming monitor, ad)
-- [x] `samples/ground_truth.json` (leads counted per person) + `samples/products.json` (facts for grounding)
-- [x] Parser: Telegram export (single chat or full-account), pasted text (Telegram copy / "Name: msg" / lines)
-- [x] Persian normalization (ي/ك, digits, ZWNJ, emoji spam, letter runs) + Finglish detection
-- [x] ChatIndex: reply threads, descendants, author history, nearby, keyword search, prompt rendering
-- [x] 16 pytest tests (thread-only lead, resolved-in-thread decoy, changed-mind-in-history decoy)
+- [x] Sample chat: 391 msgs / 40 people / 7 days, Telegram Desktop JSON, Finglish + code-switching
+- [x] PyStart course: 9 leads + 11 decoys; Cheshm-Aram glasses: 5 leads + 5 decoys
+- [x] Ground truth (per person) + products.json (facts for grounding)
+- [x] Parser (Telegram export, full-account export, pasted text), Persian normalization, ChatIndex
+- [ ] Persian notes in ground truth (shown on the evaluation page)
 
-## Phase 2 — Auth, DB, input endpoints
-## Phase 3 — Agents (profile, pre-filter, triage, investigator, critic, drafter) + cost/budget
-## Phase 4 — Orchestrator, event log, SSE
-## Phase 5 — Frontend pages, live feed, dashboard (radar, funnel, opportunity map)
-## Phase 6 — Eval script + evaluation page, prompt tuning
+## Phase 2 — Auth, DB, inputs
+- [x] SQLite models, bcrypt (SHA-256 pre-hash) + server-side session cookies, rate limits
+- [x] Products, datasets (upload / paste / shared sample), Persian errors
+
+## Phase 3 — Agents
+- [x] Profile agent (1–2 questions) → sample profiles built by the agent
+- [x] Embedding pre-filter with reply-context scoring
+- [x] Triage (gpt-6-luna, batches of 25, split-and-retry)
+- [x] Investigator tool loop (6 tools, ≤5 steps), evidence-first Verdict, hard rules in Python
+- [x] Critic for borderline fits; help-first drafter with fact retrieval, check, one revision
+- [x] Budget reservations, global cap, spend log, stage cache, dynamic few-shot from feedback
+
+## Phase 4 — Orchestrator & streaming
+- [x] Runs API with spend guards, SSE (backlog + live), results payload, feedback, evaluation
+- [x] Free paced replay of cached sample runs (works even at the global cap)
+
+## Phase 5 — Frontend
+- [x] Landing, sign up, log in, dashboard with one-click sample runs
+- [x] Product setup: agent chat + editable profile with ideal-shape radar
+- [x] Data step: sample / upload / paste + budget selector
+- [x] Live feed grouped per followed person, budget meter, live counters
+- [x] Results: KPIs, lead cards with radar + ideal overlay, evidence chips → chat drawer, replies with copy,
+      👍/👎, compare up to 3, funnel with stage cost, opportunity map, burn line, why-not panel
+- [x] Lead detail (scores, reasoning, critic, tool path, evidence), evaluation page
+- [x] Mobile: no horizontal overflow at 375px; chart pages lazy-loaded
+
+## Phase 6 — Eval & tuning
+- [x] scripts/eval.py (precision, recall, cost, cost/lead) — 9/9 and 5/5, 0 false positives
+- [ ] Repeat runs for variance numbers; golden cache shipped with the image (replay works without OpenAI)
+
 ## Phase 7 — Production deploy + end-to-end test (incl. phone)
 ## Phase 8 — Polish
 ## Phase 9 — Docs (README, technical, business plan, pitch, video script)

@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field, field_validator
 AXES = ("need", "product_fit", "urgency", "buying_intent", "reachability", "confidence")
 AXES_FA = {
     "need": "نیاز",
-    "product_fit": "تناسب با محصول",
+    "product_fit": "تناسب محصول",
     "urgency": "فوریت",
     "buying_intent": "قصد خرید",
     "reachability": "دسترس‌پذیری",

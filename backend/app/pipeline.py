@@ -247,7 +247,9 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
         return max(0.01, (sum(costs) / len(costs)) * 1.25) if costs else EST_FIRST
 
     async def one(cand: ChatMessage, res: Reservation) -> None:
-        spent_before, saved_before = budget.spent, budget.saved
+        # Cost attribution goes through this candidate's own reservation (res.charged), never through
+        # deltas of the shared budget, which would also count the other investigations running in parallel.
+        saved = 0.0
         row: dict[str, Any] = {"msg_id": cand.id, "author_id": cand.author_id, "stage": "investigate"}
         try:
             await rec.emit("investigate", f"🔎 دنبال کردن سرنخ #{cand.id} از {cand.author}: «{_snip(cand.norm)}»",
@@ -259,6 +261,7 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
             decision, why_not = decide(v, fit)
             if inv.cached:
                 stats["cache_hits"] += 1
+                saved += inv.cost
             row.update(verdict=v.model_dump(), trace=inv.trace, fit=fit, cached=inv.cached)
 
             if decision == "lead" and needs_critic(fit):
@@ -266,7 +269,8 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
                 await rec.emit("critic", f"😈 وکیل مدافع شیطان: تلاش برای رد سرنخ {cand.author} (تناسب {fit}/۱۰ مرزی است)…",
                                msg_id=cand.id)
                 try:
-                    cr, _, _ = await critique(ctx, cand, v, fit, res)
+                    cr, c_cost, c_cached = await critique(ctx, cand, v, fit, res)
+                    saved += c_cost if c_cached else 0.0
                 except (BudgetExceeded, GlobalCapReached):
                     raise
                 except Exception as e:  # noqa: BLE001 — fail open: keep the investigator's verdict
@@ -292,9 +296,10 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
                 row["stage"] = "draft"
                 await rec.emit("draft", f"✍️ نوشتن پاسخ کمک‌محور برای {cand.author} ({mode_fa})", msg_id=cand.id)
                 try:
-                    reply, _, draft_cached = await draft_reply(ctx, cand, v, mode, res)
+                    reply, d_cost, draft_cached = await draft_reply(ctx, cand, v, mode, res)
                     row["reply"] = reply
                     if draft_cached:
+                        saved += d_cost
                         await asyncio.sleep(ctx.replay_delay)
                 except (BudgetExceeded, GlobalCapReached):
                     raise
@@ -315,7 +320,8 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
             await rec.emit("verdict", text, msg_id=cand.id, data={
                 "decision": decision, "fit": fit, "scores": scores, "temperature": temp,
                 "weak": weakest_axis(scores), "cached": inv.cached, "steps": inv.steps,
-            }, cost=budget.spent - spent_before)
+                "equiv_cost": round(res.charged + saved, 6),
+            }, cost=res.charged)
         except (BudgetExceeded, GlobalCapReached):
             row.update(decision="pending", why_not="بودجه در میانه بررسی تمام شد")
         except Exception as e:  # noqa: BLE001
@@ -324,9 +330,9 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
             await rec.emit("error", f"⚠️ بررسی پیام #{cand.id} با خطا روبه‌رو شد و رد شد", msg_id=cand.id,
                            data={"error": f"{type(e).__name__}: {e}"})
         finally:
-            spent = budget.spent - spent_before
+            spent = res.charged
             row["cost_usd"] = round(spent, 6)
-            row["saved_usd"] = round(budget.saved - saved_before, 6)
+            row["saved_usd"] = round(saved, 6)
             if not row.get("cached") and spent > 0:
                 costs.append(spent)
             budget.release(res)

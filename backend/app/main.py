@@ -94,6 +94,16 @@ async def health():
     }
 
 
+@app.get("/api/config")
+async def public_config():
+    s = get_settings()
+    return {
+        "default_run_budget_usd": s.default_run_budget_usd,
+        "max_run_budget_usd": s.max_run_budget_usd,
+        "models": {"triage": s.triage_model, "agent": s.investigator_model, "embedding": s.embedding_model},
+    }
+
+
 app.include_router(auth.router)
 app.include_router(products.router)
 app.include_router(datasets.router)

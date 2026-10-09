@@ -38,7 +38,7 @@ def run_summary(db: Session, run: Run) -> dict[str, Any]:
         "product": {"id": product.id, "name": product.name, "sample_key": product.sample_key} if product else None,
         "dataset": {"id": ds.id, "name": ds.name, "sample_key": ds.sample_key} if ds else None,
         "leads": funnel.get("leads"), "scanned": funnel.get("scanned"),
-        "duration_s": st.get("duration_s"),
+        "duration_s": st.get("duration_s"), "replay": bool(st.get("replay")),
     }
 
 
