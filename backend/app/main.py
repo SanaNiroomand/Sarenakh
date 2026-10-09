@@ -11,10 +11,11 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from .api import auth, datasets, products
+from .api import auth, datasets, products, runs
 from .config import get_settings
 from .db import init_db, session
 from .model_check import check_models, format_report
+from .runner import recover_stale_runs
 from .samples import ensure_sample_dataset
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -38,6 +39,7 @@ async def _recheck_until_ok(app: FastAPI) -> None:
 async def lifespan(app: FastAPI):
     s = get_settings()
     init_db()
+    recover_stale_runs()
     with session() as db:
         ensure_sample_dataset(db)
     app.state.model_status = {"ok": None, "skipped": True, "results": []}
@@ -95,6 +97,7 @@ async def health():
 app.include_router(auth.router)
 app.include_router(products.router)
 app.include_router(datasets.router)
+app.include_router(runs.router)
 
 
 # --- Static frontend (built by Vite into frontend/dist); must stay last ------------------------

@@ -75,6 +75,10 @@ class Budget:
         return self.limit - self.spent - self.outstanding()
 
     def reserve(self, estimate: float) -> Reservation:
+        if estimate <= 0:  # cached work: free, allowed even when caps are reached
+            r = Reservation(0.0)
+            self._active.add(r)
+            return r
         if self.remaining < estimate:
             raise BudgetExceeded()
         if GlobalSpend.get() + self.outstanding() + estimate > self.global_cap:
@@ -104,6 +108,16 @@ class Budget:
     def credit_cache(self, stage: str, original_cost: float) -> None:
         self.saved += original_cost
         self.saved_by_stage[stage] += original_cost
+
+
+def record_spend(user_id: int | None, kind: str, usage: Usage) -> float:
+    """Charge a paid call made outside a run (e.g. the profile agent)."""
+    GlobalSpend.add(usage.cost_usd)
+    with session() as db:
+        db.add(SpendLog(user_id=user_id, run_id=None, kind=kind, model=usage.model,
+                        input_tokens=usage.input_tokens, cached_tokens=usage.cached_tokens,
+                        output_tokens=usage.output_tokens, cost_usd=usage.cost_usd))
+    return usage.cost_usd
 
 
 async def charged(budget: "Budget", stage: str, res: Reservation | None, call: Awaitable) -> tuple[Any, float]:

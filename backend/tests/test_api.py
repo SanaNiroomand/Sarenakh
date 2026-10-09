@@ -118,6 +118,18 @@ def test_datasets(client):
     assert client.get(f"/api/datasets/{sample['id']}").status_code == 200  # sample is shared
 
 
+def test_run_validation(client):
+    _signup(client, "runner@example.com")
+    ds = client.get("/api/datasets/sample").json()
+    bare = client.post("/api/products", json={"description": "یک محصول آزمایشی بدون پروفایل برای تست اعتبارسنجی اجرا"}).json()
+    r = client.post("/api/runs", json={"product_id": bare["id"], "dataset_id": ds["id"], "budget_usd": 0.1})
+    assert r.status_code == 400 and _is_persian(r.json()["detail"])
+    sample = client.post("/api/products/sample/pystart").json()
+    r = client.post("/api/runs", json={"product_id": sample["id"], "dataset_id": ds["id"], "budget_usd": 50})
+    assert r.status_code == 422 and _is_persian(r.json()["detail"])
+    assert client.get("/api/runs/999999/results").status_code == 404
+
+
 def test_requires_login(client):
     client.post("/api/auth/logout")
     assert client.get("/api/products").status_code == 401

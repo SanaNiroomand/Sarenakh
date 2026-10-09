@@ -44,9 +44,16 @@ async def triage(ctx: RunContext, msgs: list[ChatMessage]) -> tuple[dict[int, Tr
             ctx.budget.credit_cache("triage", hit[1])
         else:
             todo.append(m)
-    if len(results):
-        await ctx.emit("triage", f"♻️ نتیجه {len(results)} پیام از حافظه خوانده شد (بدون هزینه)",
-                       data={"cached": len(results)})
+    if results:
+        n_batches = -(-len(results) // BATCH_SIZE)
+        hot_cached = sum(1 for it in results.values() if it.relevance >= 6)
+        for i in range(n_batches):  # replay batch progress so the feed reads like a live run
+            await asyncio.sleep(ctx.replay_delay / 2)
+            size = min(BATCH_SIZE, len(results) - i * BATCH_SIZE)
+            await ctx.emit("triage", f"♻️ دسته {i + 1} از {n_batches}: {size} پیام از حافظه خوانده شد (بدون هزینه)",
+                           data={"batch": i + 1, "batches": n_batches, "size": size, "cached": True})
+        await ctx.emit("triage", f"⚖️ {hot_cached} پیام امیدوارکننده در نتایج حافظه",
+                       data={"cached": len(results), "hot": hot_cached})
 
     batches = [todo[i : i + BATCH_SIZE] for i in range(0, len(todo), BATCH_SIZE)]
     instructions = TRIAGE_SYSTEM.format(profile=profile_block(ctx.profile, with_examples=True))

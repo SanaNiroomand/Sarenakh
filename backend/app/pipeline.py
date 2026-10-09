@@ -17,7 +17,7 @@ from .agents.context import (
 )
 from .agents.critic import critique
 from .agents.drafter import draft_reply
-from .agents.investigator import investigate
+from .agents.investigator import investigate, is_cached
 from .agents.prefilter import prefilter
 from .agents.scoring import MENTION_FIT, decide, fit_score, needs_critic, temperature, weakest_axis
 from .agents.schemas import TriageItem
@@ -235,7 +235,8 @@ async def execute_run(run_id: int, *, replay_delay: float | None = None, use_cac
 async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: list[ChatMessage],
                            tri: dict[int, TriageItem], others: dict[str, list[int]], snapshot) -> str | None:
     budget = ctx.budget
-    sem = asyncio.Semaphore(CONCURRENCY)
+    all_cached = bool(cands) and all(is_cached(ctx, c) for c in cands)
+    sem = asyncio.Semaphore(2 if all_cached else CONCURRENCY)  # a replay reads better two at a time
     lead_authors: set[str] = set()
     costs: list[float] = []
     tasks: list[asyncio.Task] = []
@@ -246,7 +247,7 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
         return max(0.01, (sum(costs) / len(costs)) * 1.25) if costs else EST_FIRST
 
     async def one(cand: ChatMessage, res: Reservation) -> None:
-        spent_before = budget.spent
+        spent_before, saved_before = budget.spent, budget.saved
         row: dict[str, Any] = {"msg_id": cand.id, "author_id": cand.author_id, "stage": "investigate"}
         try:
             await rec.emit("investigate", f"🔎 دنبال کردن سرنخ #{cand.id} از {cand.author}: «{_snip(cand.norm)}»",
@@ -280,6 +281,8 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
                     if not cr.survives:
                         decision, why_not = "rejected", f"منتقد: {cr.reason}"
 
+            if inv.cached:  # pace replays so a human can follow the feed
+                await asyncio.sleep(ctx.replay_delay)
             if decision == "lead" and cand.author_id in lead_authors:
                 decision, why_not = "skipped", "به این فرد قبلا پیشنهاد داده شده (هرگز دوبار نه)"
             if decision == "lead":
@@ -289,8 +292,10 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
                 row["stage"] = "draft"
                 await rec.emit("draft", f"✍️ نوشتن پاسخ کمک‌محور برای {cand.author} ({mode_fa})", msg_id=cand.id)
                 try:
-                    reply, _, _ = await draft_reply(ctx, cand, v, mode, res)
+                    reply, _, draft_cached = await draft_reply(ctx, cand, v, mode, res)
                     row["reply"] = reply
+                    if draft_cached:
+                        await asyncio.sleep(ctx.replay_delay)
                 except (BudgetExceeded, GlobalCapReached):
                     raise
                 except Exception as e:  # noqa: BLE001 — a lead without a draft is still a lead
@@ -321,6 +326,7 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
         finally:
             spent = budget.spent - spent_before
             row["cost_usd"] = round(spent, 6)
+            row["saved_usd"] = round(budget.saved - saved_before, 6)
             if not row.get("cached") and spent > 0:
                 costs.append(spent)
             budget.release(res)
@@ -337,7 +343,7 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
             continue
         await sem.acquire()
         try:
-            res = budget.reserve(estimate())
+            res = budget.reserve(0.0 if is_cached(ctx, cand) else estimate())
         except BudgetExceeded:
             stop_reason = "budget"
         except GlobalCapReached:

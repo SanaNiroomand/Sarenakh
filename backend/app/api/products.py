@@ -1,14 +1,21 @@
+import logging
+import time
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from ..db import Product, User, get_db
+from ..agents.context import GlobalSpend, record_spend
+from ..agents.profile_agent import profile_turn
+from ..config import get_settings
+from ..db import Product, User, get_db, user_spend_since
+from ..llm import IncompleteOutputError, get_llm
 from ..samples import sample_products, sample_profile
-from ..schemas import Profile, ProductIn
-from ..security import current_user
+from ..schemas import ChatTurnIn, Profile, ProductIn
+from ..security import current_user, rate_limit
 
+log = logging.getLogger("sarenakh.products")
 router = APIRouter(prefix="/api/products", tags=["products"])
 
 
@@ -44,7 +51,8 @@ def list_products(user: User = Depends(current_user), db: Session = Depends(get_
 @router.post("")
 def create_product(body: ProductIn, user: User = Depends(current_user), db: Session = Depends(get_db)) -> dict:
     desc = body.description.strip()
-    p = Product(user_id=user.id, name=body.name.strip() or desc[:40], description=desc, setup_chat=[])
+    p = Product(user_id=user.id, name=body.name.strip() or desc[:40], description=desc,
+                setup_chat=[{"role": "user", "content": desc}])
     db.add(p)
     db.flush()
     return product_out(p)
@@ -81,6 +89,50 @@ def save_profile(
     p.name = body.product_name or p.name
     db.flush()
     return product_out(p)
+
+
+@router.post("/{product_id}/agent", dependencies=[Depends(rate_limit("profile", 30, 3600, per="user"))])
+async def agent_turn(
+    product_id: int, request: Request, body: ChatTurnIn | None = None,
+    user: User = Depends(current_user), db: Session = Depends(get_db),
+) -> dict:
+    """One turn of the profile agent. Send {message} to answer its question; send nothing to start."""
+    s = get_settings()
+    p = own_product(db, user, product_id)
+    chat = list(p.setup_chat or [])
+    if not chat:
+        chat = [{"role": "user", "content": p.description}]
+    if body and body.message.strip():
+        chat.append({"role": "user", "content": body.message.strip()})
+    if chat[-1]["role"] != "user":
+        raise HTTPException(400, "منتظر پاسخ شما به سوال عامل هستیم.")
+    ms = request.app.state.model_status
+    if not (ms.get("ok") or ms.get("skipped")):
+        raise HTTPException(503, "سرویس هوش مصنوعی موقتا در دسترس نیست. کمی بعد دوباره تلاش کنید.")
+    if GlobalSpend.get() >= s.global_spend_cap_usd:
+        raise HTTPException(403, "سقف هزینه این نسخه نمایشی پر شده است. از محصولات نمونه استفاده کنید.")
+    if user_spend_since(db, user.id, time.time() - 86400) >= s.user_daily_cap_usd:
+        raise HTTPException(429, "سقف هزینه روزانه شما پر شده است. فردا دوباره امتحان کنید.")
+    try:
+        turn, usage = await profile_turn(get_llm(), s, chat)
+    except IncompleteOutputError as e:
+        record_spend(user.id, "profile", e.usage)
+        raise HTTPException(502, "عامل پروفایل پاسخ کاملی نداد. دوباره تلاش کنید.") from e
+    except Exception as e:  # noqa: BLE001
+        log.warning("profile agent failed: %s", e)
+        raise HTTPException(502, "عامل پروفایل پاسخ نداد. چند لحظه بعد دوباره تلاش کنید.") from e
+    record_spend(user.id, "profile", usage)
+    if turn.action == "ask":
+        chat.append({"role": "assistant", "content": turn.question})
+    else:
+        chat.append({"role": "assistant", "content": "✅ پروفایل مشتری ایده‌آل آماده شد. می‌توانید ویرایشش کنید."})
+        p.profile = turn.profile.model_dump()
+        p.name = turn.profile.product_name or p.name
+    p.setup_chat = chat  # reassign so SQLAlchemy sees the JSON change
+    db.flush()
+    out = product_out(p)
+    out["turn_cost_usd"] = round(usage.cost_usd, 6)
+    return out
 
 
 @router.delete("/{product_id}")

@@ -172,12 +172,21 @@ def _as_input(output_items) -> list[dict]:
     return [o.model_dump(exclude_none=True, mode="json") for o in output_items]
 
 
+def investigation_key(ctx: RunContext, cand: ChatMessage) -> tuple[str, list]:
+    fewshot = select_fewshot(ctx, cand)
+    key = cache_key("inv", ctx.settings.investigator_model, PROMPT_VERSIONS["investigate"], ctx.profile_fp,
+                    ctx.dataset_id, cand.id, cand.norm, [(f.text, f.vote, f.note) for f in fewshot])
+    return key, fewshot
+
+
+def is_cached(ctx: RunContext, cand: ChatMessage) -> bool:
+    return ctx.use_cache and cache_get(investigation_key(ctx, cand)[0]) is not None
+
+
 async def investigate(
     ctx: RunContext, cand: ChatMessage, tri: TriageItem, others: list[int], res: Reservation
 ) -> Investigation:
-    fewshot = select_fewshot(ctx, cand)
-    key = cache_key("inv", ctx.settings.investigator_model, PROMPT_VERSIONS["investigate"], ctx.profile_fp, ctx.dataset_id,
-                    cand.id, cand.norm, [(f.text, f.vote, f.note) for f in fewshot])
+    key, fewshot = investigation_key(ctx, cand)
     if fewshot:
         await ctx.emit("memory", f"🧠 {len(fewshot)} قضاوت قبلی شما روی پیام‌های مشابه به عامل داده شد",
                        msg_id=cand.id, data={"fewshot": len(fewshot)})

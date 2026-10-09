@@ -137,6 +137,7 @@ class Analysis(Base):
     decision: Mapped[str] = mapped_column(String(12), default="pending")  # lead|rejected|pending|skipped
     why_not: Mapped[str | None] = mapped_column(Text, nullable=True)
     cost_usd: Mapped[float] = mapped_column(Float, default=0.0)
+    saved_usd: Mapped[float] = mapped_column(Float, default=0.0)  # cost avoided by cache hits
     cached: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[float] = mapped_column(Float, default=now)
 
@@ -228,7 +229,21 @@ def engine():
 
 
 def init_db() -> None:
-    Base.metadata.create_all(engine())
+    eng = engine()
+    Base.metadata.create_all(eng)
+    with eng.begin() as conn:  # tiny forward-only migration: add columns that are new in the models
+        for table in Base.metadata.sorted_tables:
+            existing = {row[1] for row in conn.exec_driver_sql(f"PRAGMA table_info({table.name})")}
+            for col in table.columns:
+                if col.name in existing:
+                    continue
+                default = col.default.arg if col.default is not None and col.default.is_scalar else None
+                ddl = f"ALTER TABLE {table.name} ADD COLUMN {col.name} {col.type.compile(dialect=conn.dialect)}"
+                if isinstance(default, (int, float)) and not isinstance(default, bool):
+                    ddl += f" DEFAULT {default}"
+                elif isinstance(default, bool):
+                    ddl += f" DEFAULT {int(default)}"
+                conn.exec_driver_sql(ddl)
 
 
 @contextmanager

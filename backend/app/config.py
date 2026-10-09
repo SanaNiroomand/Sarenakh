@@ -73,8 +73,10 @@ class Settings(BaseSettings):
 
     # Spending safety
     global_spend_cap_usd: float = 20.0
-    default_run_budget_usd: float = 0.10
-    max_run_budget_usd: float = 0.50
+    default_run_budget_usd: float = 0.25
+    max_run_budget_usd: float = 1.00
+    user_daily_cap_usd: float = 1.50  # paid spend per user per 24h (profile chat + runs)
+    replay_delay_s: float = 0.7  # pacing of replayed (cached) agent steps in the live feed
 
     # Web
     session_secret: str = "dev-insecure-secret"
