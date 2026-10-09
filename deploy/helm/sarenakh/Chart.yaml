@@ -7,8 +7,8 @@ type: application
 version: 0.1.0
 appVersion: "0.2.0"
 keywords: [ai-agent, lead-generation, telegram, persian, fastapi]
-home: https://github.com/OWNER/sarenakh
+home: https://github.com/SanaNiroomand/Sarenakh
 sources:
-  - https://github.com/OWNER/sarenakh
+  - https://github.com/SanaNiroomand/Sarenakh
 maintainers:
   - name: Sarenakh team

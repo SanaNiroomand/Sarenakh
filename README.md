@@ -44,7 +44,7 @@ If the server already runs nginx on 80/443, start only the app (`docker compose 
 The SQLite database lives in the `app_data` Docker volume and survives rebuilds
 (backup: `docker compose cp app:/app/data ./backup`).
 
-**Without building on the server:** set `SARENAKH_IMAGE=ghcr.io/<owner>/sarenakh:latest` in the server's `.env`,
+**Without building on the server:** set `SARENAKH_IMAGE=ghcr.io/sananiroomand/sarenakh:latest` in the server's `.env`,
 then `docker compose pull app && docker compose up -d`. (A small 1 GB VPS is then enough — no Node build there.)
 
 ## Container image (GitHub Container Registry)
@@ -55,8 +55,8 @@ Every push to `main` runs `.github/workflows/ci.yml`:
 |---|---|
 | `test` | backend pytest, frontend typecheck + build |
 | `chart` | `helm lint --strict`, renders the chart (defaults / ingress+TLS / existing secret), checks the single-replica guard, validates with kubeconform |
-| `image` | builds the Dockerfile and pushes `ghcr.io/<owner>/sarenakh:{latest, <appVersion>, sha-<commit>}` (and `<x.y.z>` for `v*` tags) using the built-in `GITHUB_TOKEN` |
-| `chart-publish` | packages the Helm chart and pushes it to `oci://ghcr.io/<owner>/charts/sarenakh` |
+| `image` | builds the Dockerfile and pushes `ghcr.io/sananiroomand/sarenakh:{latest, <appVersion>, sha-<commit>}` (and `<x.y.z>` for `v*` tags) using the built-in `GITHUB_TOKEN` |
+| `chart-publish` | packages the Helm chart and pushes it to `oci://ghcr.io/sananiroomand/charts/sarenakh` |
 
 The image runs as non-root (uid 10001); `/app/data` is the only writable path. New GHCR packages are private:
 make `sarenakh` public in the package settings, or use an image pull secret.
@@ -72,7 +72,7 @@ kubectl create namespace sarenakh
 kubectl -n sarenakh create secret generic sarenakh-secrets \
   --from-literal=OPENAI_API_KEY=sk-... --from-literal=SESSION_SECRET="$(openssl rand -base64 48)"
 
-helm install sarenakh oci://ghcr.io/<owner>/charts/sarenakh -n sarenakh \
+helm install sarenakh oci://ghcr.io/sananiroomand/charts/sarenakh -n sarenakh \
   --set secret.existingSecret=sarenakh-secrets \
   --set ingress.enabled=true \
   --set ingress.hosts[0].host=sarenakh.example.com --set ingress.hosts[0].paths[0].path=/ \
