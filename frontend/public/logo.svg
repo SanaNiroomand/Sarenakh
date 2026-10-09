@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#1f1b3a"/>
+  <!-- tangled ball of thread -->
+  <circle cx="27" cy="29" r="14" stroke="#f4a259" stroke-width="3"/>
+  <path d="M15 24c7 3 17 3 24-2M14 32c8 4 18 4 26-1M19 40c5-6 6-17 2-24M30 43c4-7 4-20-1-28" stroke="#f4a259" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- the loose end: the clue -->
+  <path d="M40 36c4 3 6 8 10 9s5-2 4-4" stroke="#f4a259" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="54" cy="41" r="3" fill="#ffd8a8"/>
+</svg>

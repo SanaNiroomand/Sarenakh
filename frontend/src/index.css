@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn UI FD", "Vazirmatn", Tahoma, system-ui, sans-serif;
+
+  /* ink: the night the thread is pulled through */
+  --color-ink-50: #f4f3f9;
+  --color-ink-100: #e6e4f1;
+  --color-ink-200: #cbc7e2;
+  --color-ink-300: #a39dc9;
+  --color-ink-400: #7a72ab;
+  --color-ink-500: #5b5290;
+  --color-ink-600: #463e76;
+  --color-ink-700: #37305f;
+  --color-ink-800: #2a2449;
+  --color-ink-900: #1f1b3a;
+
+  /* thread: the warm loose end — the clue */
+  --color-thread-50: #fff6ec;
+  --color-thread-100: #ffe8cf;
+  --color-thread-200: #ffd8a8;
+  --color-thread-300: #f9bd7c;
+  --color-thread-400: #f4a259;
+  --color-thread-500: #e8863a;
+  --color-thread-600: #c96a24;
+  --color-thread-700: #9f511c;
+
+  --color-paper: #faf8f4;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-paper text-ink-900 font-sans antialiased;
+}

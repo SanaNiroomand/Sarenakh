@@ -1,0 +1,23 @@
+# secrets
+.env
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# runtime data (sqlite db, caches)
+data/
+
+# frontend
+node_modules/
+frontend/dist/
+
+# misc
+.DS_Store
+Thumbs.db
+*.log
+
+# local tooling
+.claude/

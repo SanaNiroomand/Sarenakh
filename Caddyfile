@@ -1,0 +1,24 @@
+{$SITE_ADDRESS} {
+	# Compress static/API responses but never text/event-stream (buffering would stall the live feed).
+	encode {
+		zstd
+		gzip
+		match {
+			header Content-Type text/html*
+			header Content-Type text/css*
+			header Content-Type application/javascript*
+			header Content-Type application/json*
+			header Content-Type image/svg+xml*
+		}
+	}
+
+	reverse_proxy app:8000 {
+		flush_interval -1
+	}
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+}

@@ -1,0 +1,36 @@
+services:
+  app:
+    build: .
+    image: sarenakh:latest
+    restart: always
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    # Also published on localhost so an existing host reverse proxy (nginx etc.) can use it.
+    ports:
+      - "127.0.0.1:8000:8000"
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "5" }
+
+  # Automatic HTTPS. Skip it (`docker compose up -d app`) if the server already runs nginx on 80/443.
+  caddy:
+    image: caddy:2-alpine
+    restart: always
+    depends_on: [app]
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-:80}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+volumes:
+  caddy_data:
+  caddy_config:
