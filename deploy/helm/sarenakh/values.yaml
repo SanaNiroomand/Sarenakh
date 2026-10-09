@@ -1,0 +1,134 @@
+# Sarenakh runs as exactly ONE pod: SQLite on a persistent volume, background agent runs and the SSE
+# event bus all live in a single process. Scaling out would split the database and the live feed,
+# so the chart refuses replicaCount != 1.
+replicaCount: 1
+
+image:
+  repository: ghcr.io/OWNER/sarenakh
+  tag: ""            # defaults to .Chart.AppVersion; CI also publishes :latest and :sha-<commit>
+  pullPolicy: IfNotPresent
+
+# Needed only if the GHCR package is private:
+#   kubectl create secret docker-registry ghcr --docker-server=ghcr.io \
+#     --docker-username=<github-user> --docker-password=<PAT with read:packages>
+imagePullSecrets: []
+#  - name: ghcr
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Non-secret settings -> ConfigMap -> environment variables (see .env.example for all options).
+config:
+  OPENAI_BASE_URL: "https://api.openai.com/v1"
+  TRIAGE_MODEL: "gpt-6-luna"
+  PROFILE_MODEL: "gpt-6.1-sol"
+  INVESTIGATOR_MODEL: "gpt-6.1-sol"
+  CRITIC_MODEL: "gpt-6.1-sol"
+  DRAFTER_MODEL: "gpt-6.1-sol"
+  EMBEDDING_MODEL: "text-embedding-3-small"
+  TRIAGE_REASONING: "none"
+  AGENT_REASONING: "low"
+  # warn: the pod always starts (sample replays work from the bundled golden cache) and new paid runs
+  # are refused with a clear message if the key/models fail. strict: refuse to start instead.
+  MODEL_CHECK: "warn"
+  GLOBAL_SPEND_CAP_USD: "20"
+  DEFAULT_RUN_BUDGET_USD: "0.25"
+  MAX_RUN_BUDGET_USD: "1.00"
+  USER_DAILY_CAP_USD: "1.50"
+
+# Extra env vars, e.g. PRICES_JSON or proxies:  - name: HTTPS_PROXY  value: http://proxy:3128
+extraEnv: []
+
+# Secrets: OPENAI_API_KEY and SESSION_SECRET.
+secret:
+  # Recommended: create it yourself so the key never sits in values files or shell history:
+  #   kubectl create secret generic sarenakh-secrets \
+  #     --from-literal=OPENAI_API_KEY=sk-... --from-literal=SESSION_SECRET=$(openssl rand -base64 48)
+  existingSecret: ""
+  # Or let the chart create it (SESSION_SECRET is generated once and kept across upgrades if left empty).
+  create: true
+  openaiApiKey: ""
+  sessionSecret: ""
+
+persistence:
+  enabled: true
+  size: 2Gi
+  storageClass: ""     # "" = cluster default
+  accessMode: ReadWriteOnce
+  existingClaim: ""
+  # keep the database when the release is uninstalled
+  keep: true
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: nginx
+  annotations:
+    # The live agent feed is Server-Sent Events: no buffering, long timeouts.
+    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-body-size: "16m"   # Telegram export uploads (app limit: 15 MB)
+    # cert-manager.io/cluster-issuer: letsencrypt
+  hosts:
+    - host: sarenakh.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+  #  - secretName: sarenakh-tls
+  #    hosts: [sarenakh.example.com]
+
+# Session cookies get the Secure flag. Auto: true when any ingress TLS is configured.
+cookieSecure: auto
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    memory: 768Mi
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+  runAsGroup: 10001
+  fsGroup: 10001
+  fsGroupChangePolicy: OnRootMismatch
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: [ALL]
+
+# The startup model check calls OpenAI (a few seconds); give it time before liveness kicks in.
+startupProbe:
+  httpGet: { path: /health, port: http }
+  periodSeconds: 5
+  failureThreshold: 36
+livenessProbe:
+  httpGet: { path: /health, port: http }
+  periodSeconds: 30
+  timeoutSeconds: 5
+  failureThreshold: 3
+readinessProbe:
+  httpGet: { path: /health, port: http }
+  periodSeconds: 10
+  timeoutSeconds: 5
+
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+podAnnotations: {}
+podLabels: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

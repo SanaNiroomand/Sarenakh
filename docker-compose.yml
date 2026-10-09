@@ -1,11 +1,13 @@
 services:
   app:
     build: .
-    image: sarenakh:latest
+    # Set SARENAKH_IMAGE=ghcr.io/<owner>/sarenakh:latest in .env to pull the CI-built image instead of building.
+    image: ${SARENAKH_IMAGE:-sarenakh:latest}
     restart: always
     env_file: .env
     volumes:
-      - ./data:/app/data
+      # named volume: Docker seeds it with the image's /app/data ownership, so the non-root user can write
+      - app_data:/app/data
     # Also published on localhost so an existing host reverse proxy (nginx etc.) can use it.
     ports:
       - "127.0.0.1:8000:8000"
@@ -32,5 +34,6 @@ services:
       options: { max-size: "10m", max-file: "3" }
 
 volumes:
+  app_data:
   caddy_data:
   caddy_config:

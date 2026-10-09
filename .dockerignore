@@ -8,3 +8,8 @@ data
 frontend/node_modules
 frontend/dist
 docs
+deploy
+.github
+backend/tests
+backend/scripts
+samples/source

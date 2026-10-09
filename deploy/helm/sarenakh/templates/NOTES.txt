@@ -1,0 +1,29 @@
+Sarenakh {{ .Chart.AppVersion }} is deployed as {{ include "sarenakh.fullname" . }} (one pod, by design).
+
+{{- if .Values.ingress.enabled }}
+Open:
+{{- range .Values.ingress.hosts }}
+  http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .host }}
+{{- end }}
+{{- else }}
+No ingress enabled. Try it locally:
+  kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "sarenakh.fullname" . }} 8080:{{ .Values.service.port }}
+  open http://localhost:8080
+{{- end }}
+
+Health (shows whether the OpenAI models passed the startup check):
+  kubectl -n {{ .Release.Namespace }} exec deploy/{{ include "sarenakh.fullname" . }} -- \
+    python -c "import urllib.request;print(urllib.request.urlopen('http://127.0.0.1:8000/health').read().decode())"
+
+{{- if and .Values.secret.create (not .Values.secret.existingSecret) (not .Values.secret.openaiApiKey) }}
+
+WARNING: no OpenAI key set. The sample flow still replays from the bundled golden cache, but new
+paid runs are refused. Set one with:
+  kubectl -n {{ .Release.Namespace }} create secret generic sarenakh-secrets \
+    --from-literal=OPENAI_API_KEY=sk-... --from-literal=SESSION_SECRET=$(openssl rand -base64 48)
+  helm upgrade {{ .Release.Name }} <chart> --reuse-values --set secret.existingSecret=sarenakh-secrets
+{{- end }}
+
+Notes
+- The cluster's egress must reach api.openai.com (OpenAI rejects Iranian IPs: run the cluster outside Iran).
+- Data lives in the PVC {{ default (printf "%s-data" (include "sarenakh.fullname" .)) .Values.persistence.existingClaim }}{{ if .Values.persistence.keep }} and is kept on uninstall{{ end }}.

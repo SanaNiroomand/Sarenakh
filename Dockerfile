@@ -20,7 +20,13 @@ RUN pip install -r backend/requirements.txt
 COPY backend/ backend/
 COPY samples/ samples/
 COPY --from=web /web/dist frontend/dist
-RUN mkdir -p /app/data
+
+# Non-root runtime user (Kubernetes runAsNonRoot); /app/data is the only writable path (SQLite).
+ARG APP_UID=10001
+RUN groupadd --system --gid ${APP_UID} app \
+ && useradd --system --uid ${APP_UID} --gid ${APP_UID} --home-dir /app --no-create-home app \
+ && mkdir -p /app/data && chown app:app /app/data
+USER ${APP_UID}:${APP_UID}
 
 WORKDIR /app/backend
 EXPOSE 8000
