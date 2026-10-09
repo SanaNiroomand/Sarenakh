@@ -6,17 +6,21 @@ import asyncio
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
+from .api import auth, datasets, products
 from .config import get_settings
+from .db import init_db, session
 from .model_check import check_models, format_report
+from .samples import ensure_sample_dataset
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 log = logging.getLogger("sarenakh")
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 
 async def _recheck_until_ok(app: FastAPI) -> None:
@@ -33,6 +37,9 @@ async def _recheck_until_ok(app: FastAPI) -> None:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     s = get_settings()
+    init_db()
+    with session() as db:
+        ensure_sample_dataset(db)
     app.state.model_status = {"ok": None, "skipped": True, "results": []}
     recheck: asyncio.Task | None = None
     if s.model_check != "off":
@@ -53,6 +60,23 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="Sarenakh", version=VERSION, lifespan=lifespan)
 
 
+@app.exception_handler(RequestValidationError)
+async def validation_error(_: Request, exc: RequestValidationError):
+    """Return the first validation message in plain Persian (our validators raise Persian text)."""
+    err = exc.errors()[0] if exc.errors() else {}
+    msg = str(err.get("msg", "")).removeprefix("Value error, ")
+    if not any("؀" <= ch <= "ۿ" for ch in msg):
+        field = ".".join(str(p) for p in err.get("loc", [])[1:]) or "ورودی"
+        msg = f"مقدار «{field}» معتبر نیست."
+    return JSONResponse({"detail": msg}, status_code=422)
+
+
+@app.exception_handler(Exception)
+async def unhandled_error(_: Request, exc: Exception):
+    log.exception("unhandled error: %s", exc)
+    return JSONResponse({"detail": "خطای غیرمنتظره در سرور. لطفا دوباره تلاش کنید."}, status_code=500)
+
+
 @app.get("/health")
 @app.get("/api/health")
 async def health():
@@ -68,7 +92,12 @@ async def health():
     }
 
 
-# --- Static frontend (built by Vite into frontend/dist) -------------------------------------
+app.include_router(auth.router)
+app.include_router(products.router)
+app.include_router(datasets.router)
+
+
+# --- Static frontend (built by Vite into frontend/dist); must stay last ------------------------
 
 _static = get_settings().static_dir
 if (_static / "assets").is_dir():
