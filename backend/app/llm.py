@@ -9,18 +9,35 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, TypeVar
 
+from functools import lru_cache
+
 import numpy as np
 import openai
 from openai import AsyncOpenAI
-from pydantic import BaseModel
+from openai.lib._pydantic import to_strict_json_schema
+from pydantic import BaseModel, ValidationError
 
 from .config import Price, Settings, get_settings
 
 T = TypeVar("T", bound=BaseModel)
 
 
+@lru_cache
+def _strict_schema(model: type[BaseModel]) -> dict[str, Any]:
+    return to_strict_json_schema(model)
+
+
 class MissingPriceError(RuntimeError):
     pass
+
+
+class IncompleteOutputError(RuntimeError):
+    """The model returned no parsable structured output (e.g. hit max_output_tokens).
+    Carries the usage so callers can still charge what was spent."""
+
+    def __init__(self, message: str, usage: "Usage"):
+        super().__init__(message)
+        self.usage = usage
 
 
 @dataclass
@@ -202,15 +219,21 @@ class LLM:
         max_output_tokens: int = 4000,
         cache_key: str | None = None,
     ) -> tuple[T, Usage]:
-        """Structured output parsed into a Pydantic model. Returns (parsed, Usage)."""
+        """Strict JSON-schema output validated into a Pydantic model. Returns (parsed, Usage).
+        Raises IncompleteOutputError (with usage, so it can still be charged) on truncated/invalid output."""
         kwargs = self._common(model, input, instructions, reasoning, max_output_tokens, cache_key)
-        resp = await self.client.responses.parse(text_format=output_type, **kwargs)
+        kwargs["text"] = {"format": {"type": "json_schema", "name": output_type.__name__,
+                                     "schema": _strict_schema(output_type), "strict": True}}
+        resp = await self.client.responses.create(**kwargs)
         usage = self._usage(model, resp.usage)
-        parsed = resp.output_parsed
-        if parsed is None:
+        text = resp.output_text or ""
+        if resp.status != "completed" or not text:
             reason = getattr(resp.incomplete_details, "reason", None) or resp.status
-            raise RuntimeError(f"{model} returned no parsable output (status={reason})")
-        return parsed, usage
+            raise IncompleteOutputError(f"{model} returned no complete output (status={reason})", usage)
+        try:
+            return output_type.model_validate_json(text), usage
+        except ValidationError as e:
+            raise IncompleteOutputError(f"{model} returned invalid structured output: {e}", usage) from e
 
     async def embed(self, texts: list[str], batch_size: int = 256) -> tuple[np.ndarray, Usage]:
         """L2-normalized float32 embeddings, shape (len(texts), dim)."""
