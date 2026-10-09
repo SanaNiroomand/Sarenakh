@@ -14,10 +14,16 @@ Legend: `[x]` done · `[~]` in progress · `[ ]` todo · `[-]` cut
 - [ ] Deploy hello-world to the server (needs server details)
 
 ## Phase 1 — Data
-- [ ] Sample Persian programming Telegram chat (300–500 msgs, Telegram Desktop JSON), Finglish + code-switching
-- [ ] ~8–10 planted leads + decoys (seniors, already helped, sarcasm, competitor ads, free-only)
-- [ ] Ground-truth labels file; second demo product (blue-light glasses)
-- [ ] Telegram JSON parser, thread reconstruction (reply_to), Persian normalization
+- [x] Sample chat: 391 msgs / 40 people / 7 days, Telegram Desktop JSON, Finglish + code-switching,
+      stickers, edits, forwards (source script `samples/source/python_iran.chat` → `samples/build_sample.py`)
+- [x] PyStart course: 9 leads + 11 decoys (senior, already enrolled, sarcasm, competitor ad, free-only,
+      tutor ad, debugging-only, wrong language, changed mind via history, meme, too advanced)
+- [x] Cheshm-Aram glasses (2nd product): 5 leads + 5 decoys (idiom, already owns, medical, gaming monitor, ad)
+- [x] `samples/ground_truth.json` (leads counted per person) + `samples/products.json` (facts for grounding)
+- [x] Parser: Telegram export (single chat or full-account), pasted text (Telegram copy / "Name: msg" / lines)
+- [x] Persian normalization (ي/ك, digits, ZWNJ, emoji spam, letter runs) + Finglish detection
+- [x] ChatIndex: reply threads, descendants, author history, nearby, keyword search, prompt rendering
+- [x] 16 pytest tests (thread-only lead, resolved-in-thread decoy, changed-mind-in-history decoy)
 
 ## Phase 2 — Auth, DB, input endpoints
 ## Phase 3 — Agents (profile, pre-filter, triage, investigator, critic, drafter) + cost/budget

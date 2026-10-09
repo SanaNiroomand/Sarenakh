@@ -1,0 +1,650 @@
+# Sarenakh sample chat — compiled by samples/build_sample.py into a Telegram Desktop export.
+#
+# Line formats
+#   !chat <name>
+#   !start <YYYY-MM-DD>                       day 0 (Tehran time)
+#   !user <key> | <display name>
+#   !label <LABEL> | lead|decoy | <note>      A-* = PyStart Python course, B-* = Cheshm-Aram glasses
+#   @@ d<day> <HH:MM> [gap=<lo>-<hi>]        new scene; gap = seconds between its messages
+#   [#LABEL ]<who>[>ref]: <text>              ref = ^ (previous in scene) | ^N (N back) | #LABEL
+#   ~ join <who>                              service message
+# Text: \n = newline, `code`, prefixes [sticker 😂] [photo] [file name.py] [fwd Source] [voice N]
+
+!chat پایتونیست‌های ایران 🐍
+!start 2026-10-01
+
+!user admin | ادمین پایتونیست‌ها
+!user sara | Sara Mohammadi
+!user ali | علی رضایی
+!user mehdi | Mehdi Tavakoli
+!user niloofar | نیلوفر 🌸
+!user soheil | Soheil
+!user taha | Taha
+!user ramin | رامین
+!user golnaz | گلناز
+!user javad | جواد
+!user sina | Sina
+!user parisa | پریسا
+!user reza | Reza K
+!user mahsa | مهسا
+!user amir | Amir.dev
+!user hamed | حامد
+!user parvin | پروین صادقی
+!user nima | Nima
+!user kian | کیان
+!user elham | الهام
+!user babak | Babak
+!user arash | آرش
+!user yasaman | یاسمن
+!user farhad | فرهاد 😎
+!user academy | آکادمی پایتون‌پرو 🔥
+!user mohsen | محسن
+!user karimi | استاد کریمی (تدریس خصوصی)
+!user pooya | Pooya
+!user shirin | شیرین
+!user omid | امید
+!user neda | ندا
+!user kaveh | Kaveh
+!user saeed | سعید
+!user maryam | مریم
+!user behnam | بهنام
+!user hossein | حسین
+!user zahra | زهرا
+!user majid | مجید
+!user peyman | پیمان
+!user optic | عینک‌سرای نور 👓
+
+!label A-L1 | lead | Finglish beginner wants a serious Python course with a mentor after failing alone twice; money is not a problem
+!label A-L2 | lead | 32-year-old accountant switching careers; wants a structured course with a mentor through to a job; has a budget
+!label A-L3 | lead | University student behind in his Python course, midterm next week; cost doesn't matter, needs it fast (urgent)
+!label A-L4 | lead | Six months in tutorial hell; considering a paid bootcamp with mentor and code review
+!label A-L5 | lead | Mother looking for an organized online Persian Python course for her 17-year-old son (buyer for someone else)
+!label A-L6 | lead | Ambiguous "is a paid course worth it?" — user history shows a struggling self-taught beginner who wishes for a mentor
+!label A-L7 | lead | Code-switched job seeker: wants a job-ready bootcamp with mentor, portfolio and interview prep; deadline end of year
+!label A-L8 | lead | Excel data analyst told to learn Python + pandas; needs evening classes; employer pays
+!label A-L9 | lead | "Me too" reply in another user's thread — only understandable through the reply chain; employed, needs evenings/weekends
+!label A-D1 | decoy | Senior developer asking about free-threading/GIL internals — topic match, not a buyer
+!label A-D2 | decoy | Asked for a beginner course, but later in the thread says she already enrolled elsewhere (resolved)
+!label A-D3 | decoy | Sarcasm about 2-hour courses making you senior
+!label A-D4 | decoy | Competitor course advertisement (removed by admin)
+!label A-D5 | decoy | Explicitly wants only free resources and refuses to pay
+!label A-D6 | decoy | Private tutor advertising his own classes (a seller, not a buyer)
+!label A-D7 | decoy | Intermediate dev with a Flask TypeError — needed debugging help, solved in thread
+!label A-D8 | decoy | Wants a Java/Spring course, not Python
+!label A-D10 | decoy | Asked about a Python course, but later says he dropped Python for Go and bought a Go course (user history)
+!label A-D11 | decoy | Snake/Python pun meme
+!label A-D12 | decoy | Intermediate dev wants an advanced FastAPI course — PyStart is for beginners
+!label B-L1 | lead | Burning eyes from late-night screen work plus insomnia; tried Night Light, wants something more serious
+!label B-L2 | lead | Finglish: asks if blue-light glasses are worth it and where to buy genuine ones — purchase intent
+!label B-L3 | lead | Headaches behind the eyes after 10-hour coding days; tried dark theme; asks where to buy protective glasses
+!label B-L4 | lead | Looking for a useful gift under 1M toman for her programmer husband who complains of eye strain
+!label B-L5 | lead | Night on-call engineer with dry red eyes; wants a filter, glasses or anything to reduce the strain
+!label B-D1 | decoy | Idiom/sarcasm: "my eyes bled" from reading legacy code
+!label B-D2 | decoy | Already owns blue-light glasses and is happy with them
+!label B-D3 | decoy | Blurred vision and light flashes — needs an ophthalmologist urgently, must not be pitched
+!label B-D4 | decoy | Wants a 144Hz gaming monitor — not about eye strain
+!label B-D5 | decoy | Competitor optical shop advertisement (removed by admin)
+
+# ---------------------------------------------------------------- day 0 — Wed 2026-10-01
+
+@@ d0 08:40 gap=40-200
+admin: سلام به همه 🌱\nچند تا قانون ساده:\n۱. تبلیغ فقط با هماهنگی ادمین\n۲. سوال رو با کد و متن ارور بپرسید، نه عکس از مانیتور 😅\n۳. به تازه‌کارها احترام بذارید، همه یه روز از صفر شروع کردیم
+~ join reza
+~ join kaveh
+sara: سلام صبح بخیر ☀️
+mehdi>^: صبح بخیر. اینترنت شما هم امروز انقدر کنده؟
+niloofar>^: آره والا، `npm install` نیم ساعته داره می‌چرخه 😩
+mehdi>^: من کلا mirror رو عوض کردم، `pip` از mirror داخلی خیلی سریع‌تره
+taha>^: کدوم mirror؟ اسمشو بگو لطفا
+mehdi>^: تو گروه اسم نمی‌برم که بلاک نشه 😂 پیوی بده
+
+@@ d0 10:15 gap=30-180
+taha: بچه‌ها برای یه پروژه CRUD ساده Django بهتره یا FastAPI؟
+ali>^: اگه پنل ادمین و auth آماده می‌خوای Django، اگه فقط API می‌خوای FastAPI
+sara>^2: من Django رو پیشنهاد می‌کنم، ORM و admin‌ش کلی وقتت رو نجات میده
+soheil>^3: FastAPI با Pydantic خیلی تمیزه، مخصوصا اگه مدل ML سرو می‌کنی
+taha>^: مدل ML ندارم، یه سیستم رزرو نوبت ساده‌ست
+ali>^: پس Django. بیخودی چرخ رو از نو اختراع نکن
+taha>^: اوکی ممنون 🙏
+
+@@ d0 11:30 gap=60-300
+#A-D10 omid: سلام. دنبال یه دوره پایتون هستم برای شروع، کسی تجربه‌ای داره؟ ترجیحا فارسی باشه
+sina>^: مکتب‌خونه و فرادرس کلی دوره دارن، ولی کیفیتشون خیلی متفاوته
+omid>^: آره دیدم، نمی‌دونم کدوم خوبه. فعلا دارم بین پایتون و Go بررسی می‌کنم
+ali>^: برای شروع پایتون، برای بک‌اند پرفورمنس‌محور Go. بستگی داره هدفت چیه
+
+@@ d0 12:10 gap=60-240
+golnaz: کسی تجربه کار با `pydantic` v2 داره؟ migration از v1 اذیتم کرده
+ali>^: `bump-pydantic` رو امتحان کن، بیشترش رو خودکار درست می‌کنه
+golnaz>^: وای نمی‌دونستم همچین چیزی هست 😍
+soheil>^3: `class Config` ها رو هم باید `model_config` کنی، حواست باشه
+
+@@ d0 13:05 gap=40-200
+~ join nima
+nima: سلام به همه 👋 تازه عضو شدم. حدود دو هفته‌ست شروع کردم پایتون یاد بگیرم، تنهایی یکم سخته ولی دارم ادامه میدم
+sara>^: خوش اومدی! سوالی داشتی بپرس
+golnaz>^2: خوش اومدی 🌸 مهم اینه که ول نکنی
+nima>^: ممنون از همه 🙏
+
+@@ d0 14:20 gap=30-150
+#A-D7 pooya: بچه‌ها یه ارور تو Flask دارم کلافه‌م کرده:\n`TypeError: 'NoneType' object is not subscriptable`\nوقتی فرم رو submit می‌کنم میاد
+ali>^: احتمالا `request.json` رو می‌خونی ولی فرم با form-data میاد. `request.form` رو چک کن
+pooya>^: آها! آره دارم `request.json['email']` می‌خونم
+ali>^: همینه. یا از `request.get_json(silent=True)` استفاده کن و None رو هندل کن
+pooya>^: درست شد 😍 دمت گرم علی جان
+ali>^: [sticker 👍]
+
+@@ d0 16:40 gap=20-90
+#A-D11 javad: پایتون یاد بگیرم یا مار بگیرم؟ 🐍😂
+farhad>^: هر دوش آخرش نیشت می‌زنه 😂
+niloofar>^2: [sticker 🤣]
+
+@@ d0 18:10 gap=60-240
+ramin: بازار کار جونیور پایتون این روزا چطوره؟ من حس می‌کنم آگهی‌ها نصف شده
+sara>^: جونیور سخت شده، همه دنبال کسی‌ان که حداقل یه پروژه واقعی داشته باشه
+ramin>^: آره، رزومه بدون نمونه‌کار اصلا دیده نمیشه
+ali>^3: ریموت خارجی هم هست ولی انگلیسی و گیت‌هاب درست حسابی می‌خواد
+mehdi>^: تازه با این اینترنت، ریموت کار کردن خودش یه پروژه‌ست 😅
+ramin>^: 😂 دقیقا
+
+@@ d0 20:30 gap=60-240
+parisa: یه سوال الگوریتمی: بهترین راه پیدا کردن عناصر تکراری تو یه لیست بزرگ چیه؟
+taha>^: `collections.Counter`
+parisa>^: ممنون، خیلی تمیزتر از کد من شد 😅
+ali>^3: اگه فقط وجود تکرار مهمه، مقایسه طول لیست با `set` کافیه
+
+@@ d0 23:40 gap=60-300
+#B-L1 neda: کسی راه حلی واسه سوزش چشم داره؟ از بس شبا جلو مانیتورم چشمام می‌سوزه و بعدشم تا ۳ صبح خوابم نمی‌بره 😞
+taha>^: Night Light ویندوز رو روشن کن، یکم کمک می‌کنه
+neda>^: روشنه ولی فایده نداشت زیاد. دنبال یه راه حل جدی‌ترم، کارم ایجاب می‌کنه تا دیروقت پای سیستم باشم
+golnaz>^: قانون ۲۰-۲۰-۲۰ رو امتحان کن، هر ۲۰ دقیقه ۲۰ ثانیه به ۶ متر دورتر نگاه کن
+neda>^: باشه حتما، ممنون 🙏
+
+# ---------------------------------------------------------------- day 1 — Thu 2026-10-02
+
+@@ d1 08:55 gap=30-150
+mehdi: صبح بخیر. امروز اینترنت بهتره یا من خوش‌شانسم؟ 😄
+niloofar>^: بهتره خداروشکر
+sina>^2: من هنوز با فیلترشکن دارم داکر pull می‌کنم 😐
+
+@@ d1 10:20 gap=40-220
+#A-L1 reza: salam bachea, mikham python ro az sefr shoroo konam vali ye dore jeddi mikham na faghat youtube. ye dore khoob ba mentor sorag darin? poolesh moshkeli nist
+sina>^: YouTube ham kheili manbae khoob dare, Corey Schafer ro bebin
+reza>^: dide boodam, vali tanhayi nemitoonam edame bedam. 2 bar shoroo kardam vel kardam. mikham yeki bashe soalamo javab bede
+sara>^: in soorat ye dore ba mentor va project vaghei behtare. faghat ghabl az sabtenam sarfasl va nemoone kar e daneshjoohasho bebin
+reza>^: merci sara 🙏 age chizi sorag dari pv bede
+
+@@ d1 11:10 gap=60-400
+#A-D2 yasaman: سلام، یه دوره پایتون مقدماتی خوب برای کسی که هیچی بلد نیست پیشنهاد می‌دین؟
+golnaz>^: من دوره‌ی مقدماتی مکتب‌خونه رو دیدم، برای شروع بد نبود
+parisa>^2: کتاب «پایتون به زبان ساده» هم کنارش خوبه
+yasaman>^2: ممنون، می‌رم ببینم
+
+@@ d1 12:30 gap=60-300
+#A-D1 arash: کسی free-threaded build پایتون ۳.۱۴ رو تو پروداکشن تست کرده؟ برای CPU-bound workload‌ها هنوز overhead تک‌تردی‌ش زیاده؟
+ali>^: من بنچمارک گرفتم، single-thread حدود ۵ تا ۱۰ درصد کندتره ولی multi-thread واقعا scale می‌کنه
+arash>^: extension های C چی؟ numpy مشکلی نداشت؟
+ali>^: numpy اوکی بود، ولی چندتا پکیج قدیمی هنوز GIL رو دوباره فعال می‌کنن
+arash>^: جالبه، مرسی. پس فعلا برای سرویس پردازش تصویرمون `multiprocessing` رو نگه می‌دارم
+soheil>^: ما هم همین کارو کردیم 👍
+
+@@ d1 13:40 gap=40-200
+niloofar: یه سوال ری‌اکتی دارم، می‌دونم گروه پایتونه ولی اینجا آدمای حرفه‌ای زیادن 😅 `useEffect` من دوبار اجرا میشه
+sara>^: StrictMode تو حالت dev عمدا دوبار اجراش می‌کنه، تو production درسته
+niloofar>^: وای آره! مرسیییی
+admin>^3: سوالای غیرپایتونی رو لطفا کوتاه نگه دارید دوستان 🙏
+
+@@ d1 14:30 gap=60-240
+#A-D12 pooya: دوره پیشرفته FastAPI کسی سراغ داره؟ async و تست و deploy رو عمیق بگه. پایه رو بلدم، دنبال سطح بالاترم
+ali>^: داکیومنت خود FastAPI از هر دوره‌ای بهتره راستش
+pooya>^: داکیومنت رو خوندم، یه چیز پروژه‌محور می‌خوام
+
+@@ d1 15:00 gap=30-120
+#A-D4 academy: 🔥🔥🔥 فقط امروز! دوره جامع پایتون با ۷۰٪ تخفیف 🔥🔥🔥\nدر ۲ ساعت پایتون رو مسلط شو و وارد بازار کار شو 💰💰💰\nثبت‌نام: @pythonpro_academy_bot\n✅ مدرک معتبر ✅ پشتیبانی ✅ تضمین استخدام
+#A-D3 farhad>^: آره حتما، با یه دوره ۲ ساعته هم می‌شی سینیور 😂😂
+javad>^: تضمین استخدام 😂 کجا؟ تو شرکت خودشون؟
+admin>^3: تبلیغ بدون هماهنگی ممنوعه، اکانت ریمو شد ❌
+
+@@ d1 16:10 gap=60-240
+soheil: کسی torch رو با CUDA 12.8 روی ویندوز نصب کرده؟ `torch.cuda.is_available()` برمیگردونه False
+mehdi>^: درایور انویدیات آپدیته؟
+soheil>^: آره آخرین نسخه‌ست
+taha>^3: از index-url مخصوص cu128 نصب کردی؟ نسخه پیش‌فرض pip نسخه CPU رو میاره
+soheil>^: ای بابا همین بود 🤦‍♂️ مرسی
+
+@@ d1 17:45 gap=60-200
+yasaman>#A-D2: ممنون از همه 🌷 تو همون دوره مکتب‌خونه ثبت‌نام کردم، فعلا راضیم
+golnaz>^: موفق باشی 👏
+
+@@ d1 18:30 gap=30-150
+#B-D1 hossein: امروز یه legacy code پایتون ۲ رو باز کردم، چشمام خون اومد 😂 همه متغیرها اسمشون `a1` و `tmp2` بود
+ali>^: این که خوبه، من یکیو دیدم کل منطق تو یه فایل ۸۰۰۰ خطی بود
+hossein>^: 💀💀
+farhad>^3: refactor نکن، فرار کن 🏃‍♂️
+
+@@ d1 21:10 gap=60-240
+nima: بچه‌ها سه روزه سر حلقه‌های تو در تو گیر کردم 😓 این تمرین چاپ ستاره رو اصلا نمی‌فهمم. ویدیوهای یوتیوب رو هم دیدم ولی بازم گیج میشم
+sara>^: کدت رو بفرست ببینیم
+nima>^: `for i in range(5):\n    for j in range(i):\n        print("*")`\nولی همه ستاره‌ها زیر هم میان
+sara>^: چون `print` به‌صورت پیش‌فرض خط جدید می‌زنه. `print("*", end="")` بنویس و بعد از حلقه داخلی یه `print()` خالی بذار
+nima>^: وای درست شد! ممنون 🙏 کاش یکی بود همیشه این‌طوری توضیح می‌داد
+
+# ---------------------------------------------------------------- day 2 — Fri 2026-10-03
+
+@@ d2 09:00 gap=60-200
+mehdi: جمعه‌تون بخیر 🌿
+javad>^: [sticker 👋]
+
+@@ d2 10:05 gap=60-400
+#A-L2 mahsa: سلام. من ۳۲ سالمه و ۸ ساله حسابدارم. می‌خوام وارد برنامه‌نویسی بشم. چندتا ویدیو یوتیوب دیدم ولی پراکنده‌ست و نمی‌دونم مسیر درست چیه. یه دوره منظم با منتور می‌شناسید که آدم رو تا پیدا کردن کار ببره؟
+ramin>^: ۳۲ سالگی اصلا دیر نیست، من ۳۰ سالگی شروع کردم
+sara>^2: با سابقه حسابداری، پایتون + تحلیل داده خیلی به کارت میاد. دنبال دوره‌ای باش که پروژه واقعی داشته باشه
+mahsa>^: ممنون 🙏 دقیقا همین نگرانی رو داشتم. بودجه‌شم کنار گذاشتم، فقط نمی‌خوام پولمو بدم به یه دوره بی‌کیفیت
+ali>^: قبل خرید حتما جلسه اول رایگان یا نمونه ویدیو رو ببین
+
+@@ d2 11:30 gap=40-200
+#A-D5 mohsen: بچه‌ها فقط منابع رایگان پایتون بفرستید لطفا. پول دوره ندارم و نمی‌خوام هم بدم، دوره‌های پولی همش کلاهبرداریه
+taha>^: داکیومنت رسمی پایتون بهترین منبع رایگانه
+parisa>^2: کانال یوتیوب «پایتون فارسی» هم خوبه
+mohsen>^: مرسی، فقط رایگان بفرستید لطفا 🙏
+
+@@ d2 12:15 gap=60-300
+#B-L2 kaveh: bachea kasi eynak zed-e noor-e abi estefade karde? arzesh dare? mikham bekharam vali nemidoonam az koja ke asl bashe
+#B-D2 zahra>^: من یه ساله دارم، واقعا حس می‌کنم آخر روز چشمام کمتر خسته‌ست. راضی‌ام 👌
+kaveh>^: merci! gheymatesh chand bood?
+zahra>^: من حدود ۸۰۰ تومن خریدم
+peyman>^4: من شنیدم بیشترش تبلیغاته، ولی ضرر نداره
+
+@@ d2 13:20 gap=60-300
+#A-L9 babak>#A-L2: منم دنبال همینم 🙋‍♂️ فقط من شاغلم و وقتم کمه، باید عصرها یا آخر هفته باشه. اگه چیزی پیدا کردید به منم بگید
+mahsa>^: حتما، هرچی پیدا کردم اینجا می‌ذارم
+
+@@ d2 14:00 gap=60-240
+golnaz: سوال تست: تو pytest چطوری یه fixture رو بین چند فایل تست share کنم؟
+ali>^: بذارش تو `conftest.py`، خودکار پیدا میشه
+golnaz>^: scope رو چی بذارم که دیتابیس هر بار ساخته نشه؟
+ali>^: `scope="session"` ولی حواست به state مشترک باشه
+golnaz>^: عالی، مرسی 🙌
+
+@@ d2 16:30 gap=60-300
+ramin: یه سوال: حقوق جونیور پایتون تو تهران الان حدودا چقدره؟
+sina>^: بین ۲۰ تا ۳۵ میلیون شنیدم، بستگی به شرکت داره
+mehdi>^: مید-لول حدود ۴۵ تا ۷۰، سینیور دیگه توافقیه
+ramin>^: با این تورم که هیچی 😅
+javad>^: [sticker 😭]
+
+@@ d2 18:00 gap=60-240
+taha: فردا اولین مصاحبه فنی‌مه 😬 چیا بیشتر می‌پرسن؟
+ali>^: ساختار داده‌ها، فرق list و tuple و set، decorator، generator. یه کد ساده هم ازت می‌خوان بنویسی
+sara>^2: پروژه‌هات رو کامل توضیح بده، اینکه چرا اون تصمیم‌ها رو گرفتی مهمه
+taha>^: مرسی 🙏 استرس دارم
+golnaz>^: موفق باشی 🍀
+
+@@ d2 20:15 gap=60-300
+sina: [fwd Python Weekly] Python 3.14 is out: free-threading officially supported, template strings (t-strings), better error messages and more https://docs.python.org/3/whatsnew/3.14.html
+soheil>^: t-string ها جالبن، برای ساختن SQL امن عالیه
+ali>^: من هنوز رو ۳.۱۲ پروداکشنیم، حالا حالاها آپگرید نمی‌کنیم 😅
+
+@@ d2 21:30 gap=60-240
+parisa: کسی میز ایستاده استفاده می‌کنه؟ ارزش خریدن داره؟
+ramin>^: من دارم، کمردردم خیلی بهتر شده
+parisa>^: قیمتش چقدره حدودا؟
+ramin>^: برقی‌ها گرونن، دستی‌ها ارزون‌ترن
+
+# ---------------------------------------------------------------- day 3 — Sat 2026-10-04
+
+@@ d3 08:30 gap=30-120
+parisa: صبح بخیر 🌞
+niloofar>^: صبح بخیر
+
+@@ d3 09:40 gap=60-300
+#A-L3 amir: بچه‌ها کمک! درس مبانی برنامه‌نویسی دانشگاه با پایتونه و هفته بعد میان‌ترمه. استادمون درست درس نمیده و من کلا عقبم 😭 یه دوره سریع و منظم می‌شناسید که تا هفته بعد برسم؟ هزینه‌ش مهم نیست فقط زود باشه
+sina>^: سرفصل‌ها چیه؟ شاید با چند تا ویدیو برسی
+amir>^: متغیر، شرط، حلقه، تابع، لیست و دیکشنری. حتی اینا رو هم درست بلد نیستم
+#A-D6 karimi>^3: سلام، من مدرس خصوصی پایتون هستم با ۱۰ سال سابقه 🎓 کلاس فشرده مخصوص میان‌ترم دارم، پیوی بدید
+admin>^: آقای کریمی تبلیغ ممنوعه، لطفا رعایت کنید 🙏
+amir: اگه دوره آنلاین با تمرین و رفع اشکال باشه بهتره، کلاس حضوری وقتشو ندارم
+
+@@ d3 11:00 gap=60-240
+#A-D8 shirin: سلام، دوره خوب جاوا برای اسپرینگ بوت کسی سراغ داره؟ شرکتمون داره کل پروژه رو جاوایی می‌کنه
+ali>^: اینجا گروه پایتونه ولی برای اسپرینگ داکیومنت خودش و آموزش‌های Baeldung خوبن
+shirin>^: آره می‌دونم، گفتم شاید کسی بدونه. مرسی 🙏
+
+@@ d3 12:30 gap=60-300
+#B-L3 saeed: من این روزا روزی ۱۰ ساعت کد می‌زنم و آخر روز سردرد شدید می‌گیرم، مخصوصا پشت چشمام. تم دارک و فونت بزرگ هم امتحان کردم. شما چیکار می‌کنید؟
+golnaz>^: نور اتاق رو هم با مانیتور هماهنگ کن، تو تاریکی کار نکن
+mehdi>^2: من عینک محافظ گرفتم یکم بهتر شد، ولی اول برو چشم‌پزشکی شاید نمره داشته باشی
+saeed>^: آره باید چشمامو چک کنم. عینک محافظ رو از کجا گرفتی؟
+mehdi>^: از یه عینک‌فروشی تو ولیعصر، یادم نیست اسمش
+
+@@ d3 14:10 gap=40-200
+mehdi: یه چیز عجیب: کانتینر Django من با `docker compose up` بالا میاد ولی به Postgres وصل نمیشه، `connection refused`
+ali>^: تو settings هاست رو `localhost` گذاشتی؟ باید اسم سرویس باشه، مثلا `db`
+mehdi>^: نه `db` گذاشتم
+sara>^3: شاید Django زودتر از Postgres بالا میاد. `depends_on` با `condition: service_healthy` بذار
+mehdi>^: آره همین بود! healthcheck نداشتم 🤦‍♂️
+sara>^: [sticker 👍]
+
+@@ d3 16:00 gap=60-240
+#B-D4 peyman: بچه‌ها یه مانیتور ۲۷ اینچ ۱۴۴ هرتز برای گیم و یکم کد زدن زیر ۱۵ میلیون پیشنهاد بدید
+taha>^: ال‌جی و ایسوس مدل‌های خوبی دارن، پنل IPS بگیر
+peyman>^: IPS واسه گیم کند نیست؟
+taha>^: نه، الان IPS ها ۱ میلی‌ثانیه‌ن
+
+@@ d3 17:40 gap=60-240
+golnaz: کسی Playwright رو با pytest برای تست UI استفاده کرده؟
+sina>^: آره عالیه، از Selenium خیلی پایدارتره
+golnaz>^: headless تو CI مشکلی نداشت؟
+sina>^: نه فقط باید `playwright install --with-deps` رو تو CI بزنی
+
+@@ d3 19:30 gap=30-150
+javad: بازی امشب کی می‌بینه؟ ⚽
+farhad>^: من، ولی با این اینترنت باید رادیو گوش بدم 😂
+niloofar>^2: بچه‌ها اینجا گروه پایتونه 😅
+javad>^: پایتون هم ماره دیگه، ورزشیه 🐍⚽
+
+@@ d3 21:00 gap=60-300
+taha: به نظرتون برای یادگیری برنامه‌نویسی استفاده از ChatGPT خوبه یا آدمو تنبل می‌کنه؟
+ali>^: اگه کد رو کپی کنی و نفهمی، تنبل می‌کنه. اگه ازش بپرسی چرا، معلم خوبیه
+soheil>^: برای debug کردن عالیه، برای طراحی سیستم هنوز ضعیفه
+sara>^3: من به جونیورها میگم اول خودت فکر کن، بعد ازش بپرس
+taha>^: منطقیه 👌
+
+# ---------------------------------------------------------------- day 4 — Sun 2026-10-05
+
+@@ d4 08:45 gap=60-240
+taha: مصاحبه‌م خوب بود! فکر کنم قبول شم 🤞
+ali>^: 👏👏 عالی
+sara>^2: تبریک پیشاپیش 🎉
+golnaz>^3: دیدی گفتم 🍀
+
+@@ d4 10:00 gap=60-400
+#A-L4 hamed: یه درد دل دارم 😔 شش ماهه دارم پایتون می‌خونم، کلی دوره رایگان و ویدیو دیدم ولی وقتی می‌خوام یه پروژه از صفر بسازم هیچی به ذهنم نمی‌رسه. فکر کنم گیر tutorial hell افتادم. دارم فکر می‌کنم یه بوت‌کمپ پولی برم ولی می‌ترسم بازم همین بشه
+sara>^: خیلیا اینو تجربه کردن. مشکل معمولا اینه که پروژه واقعی با بازخورد نمی‌سازی
+ali>^2: یه پروژه کوچیک انتخاب کن و تا تهش برو، حتی اگه زشت باشه
+hamed>^: آره ولی وقتی گیر می‌کنم کسی نیست کمکم کنه، همونجا ول می‌کنم. برای همین فکر می‌کنم یه دوره با منتور و code review لازم دارم
+ramin>^: بوت‌کمپی برو که پروژه‌محور باشه و کدت رو review کنن، وگرنه همون ویدیو دیدنه
+hamed>^: دقیقا. اگه کسی تجربه بوت‌کمپ خوب داره ممنون میشم بگه
+
+@@ d4 11:30 gap=60-300
+sina: کسی با Go کار کرده؟ برای میکروسرویس‌ها چطوره؟
+omid>^: من این هفته شروع کردم! پایتون رو کلا بیخیال شدم و رفتم سراغ Go، شرکتمون هم Go می‌خواد
+ali>^: برای میکروسرویس عالیه، concurrency‌ش خیلی راحته
+omid>^: آره فعلا که خیلی راضیم 😄 یه دوره Go هم خریدم
+
+@@ d4 13:00 gap=60-300
+#A-L5 parvin: سلام وقت بخیر. پسرم ۱۷ سالشه و خیلی به برنامه‌نویسی علاقه داره. می‌خوام براش یه دوره پایتون فارسی و آنلاین بگیرم که منظم باشه و یکی پیگیرش باشه. شما چی پیشنهاد می‌کنید؟
+golnaz>^: چه خوب 😊 دوره‌ای که پروژه داشته باشه براش جذاب‌تره
+parvin>^: ممنون. خودم برنامه‌نویسی بلد نیستم و نمی‌دونم چطور انتخاب کنم. مهمه که یکی سوالاشو جواب بده
+taha>^3: من ۱۷ سالگی با پایتون شروع کردم، بهترین تصمیمم بود 😄
+parvin>^: 🙏🌹
+
+@@ d4 14:20 gap=60-200
+#B-D5 optic: 👓👓 عینک‌سرای نور 👓👓\nعینک بلوکات اصل فقط ۴۹۰ هزار تومان!! 🔥🔥\nارسال فوری 🚚 سفارش در دایرکت اینستاگرام: @noor_optic_shop\n👓👓👓👓👓👓
+admin>^: تبلیغ ممنوع ❌ ریمو شد
+
+@@ d4 15:30 gap=60-300
+soheil: کسی می‌دونه چرا `df.groupby().apply()` تو pandas انقدر کنده؟
+ali>^: apply روی هر گروه یه تابع پایتونی اجرا می‌کنه. اگه بشه از `agg` یا عملیات vectorized استفاده کن
+soheil>^: با agg ده برابر سریع‌تر شد 😮
+elham>^: ببخشید یه سوال شاید ساده: pandas همون چیزیه که جای اکسل استفاده میشه؟ من کارم کلا با اکسله
+soheil>^: آره تقریبا، ولی برای داده‌های بزرگ و کارهای تکراری خیلی قوی‌تره
+
+@@ d4 17:00 gap=60-240
+taha: برای اسکرپ کردن ۱۰ هزار تا صفحه `requests` خیلی کنده، چیکار کنم؟
+mehdi>^: `httpx` با `asyncio` یا `aiohttp`. فقط rate limit رو رعایت کن که بلاک نشی
+taha>^: `asyncio.gather` رو با ۱۰ هزار تا تسک یه جا بزنم؟
+mehdi>^: نه، با `Semaphore` محدودش کن، مثلا ۲۰ تا همزمان
+taha>^: ممنون عالی شد 👌
+
+@@ d4 19:00 gap=60-240
+niloofar: کسی با کارفرمای خارجی کار می‌کنه؟ اختلاف ساعت رو چطور مدیریت می‌کنید؟
+sara>^: من با یه تیم اروپایی کار می‌کنم، ۴ ساعت overlap داریم کافیه
+niloofar>^: پرداخت چطور؟
+sara>^: از طریق واسطه، دردسر داره ولی می‌ارزه
+
+@@ d4 21:00 gap=60-240
+sina: یکی می‌دونه چرا `datetime.now()` تو سرور یه ساعت با بقیه فرق داره؟
+mehdi>^: تایم‌زون سرورت UTC نیست احتمالا. همیشه `datetime.now(timezone.utc)` استفاده کن
+sina>^: آره سرور رو Asia/Tehran بود 🤦‍♂️
+
+@@ d4 23:15 gap=60-300
+#B-L5 behnam: کی مثل من شیفت on-call شبه؟ 😩 دو هفته‌ست چشمام خشک و قرمزه، ساعت ۴ صبح جلوی سه تا مانیتور نشستن داره نابودم می‌کنه
+mehdi>^: قطره اشک مصنوعی بگیر، خیلی کمک می‌کنه
+behnam>^: گرفتم، ولی دنبال یه چیزیم که کلا فشار رو کم کنه. فیلتر مانیتور یا عینک یا هرچی
+golnaz>^3: روشنایی مانیتورها رو شب کم کن، همین خیلی تاثیر داره
+behnam>^: مرسی امتحان می‌کنم 🙏
+
+# ---------------------------------------------------------------- day 5 — Mon 2026-10-06
+
+@@ d5 09:50 gap=60-300
+#A-L6 nima: به نظرتون دوره پولی ارزششو داره یا همین رایگانا کافیه؟
+mohsen>^: رایگانا کافیه، پولیا همش کپی همون رایگاناست
+sara>^2: بستگی داره. اگه تنهایی پیش میری و جواب می‌گیری، رایگان کافیه. اگه مدام گیر می‌کنی، داشتن منتور ارزش داره
+ali>^3: اگه پولی می‌گیری حتما نظر دانشجوهای قبلی و سرفصل‌ها رو ببین
+nima>^2: ممنون 🙏 باید بیشتر فکر کنم
+
+@@ d5 11:15 gap=60-300
+#A-L8 elham: سلام دوباره 🙂 من تحلیل‌گر داده‌ام ولی همه کارم با اکسله و مدیرم گفته باید پایتون و pandas یاد بگیرم. یه دوره فارسی می‌خوام که کلاس‌هاش عصر باشه چون تا ۵ سر کارم. شرکت هم هزینه‌ش رو میده
+sina>^: دوره‌های تحلیل داده زیاده، ولی بیشترشون مستقیم میرن سراغ pandas و پایه پایتون رو نمیگن
+elham>^: آره من پایه رو هم بلد نیستم. می‌خوام اول پایتون رو درست یاد بگیرم بعد pandas
+soheil>^3: برای کارهای تکراری اکسل، پایتون معجزه می‌کنه. حتما یاد بگیر
+elham>^: ممنون از راهنمایی‌تون 🙏
+
+@@ d5 12:40 gap=60-300
+#B-D3 majid: چند روزه دید چشم راستم تار شده و گاهی جرقه‌های نور می‌بینم، مخصوصا وقتی پای لپ‌تاپم. به نظرتون عینک محافظ نور آبی کمک می‌کنه؟
+golnaz>^: مجید جان اینا علائم جدیه، حتما همین امروز برو چشم‌پزشک. جرقه نور می‌تونه مربوط به شبکیه باشه
+majid>^: جدی؟ فکر می‌کردم از خستگیه
+ali>^2: آره گلناز درست میگه، تاخیر ننداز
+majid>^: باشه نوبت می‌گیرم، مرسی 🙏
+
+@@ d5 14:00 gap=60-240
+sara: یه ویو دارم که ۳۰۰ تا کوئری می‌زنه 😱 لیست سفارش‌ها با اسم مشتری
+ali>^: N+1 کلاسیک. `select_related('customer')` بذار
+sara>^: درست شد، شد ۲ تا کوئری 😍
+golnaz>^: django-debug-toolbar رو نصب کن، اینا رو زود نشون میده
+sara>^: دارمش، فقط حواسم نبود 😅
+
+@@ d5 16:20 gap=60-300
+#B-L4 maryam: سلام، ببخشید سوالم یکم بی‌ربطه 😅 همسرم برنامه‌نویسه و روزی ۱۲ ساعت پشت سیستمه. برای تولدش یه هدیه زیر یک میلیون می‌خوام که به کارش بیاد. پیشنهادی دارید؟
+farhad>^: کیبورد مکانیکی 😍
+ramin>^2: یه ماگ که روش نوشته "It works on my machine" 😂
+maryam>^: اینا جالبه 😄 ولی همیشه از خستگی چشم و کمردرد می‌ناله، یه چیز کاربردی‌تر می‌خوام
+niloofar>^: پایه لپ‌تاپ یا عینک محافظ چشم خوبه، هم کاربردیه هم تو بودجه‌ت
+maryam>^: ممنون عزیزم 🌹
+
+@@ d5 18:00 gap=60-300
+taha: شما برای مدیریت پکیج‌ها از چی استفاده می‌کنید؟ pip، poetry یا uv؟
+mehdi>^: uv. سرعتش دیوانه‌کننده‌ست
+ali>^2: من رو پروژه‌های جدید uv، قدیمیا poetry
+soheil>^3: من هنوز conda، به خاطر CUDA 😅
+taha>^: uv رو امتحان می‌کنم 👍
+mehdi>^: `uv venv && uv pip install -r requirements.txt` همین
+
+@@ d5 20:30 gap=30-150
+javad: [photo] وقتی کد بدون ارور اجرا میشه و نمی‌دونی چرا 😐
+farhad>^: [sticker 😂]
+hossein>^2: داستان زندگی من 💀
+
+@@ d5 22:00 gap=60-240
+neda>#B-L1: یه آپدیت: قانون ۲۰-۲۰-۲۰ رو امتحان کردم یکم بهتره ولی هنوز آخر شب چشمام می‌سوزه. فکر کنم باید یه چیز جدی‌تر بگیرم
+golnaz>^: خوشحالم بهتر شده 🌸
+
+# ---------------------------------------------------------------- day 6 — Tue 2026-10-07
+
+@@ d6 10:10 gap=60-300
+#A-L7 kian: سلام. کسی یه bootcamp پایتون آنلاین سراغ داره که واقعا job-ready کنه؟ من تا آخر سال deadline دارم که یه کار junior پیدا کنم. ready-am که هزینه کنم، فقط می‌خوام portfolio و interview prep داشته باشه
+ramin>^: interview prep خیلی مهمه، کمتر دوره‌ای داره
+kian>^: آره دقیقا. یه دوره دیدم فقط ویدیو بود، اونو نمی‌خوام. mentor لازم دارم
+sara>^3: سه چهارتا پروژه درست و حسابی تو گیت‌هابت باشه شانست خیلی بالا میره
+kian>^: 🙏 مرسی
+
+@@ d6 11:30 gap=60-300
+sina: هکتوبرفست شروع شده! کی می‌خواد contribute کنه؟ 🎃
+taha>^: من! ولی نمی‌دونم از کجا شروع کنم
+sina>^: دنبال لیبل `good first issue` بگرد
+ali>^2: درست کردن داکیومنت هم contribution حسابه، از اونجا شروع کن
+taha>^: اوکی امروز یکی پیدا می‌کنم 💪
+
+@@ d6 13:00 gap=30-120
+farhad: من بعد ۵ سال برنامه‌نویسی هنوز ریجکس رو از استک‌اورفلو کپی می‌کنم 😂
+ali>^: همه همین‌طوریم، فقط سینیورها قبول نمی‌کنن 😂
+
+@@ d6 14:30 gap=60-240
+mehdi: کسی میاد DevFest تهران؟ ثبت‌نامش باز شده
+niloofar>^: من میام! پارسال خیلی خوب بود
+parisa>^2: منم احتمالا 🙋‍♀️
+mehdi>^2: پس اونجا یه عکس گروهی بگیریم 📸
+
+@@ d6 16:00 gap=60-240
+mehdi: GitHub Actions من موقع اجرای تست‌ها timeout می‌خوره، لوکال همه پاسه
+ali>^: از cache برای pip استفاده کن، و تست‌های کند رو با `pytest --durations=10` پیدا کن
+mehdi>^: یه تست بود که به یه API بیرونی وصل می‌شد 🤦‍♂️ mock کردم درست شد
+golnaz>^: کلاسیک 😄 همیشه mock کن
+
+@@ d6 17:30 gap=60-240
+reza: bachea man hanooz donbale dore am 😅 kasi chizi peyda nakard?
+sara>^: reza chand ta dore ba mentor hast, nazar e daneshjoohasho bepors bad tasmim begir
+
+@@ d6 20:00 gap=60-240
+sina: باز اینترنت قطع و وصله یا فقط منم؟
+mehdi>^: همه‌جا هست
+javad>^2: من که کلا رفتم رو اینترنت کبوتری 🕊️😂
+
+@@ d6 23:30 gap=60-300
+sara: شب بخیر بچه‌ها 🌙
+golnaz>^: شب بخیر 🌙
+
+# ---------------------------------------------------------------- filler (mostly no reply_to, like real groups)
+
+@@ d0 09:30 gap=60-400
+sina: کسی می‌دونه چرا `pip install` رو ویندوز ارور `Microsoft Visual C++ 14.0 is required` میده؟
+taha: باید Build Tools رو نصب کنی
+sina: اوکی مرسی
+
+@@ d0 15:30 gap=60-300
+parisa: کسی وبینار دیشب رو دیده؟ درباره LLM ها بود
+soheil: لینکش رو داری؟
+parisa: ضبطش رو فردا می‌ذارن
+soheil: 👍
+
+@@ d0 19:20 gap=30-200
+niloofar: عاشق این گروهم، همه انقدر مهربونن 🥹
+javad: تا وقتی سوال تکراری نپرسی 😂
+niloofar: 😂😂
+
+@@ d0 21:40 gap=60-300
+golnaz: کسی از `ruff` استفاده می‌کنه؟ جای flake8 و black
+mehdi: آره خیلی سریع‌تره، کلا عوضش کردیم
+golnaz: کانفیگش رو تو pyproject بذارم؟
+mehdi: آره بخش `[tool.ruff]`
+
+@@ d1 09:40 gap=60-300
+taha: سلام کسی اینجا با Celery کار کرده؟ تسک‌هام تو صف می‌مونن اجرا نمیشن
+ali: worker رو با همون queue بالا آوردی؟
+taha: اسم queue رو عوض کرده بودم 🤦‍♂️ worker رو با `-Q` بالا آوردم درست شد
+
+@@ d1 19:30 gap=60-300
+ramin: کسی کتاب Fluent Python رو خونده؟ ارزش خریدن داره؟
+ali: برای مید-لول عالیه، برای مبتدی سنگینه
+ramin: پس بذارم برای بعد
+
+@@ d1 22:30 gap=60-300
+sina: [photo] ستاپ جدیدم 😎
+farhad: اون مانیتور عمودی چه حالی میده
+niloofar: چه مرتب 😍
+sina: ممنون 🙏
+
+@@ d2 15:10 gap=60-300
+soheil: کسی از Jupyter به notebook های VS Code کوچ کرده؟
+golnaz: آره، دیباگرش خیلی بهتره
+soheil: اکستنشن خاصی لازمه؟
+golnaz: فقط Python و Jupyter مایکروسافت
+
+@@ d2 19:20 gap=40-200
+javad: کی تا حالا کد رو مستقیم تو production تست کرده؟ 🙋‍♂️
+farhad: همه، فقط بعضیا اعتراف نمی‌کنن 😂
+mehdi: friday deploy 💀
+
+@@ d3 10:30 gap=60-300
+parisa: دوستان کسی می‌دونه چرا بعضی صفحه‌های داکیومنت پایتون باز نمیشه؟
+mehdi: بعضی CDN ها تحریمن، با فیلترشکن باز میشه 😐
+parisa: ای بابا 😩
+
+@@ d3 15:00 gap=60-300
+ramin: یه آگهی کار دیدم نوشته بود ۵ سال سابقه FastAPI می‌خوایم 😂
+ali: FastAPI خودش چند سال بیشتر نیست اومده 😂
+farhad: احتمالا منظورشون ۵ سال سابقه تحمل استرسه 😂
+
+@@ d3 22:30 gap=60-300
+sara: کسی یه سریال سبک درباره برنامه‌نویس‌ها پیشنهاد داره؟ 😄
+niloofar: Mr. Robot رو دیدی؟
+sara: آره 😍 یه چیز سبک‌تر
+javad: The IT Crowd 😂
+
+@@ d4 09:20 gap=60-300
+golnaz: کسی می‌دونه `typing.Self` از کدوم نسخه اومده؟
+ali: ۳.۱۱
+golnaz: مرسی 🙏
+
+@@ d4 12:10 gap=60-300
+soheil: یه مدل ترنسفورمر کوچیک رو با ۴ گیگ VRAM میشه فاین‌تیون کرد؟
+taha: با LoRA و quantization آره
+soheil: QLoRA رو امتحان می‌کنم
+
+@@ d4 16:20 gap=30-150
+farhad: کی میاد آخر هفته کوه؟ ⛰️
+ramin: من هستم
+javad: من فقط تا تله‌کابین میام 😂
+
+@@ d5 08:40 gap=60-300
+mehdi: دوشنبه‌تون بخیر ☕
+parisa: صبح بخیر ☕
+sina: صبح بخیر، امروز فیلترشکن کی کار می‌کنه؟ 😅
+
+@@ d5 13:20 gap=60-300
+taha: سوال: تو FastAPI فرق `Depends` و middleware چیه؟ کی کدوم؟
+sara: middleware برای همه درخواست‌هاست، Depends برای endpoint های خاص
+taha: آها پس auth رو با Depends بزنم
+sara: آره معمولا
+
+@@ d5 21:10 gap=60-300
+ramin: تازگیا حس می‌کنم کلا انگیزه کد زدن ندارم 😞 کسی تجربه burnout داره؟
+sara: آره، چند روز کامل از سیستم دور شو. جدی میگم
+ali: منم پارسال داشتم، ورزش خیلی کمک کرد
+ramin: مرسی بچه‌ها ❤️
+
+@@ d6 09:15 gap=60-300
+golnaz: کسی می‌دونه چطوری تو pytest فقط تست‌هایی که دفعه قبل fail شدن رو اجرا کنم؟
+mehdi: `pytest --lf`
+golnaz: 😍 عالی
+
+@@ d6 12:20 gap=60-300
+soheil: یکی از بچه‌های تیم ما ۳ تا دوره پولی دیده ولی هنوز git بلد نیست 😅 به نظرم دوره بدون پروژه بی‌فایده‌ست
+ali: دقیقا، باید دستت کثیف بشه
+sara: یا حداقل یه منتور داشته باشی که کدت رو ببینه
+
+@@ d6 18:30 gap=60-300
+parisa: کسی می‌دونه PyCon امسال آنلاین هم پخش میشه؟
+sina: آره یوتیوبشون لایو داره
+parisa: مرسی 🙏
+
+@@ d6 22:10 gap=60-300
+behnam: امشب هم on-call ام 😩 خدا به داد برسه
+mehdi: قوی باش 💪
+
+@@ d2 11:50 gap=60-300
+sina: کسی تجربه کار با `polars` داره؟ میگن از pandas سریع‌تره
+soheil: آره برای داده‌های بزرگ خیلی سریع‌تره، ولی API‌ش فرق داره
+sina: ارزش یاد گرفتن داره؟
+soheil: اگه با داده‌های چند گیگی کار می‌کنی حتما
+
+@@ d4 20:10 gap=60-300
+niloofar: کسی TypeScript رو با پایتون مقایسه کرده؟ type hint های پایتون به پای TS می‌رسه؟
+ali: نه هنوز، ولی با mypy و pyright خیلی نزدیک شده
+niloofar: pyright رو امتحان می‌کنم
+
+@@ d5 10:30 gap=60-300
+javad: [voice 14]
+farhad: جواد ویس نفرست تو گروه 😂
+javad: ببخشید اشتباهی شد 😅

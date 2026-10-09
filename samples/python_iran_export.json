@@ -1,0 +1,6922 @@
+{
+ "name": "پایتونیست‌های ایران 🐍",
+ "type": "public_supergroup",
+ "id": 1987654321,
+ "messages": [
+  {
+   "id": 1001,
+   "type": "message",
+   "date": "2026-10-01T08:40:27",
+   "date_unixtime": "1790831427",
+   "from": "ادمین پایتونیست‌ها",
+   "from_id": "user5282622328",
+   "text": "سلام به همه 🌱\nچند تا قانون ساده:\n۱. تبلیغ فقط با هماهنگی ادمین\n۲. سوال رو با کد و متن ارور بپرسید، نه عکس از مانیتور 😅\n۳. به تازه‌کارها احترام بذارید، همه یه روز از صفر شروع کردیم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام به همه 🌱\nچند تا قانون ساده:\n۱. تبلیغ فقط با هماهنگی ادمین\n۲. سوال رو با کد و متن ارور بپرسید، نه عکس از مانیتور 😅\n۳. به تازه‌کارها احترام بذارید، همه یه روز از صفر شروع کردیم"
+    }
+   ]
+  },
+  {
+   "id": 1002,
+   "type": "service",
+   "date": "2026-10-01T08:43:22",
+   "date_unixtime": "1790831602",
+   "actor": "Reza K",
+   "actor_id": "user5091272307",
+   "action": "join_group_by_link",
+   "inviter": "Group",
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1003,
+   "type": "service",
+   "date": "2026-10-01T08:43:42",
+   "date_unixtime": "1790831622",
+   "actor": "Kaveh",
+   "actor_id": "user5697282383",
+   "action": "join_group_by_link",
+   "inviter": "Group",
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1004,
+   "type": "message",
+   "date": "2026-10-01T08:43:56",
+   "date_unixtime": "1790831636",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "text": "سلام صبح بخیر ☀️",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام صبح بخیر ☀️"
+    }
+   ]
+  },
+  {
+   "id": 1005,
+   "type": "message",
+   "date": "2026-10-01T08:45:27",
+   "date_unixtime": "1790831727",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1004,
+   "text": "صبح بخیر. اینترنت شما هم امروز انقدر کنده؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "صبح بخیر. اینترنت شما هم امروز انقدر کنده؟"
+    }
+   ]
+  },
+  {
+   "id": 1006,
+   "type": "message",
+   "date": "2026-10-01T08:47:52",
+   "date_unixtime": "1790831872",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1005,
+   "text": [
+    "آره والا، ",
+    {
+     "type": "code",
+     "text": "npm install"
+    },
+    " نیم ساعته داره می‌چرخه 😩"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره والا، "
+    },
+    {
+     "type": "code",
+     "text": "npm install"
+    },
+    {
+     "type": "plain",
+     "text": " نیم ساعته داره می‌چرخه 😩"
+    }
+   ]
+  },
+  {
+   "id": 1007,
+   "type": "message",
+   "date": "2026-10-01T08:48:37",
+   "date_unixtime": "1790831917",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1006,
+   "text": [
+    "من کلا mirror رو عوض کردم، ",
+    {
+     "type": "code",
+     "text": "pip"
+    },
+    " از mirror داخلی خیلی سریع‌تره"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من کلا mirror رو عوض کردم، "
+    },
+    {
+     "type": "code",
+     "text": "pip"
+    },
+    {
+     "type": "plain",
+     "text": " از mirror داخلی خیلی سریع‌تره"
+    }
+   ]
+  },
+  {
+   "id": 1008,
+   "type": "message",
+   "date": "2026-10-01T08:51:08",
+   "date_unixtime": "1790832068",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1007,
+   "text": "کدوم mirror؟ اسمشو بگو لطفا",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کدوم mirror؟ اسمشو بگو لطفا"
+    }
+   ]
+  },
+  {
+   "id": 1009,
+   "type": "message",
+   "date": "2026-10-01T08:53:06",
+   "date_unixtime": "1790832186",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1008,
+   "text": "تو گروه اسم نمی‌برم که بلاک نشه 😂 پیوی بده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تو گروه اسم نمی‌برم که بلاک نشه 😂 پیوی بده"
+    }
+   ]
+  },
+  {
+   "id": 1010,
+   "type": "message",
+   "date": "2026-10-01T09:30:54",
+   "date_unixtime": "1790834454",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "edited": "2026-10-01T09:31:34",
+   "edited_unixtime": "1790834494",
+   "text": [
+    "کسی می‌دونه چرا ",
+    {
+     "type": "code",
+     "text": "pip install"
+    },
+    " رو ویندوز ارور ",
+    {
+     "type": "code",
+     "text": "Microsoft Visual C++ 14.0 is required"
+    },
+    " میده؟"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی می‌دونه چرا "
+    },
+    {
+     "type": "code",
+     "text": "pip install"
+    },
+    {
+     "type": "plain",
+     "text": " رو ویندوز ارور "
+    },
+    {
+     "type": "code",
+     "text": "Microsoft Visual C++ 14.0 is required"
+    },
+    {
+     "type": "plain",
+     "text": " میده؟"
+    }
+   ]
+  },
+  {
+   "id": 1011,
+   "type": "message",
+   "date": "2026-10-01T09:33:13",
+   "date_unixtime": "1790834593",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": "باید Build Tools رو نصب کنی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "باید Build Tools رو نصب کنی"
+    }
+   ]
+  },
+  {
+   "id": 1012,
+   "type": "message",
+   "date": "2026-10-01T09:39:34",
+   "date_unixtime": "1790834974",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": "اوکی مرسی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اوکی مرسی"
+    }
+   ]
+  },
+  {
+   "id": 1013,
+   "type": "message",
+   "date": "2026-10-01T10:15:08",
+   "date_unixtime": "1790837108",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": "بچه‌ها برای یه پروژه CRUD ساده Django بهتره یا FastAPI؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بچه‌ها برای یه پروژه CRUD ساده Django بهتره یا FastAPI؟"
+    }
+   ]
+  },
+  {
+   "id": 1014,
+   "type": "message",
+   "date": "2026-10-01T10:16:05",
+   "date_unixtime": "1790837165",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1013,
+   "text": "اگه پنل ادمین و auth آماده می‌خوای Django، اگه فقط API می‌خوای FastAPI",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اگه پنل ادمین و auth آماده می‌خوای Django، اگه فقط API می‌خوای FastAPI"
+    }
+   ]
+  },
+  {
+   "id": 1015,
+   "type": "message",
+   "date": "2026-10-01T10:16:35",
+   "date_unixtime": "1790837195",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1013,
+   "text": "من Django رو پیشنهاد می‌کنم، ORM و admin‌ش کلی وقتت رو نجات میده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من Django رو پیشنهاد می‌کنم، ORM و admin‌ش کلی وقتت رو نجات میده"
+    }
+   ]
+  },
+  {
+   "id": 1016,
+   "type": "message",
+   "date": "2026-10-01T10:19:28",
+   "date_unixtime": "1790837368",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1013,
+   "text": "FastAPI با Pydantic خیلی تمیزه، مخصوصا اگه مدل ML سرو می‌کنی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "FastAPI با Pydantic خیلی تمیزه، مخصوصا اگه مدل ML سرو می‌کنی"
+    }
+   ]
+  },
+  {
+   "id": 1017,
+   "type": "message",
+   "date": "2026-10-01T10:20:29",
+   "date_unixtime": "1790837429",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1016,
+   "text": "مدل ML ندارم، یه سیستم رزرو نوبت ساده‌ست",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مدل ML ندارم، یه سیستم رزرو نوبت ساده‌ست"
+    }
+   ]
+  },
+  {
+   "id": 1018,
+   "type": "message",
+   "date": "2026-10-01T10:21:12",
+   "date_unixtime": "1790837472",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1017,
+   "text": "پس Django. بیخودی چرخ رو از نو اختراع نکن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "پس Django. بیخودی چرخ رو از نو اختراع نکن"
+    }
+   ]
+  },
+  {
+   "id": 1019,
+   "type": "message",
+   "date": "2026-10-01T10:21:53",
+   "date_unixtime": "1790837513",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1018,
+   "text": "اوکی ممنون 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اوکی ممنون 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1020,
+   "type": "message",
+   "date": "2026-10-01T11:30:50",
+   "date_unixtime": "1790841650",
+   "from": "امید",
+   "from_id": "user5243461529",
+   "text": "سلام. دنبال یه دوره پایتون هستم برای شروع، کسی تجربه‌ای داره؟ ترجیحا فارسی باشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام. دنبال یه دوره پایتون هستم برای شروع، کسی تجربه‌ای داره؟ ترجیحا فارسی باشه"
+    }
+   ]
+  },
+  {
+   "id": 1021,
+   "type": "message",
+   "date": "2026-10-01T11:34:49",
+   "date_unixtime": "1790841889",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1020,
+   "text": "مکتب‌خونه و فرادرس کلی دوره دارن، ولی کیفیتشون خیلی متفاوته",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مکتب‌خونه و فرادرس کلی دوره دارن، ولی کیفیتشون خیلی متفاوته"
+    }
+   ]
+  },
+  {
+   "id": 1022,
+   "type": "message",
+   "date": "2026-10-01T11:38:12",
+   "date_unixtime": "1790842092",
+   "from": "امید",
+   "from_id": "user5243461529",
+   "reply_to_message_id": 1021,
+   "text": "آره دیدم، نمی‌دونم کدوم خوبه. فعلا دارم بین پایتون و Go بررسی می‌کنم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره دیدم، نمی‌دونم کدوم خوبه. فعلا دارم بین پایتون و Go بررسی می‌کنم"
+    }
+   ]
+  },
+  {
+   "id": 1023,
+   "type": "message",
+   "date": "2026-10-01T11:43:01",
+   "date_unixtime": "1790842381",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1022,
+   "text": "برای شروع پایتون، برای بک‌اند پرفورمنس‌محور Go. بستگی داره هدفت چیه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "برای شروع پایتون، برای بک‌اند پرفورمنس‌محور Go. بستگی داره هدفت چیه"
+    }
+   ]
+  },
+  {
+   "id": 1024,
+   "type": "message",
+   "date": "2026-10-01T12:10:09",
+   "date_unixtime": "1790844009",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": [
+    "کسی تجربه کار با ",
+    {
+     "type": "code",
+     "text": "pydantic"
+    },
+    " v2 داره؟ migration از v1 اذیتم کرده"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی تجربه کار با "
+    },
+    {
+     "type": "code",
+     "text": "pydantic"
+    },
+    {
+     "type": "plain",
+     "text": " v2 داره؟ migration از v1 اذیتم کرده"
+    }
+   ]
+  },
+  {
+   "id": 1025,
+   "type": "message",
+   "date": "2026-10-01T12:13:00",
+   "date_unixtime": "1790844180",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1024,
+   "text": [
+    {
+     "type": "code",
+     "text": "bump-pydantic"
+    },
+    " رو امتحان کن، بیشترش رو خودکار درست می‌کنه"
+   ],
+   "text_entities": [
+    {
+     "type": "code",
+     "text": "bump-pydantic"
+    },
+    {
+     "type": "plain",
+     "text": " رو امتحان کن، بیشترش رو خودکار درست می‌کنه"
+    }
+   ]
+  },
+  {
+   "id": 1026,
+   "type": "message",
+   "date": "2026-10-01T12:14:52",
+   "date_unixtime": "1790844292",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1025,
+   "text": "وای نمی‌دونستم همچین چیزی هست 😍",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "وای نمی‌دونستم همچین چیزی هست 😍"
+    }
+   ]
+  },
+  {
+   "id": 1027,
+   "type": "message",
+   "date": "2026-10-01T12:16:54",
+   "date_unixtime": "1790844414",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1024,
+   "text": [
+    {
+     "type": "code",
+     "text": "class Config"
+    },
+    " ها رو هم باید ",
+    {
+     "type": "code",
+     "text": "model_config"
+    },
+    " کنی، حواست باشه"
+   ],
+   "text_entities": [
+    {
+     "type": "code",
+     "text": "class Config"
+    },
+    {
+     "type": "plain",
+     "text": " ها رو هم باید "
+    },
+    {
+     "type": "code",
+     "text": "model_config"
+    },
+    {
+     "type": "plain",
+     "text": " کنی، حواست باشه"
+    }
+   ]
+  },
+  {
+   "id": 1028,
+   "type": "service",
+   "date": "2026-10-01T13:05:41",
+   "date_unixtime": "1790847341",
+   "actor": "Nima",
+   "actor_id": "user5465772968",
+   "action": "join_group_by_link",
+   "inviter": "Group",
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1029,
+   "type": "message",
+   "date": "2026-10-01T13:05:55",
+   "date_unixtime": "1790847355",
+   "from": "Nima",
+   "from_id": "user5465772968",
+   "text": "سلام به همه 👋 تازه عضو شدم. حدود دو هفته‌ست شروع کردم پایتون یاد بگیرم، تنهایی یکم سخته ولی دارم ادامه میدم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام به همه 👋 تازه عضو شدم. حدود دو هفته‌ست شروع کردم پایتون یاد بگیرم، تنهایی یکم سخته ولی دارم ادامه میدم"
+    }
+   ]
+  },
+  {
+   "id": 1030,
+   "type": "message",
+   "date": "2026-10-01T13:08:24",
+   "date_unixtime": "1790847504",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1029,
+   "text": "خوش اومدی! سوالی داشتی بپرس",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "خوش اومدی! سوالی داشتی بپرس"
+    }
+   ]
+  },
+  {
+   "id": 1031,
+   "type": "message",
+   "date": "2026-10-01T13:09:26",
+   "date_unixtime": "1790847566",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1029,
+   "text": "خوش اومدی 🌸 مهم اینه که ول نکنی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "خوش اومدی 🌸 مهم اینه که ول نکنی"
+    }
+   ]
+  },
+  {
+   "id": 1032,
+   "type": "message",
+   "date": "2026-10-01T13:12:34",
+   "date_unixtime": "1790847754",
+   "from": "Nima",
+   "from_id": "user5465772968",
+   "reply_to_message_id": 1031,
+   "text": "ممنون از همه 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون از همه 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1033,
+   "type": "message",
+   "date": "2026-10-01T14:20:02",
+   "date_unixtime": "1790851802",
+   "from": "Pooya",
+   "from_id": "user5682004974",
+   "edited": "2026-10-01T14:21:55",
+   "edited_unixtime": "1790851915",
+   "text": [
+    "بچه‌ها یه ارور تو Flask دارم کلافه‌م کرده:\n",
+    {
+     "type": "code",
+     "text": "TypeError: 'NoneType' object is not subscriptable"
+    },
+    "\nوقتی فرم رو submit می‌کنم میاد"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بچه‌ها یه ارور تو Flask دارم کلافه‌م کرده:\n"
+    },
+    {
+     "type": "code",
+     "text": "TypeError: 'NoneType' object is not subscriptable"
+    },
+    {
+     "type": "plain",
+     "text": "\nوقتی فرم رو submit می‌کنم میاد"
+    }
+   ]
+  },
+  {
+   "id": 1034,
+   "type": "message",
+   "date": "2026-10-01T14:22:12",
+   "date_unixtime": "1790851932",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1033,
+   "text": [
+    "احتمالا ",
+    {
+     "type": "code",
+     "text": "request.json"
+    },
+    " رو می‌خونی ولی فرم با form-data میاد. ",
+    {
+     "type": "code",
+     "text": "request.form"
+    },
+    " رو چک کن"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "احتمالا "
+    },
+    {
+     "type": "code",
+     "text": "request.json"
+    },
+    {
+     "type": "plain",
+     "text": " رو می‌خونی ولی فرم با form-data میاد. "
+    },
+    {
+     "type": "code",
+     "text": "request.form"
+    },
+    {
+     "type": "plain",
+     "text": " رو چک کن"
+    }
+   ]
+  },
+  {
+   "id": 1035,
+   "type": "message",
+   "date": "2026-10-01T14:23:32",
+   "date_unixtime": "1790852012",
+   "from": "Pooya",
+   "from_id": "user5682004974",
+   "reply_to_message_id": 1034,
+   "text": [
+    "آها! آره دارم ",
+    {
+     "type": "code",
+     "text": "request.json['email']"
+    },
+    " می‌خونم"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آها! آره دارم "
+    },
+    {
+     "type": "code",
+     "text": "request.json['email']"
+    },
+    {
+     "type": "plain",
+     "text": " می‌خونم"
+    }
+   ]
+  },
+  {
+   "id": 1036,
+   "type": "message",
+   "date": "2026-10-01T14:24:41",
+   "date_unixtime": "1790852081",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1035,
+   "text": [
+    "همینه. یا از ",
+    {
+     "type": "code",
+     "text": "request.get_json(silent=True)"
+    },
+    " استفاده کن و None رو هندل کن"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "همینه. یا از "
+    },
+    {
+     "type": "code",
+     "text": "request.get_json(silent=True)"
+    },
+    {
+     "type": "plain",
+     "text": " استفاده کن و None رو هندل کن"
+    }
+   ]
+  },
+  {
+   "id": 1037,
+   "type": "message",
+   "date": "2026-10-01T14:24:51",
+   "date_unixtime": "1790852091",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "🙏",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1038,
+   "type": "message",
+   "date": "2026-10-01T14:26:47",
+   "date_unixtime": "1790852207",
+   "from": "Pooya",
+   "from_id": "user5682004974",
+   "reply_to_message_id": 1036,
+   "text": "درست شد 😍 دمت گرم علی جان",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "درست شد 😍 دمت گرم علی جان"
+    }
+   ]
+  },
+  {
+   "id": 1039,
+   "type": "message",
+   "date": "2026-10-01T14:28:32",
+   "date_unixtime": "1790852312",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1038,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "👍",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1040,
+   "type": "message",
+   "date": "2026-10-01T15:30:30",
+   "date_unixtime": "1790856030",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "کسی وبینار دیشب رو دیده؟ درباره LLM ها بود",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی وبینار دیشب رو دیده؟ درباره LLM ها بود"
+    }
+   ]
+  },
+  {
+   "id": 1041,
+   "type": "message",
+   "date": "2026-10-01T15:33:55",
+   "date_unixtime": "1790856235",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": "لینکش رو داری؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "لینکش رو داری؟"
+    }
+   ]
+  },
+  {
+   "id": 1042,
+   "type": "message",
+   "date": "2026-10-01T15:38:09",
+   "date_unixtime": "1790856489",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "ضبطش رو فردا می‌ذارن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ضبطش رو فردا می‌ذارن"
+    }
+   ]
+  },
+  {
+   "id": 1043,
+   "type": "message",
+   "date": "2026-10-01T15:43:03",
+   "date_unixtime": "1790856783",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": "👍",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "👍"
+    }
+   ]
+  },
+  {
+   "id": 1044,
+   "type": "message",
+   "date": "2026-10-01T15:43:13",
+   "date_unixtime": "1790856793",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "reply_to_message_id": 1043,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😅",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1045,
+   "type": "message",
+   "date": "2026-10-01T16:40:14",
+   "date_unixtime": "1790860214",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "text": "پایتون یاد بگیرم یا مار بگیرم؟ 🐍😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "پایتون یاد بگیرم یا مار بگیرم؟ 🐍😂"
+    }
+   ]
+  },
+  {
+   "id": 1046,
+   "type": "message",
+   "date": "2026-10-01T16:41:29",
+   "date_unixtime": "1790860289",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "reply_to_message_id": 1045,
+   "text": "هر دوش آخرش نیشت می‌زنه 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "هر دوش آخرش نیشت می‌زنه 😂"
+    }
+   ]
+  },
+  {
+   "id": 1047,
+   "type": "message",
+   "date": "2026-10-01T16:42:41",
+   "date_unixtime": "1790860361",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1045,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "🤣",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1048,
+   "type": "message",
+   "date": "2026-10-01T18:10:37",
+   "date_unixtime": "1790865637",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "text": "بازار کار جونیور پایتون این روزا چطوره؟ من حس می‌کنم آگهی‌ها نصف شده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بازار کار جونیور پایتون این روزا چطوره؟ من حس می‌کنم آگهی‌ها نصف شده"
+    }
+   ]
+  },
+  {
+   "id": 1049,
+   "type": "message",
+   "date": "2026-10-01T18:14:07",
+   "date_unixtime": "1790865847",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1048,
+   "text": "جونیور سخت شده، همه دنبال کسی‌ان که حداقل یه پروژه واقعی داشته باشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "جونیور سخت شده، همه دنبال کسی‌ان که حداقل یه پروژه واقعی داشته باشه"
+    }
+   ]
+  },
+  {
+   "id": 1050,
+   "type": "message",
+   "date": "2026-10-01T18:17:47",
+   "date_unixtime": "1790866067",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "reply_to_message_id": 1049,
+   "text": "آره، رزومه بدون نمونه‌کار اصلا دیده نمیشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره، رزومه بدون نمونه‌کار اصلا دیده نمیشه"
+    }
+   ]
+  },
+  {
+   "id": 1051,
+   "type": "message",
+   "date": "2026-10-01T18:20:43",
+   "date_unixtime": "1790866243",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1048,
+   "text": "ریموت خارجی هم هست ولی انگلیسی و گیت‌هاب درست حسابی می‌خواد",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ریموت خارجی هم هست ولی انگلیسی و گیت‌هاب درست حسابی می‌خواد"
+    }
+   ]
+  },
+  {
+   "id": 1052,
+   "type": "message",
+   "date": "2026-10-01T18:21:45",
+   "date_unixtime": "1790866305",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1051,
+   "text": "تازه با این اینترنت، ریموت کار کردن خودش یه پروژه‌ست 😅",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تازه با این اینترنت، ریموت کار کردن خودش یه پروژه‌ست 😅"
+    }
+   ]
+  },
+  {
+   "id": 1053,
+   "type": "message",
+   "date": "2026-10-01T18:23:18",
+   "date_unixtime": "1790866398",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "reply_to_message_id": 1052,
+   "text": "😂 دقیقا",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "😂 دقیقا"
+    }
+   ]
+  },
+  {
+   "id": 1054,
+   "type": "message",
+   "date": "2026-10-01T19:20:13",
+   "date_unixtime": "1790869813",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "edited": "2026-10-01T19:25:02",
+   "edited_unixtime": "1790870102",
+   "text": "عاشق این گروهم، همه انقدر مهربونن 🥹",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "عاشق این گروهم، همه انقدر مهربونن 🥹"
+    }
+   ]
+  },
+  {
+   "id": 1055,
+   "type": "message",
+   "date": "2026-10-01T19:22:27",
+   "date_unixtime": "1790869947",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "text": "تا وقتی سوال تکراری نپرسی 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تا وقتی سوال تکراری نپرسی 😂"
+    }
+   ]
+  },
+  {
+   "id": 1056,
+   "type": "message",
+   "date": "2026-10-01T19:23:46",
+   "date_unixtime": "1790870026",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "text": "😂😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "😂😂"
+    }
+   ]
+  },
+  {
+   "id": 1057,
+   "type": "message",
+   "date": "2026-10-01T20:30:51",
+   "date_unixtime": "1790874051",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "یه سوال الگوریتمی: بهترین راه پیدا کردن عناصر تکراری تو یه لیست بزرگ چیه؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه سوال الگوریتمی: بهترین راه پیدا کردن عناصر تکراری تو یه لیست بزرگ چیه؟"
+    }
+   ]
+  },
+  {
+   "id": 1058,
+   "type": "message",
+   "date": "2026-10-01T20:33:27",
+   "date_unixtime": "1790874207",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1057,
+   "text": [
+    {
+     "type": "code",
+     "text": "collections.Counter"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "code",
+     "text": "collections.Counter"
+    }
+   ]
+  },
+  {
+   "id": 1059,
+   "type": "message",
+   "date": "2026-10-01T20:34:39",
+   "date_unixtime": "1790874279",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "reply_to_message_id": 1058,
+   "text": "ممنون، خیلی تمیزتر از کد من شد 😅",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون، خیلی تمیزتر از کد من شد 😅"
+    }
+   ]
+  },
+  {
+   "id": 1060,
+   "type": "message",
+   "date": "2026-10-01T20:38:37",
+   "date_unixtime": "1790874517",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1057,
+   "text": [
+    "اگه فقط وجود تکرار مهمه، مقایسه طول لیست با ",
+    {
+     "type": "code",
+     "text": "set"
+    },
+    " کافیه"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اگه فقط وجود تکرار مهمه، مقایسه طول لیست با "
+    },
+    {
+     "type": "code",
+     "text": "set"
+    },
+    {
+     "type": "plain",
+     "text": " کافیه"
+    }
+   ]
+  },
+  {
+   "id": 1061,
+   "type": "message",
+   "date": "2026-10-01T21:40:07",
+   "date_unixtime": "1790878207",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": [
+    "کسی از ",
+    {
+     "type": "code",
+     "text": "ruff"
+    },
+    " استفاده می‌کنه؟ جای flake8 و black"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی از "
+    },
+    {
+     "type": "code",
+     "text": "ruff"
+    },
+    {
+     "type": "plain",
+     "text": " استفاده می‌کنه؟ جای flake8 و black"
+    }
+   ]
+  },
+  {
+   "id": 1062,
+   "type": "message",
+   "date": "2026-10-01T21:43:52",
+   "date_unixtime": "1790878432",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": "آره خیلی سریع‌تره، کلا عوضش کردیم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره خیلی سریع‌تره، کلا عوضش کردیم"
+    }
+   ]
+  },
+  {
+   "id": 1063,
+   "type": "message",
+   "date": "2026-10-01T21:48:51",
+   "date_unixtime": "1790878731",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": "کانفیگش رو تو pyproject بذارم؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کانفیگش رو تو pyproject بذارم؟"
+    }
+   ]
+  },
+  {
+   "id": 1064,
+   "type": "message",
+   "date": "2026-10-01T21:51:14",
+   "date_unixtime": "1790878874",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": [
+    "آره بخش ",
+    {
+     "type": "code",
+     "text": "[tool.ruff]"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره بخش "
+    },
+    {
+     "type": "code",
+     "text": "[tool.ruff]"
+    }
+   ]
+  },
+  {
+   "id": 1065,
+   "type": "message",
+   "date": "2026-10-01T23:40:21",
+   "date_unixtime": "1790885421",
+   "from": "ندا",
+   "from_id": "user5407901580",
+   "text": "کسی راه حلی واسه سوزش چشم داره؟ از بس شبا جلو مانیتورم چشمام می‌سوزه و بعدشم تا ۳ صبح خوابم نمی‌بره 😞",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی راه حلی واسه سوزش چشم داره؟ از بس شبا جلو مانیتورم چشمام می‌سوزه و بعدشم تا ۳ صبح خوابم نمی‌بره 😞"
+    }
+   ]
+  },
+  {
+   "id": 1066,
+   "type": "message",
+   "date": "2026-10-01T23:42:05",
+   "date_unixtime": "1790885525",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1065,
+   "text": "Night Light ویندوز رو روشن کن، یکم کمک می‌کنه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Night Light ویندوز رو روشن کن، یکم کمک می‌کنه"
+    }
+   ]
+  },
+  {
+   "id": 1067,
+   "type": "message",
+   "date": "2026-10-01T23:42:14",
+   "date_unixtime": "1790885534",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1066,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😅",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1068,
+   "type": "message",
+   "date": "2026-10-01T23:45:37",
+   "date_unixtime": "1790885737",
+   "from": "ندا",
+   "from_id": "user5407901580",
+   "reply_to_message_id": 1066,
+   "text": "روشنه ولی فایده نداشت زیاد. دنبال یه راه حل جدی‌ترم، کارم ایجاب می‌کنه تا دیروقت پای سیستم باشم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "روشنه ولی فایده نداشت زیاد. دنبال یه راه حل جدی‌ترم، کارم ایجاب می‌کنه تا دیروقت پای سیستم باشم"
+    }
+   ]
+  },
+  {
+   "id": 1069,
+   "type": "message",
+   "date": "2026-10-01T23:48:47",
+   "date_unixtime": "1790885927",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1068,
+   "text": "قانون ۲۰-۲۰-۲۰ رو امتحان کن، هر ۲۰ دقیقه ۲۰ ثانیه به ۶ متر دورتر نگاه کن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "قانون ۲۰-۲۰-۲۰ رو امتحان کن، هر ۲۰ دقیقه ۲۰ ثانیه به ۶ متر دورتر نگاه کن"
+    }
+   ]
+  },
+  {
+   "id": 1070,
+   "type": "message",
+   "date": "2026-10-01T23:52:48",
+   "date_unixtime": "1790886168",
+   "from": "ندا",
+   "from_id": "user5407901580",
+   "reply_to_message_id": 1069,
+   "text": "باشه حتما، ممنون 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "باشه حتما، ممنون 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1071,
+   "type": "message",
+   "date": "2026-10-02T08:55:58",
+   "date_unixtime": "1790918758",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": "صبح بخیر. امروز اینترنت بهتره یا من خوش‌شانسم؟ 😄",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "صبح بخیر. امروز اینترنت بهتره یا من خوش‌شانسم؟ 😄"
+    }
+   ]
+  },
+  {
+   "id": 1072,
+   "type": "message",
+   "date": "2026-10-02T08:56:11",
+   "date_unixtime": "1790918771",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "reply_to_message_id": 1071,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "👍",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1073,
+   "type": "message",
+   "date": "2026-10-02T08:57:40",
+   "date_unixtime": "1790918860",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1071,
+   "text": "بهتره خداروشکر",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بهتره خداروشکر"
+    }
+   ]
+  },
+  {
+   "id": 1074,
+   "type": "message",
+   "date": "2026-10-02T08:59:07",
+   "date_unixtime": "1790918947",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1071,
+   "text": "من هنوز با فیلترشکن دارم داکر pull می‌کنم 😐",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من هنوز با فیلترشکن دارم داکر pull می‌کنم 😐"
+    }
+   ]
+  },
+  {
+   "id": 1075,
+   "type": "message",
+   "date": "2026-10-02T09:40:10",
+   "date_unixtime": "1790921410",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "edited": "2026-10-02T09:45:01",
+   "edited_unixtime": "1790921701",
+   "text": "سلام کسی اینجا با Celery کار کرده؟ تسک‌هام تو صف می‌مونن اجرا نمیشن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام کسی اینجا با Celery کار کرده؟ تسک‌هام تو صف می‌مونن اجرا نمیشن"
+    }
+   ]
+  },
+  {
+   "id": 1076,
+   "type": "message",
+   "date": "2026-10-02T09:40:35",
+   "date_unixtime": "1790921435",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1075,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "🙏",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1077,
+   "type": "message",
+   "date": "2026-10-02T09:43:31",
+   "date_unixtime": "1790921611",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "text": "worker رو با همون queue بالا آوردی؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "worker رو با همون queue بالا آوردی؟"
+    }
+   ]
+  },
+  {
+   "id": 1078,
+   "type": "message",
+   "date": "2026-10-02T09:46:45",
+   "date_unixtime": "1790921805",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": [
+    "اسم queue رو عوض کرده بودم 🤦‍♂️ worker رو با ",
+    {
+     "type": "code",
+     "text": "-Q"
+    },
+    " بالا آوردم درست شد"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اسم queue رو عوض کرده بودم 🤦‍♂️ worker رو با "
+    },
+    {
+     "type": "code",
+     "text": "-Q"
+    },
+    {
+     "type": "plain",
+     "text": " بالا آوردم درست شد"
+    }
+   ]
+  },
+  {
+   "id": 1079,
+   "type": "message",
+   "date": "2026-10-02T10:20:14",
+   "date_unixtime": "1790923814",
+   "from": "Reza K",
+   "from_id": "user5091272307",
+   "text": "salam bachea, mikham python ro az sefr shoroo konam vali ye dore jeddi mikham na faghat youtube. ye dore khoob ba mentor sorag darin? poolesh moshkeli nist",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "salam bachea, mikham python ro az sefr shoroo konam vali ye dore jeddi mikham na faghat youtube. ye dore khoob ba mentor sorag darin? poolesh moshkeli nist"
+    }
+   ]
+  },
+  {
+   "id": 1080,
+   "type": "message",
+   "date": "2026-10-02T10:21:11",
+   "date_unixtime": "1790923871",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1079,
+   "text": "YouTube ham kheili manbae khoob dare, Corey Schafer ro bebin",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "YouTube ham kheili manbae khoob dare, Corey Schafer ro bebin"
+    }
+   ]
+  },
+  {
+   "id": 1081,
+   "type": "message",
+   "date": "2026-10-02T10:21:54",
+   "date_unixtime": "1790923914",
+   "from": "Reza K",
+   "from_id": "user5091272307",
+   "reply_to_message_id": 1080,
+   "text": "dide boodam, vali tanhayi nemitoonam edame bedam. 2 bar shoroo kardam vel kardam. mikham yeki bashe soalamo javab bede",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "dide boodam, vali tanhayi nemitoonam edame bedam. 2 bar shoroo kardam vel kardam. mikham yeki bashe soalamo javab bede"
+    }
+   ]
+  },
+  {
+   "id": 1082,
+   "type": "message",
+   "date": "2026-10-02T10:22:48",
+   "date_unixtime": "1790923968",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1081,
+   "text": "in soorat ye dore ba mentor va project vaghei behtare. faghat ghabl az sabtenam sarfasl va nemoone kar e daneshjoohasho bebin",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "in soorat ye dore ba mentor va project vaghei behtare. faghat ghabl az sabtenam sarfasl va nemoone kar e daneshjoohasho bebin"
+    }
+   ]
+  },
+  {
+   "id": 1083,
+   "type": "message",
+   "date": "2026-10-02T10:25:25",
+   "date_unixtime": "1790924125",
+   "from": "Reza K",
+   "from_id": "user5091272307",
+   "reply_to_message_id": 1082,
+   "text": "merci sara 🙏 age chizi sorag dari pv bede",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "merci sara 🙏 age chizi sorag dari pv bede"
+    }
+   ]
+  },
+  {
+   "id": 1084,
+   "type": "message",
+   "date": "2026-10-02T11:10:59",
+   "date_unixtime": "1790926859",
+   "from": "یاسمن",
+   "from_id": "user5352992972",
+   "text": "سلام، یه دوره پایتون مقدماتی خوب برای کسی که هیچی بلد نیست پیشنهاد می‌دین؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام، یه دوره پایتون مقدماتی خوب برای کسی که هیچی بلد نیست پیشنهاد می‌دین؟"
+    }
+   ]
+  },
+  {
+   "id": 1085,
+   "type": "message",
+   "date": "2026-10-02T11:12:57",
+   "date_unixtime": "1790926977",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1084,
+   "text": "من دوره‌ی مقدماتی مکتب‌خونه رو دیدم، برای شروع بد نبود",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من دوره‌ی مقدماتی مکتب‌خونه رو دیدم، برای شروع بد نبود"
+    }
+   ]
+  },
+  {
+   "id": 1086,
+   "type": "message",
+   "date": "2026-10-02T11:17:05",
+   "date_unixtime": "1790927225",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "reply_to_message_id": 1084,
+   "text": "کتاب «پایتون به زبان ساده» هم کنارش خوبه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کتاب «پایتون به زبان ساده» هم کنارش خوبه"
+    }
+   ]
+  },
+  {
+   "id": 1087,
+   "type": "message",
+   "date": "2026-10-02T11:18:54",
+   "date_unixtime": "1790927334",
+   "from": "یاسمن",
+   "from_id": "user5352992972",
+   "reply_to_message_id": 1085,
+   "text": "ممنون، می‌رم ببینم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون، می‌رم ببینم"
+    }
+   ]
+  },
+  {
+   "id": 1088,
+   "type": "message",
+   "date": "2026-10-02T12:30:58",
+   "date_unixtime": "1790931658",
+   "from": "آرش",
+   "from_id": "user5905121729",
+   "text": "کسی free-threaded build پایتون ۳.۱۴ رو تو پروداکشن تست کرده؟ برای CPU-bound workload‌ها هنوز overhead تک‌تردی‌ش زیاده؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی free-threaded build پایتون ۳.۱۴ رو تو پروداکشن تست کرده؟ برای CPU-bound workload‌ها هنوز overhead تک‌تردی‌ش زیاده؟"
+    }
+   ]
+  },
+  {
+   "id": 1089,
+   "type": "message",
+   "date": "2026-10-02T12:34:13",
+   "date_unixtime": "1790931853",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1088,
+   "text": "من بنچمارک گرفتم، single-thread حدود ۵ تا ۱۰ درصد کندتره ولی multi-thread واقعا scale می‌کنه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من بنچمارک گرفتم، single-thread حدود ۵ تا ۱۰ درصد کندتره ولی multi-thread واقعا scale می‌کنه"
+    }
+   ]
+  },
+  {
+   "id": 1090,
+   "type": "message",
+   "date": "2026-10-02T12:38:48",
+   "date_unixtime": "1790932128",
+   "from": "آرش",
+   "from_id": "user5905121729",
+   "reply_to_message_id": 1089,
+   "text": "extension های C چی؟ numpy مشکلی نداشت؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "extension های C چی؟ numpy مشکلی نداشت؟"
+    }
+   ]
+  },
+  {
+   "id": 1091,
+   "type": "message",
+   "date": "2026-10-02T12:40:47",
+   "date_unixtime": "1790932247",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1090,
+   "text": "numpy اوکی بود، ولی چندتا پکیج قدیمی هنوز GIL رو دوباره فعال می‌کنن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "numpy اوکی بود، ولی چندتا پکیج قدیمی هنوز GIL رو دوباره فعال می‌کنن"
+    }
+   ]
+  },
+  {
+   "id": 1092,
+   "type": "message",
+   "date": "2026-10-02T12:42:42",
+   "date_unixtime": "1790932362",
+   "from": "آرش",
+   "from_id": "user5905121729",
+   "reply_to_message_id": 1091,
+   "text": [
+    "جالبه، مرسی. پس فعلا برای سرویس پردازش تصویرمون ",
+    {
+     "type": "code",
+     "text": "multiprocessing"
+    },
+    " رو نگه می‌دارم"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "جالبه، مرسی. پس فعلا برای سرویس پردازش تصویرمون "
+    },
+    {
+     "type": "code",
+     "text": "multiprocessing"
+    },
+    {
+     "type": "plain",
+     "text": " رو نگه می‌دارم"
+    }
+   ]
+  },
+  {
+   "id": 1093,
+   "type": "message",
+   "date": "2026-10-02T12:46:42",
+   "date_unixtime": "1790932602",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1092,
+   "text": "ما هم همین کارو کردیم 👍",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ما هم همین کارو کردیم 👍"
+    }
+   ]
+  },
+  {
+   "id": 1094,
+   "type": "message",
+   "date": "2026-10-02T13:40:33",
+   "date_unixtime": "1790935833",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "text": [
+    "یه سوال ری‌اکتی دارم، می‌دونم گروه پایتونه ولی اینجا آدمای حرفه‌ای زیادن 😅 ",
+    {
+     "type": "code",
+     "text": "useEffect"
+    },
+    " من دوبار اجرا میشه"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه سوال ری‌اکتی دارم، می‌دونم گروه پایتونه ولی اینجا آدمای حرفه‌ای زیادن 😅 "
+    },
+    {
+     "type": "code",
+     "text": "useEffect"
+    },
+    {
+     "type": "plain",
+     "text": " من دوبار اجرا میشه"
+    }
+   ]
+  },
+  {
+   "id": 1095,
+   "type": "message",
+   "date": "2026-10-02T13:42:51",
+   "date_unixtime": "1790935971",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1094,
+   "text": "StrictMode تو حالت dev عمدا دوبار اجراش می‌کنه، تو production درسته",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "StrictMode تو حالت dev عمدا دوبار اجراش می‌کنه، تو production درسته"
+    }
+   ]
+  },
+  {
+   "id": 1096,
+   "type": "message",
+   "date": "2026-10-02T13:43:49",
+   "date_unixtime": "1790936029",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1095,
+   "text": "وای آره! مرسیییی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "وای آره! مرسیییی"
+    }
+   ]
+  },
+  {
+   "id": 1097,
+   "type": "message",
+   "date": "2026-10-02T13:46:14",
+   "date_unixtime": "1790936174",
+   "from": "ادمین پایتونیست‌ها",
+   "from_id": "user5282622328",
+   "reply_to_message_id": 1094,
+   "text": "سوالای غیرپایتونی رو لطفا کوتاه نگه دارید دوستان 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سوالای غیرپایتونی رو لطفا کوتاه نگه دارید دوستان 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1098,
+   "type": "message",
+   "date": "2026-10-02T13:46:19",
+   "date_unixtime": "1790936179",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "🙏",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1099,
+   "type": "message",
+   "date": "2026-10-02T14:30:25",
+   "date_unixtime": "1790938825",
+   "from": "Pooya",
+   "from_id": "user5682004974",
+   "text": "دوره پیشرفته FastAPI کسی سراغ داره؟ async و تست و deploy رو عمیق بگه. پایه رو بلدم، دنبال سطح بالاترم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "دوره پیشرفته FastAPI کسی سراغ داره؟ async و تست و deploy رو عمیق بگه. پایه رو بلدم، دنبال سطح بالاترم"
+    }
+   ]
+  },
+  {
+   "id": 1100,
+   "type": "message",
+   "date": "2026-10-02T14:34:00",
+   "date_unixtime": "1790939040",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1099,
+   "text": "داکیومنت خود FastAPI از هر دوره‌ای بهتره راستش",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "داکیومنت خود FastAPI از هر دوره‌ای بهتره راستش"
+    }
+   ]
+  },
+  {
+   "id": 1101,
+   "type": "message",
+   "date": "2026-10-02T14:34:05",
+   "date_unixtime": "1790939045",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😅",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1102,
+   "type": "message",
+   "date": "2026-10-02T14:35:51",
+   "date_unixtime": "1790939151",
+   "from": "Pooya",
+   "from_id": "user5682004974",
+   "reply_to_message_id": 1100,
+   "text": "داکیومنت رو خوندم، یه چیز پروژه‌محور می‌خوام",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "داکیومنت رو خوندم، یه چیز پروژه‌محور می‌خوام"
+    }
+   ]
+  },
+  {
+   "id": 1103,
+   "type": "message",
+   "date": "2026-10-02T15:00:53",
+   "date_unixtime": "1790940653",
+   "from": "آکادمی پایتون‌پرو 🔥",
+   "from_id": "user5571964109",
+   "text": [
+    "🔥🔥🔥 فقط امروز! دوره جامع پایتون با ۷۰٪ تخفیف 🔥🔥🔥\nدر ۲ ساعت پایتون رو مسلط شو و وارد بازار کار شو 💰💰💰\nثبت‌نام: ",
+    {
+     "type": "mention",
+     "text": "@pythonpro_academy_bot"
+    },
+    "\n✅ مدرک معتبر ✅ پشتیبانی ✅ تضمین استخدام"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "🔥🔥🔥 فقط امروز! دوره جامع پایتون با ۷۰٪ تخفیف 🔥🔥🔥\nدر ۲ ساعت پایتون رو مسلط شو و وارد بازار کار شو 💰💰💰\nثبت‌نام: "
+    },
+    {
+     "type": "mention",
+     "text": "@pythonpro_academy_bot"
+    },
+    {
+     "type": "plain",
+     "text": "\n✅ مدرک معتبر ✅ پشتیبانی ✅ تضمین استخدام"
+    }
+   ]
+  },
+  {
+   "id": 1104,
+   "type": "message",
+   "date": "2026-10-02T15:02:03",
+   "date_unixtime": "1790940723",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "reply_to_message_id": 1103,
+   "text": "آره حتما، با یه دوره ۲ ساعته هم می‌شی سینیور 😂😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره حتما، با یه دوره ۲ ساعته هم می‌شی سینیور 😂😂"
+    }
+   ]
+  },
+  {
+   "id": 1105,
+   "type": "message",
+   "date": "2026-10-02T15:03:27",
+   "date_unixtime": "1790940807",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "reply_to_message_id": 1104,
+   "text": "تضمین استخدام 😂 کجا؟ تو شرکت خودشون؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تضمین استخدام 😂 کجا؟ تو شرکت خودشون؟"
+    }
+   ]
+  },
+  {
+   "id": 1106,
+   "type": "message",
+   "date": "2026-10-02T15:04:20",
+   "date_unixtime": "1790940860",
+   "from": "ادمین پایتونیست‌ها",
+   "from_id": "user5282622328",
+   "reply_to_message_id": 1103,
+   "text": "تبلیغ بدون هماهنگی ممنوعه، اکانت ریمو شد ❌",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تبلیغ بدون هماهنگی ممنوعه، اکانت ریمو شد ❌"
+    }
+   ]
+  },
+  {
+   "id": 1107,
+   "type": "message",
+   "date": "2026-10-02T16:10:06",
+   "date_unixtime": "1790944806",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": [
+    "کسی torch رو با CUDA 12.8 روی ویندوز نصب کرده؟ ",
+    {
+     "type": "code",
+     "text": "torch.cuda.is_available()"
+    },
+    " برمیگردونه False"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی torch رو با CUDA 12.8 روی ویندوز نصب کرده؟ "
+    },
+    {
+     "type": "code",
+     "text": "torch.cuda.is_available()"
+    },
+    {
+     "type": "plain",
+     "text": " برمیگردونه False"
+    }
+   ]
+  },
+  {
+   "id": 1108,
+   "type": "message",
+   "date": "2026-10-02T16:11:49",
+   "date_unixtime": "1790944909",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1107,
+   "text": "درایور انویدیات آپدیته؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "درایور انویدیات آپدیته؟"
+    }
+   ]
+  },
+  {
+   "id": 1109,
+   "type": "message",
+   "date": "2026-10-02T16:13:59",
+   "date_unixtime": "1790945039",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1108,
+   "text": "آره آخرین نسخه‌ست",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره آخرین نسخه‌ست"
+    }
+   ]
+  },
+  {
+   "id": 1110,
+   "type": "message",
+   "date": "2026-10-02T16:15:48",
+   "date_unixtime": "1790945148",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1107,
+   "text": "از index-url مخصوص cu128 نصب کردی؟ نسخه پیش‌فرض pip نسخه CPU رو میاره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "از index-url مخصوص cu128 نصب کردی؟ نسخه پیش‌فرض pip نسخه CPU رو میاره"
+    }
+   ]
+  },
+  {
+   "id": 1111,
+   "type": "message",
+   "date": "2026-10-02T16:17:57",
+   "date_unixtime": "1790945277",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1110,
+   "text": "ای بابا همین بود 🤦‍♂️ مرسی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ای بابا همین بود 🤦‍♂️ مرسی"
+    }
+   ]
+  },
+  {
+   "id": 1112,
+   "type": "message",
+   "date": "2026-10-02T17:45:52",
+   "date_unixtime": "1790950552",
+   "from": "یاسمن",
+   "from_id": "user5352992972",
+   "reply_to_message_id": 1084,
+   "text": "ممنون از همه 🌷 تو همون دوره مکتب‌خونه ثبت‌نام کردم، فعلا راضیم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون از همه 🌷 تو همون دوره مکتب‌خونه ثبت‌نام کردم، فعلا راضیم"
+    }
+   ]
+  },
+  {
+   "id": 1113,
+   "type": "message",
+   "date": "2026-10-02T17:47:49",
+   "date_unixtime": "1790950669",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1112,
+   "text": "موفق باشی 👏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "موفق باشی 👏"
+    }
+   ]
+  },
+  {
+   "id": 1114,
+   "type": "message",
+   "date": "2026-10-02T18:30:23",
+   "date_unixtime": "1790953223",
+   "from": "حسین",
+   "from_id": "user5262903397",
+   "text": [
+    "امروز یه legacy code پایتون ۲ رو باز کردم، چشمام خون اومد 😂 همه متغیرها اسمشون ",
+    {
+     "type": "code",
+     "text": "a1"
+    },
+    " و ",
+    {
+     "type": "code",
+     "text": "tmp2"
+    },
+    " بود"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "امروز یه legacy code پایتون ۲ رو باز کردم، چشمام خون اومد 😂 همه متغیرها اسمشون "
+    },
+    {
+     "type": "code",
+     "text": "a1"
+    },
+    {
+     "type": "plain",
+     "text": " و "
+    },
+    {
+     "type": "code",
+     "text": "tmp2"
+    },
+    {
+     "type": "plain",
+     "text": " بود"
+    }
+   ]
+  },
+  {
+   "id": 1115,
+   "type": "message",
+   "date": "2026-10-02T18:32:38",
+   "date_unixtime": "1790953358",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1114,
+   "text": "این که خوبه، من یکیو دیدم کل منطق تو یه فایل ۸۰۰۰ خطی بود",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "این که خوبه، من یکیو دیدم کل منطق تو یه فایل ۸۰۰۰ خطی بود"
+    }
+   ]
+  },
+  {
+   "id": 1116,
+   "type": "message",
+   "date": "2026-10-02T18:33:31",
+   "date_unixtime": "1790953411",
+   "from": "حسین",
+   "from_id": "user5262903397",
+   "reply_to_message_id": 1115,
+   "text": "💀💀",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "💀💀"
+    }
+   ]
+  },
+  {
+   "id": 1117,
+   "type": "message",
+   "date": "2026-10-02T18:34:42",
+   "date_unixtime": "1790953482",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "reply_to_message_id": 1114,
+   "text": "refactor نکن، فرار کن 🏃‍♂️",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "refactor نکن، فرار کن 🏃‍♂️"
+    }
+   ]
+  },
+  {
+   "id": 1118,
+   "type": "message",
+   "date": "2026-10-02T19:30:40",
+   "date_unixtime": "1790956840",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "text": "کسی کتاب Fluent Python رو خونده؟ ارزش خریدن داره؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی کتاب Fluent Python رو خونده؟ ارزش خریدن داره؟"
+    }
+   ]
+  },
+  {
+   "id": 1119,
+   "type": "message",
+   "date": "2026-10-02T19:33:19",
+   "date_unixtime": "1790956999",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "text": "برای مید-لول عالیه، برای مبتدی سنگینه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "برای مید-لول عالیه، برای مبتدی سنگینه"
+    }
+   ]
+  },
+  {
+   "id": 1120,
+   "type": "message",
+   "date": "2026-10-02T19:35:37",
+   "date_unixtime": "1790957137",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "text": "پس بذارم برای بعد",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "پس بذارم برای بعد"
+    }
+   ]
+  },
+  {
+   "id": 1121,
+   "type": "message",
+   "date": "2026-10-02T21:10:02",
+   "date_unixtime": "1790962802",
+   "from": "Nima",
+   "from_id": "user5465772968",
+   "text": "بچه‌ها سه روزه سر حلقه‌های تو در تو گیر کردم 😓 این تمرین چاپ ستاره رو اصلا نمی‌فهمم. ویدیوهای یوتیوب رو هم دیدم ولی بازم گیج میشم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بچه‌ها سه روزه سر حلقه‌های تو در تو گیر کردم 😓 این تمرین چاپ ستاره رو اصلا نمی‌فهمم. ویدیوهای یوتیوب رو هم دیدم ولی بازم گیج میشم"
+    }
+   ]
+  },
+  {
+   "id": 1122,
+   "type": "message",
+   "date": "2026-10-02T21:13:14",
+   "date_unixtime": "1790962994",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1121,
+   "text": "کدت رو بفرست ببینیم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کدت رو بفرست ببینیم"
+    }
+   ]
+  },
+  {
+   "id": 1123,
+   "type": "message",
+   "date": "2026-10-02T21:15:54",
+   "date_unixtime": "1790963154",
+   "from": "Nima",
+   "from_id": "user5465772968",
+   "reply_to_message_id": 1122,
+   "text": [
+    {
+     "type": "pre",
+     "text": "for i in range(5):\n    for j in range(i):\n        print(\"*\")",
+     "language": ""
+    },
+    "\nولی همه ستاره‌ها زیر هم میان"
+   ],
+   "text_entities": [
+    {
+     "type": "pre",
+     "text": "for i in range(5):\n    for j in range(i):\n        print(\"*\")",
+     "language": ""
+    },
+    {
+     "type": "plain",
+     "text": "\nولی همه ستاره‌ها زیر هم میان"
+    }
+   ]
+  },
+  {
+   "id": 1124,
+   "type": "message",
+   "date": "2026-10-02T21:17:39",
+   "date_unixtime": "1790963259",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1123,
+   "text": [
+    "چون ",
+    {
+     "type": "code",
+     "text": "print"
+    },
+    " به‌صورت پیش‌فرض خط جدید می‌زنه. ",
+    {
+     "type": "code",
+     "text": "print(\"*\", end=\"\")"
+    },
+    " بنویس و بعد از حلقه داخلی یه ",
+    {
+     "type": "code",
+     "text": "print()"
+    },
+    " خالی بذار"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "چون "
+    },
+    {
+     "type": "code",
+     "text": "print"
+    },
+    {
+     "type": "plain",
+     "text": " به‌صورت پیش‌فرض خط جدید می‌زنه. "
+    },
+    {
+     "type": "code",
+     "text": "print(\"*\", end=\"\")"
+    },
+    {
+     "type": "plain",
+     "text": " بنویس و بعد از حلقه داخلی یه "
+    },
+    {
+     "type": "code",
+     "text": "print()"
+    },
+    {
+     "type": "plain",
+     "text": " خالی بذار"
+    }
+   ]
+  },
+  {
+   "id": 1125,
+   "type": "message",
+   "date": "2026-10-02T21:21:32",
+   "date_unixtime": "1790963492",
+   "from": "Nima",
+   "from_id": "user5465772968",
+   "reply_to_message_id": 1124,
+   "text": "وای درست شد! ممنون 🙏 کاش یکی بود همیشه این‌طوری توضیح می‌داد",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "وای درست شد! ممنون 🙏 کاش یکی بود همیشه این‌طوری توضیح می‌داد"
+    }
+   ]
+  },
+  {
+   "id": 1126,
+   "type": "message",
+   "date": "2026-10-02T22:30:39",
+   "date_unixtime": "1790967639",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "photo": "(File not included. Change data exporting settings to download.)",
+   "width": 1280,
+   "height": 720,
+   "text": "ستاپ جدیدم 😎",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ستاپ جدیدم 😎"
+    }
+   ]
+  },
+  {
+   "id": 1127,
+   "type": "message",
+   "date": "2026-10-02T22:32:33",
+   "date_unixtime": "1790967753",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "text": "اون مانیتور عمودی چه حالی میده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اون مانیتور عمودی چه حالی میده"
+    }
+   ]
+  },
+  {
+   "id": 1128,
+   "type": "message",
+   "date": "2026-10-02T22:35:35",
+   "date_unixtime": "1790967935",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "text": "چه مرتب 😍",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "چه مرتب 😍"
+    }
+   ]
+  },
+  {
+   "id": 1129,
+   "type": "message",
+   "date": "2026-10-02T22:39:15",
+   "date_unixtime": "1790968155",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": "ممنون 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1130,
+   "type": "message",
+   "date": "2026-10-03T09:00:48",
+   "date_unixtime": "1791005448",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": "جمعه‌تون بخیر 🌿",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "جمعه‌تون بخیر 🌿"
+    }
+   ]
+  },
+  {
+   "id": 1131,
+   "type": "message",
+   "date": "2026-10-03T09:02:36",
+   "date_unixtime": "1791005556",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "reply_to_message_id": 1130,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "👋",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1132,
+   "type": "message",
+   "date": "2026-10-03T10:05:01",
+   "date_unixtime": "1791009301",
+   "from": "مهسا",
+   "from_id": "user5551447525",
+   "text": "سلام. من ۳۲ سالمه و ۸ ساله حسابدارم. می‌خوام وارد برنامه‌نویسی بشم. چندتا ویدیو یوتیوب دیدم ولی پراکنده‌ست و نمی‌دونم مسیر درست چیه. یه دوره منظم با منتور می‌شناسید که آدم رو تا پیدا کردن کار ببره؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام. من ۳۲ سالمه و ۸ ساله حسابدارم. می‌خوام وارد برنامه‌نویسی بشم. چندتا ویدیو یوتیوب دیدم ولی پراکنده‌ست و نمی‌دونم مسیر درست چیه. یه دوره منظم با منتور می‌شناسید که آدم رو تا پیدا کردن کار ببره؟"
+    }
+   ]
+  },
+  {
+   "id": 1133,
+   "type": "message",
+   "date": "2026-10-03T10:10:13",
+   "date_unixtime": "1791009613",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "reply_to_message_id": 1132,
+   "text": "۳۲ سالگی اصلا دیر نیست، من ۳۰ سالگی شروع کردم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "۳۲ سالگی اصلا دیر نیست، من ۳۰ سالگی شروع کردم"
+    }
+   ]
+  },
+  {
+   "id": 1134,
+   "type": "message",
+   "date": "2026-10-03T10:11:47",
+   "date_unixtime": "1791009707",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1132,
+   "text": "با سابقه حسابداری، پایتون + تحلیل داده خیلی به کارت میاد. دنبال دوره‌ای باش که پروژه واقعی داشته باشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "با سابقه حسابداری، پایتون + تحلیل داده خیلی به کارت میاد. دنبال دوره‌ای باش که پروژه واقعی داشته باشه"
+    }
+   ]
+  },
+  {
+   "id": 1135,
+   "type": "message",
+   "date": "2026-10-03T10:16:37",
+   "date_unixtime": "1791009997",
+   "from": "مهسا",
+   "from_id": "user5551447525",
+   "reply_to_message_id": 1134,
+   "text": "ممنون 🙏 دقیقا همین نگرانی رو داشتم. بودجه‌شم کنار گذاشتم، فقط نمی‌خوام پولمو بدم به یه دوره بی‌کیفیت",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون 🙏 دقیقا همین نگرانی رو داشتم. بودجه‌شم کنار گذاشتم، فقط نمی‌خوام پولمو بدم به یه دوره بی‌کیفیت"
+    }
+   ]
+  },
+  {
+   "id": 1136,
+   "type": "message",
+   "date": "2026-10-03T10:19:10",
+   "date_unixtime": "1791010150",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1135,
+   "text": "قبل خرید حتما جلسه اول رایگان یا نمونه ویدیو رو ببین",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "قبل خرید حتما جلسه اول رایگان یا نمونه ویدیو رو ببین"
+    }
+   ]
+  },
+  {
+   "id": 1137,
+   "type": "message",
+   "date": "2026-10-03T11:30:39",
+   "date_unixtime": "1791014439",
+   "from": "محسن",
+   "from_id": "user5074418147",
+   "text": "بچه‌ها فقط منابع رایگان پایتون بفرستید لطفا. پول دوره ندارم و نمی‌خوام هم بدم، دوره‌های پولی همش کلاهبرداریه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بچه‌ها فقط منابع رایگان پایتون بفرستید لطفا. پول دوره ندارم و نمی‌خوام هم بدم، دوره‌های پولی همش کلاهبرداریه"
+    }
+   ]
+  },
+  {
+   "id": 1138,
+   "type": "message",
+   "date": "2026-10-03T11:32:02",
+   "date_unixtime": "1791014522",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1137,
+   "text": "داکیومنت رسمی پایتون بهترین منبع رایگانه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "داکیومنت رسمی پایتون بهترین منبع رایگانه"
+    }
+   ]
+  },
+  {
+   "id": 1139,
+   "type": "message",
+   "date": "2026-10-03T11:35:21",
+   "date_unixtime": "1791014721",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "reply_to_message_id": 1137,
+   "text": "کانال یوتیوب «پایتون فارسی» هم خوبه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کانال یوتیوب «پایتون فارسی» هم خوبه"
+    }
+   ]
+  },
+  {
+   "id": 1140,
+   "type": "message",
+   "date": "2026-10-03T11:37:15",
+   "date_unixtime": "1791014835",
+   "from": "محسن",
+   "from_id": "user5074418147",
+   "reply_to_message_id": 1139,
+   "text": "مرسی، فقط رایگان بفرستید لطفا 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مرسی، فقط رایگان بفرستید لطفا 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1141,
+   "type": "message",
+   "date": "2026-10-03T11:50:35",
+   "date_unixtime": "1791015635",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": [
+    "کسی تجربه کار با ",
+    {
+     "type": "code",
+     "text": "polars"
+    },
+    " داره؟ میگن از pandas سریع‌تره"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی تجربه کار با "
+    },
+    {
+     "type": "code",
+     "text": "polars"
+    },
+    {
+     "type": "plain",
+     "text": " داره؟ میگن از pandas سریع‌تره"
+    }
+   ]
+  },
+  {
+   "id": 1142,
+   "type": "message",
+   "date": "2026-10-03T11:50:55",
+   "date_unixtime": "1791015655",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😂",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1143,
+   "type": "message",
+   "date": "2026-10-03T11:55:34",
+   "date_unixtime": "1791015934",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": "آره برای داده‌های بزرگ خیلی سریع‌تره، ولی API‌ش فرق داره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره برای داده‌های بزرگ خیلی سریع‌تره، ولی API‌ش فرق داره"
+    }
+   ]
+  },
+  {
+   "id": 1144,
+   "type": "message",
+   "date": "2026-10-03T11:58:31",
+   "date_unixtime": "1791016111",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": "ارزش یاد گرفتن داره؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ارزش یاد گرفتن داره؟"
+    }
+   ]
+  },
+  {
+   "id": 1145,
+   "type": "message",
+   "date": "2026-10-03T12:03:13",
+   "date_unixtime": "1791016393",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": "اگه با داده‌های چند گیگی کار می‌کنی حتما",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اگه با داده‌های چند گیگی کار می‌کنی حتما"
+    }
+   ]
+  },
+  {
+   "id": 1146,
+   "type": "message",
+   "date": "2026-10-03T12:15:47",
+   "date_unixtime": "1791017147",
+   "from": "Kaveh",
+   "from_id": "user5697282383",
+   "text": "bachea kasi eynak zed-e noor-e abi estefade karde? arzesh dare? mikham bekharam vali nemidoonam az koja ke asl bashe",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "bachea kasi eynak zed-e noor-e abi estefade karde? arzesh dare? mikham bekharam vali nemidoonam az koja ke asl bashe"
+    }
+   ]
+  },
+  {
+   "id": 1147,
+   "type": "message",
+   "date": "2026-10-03T12:20:02",
+   "date_unixtime": "1791017402",
+   "from": "زهرا",
+   "from_id": "user5543996729",
+   "reply_to_message_id": 1146,
+   "text": "من یه ساله دارم، واقعا حس می‌کنم آخر روز چشمام کمتر خسته‌ست. راضی‌ام 👌",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من یه ساله دارم، واقعا حس می‌کنم آخر روز چشمام کمتر خسته‌ست. راضی‌ام 👌"
+    }
+   ]
+  },
+  {
+   "id": 1148,
+   "type": "message",
+   "date": "2026-10-03T12:23:08",
+   "date_unixtime": "1791017588",
+   "from": "Kaveh",
+   "from_id": "user5697282383",
+   "reply_to_message_id": 1147,
+   "text": "merci! gheymatesh chand bood?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "merci! gheymatesh chand bood?"
+    }
+   ]
+  },
+  {
+   "id": 1149,
+   "type": "message",
+   "date": "2026-10-03T12:25:58",
+   "date_unixtime": "1791017758",
+   "from": "زهرا",
+   "from_id": "user5543996729",
+   "reply_to_message_id": 1148,
+   "text": "من حدود ۸۰۰ تومن خریدم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من حدود ۸۰۰ تومن خریدم"
+    }
+   ]
+  },
+  {
+   "id": 1150,
+   "type": "message",
+   "date": "2026-10-03T12:30:03",
+   "date_unixtime": "1791018003",
+   "from": "پیمان",
+   "from_id": "user5810298244",
+   "reply_to_message_id": 1146,
+   "text": "من شنیدم بیشترش تبلیغاته، ولی ضرر نداره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من شنیدم بیشترش تبلیغاته، ولی ضرر نداره"
+    }
+   ]
+  },
+  {
+   "id": 1151,
+   "type": "message",
+   "date": "2026-10-03T13:20:34",
+   "date_unixtime": "1791021034",
+   "from": "Babak",
+   "from_id": "user5268760111",
+   "reply_to_message_id": 1132,
+   "text": "منم دنبال همینم 🙋‍♂️ فقط من شاغلم و وقتم کمه، باید عصرها یا آخر هفته باشه. اگه چیزی پیدا کردید به منم بگید",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "منم دنبال همینم 🙋‍♂️ فقط من شاغلم و وقتم کمه، باید عصرها یا آخر هفته باشه. اگه چیزی پیدا کردید به منم بگید"
+    }
+   ]
+  },
+  {
+   "id": 1152,
+   "type": "message",
+   "date": "2026-10-03T13:21:37",
+   "date_unixtime": "1791021097",
+   "from": "مهسا",
+   "from_id": "user5551447525",
+   "reply_to_message_id": 1151,
+   "text": "حتما، هرچی پیدا کردم اینجا می‌ذارم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "حتما، هرچی پیدا کردم اینجا می‌ذارم"
+    }
+   ]
+  },
+  {
+   "id": 1153,
+   "type": "message",
+   "date": "2026-10-03T14:00:45",
+   "date_unixtime": "1791023445",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": "سوال تست: تو pytest چطوری یه fixture رو بین چند فایل تست share کنم؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سوال تست: تو pytest چطوری یه fixture رو بین چند فایل تست share کنم؟"
+    }
+   ]
+  },
+  {
+   "id": 1154,
+   "type": "message",
+   "date": "2026-10-03T14:03:16",
+   "date_unixtime": "1791023596",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1153,
+   "text": [
+    "بذارش تو ",
+    {
+     "type": "code",
+     "text": "conftest.py"
+    },
+    "، خودکار پیدا میشه"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بذارش تو "
+    },
+    {
+     "type": "code",
+     "text": "conftest.py"
+    },
+    {
+     "type": "plain",
+     "text": "، خودکار پیدا میشه"
+    }
+   ]
+  },
+  {
+   "id": 1155,
+   "type": "message",
+   "date": "2026-10-03T14:07:04",
+   "date_unixtime": "1791023824",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1154,
+   "text": "scope رو چی بذارم که دیتابیس هر بار ساخته نشه؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "scope رو چی بذارم که دیتابیس هر بار ساخته نشه؟"
+    }
+   ]
+  },
+  {
+   "id": 1156,
+   "type": "message",
+   "date": "2026-10-03T14:09:39",
+   "date_unixtime": "1791023979",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1155,
+   "text": [
+    {
+     "type": "code",
+     "text": "scope=\"session\""
+    },
+    " ولی حواست به state مشترک باشه"
+   ],
+   "text_entities": [
+    {
+     "type": "code",
+     "text": "scope=\"session\""
+    },
+    {
+     "type": "plain",
+     "text": " ولی حواست به state مشترک باشه"
+    }
+   ]
+  },
+  {
+   "id": 1157,
+   "type": "message",
+   "date": "2026-10-03T14:13:11",
+   "date_unixtime": "1791024191",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1156,
+   "text": "عالی، مرسی 🙌",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "عالی، مرسی 🙌"
+    }
+   ]
+  },
+  {
+   "id": 1158,
+   "type": "message",
+   "date": "2026-10-03T14:13:23",
+   "date_unixtime": "1791024203",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1157,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😅",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1159,
+   "type": "message",
+   "date": "2026-10-03T15:10:14",
+   "date_unixtime": "1791027614",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": "کسی از Jupyter به notebook های VS Code کوچ کرده؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی از Jupyter به notebook های VS Code کوچ کرده؟"
+    }
+   ]
+  },
+  {
+   "id": 1160,
+   "type": "message",
+   "date": "2026-10-03T15:15:09",
+   "date_unixtime": "1791027909",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": "آره، دیباگرش خیلی بهتره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره، دیباگرش خیلی بهتره"
+    }
+   ]
+  },
+  {
+   "id": 1161,
+   "type": "message",
+   "date": "2026-10-03T15:17:09",
+   "date_unixtime": "1791028029",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": "اکستنشن خاصی لازمه؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اکستنشن خاصی لازمه؟"
+    }
+   ]
+  },
+  {
+   "id": 1162,
+   "type": "message",
+   "date": "2026-10-03T15:22:02",
+   "date_unixtime": "1791028322",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": "فقط Python و Jupyter مایکروسافت",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "فقط Python و Jupyter مایکروسافت"
+    }
+   ]
+  },
+  {
+   "id": 1163,
+   "type": "message",
+   "date": "2026-10-03T16:30:48",
+   "date_unixtime": "1791032448",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "text": "یه سوال: حقوق جونیور پایتون تو تهران الان حدودا چقدره؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه سوال: حقوق جونیور پایتون تو تهران الان حدودا چقدره؟"
+    }
+   ]
+  },
+  {
+   "id": 1164,
+   "type": "message",
+   "date": "2026-10-03T16:32:42",
+   "date_unixtime": "1791032562",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1163,
+   "text": "بین ۲۰ تا ۳۵ میلیون شنیدم، بستگی به شرکت داره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بین ۲۰ تا ۳۵ میلیون شنیدم، بستگی به شرکت داره"
+    }
+   ]
+  },
+  {
+   "id": 1165,
+   "type": "message",
+   "date": "2026-10-03T16:34:07",
+   "date_unixtime": "1791032647",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1164,
+   "text": "مید-لول حدود ۴۵ تا ۷۰، سینیور دیگه توافقیه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مید-لول حدود ۴۵ تا ۷۰، سینیور دیگه توافقیه"
+    }
+   ]
+  },
+  {
+   "id": 1166,
+   "type": "message",
+   "date": "2026-10-03T16:36:38",
+   "date_unixtime": "1791032798",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "reply_to_message_id": 1165,
+   "text": "با این تورم که هیچی 😅",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "با این تورم که هیچی 😅"
+    }
+   ]
+  },
+  {
+   "id": 1167,
+   "type": "message",
+   "date": "2026-10-03T16:38:28",
+   "date_unixtime": "1791032908",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "reply_to_message_id": 1166,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😭",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1168,
+   "type": "message",
+   "date": "2026-10-03T18:00:21",
+   "date_unixtime": "1791037821",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "edited": "2026-10-03T18:05:14",
+   "edited_unixtime": "1791038114",
+   "text": "فردا اولین مصاحبه فنی‌مه 😬 چیا بیشتر می‌پرسن؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "فردا اولین مصاحبه فنی‌مه 😬 چیا بیشتر می‌پرسن؟"
+    }
+   ]
+  },
+  {
+   "id": 1169,
+   "type": "message",
+   "date": "2026-10-03T18:02:36",
+   "date_unixtime": "1791037956",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1168,
+   "text": "ساختار داده‌ها، فرق list و tuple و set، decorator، generator. یه کد ساده هم ازت می‌خوان بنویسی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ساختار داده‌ها، فرق list و tuple و set، decorator، generator. یه کد ساده هم ازت می‌خوان بنویسی"
+    }
+   ]
+  },
+  {
+   "id": 1170,
+   "type": "message",
+   "date": "2026-10-03T18:05:52",
+   "date_unixtime": "1791038152",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1168,
+   "text": "پروژه‌هات رو کامل توضیح بده، اینکه چرا اون تصمیم‌ها رو گرفتی مهمه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "پروژه‌هات رو کامل توضیح بده، اینکه چرا اون تصمیم‌ها رو گرفتی مهمه"
+    }
+   ]
+  },
+  {
+   "id": 1171,
+   "type": "message",
+   "date": "2026-10-03T18:09:32",
+   "date_unixtime": "1791038372",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1170,
+   "text": "مرسی 🙏 استرس دارم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مرسی 🙏 استرس دارم"
+    }
+   ]
+  },
+  {
+   "id": 1172,
+   "type": "message",
+   "date": "2026-10-03T18:10:57",
+   "date_unixtime": "1791038457",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1171,
+   "text": "موفق باشی 🍀",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "موفق باشی 🍀"
+    }
+   ]
+  },
+  {
+   "id": 1173,
+   "type": "message",
+   "date": "2026-10-03T19:20:33",
+   "date_unixtime": "1791042633",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "text": "کی تا حالا کد رو مستقیم تو production تست کرده؟ 🙋‍♂️",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کی تا حالا کد رو مستقیم تو production تست کرده؟ 🙋‍♂️"
+    }
+   ]
+  },
+  {
+   "id": 1174,
+   "type": "message",
+   "date": "2026-10-03T19:23:15",
+   "date_unixtime": "1791042795",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "text": "همه، فقط بعضیا اعتراف نمی‌کنن 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "همه، فقط بعضیا اعتراف نمی‌کنن 😂"
+    }
+   ]
+  },
+  {
+   "id": 1175,
+   "type": "message",
+   "date": "2026-10-03T19:25:45",
+   "date_unixtime": "1791042945",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": "friday deploy 💀",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "friday deploy 💀"
+    }
+   ]
+  },
+  {
+   "id": 1176,
+   "type": "message",
+   "date": "2026-10-03T20:15:00",
+   "date_unixtime": "1791045900",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "forwarded_from": "Python Weekly",
+   "text": [
+    "Python 3.14 is out: free-threading officially supported, template strings (t-strings), better error messages and more ",
+    {
+     "type": "link",
+     "text": "https://docs.python.org/3/whatsnew/3.14.html"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Python 3.14 is out: free-threading officially supported, template strings (t-strings), better error messages and more "
+    },
+    {
+     "type": "link",
+     "text": "https://docs.python.org/3/whatsnew/3.14.html"
+    }
+   ]
+  },
+  {
+   "id": 1177,
+   "type": "message",
+   "date": "2026-10-03T20:17:55",
+   "date_unixtime": "1791046075",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1176,
+   "text": "t-string ها جالبن، برای ساختن SQL امن عالیه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "t-string ها جالبن، برای ساختن SQL امن عالیه"
+    }
+   ]
+  },
+  {
+   "id": 1178,
+   "type": "message",
+   "date": "2026-10-03T20:21:41",
+   "date_unixtime": "1791046301",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1177,
+   "text": "من هنوز رو ۳.۱۲ پروداکشنیم، حالا حالاها آپگرید نمی‌کنیم 😅",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من هنوز رو ۳.۱۲ پروداکشنیم، حالا حالاها آپگرید نمی‌کنیم 😅"
+    }
+   ]
+  },
+  {
+   "id": 1179,
+   "type": "message",
+   "date": "2026-10-03T21:30:11",
+   "date_unixtime": "1791050411",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "کسی میز ایستاده استفاده می‌کنه؟ ارزش خریدن داره؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی میز ایستاده استفاده می‌کنه؟ ارزش خریدن داره؟"
+    }
+   ]
+  },
+  {
+   "id": 1180,
+   "type": "message",
+   "date": "2026-10-03T21:32:08",
+   "date_unixtime": "1791050528",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "reply_to_message_id": 1179,
+   "text": "من دارم، کمردردم خیلی بهتر شده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من دارم، کمردردم خیلی بهتر شده"
+    }
+   ]
+  },
+  {
+   "id": 1181,
+   "type": "message",
+   "date": "2026-10-03T21:34:17",
+   "date_unixtime": "1791050657",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "reply_to_message_id": 1180,
+   "text": "قیمتش چقدره حدودا؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "قیمتش چقدره حدودا؟"
+    }
+   ]
+  },
+  {
+   "id": 1182,
+   "type": "message",
+   "date": "2026-10-03T21:37:52",
+   "date_unixtime": "1791050872",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "reply_to_message_id": 1181,
+   "text": "برقی‌ها گرونن، دستی‌ها ارزون‌ترن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "برقی‌ها گرونن، دستی‌ها ارزون‌ترن"
+    }
+   ]
+  },
+  {
+   "id": 1183,
+   "type": "message",
+   "date": "2026-10-03T21:38:17",
+   "date_unixtime": "1791050897",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😅",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1184,
+   "type": "message",
+   "date": "2026-10-04T08:30:29",
+   "date_unixtime": "1791090029",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "صبح بخیر 🌞",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "صبح بخیر 🌞"
+    }
+   ]
+  },
+  {
+   "id": 1185,
+   "type": "message",
+   "date": "2026-10-04T08:31:54",
+   "date_unixtime": "1791090114",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1184,
+   "text": "صبح بخیر",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "صبح بخیر"
+    }
+   ]
+  },
+  {
+   "id": 1186,
+   "type": "message",
+   "date": "2026-10-04T09:40:13",
+   "date_unixtime": "1791094213",
+   "from": "Amir.dev",
+   "from_id": "user5907377146",
+   "text": "بچه‌ها کمک! درس مبانی برنامه‌نویسی دانشگاه با پایتونه و هفته بعد میان‌ترمه. استادمون درست درس نمیده و من کلا عقبم 😭 یه دوره سریع و منظم می‌شناسید که تا هفته بعد برسم؟ هزینه‌ش مهم نیست فقط زود باشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بچه‌ها کمک! درس مبانی برنامه‌نویسی دانشگاه با پایتونه و هفته بعد میان‌ترمه. استادمون درست درس نمیده و من کلا عقبم 😭 یه دوره سریع و منظم می‌شناسید که تا هفته بعد برسم؟ هزینه‌ش مهم نیست فقط زود باشه"
+    }
+   ]
+  },
+  {
+   "id": 1187,
+   "type": "message",
+   "date": "2026-10-04T09:43:18",
+   "date_unixtime": "1791094398",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1186,
+   "text": "سرفصل‌ها چیه؟ شاید با چند تا ویدیو برسی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سرفصل‌ها چیه؟ شاید با چند تا ویدیو برسی"
+    }
+   ]
+  },
+  {
+   "id": 1188,
+   "type": "message",
+   "date": "2026-10-04T09:44:41",
+   "date_unixtime": "1791094481",
+   "from": "Amir.dev",
+   "from_id": "user5907377146",
+   "reply_to_message_id": 1187,
+   "text": "متغیر، شرط، حلقه، تابع، لیست و دیکشنری. حتی اینا رو هم درست بلد نیستم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "متغیر، شرط، حلقه، تابع، لیست و دیکشنری. حتی اینا رو هم درست بلد نیستم"
+    }
+   ]
+  },
+  {
+   "id": 1189,
+   "type": "message",
+   "date": "2026-10-04T09:46:35",
+   "date_unixtime": "1791094595",
+   "from": "استاد کریمی (تدریس خصوصی)",
+   "from_id": "user5363746409",
+   "reply_to_message_id": 1186,
+   "text": "سلام، من مدرس خصوصی پایتون هستم با ۱۰ سال سابقه 🎓 کلاس فشرده مخصوص میان‌ترم دارم، پیوی بدید",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام، من مدرس خصوصی پایتون هستم با ۱۰ سال سابقه 🎓 کلاس فشرده مخصوص میان‌ترم دارم، پیوی بدید"
+    }
+   ]
+  },
+  {
+   "id": 1190,
+   "type": "message",
+   "date": "2026-10-04T09:46:45",
+   "date_unixtime": "1791094605",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "🙏",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1191,
+   "type": "message",
+   "date": "2026-10-04T09:48:40",
+   "date_unixtime": "1791094720",
+   "from": "ادمین پایتونیست‌ها",
+   "from_id": "user5282622328",
+   "reply_to_message_id": 1189,
+   "text": "آقای کریمی تبلیغ ممنوعه، لطفا رعایت کنید 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آقای کریمی تبلیغ ممنوعه، لطفا رعایت کنید 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1192,
+   "type": "message",
+   "date": "2026-10-04T09:50:38",
+   "date_unixtime": "1791094838",
+   "from": "Amir.dev",
+   "from_id": "user5907377146",
+   "text": "اگه دوره آنلاین با تمرین و رفع اشکال باشه بهتره، کلاس حضوری وقتشو ندارم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اگه دوره آنلاین با تمرین و رفع اشکال باشه بهتره، کلاس حضوری وقتشو ندارم"
+    }
+   ]
+  },
+  {
+   "id": 1193,
+   "type": "message",
+   "date": "2026-10-04T10:30:21",
+   "date_unixtime": "1791097221",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "دوستان کسی می‌دونه چرا بعضی صفحه‌های داکیومنت پایتون باز نمیشه؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "دوستان کسی می‌دونه چرا بعضی صفحه‌های داکیومنت پایتون باز نمیشه؟"
+    }
+   ]
+  },
+  {
+   "id": 1194,
+   "type": "message",
+   "date": "2026-10-04T10:35:16",
+   "date_unixtime": "1791097516",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": "بعضی CDN ها تحریمن، با فیلترشکن باز میشه 😐",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بعضی CDN ها تحریمن، با فیلترشکن باز میشه 😐"
+    }
+   ]
+  },
+  {
+   "id": 1195,
+   "type": "message",
+   "date": "2026-10-04T10:40:15",
+   "date_unixtime": "1791097815",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "ای بابا 😩",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ای بابا 😩"
+    }
+   ]
+  },
+  {
+   "id": 1196,
+   "type": "message",
+   "date": "2026-10-04T11:00:17",
+   "date_unixtime": "1791099017",
+   "from": "شیرین",
+   "from_id": "user5589489736",
+   "text": "سلام، دوره خوب جاوا برای اسپرینگ بوت کسی سراغ داره؟ شرکتمون داره کل پروژه رو جاوایی می‌کنه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام، دوره خوب جاوا برای اسپرینگ بوت کسی سراغ داره؟ شرکتمون داره کل پروژه رو جاوایی می‌کنه"
+    }
+   ]
+  },
+  {
+   "id": 1197,
+   "type": "message",
+   "date": "2026-10-04T11:02:40",
+   "date_unixtime": "1791099160",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1196,
+   "text": "اینجا گروه پایتونه ولی برای اسپرینگ داکیومنت خودش و آموزش‌های Baeldung خوبن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اینجا گروه پایتونه ولی برای اسپرینگ داکیومنت خودش و آموزش‌های Baeldung خوبن"
+    }
+   ]
+  },
+  {
+   "id": 1198,
+   "type": "message",
+   "date": "2026-10-04T11:05:09",
+   "date_unixtime": "1791099309",
+   "from": "شیرین",
+   "from_id": "user5589489736",
+   "reply_to_message_id": 1197,
+   "text": "آره می‌دونم، گفتم شاید کسی بدونه. مرسی 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره می‌دونم، گفتم شاید کسی بدونه. مرسی 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1199,
+   "type": "message",
+   "date": "2026-10-04T12:30:55",
+   "date_unixtime": "1791104455",
+   "from": "سعید",
+   "from_id": "user5884174863",
+   "text": "من این روزا روزی ۱۰ ساعت کد می‌زنم و آخر روز سردرد شدید می‌گیرم، مخصوصا پشت چشمام. تم دارک و فونت بزرگ هم امتحان کردم. شما چیکار می‌کنید؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من این روزا روزی ۱۰ ساعت کد می‌زنم و آخر روز سردرد شدید می‌گیرم، مخصوصا پشت چشمام. تم دارک و فونت بزرگ هم امتحان کردم. شما چیکار می‌کنید؟"
+    }
+   ]
+  },
+  {
+   "id": 1200,
+   "type": "message",
+   "date": "2026-10-04T12:32:18",
+   "date_unixtime": "1791104538",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1199,
+   "text": "نور اتاق رو هم با مانیتور هماهنگ کن، تو تاریکی کار نکن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "نور اتاق رو هم با مانیتور هماهنگ کن، تو تاریکی کار نکن"
+    }
+   ]
+  },
+  {
+   "id": 1201,
+   "type": "message",
+   "date": "2026-10-04T12:34:46",
+   "date_unixtime": "1791104686",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1199,
+   "text": "من عینک محافظ گرفتم یکم بهتر شد، ولی اول برو چشم‌پزشکی شاید نمره داشته باشی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من عینک محافظ گرفتم یکم بهتر شد، ولی اول برو چشم‌پزشکی شاید نمره داشته باشی"
+    }
+   ]
+  },
+  {
+   "id": 1202,
+   "type": "message",
+   "date": "2026-10-04T12:39:18",
+   "date_unixtime": "1791104958",
+   "from": "سعید",
+   "from_id": "user5884174863",
+   "reply_to_message_id": 1201,
+   "text": "آره باید چشمامو چک کنم. عینک محافظ رو از کجا گرفتی؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره باید چشمامو چک کنم. عینک محافظ رو از کجا گرفتی؟"
+    }
+   ]
+  },
+  {
+   "id": 1203,
+   "type": "message",
+   "date": "2026-10-04T12:41:32",
+   "date_unixtime": "1791105092",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1202,
+   "text": "از یه عینک‌فروشی تو ولیعصر، یادم نیست اسمش",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "از یه عینک‌فروشی تو ولیعصر، یادم نیست اسمش"
+    }
+   ]
+  },
+  {
+   "id": 1204,
+   "type": "message",
+   "date": "2026-10-04T14:10:47",
+   "date_unixtime": "1791110447",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": [
+    "یه چیز عجیب: کانتینر Django من با ",
+    {
+     "type": "code",
+     "text": "docker compose up"
+    },
+    " بالا میاد ولی به Postgres وصل نمیشه، ",
+    {
+     "type": "code",
+     "text": "connection refused"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه چیز عجیب: کانتینر Django من با "
+    },
+    {
+     "type": "code",
+     "text": "docker compose up"
+    },
+    {
+     "type": "plain",
+     "text": " بالا میاد ولی به Postgres وصل نمیشه، "
+    },
+    {
+     "type": "code",
+     "text": "connection refused"
+    }
+   ]
+  },
+  {
+   "id": 1205,
+   "type": "message",
+   "date": "2026-10-04T14:13:10",
+   "date_unixtime": "1791110590",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1204,
+   "text": [
+    "تو settings هاست رو ",
+    {
+     "type": "code",
+     "text": "localhost"
+    },
+    " گذاشتی؟ باید اسم سرویس باشه، مثلا ",
+    {
+     "type": "code",
+     "text": "db"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تو settings هاست رو "
+    },
+    {
+     "type": "code",
+     "text": "localhost"
+    },
+    {
+     "type": "plain",
+     "text": " گذاشتی؟ باید اسم سرویس باشه، مثلا "
+    },
+    {
+     "type": "code",
+     "text": "db"
+    }
+   ]
+  },
+  {
+   "id": 1206,
+   "type": "message",
+   "date": "2026-10-04T14:14:43",
+   "date_unixtime": "1791110683",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1205,
+   "text": [
+    "نه ",
+    {
+     "type": "code",
+     "text": "db"
+    },
+    " گذاشتم"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "نه "
+    },
+    {
+     "type": "code",
+     "text": "db"
+    },
+    {
+     "type": "plain",
+     "text": " گذاشتم"
+    }
+   ]
+  },
+  {
+   "id": 1207,
+   "type": "message",
+   "date": "2026-10-04T14:17:24",
+   "date_unixtime": "1791110844",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1204,
+   "text": [
+    "شاید Django زودتر از Postgres بالا میاد. ",
+    {
+     "type": "code",
+     "text": "depends_on"
+    },
+    " با ",
+    {
+     "type": "code",
+     "text": "condition: service_healthy"
+    },
+    " بذار"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "شاید Django زودتر از Postgres بالا میاد. "
+    },
+    {
+     "type": "code",
+     "text": "depends_on"
+    },
+    {
+     "type": "plain",
+     "text": " با "
+    },
+    {
+     "type": "code",
+     "text": "condition: service_healthy"
+    },
+    {
+     "type": "plain",
+     "text": " بذار"
+    }
+   ]
+  },
+  {
+   "id": 1208,
+   "type": "message",
+   "date": "2026-10-04T14:20:33",
+   "date_unixtime": "1791111033",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1207,
+   "text": "آره همین بود! healthcheck نداشتم 🤦‍♂️",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره همین بود! healthcheck نداشتم 🤦‍♂️"
+    }
+   ]
+  },
+  {
+   "id": 1209,
+   "type": "message",
+   "date": "2026-10-04T14:23:24",
+   "date_unixtime": "1791111204",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1208,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "👍",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1210,
+   "type": "message",
+   "date": "2026-10-04T15:00:38",
+   "date_unixtime": "1791113438",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "text": "یه آگهی کار دیدم نوشته بود ۵ سال سابقه FastAPI می‌خوایم 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه آگهی کار دیدم نوشته بود ۵ سال سابقه FastAPI می‌خوایم 😂"
+    }
+   ]
+  },
+  {
+   "id": 1211,
+   "type": "message",
+   "date": "2026-10-04T15:02:20",
+   "date_unixtime": "1791113540",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "text": "FastAPI خودش چند سال بیشتر نیست اومده 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "FastAPI خودش چند سال بیشتر نیست اومده 😂"
+    }
+   ]
+  },
+  {
+   "id": 1212,
+   "type": "message",
+   "date": "2026-10-04T15:07:07",
+   "date_unixtime": "1791113827",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "text": "احتمالا منظورشون ۵ سال سابقه تحمل استرسه 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "احتمالا منظورشون ۵ سال سابقه تحمل استرسه 😂"
+    }
+   ]
+  },
+  {
+   "id": 1213,
+   "type": "message",
+   "date": "2026-10-04T16:00:59",
+   "date_unixtime": "1791117059",
+   "from": "پیمان",
+   "from_id": "user5810298244",
+   "text": "بچه‌ها یه مانیتور ۲۷ اینچ ۱۴۴ هرتز برای گیم و یکم کد زدن زیر ۱۵ میلیون پیشنهاد بدید",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بچه‌ها یه مانیتور ۲۷ اینچ ۱۴۴ هرتز برای گیم و یکم کد زدن زیر ۱۵ میلیون پیشنهاد بدید"
+    }
+   ]
+  },
+  {
+   "id": 1214,
+   "type": "message",
+   "date": "2026-10-04T16:03:30",
+   "date_unixtime": "1791117210",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1213,
+   "text": "ال‌جی و ایسوس مدل‌های خوبی دارن، پنل IPS بگیر",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ال‌جی و ایسوس مدل‌های خوبی دارن، پنل IPS بگیر"
+    }
+   ]
+  },
+  {
+   "id": 1215,
+   "type": "message",
+   "date": "2026-10-04T16:05:54",
+   "date_unixtime": "1791117354",
+   "from": "پیمان",
+   "from_id": "user5810298244",
+   "reply_to_message_id": 1214,
+   "text": "IPS واسه گیم کند نیست؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "IPS واسه گیم کند نیست؟"
+    }
+   ]
+  },
+  {
+   "id": 1216,
+   "type": "message",
+   "date": "2026-10-04T16:09:12",
+   "date_unixtime": "1791117552",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1215,
+   "edited": "2026-10-04T16:11:08",
+   "edited_unixtime": "1791117668",
+   "text": "نه، الان IPS ها ۱ میلی‌ثانیه‌ن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "نه، الان IPS ها ۱ میلی‌ثانیه‌ن"
+    }
+   ]
+  },
+  {
+   "id": 1217,
+   "type": "message",
+   "date": "2026-10-04T17:40:33",
+   "date_unixtime": "1791123033",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": "کسی Playwright رو با pytest برای تست UI استفاده کرده؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی Playwright رو با pytest برای تست UI استفاده کرده؟"
+    }
+   ]
+  },
+  {
+   "id": 1218,
+   "type": "message",
+   "date": "2026-10-04T17:43:39",
+   "date_unixtime": "1791123219",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1217,
+   "text": "آره عالیه، از Selenium خیلی پایدارتره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره عالیه، از Selenium خیلی پایدارتره"
+    }
+   ]
+  },
+  {
+   "id": 1219,
+   "type": "message",
+   "date": "2026-10-04T17:47:34",
+   "date_unixtime": "1791123454",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1218,
+   "text": "headless تو CI مشکلی نداشت؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "headless تو CI مشکلی نداشت؟"
+    }
+   ]
+  },
+  {
+   "id": 1220,
+   "type": "message",
+   "date": "2026-10-04T17:49:02",
+   "date_unixtime": "1791123542",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1219,
+   "text": [
+    "نه فقط باید ",
+    {
+     "type": "code",
+     "text": "playwright install --with-deps"
+    },
+    " رو تو CI بزنی"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "نه فقط باید "
+    },
+    {
+     "type": "code",
+     "text": "playwright install --with-deps"
+    },
+    {
+     "type": "plain",
+     "text": " رو تو CI بزنی"
+    }
+   ]
+  },
+  {
+   "id": 1221,
+   "type": "message",
+   "date": "2026-10-04T19:30:36",
+   "date_unixtime": "1791129636",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "text": "بازی امشب کی می‌بینه؟ ⚽",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بازی امشب کی می‌بینه؟ ⚽"
+    }
+   ]
+  },
+  {
+   "id": 1222,
+   "type": "message",
+   "date": "2026-10-04T19:32:32",
+   "date_unixtime": "1791129752",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "reply_to_message_id": 1221,
+   "text": "من، ولی با این اینترنت باید رادیو گوش بدم 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من، ولی با این اینترنت باید رادیو گوش بدم 😂"
+    }
+   ]
+  },
+  {
+   "id": 1223,
+   "type": "message",
+   "date": "2026-10-04T19:33:17",
+   "date_unixtime": "1791129797",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1221,
+   "text": "بچه‌ها اینجا گروه پایتونه 😅",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بچه‌ها اینجا گروه پایتونه 😅"
+    }
+   ]
+  },
+  {
+   "id": 1224,
+   "type": "message",
+   "date": "2026-10-04T19:34:28",
+   "date_unixtime": "1791129868",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "reply_to_message_id": 1223,
+   "text": "پایتون هم ماره دیگه، ورزشیه 🐍⚽",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "پایتون هم ماره دیگه، ورزشیه 🐍⚽"
+    }
+   ]
+  },
+  {
+   "id": 1225,
+   "type": "message",
+   "date": "2026-10-04T21:00:13",
+   "date_unixtime": "1791135013",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": "به نظرتون برای یادگیری برنامه‌نویسی استفاده از ChatGPT خوبه یا آدمو تنبل می‌کنه؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "به نظرتون برای یادگیری برنامه‌نویسی استفاده از ChatGPT خوبه یا آدمو تنبل می‌کنه؟"
+    }
+   ]
+  },
+  {
+   "id": 1226,
+   "type": "message",
+   "date": "2026-10-04T21:01:19",
+   "date_unixtime": "1791135079",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1225,
+   "text": "اگه کد رو کپی کنی و نفهمی، تنبل می‌کنه. اگه ازش بپرسی چرا، معلم خوبیه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اگه کد رو کپی کنی و نفهمی، تنبل می‌کنه. اگه ازش بپرسی چرا، معلم خوبیه"
+    }
+   ]
+  },
+  {
+   "id": 1227,
+   "type": "message",
+   "date": "2026-10-04T21:05:19",
+   "date_unixtime": "1791135319",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1226,
+   "text": "برای debug کردن عالیه، برای طراحی سیستم هنوز ضعیفه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "برای debug کردن عالیه، برای طراحی سیستم هنوز ضعیفه"
+    }
+   ]
+  },
+  {
+   "id": 1228,
+   "type": "message",
+   "date": "2026-10-04T21:08:27",
+   "date_unixtime": "1791135507",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1225,
+   "text": "من به جونیورها میگم اول خودت فکر کن، بعد ازش بپرس",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من به جونیورها میگم اول خودت فکر کن، بعد ازش بپرس"
+    }
+   ]
+  },
+  {
+   "id": 1229,
+   "type": "message",
+   "date": "2026-10-04T21:12:28",
+   "date_unixtime": "1791135748",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1228,
+   "text": "منطقیه 👌",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "منطقیه 👌"
+    }
+   ]
+  },
+  {
+   "id": 1230,
+   "type": "message",
+   "date": "2026-10-04T21:12:52",
+   "date_unixtime": "1791135772",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "👏",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1231,
+   "type": "message",
+   "date": "2026-10-04T22:30:17",
+   "date_unixtime": "1791140417",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "text": "کسی یه سریال سبک درباره برنامه‌نویس‌ها پیشنهاد داره؟ 😄",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی یه سریال سبک درباره برنامه‌نویس‌ها پیشنهاد داره؟ 😄"
+    }
+   ]
+  },
+  {
+   "id": 1232,
+   "type": "message",
+   "date": "2026-10-04T22:34:40",
+   "date_unixtime": "1791140680",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "text": "Mr. Robot رو دیدی؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Mr. Robot رو دیدی؟"
+    }
+   ]
+  },
+  {
+   "id": 1233,
+   "type": "message",
+   "date": "2026-10-04T22:39:39",
+   "date_unixtime": "1791140979",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "text": "آره 😍 یه چیز سبک‌تر",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره 😍 یه چیز سبک‌تر"
+    }
+   ]
+  },
+  {
+   "id": 1234,
+   "type": "message",
+   "date": "2026-10-04T22:42:15",
+   "date_unixtime": "1791141135",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "text": "The IT Crowd 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "The IT Crowd 😂"
+    }
+   ]
+  },
+  {
+   "id": 1235,
+   "type": "message",
+   "date": "2026-10-05T08:45:08",
+   "date_unixtime": "1791177308",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": "مصاحبه‌م خوب بود! فکر کنم قبول شم 🤞",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مصاحبه‌م خوب بود! فکر کنم قبول شم 🤞"
+    }
+   ]
+  },
+  {
+   "id": 1236,
+   "type": "message",
+   "date": "2026-10-05T08:48:30",
+   "date_unixtime": "1791177510",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1235,
+   "text": "👏👏 عالی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "👏👏 عالی"
+    }
+   ]
+  },
+  {
+   "id": 1237,
+   "type": "message",
+   "date": "2026-10-05T08:51:30",
+   "date_unixtime": "1791177690",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1235,
+   "text": "تبریک پیشاپیش 🎉",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تبریک پیشاپیش 🎉"
+    }
+   ]
+  },
+  {
+   "id": 1238,
+   "type": "message",
+   "date": "2026-10-05T08:53:54",
+   "date_unixtime": "1791177834",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1235,
+   "text": "دیدی گفتم 🍀",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "دیدی گفتم 🍀"
+    }
+   ]
+  },
+  {
+   "id": 1239,
+   "type": "message",
+   "date": "2026-10-05T09:20:27",
+   "date_unixtime": "1791179427",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": [
+    "کسی می‌دونه ",
+    {
+     "type": "code",
+     "text": "typing.Self"
+    },
+    " از کدوم نسخه اومده؟"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی می‌دونه "
+    },
+    {
+     "type": "code",
+     "text": "typing.Self"
+    },
+    {
+     "type": "plain",
+     "text": " از کدوم نسخه اومده؟"
+    }
+   ]
+  },
+  {
+   "id": 1240,
+   "type": "message",
+   "date": "2026-10-05T09:23:07",
+   "date_unixtime": "1791179587",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "text": "۳.۱۱",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "۳.۱۱"
+    }
+   ]
+  },
+  {
+   "id": 1241,
+   "type": "message",
+   "date": "2026-10-05T09:23:31",
+   "date_unixtime": "1791179611",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "reply_to_message_id": 1240,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "🙏",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1242,
+   "type": "message",
+   "date": "2026-10-05T09:24:12",
+   "date_unixtime": "1791179652",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": "مرسی 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مرسی 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1243,
+   "type": "message",
+   "date": "2026-10-05T10:00:29",
+   "date_unixtime": "1791181829",
+   "from": "حامد",
+   "from_id": "user5271913259",
+   "text": "یه درد دل دارم 😔 شش ماهه دارم پایتون می‌خونم، کلی دوره رایگان و ویدیو دیدم ولی وقتی می‌خوام یه پروژه از صفر بسازم هیچی به ذهنم نمی‌رسه. فکر کنم گیر tutorial hell افتادم. دارم فکر می‌کنم یه بوت‌کمپ پولی برم ولی می‌ترسم بازم همین بشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه درد دل دارم 😔 شش ماهه دارم پایتون می‌خونم، کلی دوره رایگان و ویدیو دیدم ولی وقتی می‌خوام یه پروژه از صفر بسازم هیچی به ذهنم نمی‌رسه. فکر کنم گیر tutorial hell افتادم. دارم فکر می‌کنم یه بوت‌کمپ پولی برم ولی می‌ترسم بازم همین بشه"
+    }
+   ]
+  },
+  {
+   "id": 1244,
+   "type": "message",
+   "date": "2026-10-05T10:06:20",
+   "date_unixtime": "1791182180",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1243,
+   "text": "خیلیا اینو تجربه کردن. مشکل معمولا اینه که پروژه واقعی با بازخورد نمی‌سازی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "خیلیا اینو تجربه کردن. مشکل معمولا اینه که پروژه واقعی با بازخورد نمی‌سازی"
+    }
+   ]
+  },
+  {
+   "id": 1245,
+   "type": "message",
+   "date": "2026-10-05T10:10:59",
+   "date_unixtime": "1791182459",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1243,
+   "text": "یه پروژه کوچیک انتخاب کن و تا تهش برو، حتی اگه زشت باشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه پروژه کوچیک انتخاب کن و تا تهش برو، حتی اگه زشت باشه"
+    }
+   ]
+  },
+  {
+   "id": 1246,
+   "type": "message",
+   "date": "2026-10-05T10:12:17",
+   "date_unixtime": "1791182537",
+   "from": "حامد",
+   "from_id": "user5271913259",
+   "reply_to_message_id": 1245,
+   "text": "آره ولی وقتی گیر می‌کنم کسی نیست کمکم کنه، همونجا ول می‌کنم. برای همین فکر می‌کنم یه دوره با منتور و code review لازم دارم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره ولی وقتی گیر می‌کنم کسی نیست کمکم کنه، همونجا ول می‌کنم. برای همین فکر می‌کنم یه دوره با منتور و code review لازم دارم"
+    }
+   ]
+  },
+  {
+   "id": 1247,
+   "type": "message",
+   "date": "2026-10-05T10:14:09",
+   "date_unixtime": "1791182649",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "reply_to_message_id": 1246,
+   "text": "بوت‌کمپی برو که پروژه‌محور باشه و کدت رو review کنن، وگرنه همون ویدیو دیدنه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بوت‌کمپی برو که پروژه‌محور باشه و کدت رو review کنن، وگرنه همون ویدیو دیدنه"
+    }
+   ]
+  },
+  {
+   "id": 1248,
+   "type": "message",
+   "date": "2026-10-05T10:19:44",
+   "date_unixtime": "1791182984",
+   "from": "حامد",
+   "from_id": "user5271913259",
+   "reply_to_message_id": 1247,
+   "text": "دقیقا. اگه کسی تجربه بوت‌کمپ خوب داره ممنون میشم بگه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "دقیقا. اگه کسی تجربه بوت‌کمپ خوب داره ممنون میشم بگه"
+    }
+   ]
+  },
+  {
+   "id": 1249,
+   "type": "message",
+   "date": "2026-10-05T11:30:00",
+   "date_unixtime": "1791187200",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": "کسی با Go کار کرده؟ برای میکروسرویس‌ها چطوره؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی با Go کار کرده؟ برای میکروسرویس‌ها چطوره؟"
+    }
+   ]
+  },
+  {
+   "id": 1250,
+   "type": "message",
+   "date": "2026-10-05T11:34:58",
+   "date_unixtime": "1791187498",
+   "from": "امید",
+   "from_id": "user5243461529",
+   "reply_to_message_id": 1249,
+   "text": "من این هفته شروع کردم! پایتون رو کلا بیخیال شدم و رفتم سراغ Go، شرکتمون هم Go می‌خواد",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من این هفته شروع کردم! پایتون رو کلا بیخیال شدم و رفتم سراغ Go، شرکتمون هم Go می‌خواد"
+    }
+   ]
+  },
+  {
+   "id": 1251,
+   "type": "message",
+   "date": "2026-10-05T11:38:40",
+   "date_unixtime": "1791187720",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1250,
+   "text": "برای میکروسرویس عالیه، concurrency‌ش خیلی راحته",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "برای میکروسرویس عالیه، concurrency‌ش خیلی راحته"
+    }
+   ]
+  },
+  {
+   "id": 1252,
+   "type": "message",
+   "date": "2026-10-05T11:42:25",
+   "date_unixtime": "1791187945",
+   "from": "امید",
+   "from_id": "user5243461529",
+   "reply_to_message_id": 1251,
+   "text": "آره فعلا که خیلی راضیم 😄 یه دوره Go هم خریدم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره فعلا که خیلی راضیم 😄 یه دوره Go هم خریدم"
+    }
+   ]
+  },
+  {
+   "id": 1253,
+   "type": "message",
+   "date": "2026-10-05T12:10:27",
+   "date_unixtime": "1791189627",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": "یه مدل ترنسفورمر کوچیک رو با ۴ گیگ VRAM میشه فاین‌تیون کرد؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه مدل ترنسفورمر کوچیک رو با ۴ گیگ VRAM میشه فاین‌تیون کرد؟"
+    }
+   ]
+  },
+  {
+   "id": 1254,
+   "type": "message",
+   "date": "2026-10-05T12:10:31",
+   "date_unixtime": "1791189631",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "👏",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1255,
+   "type": "message",
+   "date": "2026-10-05T12:15:14",
+   "date_unixtime": "1791189914",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": "با LoRA و quantization آره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "با LoRA و quantization آره"
+    }
+   ]
+  },
+  {
+   "id": 1256,
+   "type": "message",
+   "date": "2026-10-05T12:16:31",
+   "date_unixtime": "1791189991",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": "QLoRA رو امتحان می‌کنم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "QLoRA رو امتحان می‌کنم"
+    }
+   ]
+  },
+  {
+   "id": 1257,
+   "type": "message",
+   "date": "2026-10-05T13:00:06",
+   "date_unixtime": "1791192606",
+   "from": "پروین صادقی",
+   "from_id": "user5446136029",
+   "text": "سلام وقت بخیر. پسرم ۱۷ سالشه و خیلی به برنامه‌نویسی علاقه داره. می‌خوام براش یه دوره پایتون فارسی و آنلاین بگیرم که منظم باشه و یکی پیگیرش باشه. شما چی پیشنهاد می‌کنید؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام وقت بخیر. پسرم ۱۷ سالشه و خیلی به برنامه‌نویسی علاقه داره. می‌خوام براش یه دوره پایتون فارسی و آنلاین بگیرم که منظم باشه و یکی پیگیرش باشه. شما چی پیشنهاد می‌کنید؟"
+    }
+   ]
+  },
+  {
+   "id": 1258,
+   "type": "message",
+   "date": "2026-10-05T13:01:56",
+   "date_unixtime": "1791192716",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1257,
+   "text": "چه خوب 😊 دوره‌ای که پروژه داشته باشه براش جذاب‌تره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "چه خوب 😊 دوره‌ای که پروژه داشته باشه براش جذاب‌تره"
+    }
+   ]
+  },
+  {
+   "id": 1259,
+   "type": "message",
+   "date": "2026-10-05T13:04:25",
+   "date_unixtime": "1791192865",
+   "from": "پروین صادقی",
+   "from_id": "user5446136029",
+   "reply_to_message_id": 1258,
+   "text": "ممنون. خودم برنامه‌نویسی بلد نیستم و نمی‌دونم چطور انتخاب کنم. مهمه که یکی سوالاشو جواب بده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون. خودم برنامه‌نویسی بلد نیستم و نمی‌دونم چطور انتخاب کنم. مهمه که یکی سوالاشو جواب بده"
+    }
+   ]
+  },
+  {
+   "id": 1260,
+   "type": "message",
+   "date": "2026-10-05T13:07:44",
+   "date_unixtime": "1791193064",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1257,
+   "text": "من ۱۷ سالگی با پایتون شروع کردم، بهترین تصمیمم بود 😄",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من ۱۷ سالگی با پایتون شروع کردم، بهترین تصمیمم بود 😄"
+    }
+   ]
+  },
+  {
+   "id": 1261,
+   "type": "message",
+   "date": "2026-10-05T13:11:31",
+   "date_unixtime": "1791193291",
+   "from": "پروین صادقی",
+   "from_id": "user5446136029",
+   "reply_to_message_id": 1260,
+   "text": "🙏🌹",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "🙏🌹"
+    }
+   ]
+  },
+  {
+   "id": 1262,
+   "type": "message",
+   "date": "2026-10-05T14:20:27",
+   "date_unixtime": "1791197427",
+   "from": "عینک‌سرای نور 👓",
+   "from_id": "user5231605151",
+   "text": [
+    "👓👓 عینک‌سرای نور 👓👓\nعینک بلوکات اصل فقط ۴۹۰ هزار تومان!! 🔥🔥\nارسال فوری 🚚 سفارش در دایرکت اینستاگرام: ",
+    {
+     "type": "mention",
+     "text": "@noor_optic_shop"
+    },
+    "\n👓👓👓👓👓👓"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "👓👓 عینک‌سرای نور 👓👓\nعینک بلوکات اصل فقط ۴۹۰ هزار تومان!! 🔥🔥\nارسال فوری 🚚 سفارش در دایرکت اینستاگرام: "
+    },
+    {
+     "type": "mention",
+     "text": "@noor_optic_shop"
+    },
+    {
+     "type": "plain",
+     "text": "\n👓👓👓👓👓👓"
+    }
+   ]
+  },
+  {
+   "id": 1263,
+   "type": "message",
+   "date": "2026-10-05T14:20:48",
+   "date_unixtime": "1791197448",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "reply_to_message_id": 1262,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "🙏",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1264,
+   "type": "message",
+   "date": "2026-10-05T14:22:45",
+   "date_unixtime": "1791197565",
+   "from": "ادمین پایتونیست‌ها",
+   "from_id": "user5282622328",
+   "reply_to_message_id": 1262,
+   "text": "تبلیغ ممنوع ❌ ریمو شد",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تبلیغ ممنوع ❌ ریمو شد"
+    }
+   ]
+  },
+  {
+   "id": 1265,
+   "type": "message",
+   "date": "2026-10-05T15:30:27",
+   "date_unixtime": "1791201627",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": [
+    "کسی می‌دونه چرا ",
+    {
+     "type": "code",
+     "text": "df.groupby().apply()"
+    },
+    " تو pandas انقدر کنده؟"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی می‌دونه چرا "
+    },
+    {
+     "type": "code",
+     "text": "df.groupby().apply()"
+    },
+    {
+     "type": "plain",
+     "text": " تو pandas انقدر کنده؟"
+    }
+   ]
+  },
+  {
+   "id": 1266,
+   "type": "message",
+   "date": "2026-10-05T15:35:10",
+   "date_unixtime": "1791201910",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1265,
+   "text": [
+    "apply روی هر گروه یه تابع پایتونی اجرا می‌کنه. اگه بشه از ",
+    {
+     "type": "code",
+     "text": "agg"
+    },
+    " یا عملیات vectorized استفاده کن"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "apply روی هر گروه یه تابع پایتونی اجرا می‌کنه. اگه بشه از "
+    },
+    {
+     "type": "code",
+     "text": "agg"
+    },
+    {
+     "type": "plain",
+     "text": " یا عملیات vectorized استفاده کن"
+    }
+   ]
+  },
+  {
+   "id": 1267,
+   "type": "message",
+   "date": "2026-10-05T15:35:35",
+   "date_unixtime": "1791201935",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1266,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "💯",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1268,
+   "type": "message",
+   "date": "2026-10-05T15:39:24",
+   "date_unixtime": "1791202164",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1266,
+   "text": "با agg ده برابر سریع‌تر شد 😮",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "با agg ده برابر سریع‌تر شد 😮"
+    }
+   ]
+  },
+  {
+   "id": 1269,
+   "type": "message",
+   "date": "2026-10-05T15:40:28",
+   "date_unixtime": "1791202228",
+   "from": "الهام",
+   "from_id": "user5011956740",
+   "reply_to_message_id": 1268,
+   "text": "ببخشید یه سوال شاید ساده: pandas همون چیزیه که جای اکسل استفاده میشه؟ من کارم کلا با اکسله",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ببخشید یه سوال شاید ساده: pandas همون چیزیه که جای اکسل استفاده میشه؟ من کارم کلا با اکسله"
+    }
+   ]
+  },
+  {
+   "id": 1270,
+   "type": "message",
+   "date": "2026-10-05T15:41:47",
+   "date_unixtime": "1791202307",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1269,
+   "text": "آره تقریبا، ولی برای داده‌های بزرگ و کارهای تکراری خیلی قوی‌تره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره تقریبا، ولی برای داده‌های بزرگ و کارهای تکراری خیلی قوی‌تره"
+    }
+   ]
+  },
+  {
+   "id": 1271,
+   "type": "message",
+   "date": "2026-10-05T15:41:52",
+   "date_unixtime": "1791202312",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1270,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "💯",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1272,
+   "type": "message",
+   "date": "2026-10-05T16:20:53",
+   "date_unixtime": "1791204653",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "text": "کی میاد آخر هفته کوه؟ ⛰️",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کی میاد آخر هفته کوه؟ ⛰️"
+    }
+   ]
+  },
+  {
+   "id": 1273,
+   "type": "message",
+   "date": "2026-10-05T16:21:11",
+   "date_unixtime": "1791204671",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "reply_to_message_id": 1272,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😅",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1274,
+   "type": "message",
+   "date": "2026-10-05T16:22:58",
+   "date_unixtime": "1791204778",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "text": "من هستم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من هستم"
+    }
+   ]
+  },
+  {
+   "id": 1275,
+   "type": "message",
+   "date": "2026-10-05T16:25:00",
+   "date_unixtime": "1791204900",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "text": "من فقط تا تله‌کابین میام 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من فقط تا تله‌کابین میام 😂"
+    }
+   ]
+  },
+  {
+   "id": 1276,
+   "type": "message",
+   "date": "2026-10-05T17:00:45",
+   "date_unixtime": "1791207045",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": [
+    "برای اسکرپ کردن ۱۰ هزار تا صفحه ",
+    {
+     "type": "code",
+     "text": "requests"
+    },
+    " خیلی کنده، چیکار کنم؟"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "برای اسکرپ کردن ۱۰ هزار تا صفحه "
+    },
+    {
+     "type": "code",
+     "text": "requests"
+    },
+    {
+     "type": "plain",
+     "text": " خیلی کنده، چیکار کنم؟"
+    }
+   ]
+  },
+  {
+   "id": 1277,
+   "type": "message",
+   "date": "2026-10-05T17:03:29",
+   "date_unixtime": "1791207209",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1276,
+   "text": [
+    {
+     "type": "code",
+     "text": "httpx"
+    },
+    " با ",
+    {
+     "type": "code",
+     "text": "asyncio"
+    },
+    " یا ",
+    {
+     "type": "code",
+     "text": "aiohttp"
+    },
+    ". فقط rate limit رو رعایت کن که بلاک نشی"
+   ],
+   "text_entities": [
+    {
+     "type": "code",
+     "text": "httpx"
+    },
+    {
+     "type": "plain",
+     "text": " با "
+    },
+    {
+     "type": "code",
+     "text": "asyncio"
+    },
+    {
+     "type": "plain",
+     "text": " یا "
+    },
+    {
+     "type": "code",
+     "text": "aiohttp"
+    },
+    {
+     "type": "plain",
+     "text": ". فقط rate limit رو رعایت کن که بلاک نشی"
+    }
+   ]
+  },
+  {
+   "id": 1278,
+   "type": "message",
+   "date": "2026-10-05T17:05:36",
+   "date_unixtime": "1791207336",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1277,
+   "text": [
+    {
+     "type": "code",
+     "text": "asyncio.gather"
+    },
+    " رو با ۱۰ هزار تا تسک یه جا بزنم؟"
+   ],
+   "text_entities": [
+    {
+     "type": "code",
+     "text": "asyncio.gather"
+    },
+    {
+     "type": "plain",
+     "text": " رو با ۱۰ هزار تا تسک یه جا بزنم؟"
+    }
+   ]
+  },
+  {
+   "id": 1279,
+   "type": "message",
+   "date": "2026-10-05T17:07:12",
+   "date_unixtime": "1791207432",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1278,
+   "text": [
+    "نه، با ",
+    {
+     "type": "code",
+     "text": "Semaphore"
+    },
+    " محدودش کن، مثلا ۲۰ تا همزمان"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "نه، با "
+    },
+    {
+     "type": "code",
+     "text": "Semaphore"
+    },
+    {
+     "type": "plain",
+     "text": " محدودش کن، مثلا ۲۰ تا همزمان"
+    }
+   ]
+  },
+  {
+   "id": 1280,
+   "type": "message",
+   "date": "2026-10-05T17:11:11",
+   "date_unixtime": "1791207671",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1279,
+   "text": "ممنون عالی شد 👌",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون عالی شد 👌"
+    }
+   ]
+  },
+  {
+   "id": 1281,
+   "type": "message",
+   "date": "2026-10-05T19:00:59",
+   "date_unixtime": "1791214259",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "text": "کسی با کارفرمای خارجی کار می‌کنه؟ اختلاف ساعت رو چطور مدیریت می‌کنید؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی با کارفرمای خارجی کار می‌کنه؟ اختلاف ساعت رو چطور مدیریت می‌کنید؟"
+    }
+   ]
+  },
+  {
+   "id": 1282,
+   "type": "message",
+   "date": "2026-10-05T19:03:48",
+   "date_unixtime": "1791214428",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1281,
+   "text": "من با یه تیم اروپایی کار می‌کنم، ۴ ساعت overlap داریم کافیه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من با یه تیم اروپایی کار می‌کنم، ۴ ساعت overlap داریم کافیه"
+    }
+   ]
+  },
+  {
+   "id": 1283,
+   "type": "message",
+   "date": "2026-10-05T19:07:00",
+   "date_unixtime": "1791214620",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1282,
+   "text": "پرداخت چطور؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "پرداخت چطور؟"
+    }
+   ]
+  },
+  {
+   "id": 1284,
+   "type": "message",
+   "date": "2026-10-05T19:08:10",
+   "date_unixtime": "1791214690",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1283,
+   "text": "از طریق واسطه، دردسر داره ولی می‌ارزه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "از طریق واسطه، دردسر داره ولی می‌ارزه"
+    }
+   ]
+  },
+  {
+   "id": 1285,
+   "type": "message",
+   "date": "2026-10-05T20:10:01",
+   "date_unixtime": "1791218401",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "text": "کسی TypeScript رو با پایتون مقایسه کرده؟ type hint های پایتون به پای TS می‌رسه؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی TypeScript رو با پایتون مقایسه کرده؟ type hint های پایتون به پای TS می‌رسه؟"
+    }
+   ]
+  },
+  {
+   "id": 1286,
+   "type": "message",
+   "date": "2026-10-05T20:12:46",
+   "date_unixtime": "1791218566",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "text": "نه هنوز، ولی با mypy و pyright خیلی نزدیک شده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "نه هنوز، ولی با mypy و pyright خیلی نزدیک شده"
+    }
+   ]
+  },
+  {
+   "id": 1287,
+   "type": "message",
+   "date": "2026-10-05T20:15:18",
+   "date_unixtime": "1791218718",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "text": "pyright رو امتحان می‌کنم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "pyright رو امتحان می‌کنم"
+    }
+   ]
+  },
+  {
+   "id": 1288,
+   "type": "message",
+   "date": "2026-10-05T21:00:46",
+   "date_unixtime": "1791221446",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": [
+    "یکی می‌دونه چرا ",
+    {
+     "type": "code",
+     "text": "datetime.now()"
+    },
+    " تو سرور یه ساعت با بقیه فرق داره؟"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یکی می‌دونه چرا "
+    },
+    {
+     "type": "code",
+     "text": "datetime.now()"
+    },
+    {
+     "type": "plain",
+     "text": " تو سرور یه ساعت با بقیه فرق داره؟"
+    }
+   ]
+  },
+  {
+   "id": 1289,
+   "type": "message",
+   "date": "2026-10-05T21:01:52",
+   "date_unixtime": "1791221512",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1288,
+   "text": [
+    "تایم‌زون سرورت UTC نیست احتمالا. همیشه ",
+    {
+     "type": "code",
+     "text": "datetime.now(timezone.utc)"
+    },
+    " استفاده کن"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تایم‌زون سرورت UTC نیست احتمالا. همیشه "
+    },
+    {
+     "type": "code",
+     "text": "datetime.now(timezone.utc)"
+    },
+    {
+     "type": "plain",
+     "text": " استفاده کن"
+    }
+   ]
+  },
+  {
+   "id": 1290,
+   "type": "message",
+   "date": "2026-10-05T21:04:52",
+   "date_unixtime": "1791221692",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1289,
+   "text": "آره سرور رو Asia/Tehran بود 🤦‍♂️",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره سرور رو Asia/Tehran بود 🤦‍♂️"
+    }
+   ]
+  },
+  {
+   "id": 1291,
+   "type": "message",
+   "date": "2026-10-05T23:15:20",
+   "date_unixtime": "1791229520",
+   "from": "بهنام",
+   "from_id": "user5444055307",
+   "text": "کی مثل من شیفت on-call شبه؟ 😩 دو هفته‌ست چشمام خشک و قرمزه، ساعت ۴ صبح جلوی سه تا مانیتور نشستن داره نابودم می‌کنه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کی مثل من شیفت on-call شبه؟ 😩 دو هفته‌ست چشمام خشک و قرمزه، ساعت ۴ صبح جلوی سه تا مانیتور نشستن داره نابودم می‌کنه"
+    }
+   ]
+  },
+  {
+   "id": 1292,
+   "type": "message",
+   "date": "2026-10-05T23:17:36",
+   "date_unixtime": "1791229656",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1291,
+   "text": "قطره اشک مصنوعی بگیر، خیلی کمک می‌کنه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "قطره اشک مصنوعی بگیر، خیلی کمک می‌کنه"
+    }
+   ]
+  },
+  {
+   "id": 1293,
+   "type": "message",
+   "date": "2026-10-05T23:19:58",
+   "date_unixtime": "1791229798",
+   "from": "بهنام",
+   "from_id": "user5444055307",
+   "reply_to_message_id": 1292,
+   "text": "گرفتم، ولی دنبال یه چیزیم که کلا فشار رو کم کنه. فیلتر مانیتور یا عینک یا هرچی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "گرفتم، ولی دنبال یه چیزیم که کلا فشار رو کم کنه. فیلتر مانیتور یا عینک یا هرچی"
+    }
+   ]
+  },
+  {
+   "id": 1294,
+   "type": "message",
+   "date": "2026-10-05T23:23:27",
+   "date_unixtime": "1791230007",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1291,
+   "text": "روشنایی مانیتورها رو شب کم کن، همین خیلی تاثیر داره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "روشنایی مانیتورها رو شب کم کن، همین خیلی تاثیر داره"
+    }
+   ]
+  },
+  {
+   "id": 1295,
+   "type": "message",
+   "date": "2026-10-05T23:25:23",
+   "date_unixtime": "1791230123",
+   "from": "بهنام",
+   "from_id": "user5444055307",
+   "reply_to_message_id": 1294,
+   "text": "مرسی امتحان می‌کنم 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مرسی امتحان می‌کنم 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1296,
+   "type": "message",
+   "date": "2026-10-06T08:40:10",
+   "date_unixtime": "1791263410",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": "دوشنبه‌تون بخیر ☕",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "دوشنبه‌تون بخیر ☕"
+    }
+   ]
+  },
+  {
+   "id": 1297,
+   "type": "message",
+   "date": "2026-10-06T08:43:41",
+   "date_unixtime": "1791263621",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "صبح بخیر ☕",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "صبح بخیر ☕"
+    }
+   ]
+  },
+  {
+   "id": 1298,
+   "type": "message",
+   "date": "2026-10-06T08:44:00",
+   "date_unixtime": "1791263640",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "👍",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1299,
+   "type": "message",
+   "date": "2026-10-06T08:48:39",
+   "date_unixtime": "1791263919",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": "صبح بخیر، امروز فیلترشکن کی کار می‌کنه؟ 😅",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "صبح بخیر، امروز فیلترشکن کی کار می‌کنه؟ 😅"
+    }
+   ]
+  },
+  {
+   "id": 1300,
+   "type": "message",
+   "date": "2026-10-06T08:48:45",
+   "date_unixtime": "1791263925",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "reply_to_message_id": 1299,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "👍",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1301,
+   "type": "message",
+   "date": "2026-10-06T09:50:52",
+   "date_unixtime": "1791267652",
+   "from": "Nima",
+   "from_id": "user5465772968",
+   "text": "به نظرتون دوره پولی ارزششو داره یا همین رایگانا کافیه؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "به نظرتون دوره پولی ارزششو داره یا همین رایگانا کافیه؟"
+    }
+   ]
+  },
+  {
+   "id": 1302,
+   "type": "message",
+   "date": "2026-10-06T09:53:43",
+   "date_unixtime": "1791267823",
+   "from": "محسن",
+   "from_id": "user5074418147",
+   "reply_to_message_id": 1301,
+   "text": "رایگانا کافیه، پولیا همش کپی همون رایگاناست",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "رایگانا کافیه، پولیا همش کپی همون رایگاناست"
+    }
+   ]
+  },
+  {
+   "id": 1303,
+   "type": "message",
+   "date": "2026-10-06T09:55:38",
+   "date_unixtime": "1791267938",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1301,
+   "text": "بستگی داره. اگه تنهایی پیش میری و جواب می‌گیری، رایگان کافیه. اگه مدام گیر می‌کنی، داشتن منتور ارزش داره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "بستگی داره. اگه تنهایی پیش میری و جواب می‌گیری، رایگان کافیه. اگه مدام گیر می‌کنی، داشتن منتور ارزش داره"
+    }
+   ]
+  },
+  {
+   "id": 1304,
+   "type": "message",
+   "date": "2026-10-06T09:59:57",
+   "date_unixtime": "1791268197",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1301,
+   "text": "اگه پولی می‌گیری حتما نظر دانشجوهای قبلی و سرفصل‌ها رو ببین",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اگه پولی می‌گیری حتما نظر دانشجوهای قبلی و سرفصل‌ها رو ببین"
+    }
+   ]
+  },
+  {
+   "id": 1305,
+   "type": "message",
+   "date": "2026-10-06T10:01:27",
+   "date_unixtime": "1791268287",
+   "from": "Nima",
+   "from_id": "user5465772968",
+   "reply_to_message_id": 1303,
+   "text": "ممنون 🙏 باید بیشتر فکر کنم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون 🙏 باید بیشتر فکر کنم"
+    }
+   ]
+  },
+  {
+   "id": 1306,
+   "type": "message",
+   "date": "2026-10-06T10:30:03",
+   "date_unixtime": "1791270003",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "media_type": "voice_message",
+   "mime_type": "audio/ogg",
+   "duration_seconds": 14,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1307,
+   "type": "message",
+   "date": "2026-10-06T10:32:01",
+   "date_unixtime": "1791270121",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "text": "جواد ویس نفرست تو گروه 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "جواد ویس نفرست تو گروه 😂"
+    }
+   ]
+  },
+  {
+   "id": 1308,
+   "type": "message",
+   "date": "2026-10-06T10:35:04",
+   "date_unixtime": "1791270304",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "text": "ببخشید اشتباهی شد 😅",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ببخشید اشتباهی شد 😅"
+    }
+   ]
+  },
+  {
+   "id": 1309,
+   "type": "message",
+   "date": "2026-10-06T11:15:16",
+   "date_unixtime": "1791272716",
+   "from": "الهام",
+   "from_id": "user5011956740",
+   "text": "سلام دوباره 🙂 من تحلیل‌گر داده‌ام ولی همه کارم با اکسله و مدیرم گفته باید پایتون و pandas یاد بگیرم. یه دوره فارسی می‌خوام که کلاس‌هاش عصر باشه چون تا ۵ سر کارم. شرکت هم هزینه‌ش رو میده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام دوباره 🙂 من تحلیل‌گر داده‌ام ولی همه کارم با اکسله و مدیرم گفته باید پایتون و pandas یاد بگیرم. یه دوره فارسی می‌خوام که کلاس‌هاش عصر باشه چون تا ۵ سر کارم. شرکت هم هزینه‌ش رو میده"
+    }
+   ]
+  },
+  {
+   "id": 1310,
+   "type": "message",
+   "date": "2026-10-06T11:17:27",
+   "date_unixtime": "1791272847",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1309,
+   "text": "دوره‌های تحلیل داده زیاده، ولی بیشترشون مستقیم میرن سراغ pandas و پایه پایتون رو نمیگن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "دوره‌های تحلیل داده زیاده، ولی بیشترشون مستقیم میرن سراغ pandas و پایه پایتون رو نمیگن"
+    }
+   ]
+  },
+  {
+   "id": 1311,
+   "type": "message",
+   "date": "2026-10-06T11:20:13",
+   "date_unixtime": "1791273013",
+   "from": "الهام",
+   "from_id": "user5011956740",
+   "reply_to_message_id": 1310,
+   "text": "آره من پایه رو هم بلد نیستم. می‌خوام اول پایتون رو درست یاد بگیرم بعد pandas",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره من پایه رو هم بلد نیستم. می‌خوام اول پایتون رو درست یاد بگیرم بعد pandas"
+    }
+   ]
+  },
+  {
+   "id": 1312,
+   "type": "message",
+   "date": "2026-10-06T11:25:00",
+   "date_unixtime": "1791273300",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1309,
+   "text": "برای کارهای تکراری اکسل، پایتون معجزه می‌کنه. حتما یاد بگیر",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "برای کارهای تکراری اکسل، پایتون معجزه می‌کنه. حتما یاد بگیر"
+    }
+   ]
+  },
+  {
+   "id": 1313,
+   "type": "message",
+   "date": "2026-10-06T11:27:06",
+   "date_unixtime": "1791273426",
+   "from": "الهام",
+   "from_id": "user5011956740",
+   "reply_to_message_id": 1312,
+   "text": "ممنون از راهنمایی‌تون 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون از راهنمایی‌تون 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1314,
+   "type": "message",
+   "date": "2026-10-06T12:40:59",
+   "date_unixtime": "1791277859",
+   "from": "مجید",
+   "from_id": "user5679828448",
+   "text": "چند روزه دید چشم راستم تار شده و گاهی جرقه‌های نور می‌بینم، مخصوصا وقتی پای لپ‌تاپم. به نظرتون عینک محافظ نور آبی کمک می‌کنه؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "چند روزه دید چشم راستم تار شده و گاهی جرقه‌های نور می‌بینم، مخصوصا وقتی پای لپ‌تاپم. به نظرتون عینک محافظ نور آبی کمک می‌کنه؟"
+    }
+   ]
+  },
+  {
+   "id": 1315,
+   "type": "message",
+   "date": "2026-10-06T12:41:19",
+   "date_unixtime": "1791277879",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "💯",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1316,
+   "type": "message",
+   "date": "2026-10-06T12:44:14",
+   "date_unixtime": "1791278054",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1314,
+   "text": "مجید جان اینا علائم جدیه، حتما همین امروز برو چشم‌پزشک. جرقه نور می‌تونه مربوط به شبکیه باشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مجید جان اینا علائم جدیه، حتما همین امروز برو چشم‌پزشک. جرقه نور می‌تونه مربوط به شبکیه باشه"
+    }
+   ]
+  },
+  {
+   "id": 1317,
+   "type": "message",
+   "date": "2026-10-06T12:46:54",
+   "date_unixtime": "1791278214",
+   "from": "مجید",
+   "from_id": "user5679828448",
+   "reply_to_message_id": 1316,
+   "text": "جدی؟ فکر می‌کردم از خستگیه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "جدی؟ فکر می‌کردم از خستگیه"
+    }
+   ]
+  },
+  {
+   "id": 1318,
+   "type": "message",
+   "date": "2026-10-06T12:49:27",
+   "date_unixtime": "1791278367",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1316,
+   "edited": "2026-10-06T12:54:22",
+   "edited_unixtime": "1791278662",
+   "text": "آره گلناز درست میگه، تاخیر ننداز",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره گلناز درست میگه، تاخیر ننداز"
+    }
+   ]
+  },
+  {
+   "id": 1319,
+   "type": "message",
+   "date": "2026-10-06T12:54:23",
+   "date_unixtime": "1791278663",
+   "from": "مجید",
+   "from_id": "user5679828448",
+   "reply_to_message_id": 1318,
+   "text": "باشه نوبت می‌گیرم، مرسی 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "باشه نوبت می‌گیرم، مرسی 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1320,
+   "type": "message",
+   "date": "2026-10-06T13:20:52",
+   "date_unixtime": "1791280252",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": [
+    "سوال: تو FastAPI فرق ",
+    {
+     "type": "code",
+     "text": "Depends"
+    },
+    " و middleware چیه؟ کی کدوم؟"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سوال: تو FastAPI فرق "
+    },
+    {
+     "type": "code",
+     "text": "Depends"
+    },
+    {
+     "type": "plain",
+     "text": " و middleware چیه؟ کی کدوم؟"
+    }
+   ]
+  },
+  {
+   "id": 1321,
+   "type": "message",
+   "date": "2026-10-06T13:25:16",
+   "date_unixtime": "1791280516",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "text": "middleware برای همه درخواست‌هاست، Depends برای endpoint های خاص",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "middleware برای همه درخواست‌هاست، Depends برای endpoint های خاص"
+    }
+   ]
+  },
+  {
+   "id": 1322,
+   "type": "message",
+   "date": "2026-10-06T13:26:26",
+   "date_unixtime": "1791280586",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": "آها پس auth رو با Depends بزنم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آها پس auth رو با Depends بزنم"
+    }
+   ]
+  },
+  {
+   "id": 1323,
+   "type": "message",
+   "date": "2026-10-06T13:30:53",
+   "date_unixtime": "1791280853",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "text": "آره معمولا",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره معمولا"
+    }
+   ]
+  },
+  {
+   "id": 1324,
+   "type": "message",
+   "date": "2026-10-06T14:00:17",
+   "date_unixtime": "1791282617",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "text": "یه ویو دارم که ۳۰۰ تا کوئری می‌زنه 😱 لیست سفارش‌ها با اسم مشتری",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه ویو دارم که ۳۰۰ تا کوئری می‌زنه 😱 لیست سفارش‌ها با اسم مشتری"
+    }
+   ]
+  },
+  {
+   "id": 1325,
+   "type": "message",
+   "date": "2026-10-06T14:00:38",
+   "date_unixtime": "1791282638",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1324,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "👍",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1326,
+   "type": "message",
+   "date": "2026-10-06T14:02:15",
+   "date_unixtime": "1791282735",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1324,
+   "text": [
+    "N+1 کلاسیک. ",
+    {
+     "type": "code",
+     "text": "select_related('customer')"
+    },
+    " بذار"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "N+1 کلاسیک. "
+    },
+    {
+     "type": "code",
+     "text": "select_related('customer')"
+    },
+    {
+     "type": "plain",
+     "text": " بذار"
+    }
+   ]
+  },
+  {
+   "id": 1327,
+   "type": "message",
+   "date": "2026-10-06T14:06:13",
+   "date_unixtime": "1791282973",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1326,
+   "edited": "2026-10-06T14:07:49",
+   "edited_unixtime": "1791283069",
+   "text": "درست شد، شد ۲ تا کوئری 😍",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "درست شد، شد ۲ تا کوئری 😍"
+    }
+   ]
+  },
+  {
+   "id": 1328,
+   "type": "message",
+   "date": "2026-10-06T14:09:33",
+   "date_unixtime": "1791283173",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1327,
+   "text": "django-debug-toolbar رو نصب کن، اینا رو زود نشون میده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "django-debug-toolbar رو نصب کن، اینا رو زود نشون میده"
+    }
+   ]
+  },
+  {
+   "id": 1329,
+   "type": "message",
+   "date": "2026-10-06T14:11:04",
+   "date_unixtime": "1791283264",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1328,
+   "text": "دارمش، فقط حواسم نبود 😅",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "دارمش، فقط حواسم نبود 😅"
+    }
+   ]
+  },
+  {
+   "id": 1330,
+   "type": "message",
+   "date": "2026-10-06T16:20:43",
+   "date_unixtime": "1791291043",
+   "from": "مریم",
+   "from_id": "user5946787602",
+   "text": "سلام، ببخشید سوالم یکم بی‌ربطه 😅 همسرم برنامه‌نویسه و روزی ۱۲ ساعت پشت سیستمه. برای تولدش یه هدیه زیر یک میلیون می‌خوام که به کارش بیاد. پیشنهادی دارید؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام، ببخشید سوالم یکم بی‌ربطه 😅 همسرم برنامه‌نویسه و روزی ۱۲ ساعت پشت سیستمه. برای تولدش یه هدیه زیر یک میلیون می‌خوام که به کارش بیاد. پیشنهادی دارید؟"
+    }
+   ]
+  },
+  {
+   "id": 1331,
+   "type": "message",
+   "date": "2026-10-06T16:24:47",
+   "date_unixtime": "1791291287",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "reply_to_message_id": 1330,
+   "text": "کیبورد مکانیکی 😍",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کیبورد مکانیکی 😍"
+    }
+   ]
+  },
+  {
+   "id": 1332,
+   "type": "message",
+   "date": "2026-10-06T16:26:50",
+   "date_unixtime": "1791291410",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "reply_to_message_id": 1330,
+   "text": "یه ماگ که روش نوشته \"It works on my machine\" 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه ماگ که روش نوشته \"It works on my machine\" 😂"
+    }
+   ]
+  },
+  {
+   "id": 1333,
+   "type": "message",
+   "date": "2026-10-06T16:28:38",
+   "date_unixtime": "1791291518",
+   "from": "مریم",
+   "from_id": "user5946787602",
+   "reply_to_message_id": 1332,
+   "text": "اینا جالبه 😄 ولی همیشه از خستگی چشم و کمردرد می‌ناله، یه چیز کاربردی‌تر می‌خوام",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اینا جالبه 😄 ولی همیشه از خستگی چشم و کمردرد می‌ناله، یه چیز کاربردی‌تر می‌خوام"
+    }
+   ]
+  },
+  {
+   "id": 1334,
+   "type": "message",
+   "date": "2026-10-06T16:33:32",
+   "date_unixtime": "1791291812",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1333,
+   "text": "پایه لپ‌تاپ یا عینک محافظ چشم خوبه، هم کاربردیه هم تو بودجه‌ت",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "پایه لپ‌تاپ یا عینک محافظ چشم خوبه، هم کاربردیه هم تو بودجه‌ت"
+    }
+   ]
+  },
+  {
+   "id": 1335,
+   "type": "message",
+   "date": "2026-10-06T16:36:15",
+   "date_unixtime": "1791291975",
+   "from": "مریم",
+   "from_id": "user5946787602",
+   "reply_to_message_id": 1334,
+   "text": "ممنون عزیزم 🌹",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ممنون عزیزم 🌹"
+    }
+   ]
+  },
+  {
+   "id": 1336,
+   "type": "message",
+   "date": "2026-10-06T16:36:36",
+   "date_unixtime": "1791291996",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1335,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "🔥",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1337,
+   "type": "message",
+   "date": "2026-10-06T18:00:24",
+   "date_unixtime": "1791297024",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "text": "شما برای مدیریت پکیج‌ها از چی استفاده می‌کنید؟ pip، poetry یا uv؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "شما برای مدیریت پکیج‌ها از چی استفاده می‌کنید؟ pip، poetry یا uv؟"
+    }
+   ]
+  },
+  {
+   "id": 1338,
+   "type": "message",
+   "date": "2026-10-06T18:03:37",
+   "date_unixtime": "1791297217",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1337,
+   "text": "uv. سرعتش دیوانه‌کننده‌ست",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "uv. سرعتش دیوانه‌کننده‌ست"
+    }
+   ]
+  },
+  {
+   "id": 1339,
+   "type": "message",
+   "date": "2026-10-06T18:06:32",
+   "date_unixtime": "1791297392",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1337,
+   "text": "من رو پروژه‌های جدید uv، قدیمیا poetry",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من رو پروژه‌های جدید uv، قدیمیا poetry"
+    }
+   ]
+  },
+  {
+   "id": 1340,
+   "type": "message",
+   "date": "2026-10-06T18:11:31",
+   "date_unixtime": "1791297691",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "reply_to_message_id": 1337,
+   "text": "من هنوز conda، به خاطر CUDA 😅",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من هنوز conda، به خاطر CUDA 😅"
+    }
+   ]
+  },
+  {
+   "id": 1341,
+   "type": "message",
+   "date": "2026-10-06T18:16:19",
+   "date_unixtime": "1791297979",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1340,
+   "text": "uv رو امتحان می‌کنم 👍",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "uv رو امتحان می‌کنم 👍"
+    }
+   ]
+  },
+  {
+   "id": 1342,
+   "type": "message",
+   "date": "2026-10-06T18:18:34",
+   "date_unixtime": "1791298114",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1341,
+   "text": [
+    {
+     "type": "code",
+     "text": "uv venv && uv pip install -r requirements.txt"
+    },
+    " همین"
+   ],
+   "text_entities": [
+    {
+     "type": "code",
+     "text": "uv venv && uv pip install -r requirements.txt"
+    },
+    {
+     "type": "plain",
+     "text": " همین"
+    }
+   ]
+  },
+  {
+   "id": 1343,
+   "type": "message",
+   "date": "2026-10-06T20:30:14",
+   "date_unixtime": "1791306014",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "photo": "(File not included. Change data exporting settings to download.)",
+   "width": 1280,
+   "height": 720,
+   "text": "وقتی کد بدون ارور اجرا میشه و نمی‌دونی چرا 😐",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "وقتی کد بدون ارور اجرا میشه و نمی‌دونی چرا 😐"
+    }
+   ]
+  },
+  {
+   "id": 1344,
+   "type": "message",
+   "date": "2026-10-06T20:30:19",
+   "date_unixtime": "1791306019",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😂",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1345,
+   "type": "message",
+   "date": "2026-10-06T20:30:59",
+   "date_unixtime": "1791306059",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "reply_to_message_id": 1343,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "😂",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1346,
+   "type": "message",
+   "date": "2026-10-06T20:32:39",
+   "date_unixtime": "1791306159",
+   "from": "حسین",
+   "from_id": "user5262903397",
+   "reply_to_message_id": 1343,
+   "text": "داستان زندگی من 💀",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "داستان زندگی من 💀"
+    }
+   ]
+  },
+  {
+   "id": 1347,
+   "type": "message",
+   "date": "2026-10-06T21:10:46",
+   "date_unixtime": "1791308446",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "text": "تازگیا حس می‌کنم کلا انگیزه کد زدن ندارم 😞 کسی تجربه burnout داره؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "تازگیا حس می‌کنم کلا انگیزه کد زدن ندارم 😞 کسی تجربه burnout داره؟"
+    }
+   ]
+  },
+  {
+   "id": 1348,
+   "type": "message",
+   "date": "2026-10-06T21:14:59",
+   "date_unixtime": "1791308699",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "text": "آره، چند روز کامل از سیستم دور شو. جدی میگم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره، چند روز کامل از سیستم دور شو. جدی میگم"
+    }
+   ]
+  },
+  {
+   "id": 1349,
+   "type": "message",
+   "date": "2026-10-06T21:18:45",
+   "date_unixtime": "1791308925",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "text": "منم پارسال داشتم، ورزش خیلی کمک کرد",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "منم پارسال داشتم، ورزش خیلی کمک کرد"
+    }
+   ]
+  },
+  {
+   "id": 1350,
+   "type": "message",
+   "date": "2026-10-06T21:22:26",
+   "date_unixtime": "1791309146",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "text": "مرسی بچه‌ها ❤️",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مرسی بچه‌ها ❤️"
+    }
+   ]
+  },
+  {
+   "id": 1351,
+   "type": "message",
+   "date": "2026-10-06T22:00:33",
+   "date_unixtime": "1791311433",
+   "from": "ندا",
+   "from_id": "user5407901580",
+   "reply_to_message_id": 1065,
+   "text": "یه آپدیت: قانون ۲۰-۲۰-۲۰ رو امتحان کردم یکم بهتره ولی هنوز آخر شب چشمام می‌سوزه. فکر کنم باید یه چیز جدی‌تر بگیرم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه آپدیت: قانون ۲۰-۲۰-۲۰ رو امتحان کردم یکم بهتره ولی هنوز آخر شب چشمام می‌سوزه. فکر کنم باید یه چیز جدی‌تر بگیرم"
+    }
+   ]
+  },
+  {
+   "id": 1352,
+   "type": "message",
+   "date": "2026-10-06T22:02:55",
+   "date_unixtime": "1791311575",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1351,
+   "text": "خوشحالم بهتر شده 🌸",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "خوشحالم بهتر شده 🌸"
+    }
+   ]
+  },
+  {
+   "id": 1353,
+   "type": "message",
+   "date": "2026-10-07T09:15:00",
+   "date_unixtime": "1791351900",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": "کسی می‌دونه چطوری تو pytest فقط تست‌هایی که دفعه قبل fail شدن رو اجرا کنم؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی می‌دونه چطوری تو pytest فقط تست‌هایی که دفعه قبل fail شدن رو اجرا کنم؟"
+    }
+   ]
+  },
+  {
+   "id": 1354,
+   "type": "message",
+   "date": "2026-10-07T09:18:03",
+   "date_unixtime": "1791352083",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": [
+    {
+     "type": "code",
+     "text": "pytest --lf"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "code",
+     "text": "pytest --lf"
+    }
+   ]
+  },
+  {
+   "id": 1355,
+   "type": "message",
+   "date": "2026-10-07T09:19:27",
+   "date_unixtime": "1791352167",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "text": "😍 عالی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "😍 عالی"
+    }
+   ]
+  },
+  {
+   "id": 1356,
+   "type": "message",
+   "date": "2026-10-07T10:10:31",
+   "date_unixtime": "1791355231",
+   "from": "کیان",
+   "from_id": "user5552501001",
+   "text": "سلام. کسی یه bootcamp پایتون آنلاین سراغ داره که واقعا job-ready کنه؟ من تا آخر سال deadline دارم که یه کار junior پیدا کنم. ready-am که هزینه کنم، فقط می‌خوام portfolio و interview prep داشته باشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سلام. کسی یه bootcamp پایتون آنلاین سراغ داره که واقعا job-ready کنه؟ من تا آخر سال deadline دارم که یه کار junior پیدا کنم. ready-am که هزینه کنم، فقط می‌خوام portfolio و interview prep داشته باشه"
+    }
+   ]
+  },
+  {
+   "id": 1357,
+   "type": "message",
+   "date": "2026-10-07T10:14:19",
+   "date_unixtime": "1791355459",
+   "from": "رامین",
+   "from_id": "user5559578136",
+   "reply_to_message_id": 1356,
+   "text": "interview prep خیلی مهمه، کمتر دوره‌ای داره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "interview prep خیلی مهمه، کمتر دوره‌ای داره"
+    }
+   ]
+  },
+  {
+   "id": 1358,
+   "type": "message",
+   "date": "2026-10-07T10:18:42",
+   "date_unixtime": "1791355722",
+   "from": "کیان",
+   "from_id": "user5552501001",
+   "reply_to_message_id": 1357,
+   "text": "آره دقیقا. یه دوره دیدم فقط ویدیو بود، اونو نمی‌خوام. mentor لازم دارم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره دقیقا. یه دوره دیدم فقط ویدیو بود، اونو نمی‌خوام. mentor لازم دارم"
+    }
+   ]
+  },
+  {
+   "id": 1359,
+   "type": "message",
+   "date": "2026-10-07T10:20:31",
+   "date_unixtime": "1791355831",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1356,
+   "text": "سه چهارتا پروژه درست و حسابی تو گیت‌هابت باشه شانست خیلی بالا میره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "سه چهارتا پروژه درست و حسابی تو گیت‌هابت باشه شانست خیلی بالا میره"
+    }
+   ]
+  },
+  {
+   "id": 1360,
+   "type": "message",
+   "date": "2026-10-07T10:23:34",
+   "date_unixtime": "1791356014",
+   "from": "کیان",
+   "from_id": "user5552501001",
+   "reply_to_message_id": 1359,
+   "text": "🙏 مرسی",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "🙏 مرسی"
+    }
+   ]
+  },
+  {
+   "id": 1361,
+   "type": "message",
+   "date": "2026-10-07T11:30:22",
+   "date_unixtime": "1791360022",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": "هکتوبرفست شروع شده! کی می‌خواد contribute کنه؟ 🎃",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "هکتوبرفست شروع شده! کی می‌خواد contribute کنه؟ 🎃"
+    }
+   ]
+  },
+  {
+   "id": 1362,
+   "type": "message",
+   "date": "2026-10-07T11:33:22",
+   "date_unixtime": "1791360202",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1361,
+   "text": "من! ولی نمی‌دونم از کجا شروع کنم",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من! ولی نمی‌دونم از کجا شروع کنم"
+    }
+   ]
+  },
+  {
+   "id": 1363,
+   "type": "message",
+   "date": "2026-10-07T11:36:24",
+   "date_unixtime": "1791360384",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "reply_to_message_id": 1362,
+   "text": [
+    "دنبال لیبل ",
+    {
+     "type": "code",
+     "text": "good first issue"
+    },
+    " بگرد"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "دنبال لیبل "
+    },
+    {
+     "type": "code",
+     "text": "good first issue"
+    },
+    {
+     "type": "plain",
+     "text": " بگرد"
+    }
+   ]
+  },
+  {
+   "id": 1364,
+   "type": "message",
+   "date": "2026-10-07T11:41:03",
+   "date_unixtime": "1791360663",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1362,
+   "text": "درست کردن داکیومنت هم contribution حسابه، از اونجا شروع کن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "درست کردن داکیومنت هم contribution حسابه، از اونجا شروع کن"
+    }
+   ]
+  },
+  {
+   "id": 1365,
+   "type": "message",
+   "date": "2026-10-07T11:43:58",
+   "date_unixtime": "1791360838",
+   "from": "Taha",
+   "from_id": "user5463337889",
+   "reply_to_message_id": 1364,
+   "text": "اوکی امروز یکی پیدا می‌کنم 💪",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "اوکی امروز یکی پیدا می‌کنم 💪"
+    }
+   ]
+  },
+  {
+   "id": 1366,
+   "type": "message",
+   "date": "2026-10-07T12:20:52",
+   "date_unixtime": "1791363052",
+   "from": "Soheil",
+   "from_id": "user5738741227",
+   "text": "یکی از بچه‌های تیم ما ۳ تا دوره پولی دیده ولی هنوز git بلد نیست 😅 به نظرم دوره بدون پروژه بی‌فایده‌ست",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یکی از بچه‌های تیم ما ۳ تا دوره پولی دیده ولی هنوز git بلد نیست 😅 به نظرم دوره بدون پروژه بی‌فایده‌ست"
+    }
+   ]
+  },
+  {
+   "id": 1367,
+   "type": "message",
+   "date": "2026-10-07T12:23:39",
+   "date_unixtime": "1791363219",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "text": "دقیقا، باید دستت کثیف بشه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "دقیقا، باید دستت کثیف بشه"
+    }
+   ]
+  },
+  {
+   "id": 1368,
+   "type": "message",
+   "date": "2026-10-07T12:23:59",
+   "date_unixtime": "1791363239",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "file": "(File not included. Change data exporting settings to download.)",
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "media_type": "sticker",
+   "sticker_emoji": "🔥",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1369,
+   "type": "message",
+   "date": "2026-10-07T12:27:08",
+   "date_unixtime": "1791363428",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "text": "یا حداقل یه منتور داشته باشی که کدت رو ببینه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یا حداقل یه منتور داشته باشی که کدت رو ببینه"
+    }
+   ]
+  },
+  {
+   "id": 1370,
+   "type": "message",
+   "date": "2026-10-07T13:00:53",
+   "date_unixtime": "1791365453",
+   "from": "فرهاد 😎",
+   "from_id": "user5062949939",
+   "text": "من بعد ۵ سال برنامه‌نویسی هنوز ریجکس رو از استک‌اورفلو کپی می‌کنم 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من بعد ۵ سال برنامه‌نویسی هنوز ریجکس رو از استک‌اورفلو کپی می‌کنم 😂"
+    }
+   ]
+  },
+  {
+   "id": 1371,
+   "type": "message",
+   "date": "2026-10-07T13:01:44",
+   "date_unixtime": "1791365504",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1370,
+   "text": "همه همین‌طوریم، فقط سینیورها قبول نمی‌کنن 😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "همه همین‌طوریم، فقط سینیورها قبول نمی‌کنن 😂"
+    }
+   ]
+  },
+  {
+   "id": 1372,
+   "type": "message",
+   "date": "2026-10-07T14:30:49",
+   "date_unixtime": "1791370849",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": "کسی میاد DevFest تهران؟ ثبت‌نامش باز شده",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی میاد DevFest تهران؟ ثبت‌نامش باز شده"
+    }
+   ]
+  },
+  {
+   "id": 1373,
+   "type": "message",
+   "date": "2026-10-07T14:34:46",
+   "date_unixtime": "1791371086",
+   "from": "نیلوفر 🌸",
+   "from_id": "user5936071514",
+   "reply_to_message_id": 1372,
+   "text": "من میام! پارسال خیلی خوب بود",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من میام! پارسال خیلی خوب بود"
+    }
+   ]
+  },
+  {
+   "id": 1374,
+   "type": "message",
+   "date": "2026-10-07T14:35:54",
+   "date_unixtime": "1791371154",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "reply_to_message_id": 1372,
+   "text": "منم احتمالا 🙋‍♀️",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "منم احتمالا 🙋‍♀️"
+    }
+   ]
+  },
+  {
+   "id": 1375,
+   "type": "message",
+   "date": "2026-10-07T14:39:20",
+   "date_unixtime": "1791371360",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1373,
+   "text": "پس اونجا یه عکس گروهی بگیریم 📸",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "پس اونجا یه عکس گروهی بگیریم 📸"
+    }
+   ]
+  },
+  {
+   "id": 1376,
+   "type": "message",
+   "date": "2026-10-07T16:00:53",
+   "date_unixtime": "1791376253",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": "GitHub Actions من موقع اجرای تست‌ها timeout می‌خوره، لوکال همه پاسه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "GitHub Actions من موقع اجرای تست‌ها timeout می‌خوره، لوکال همه پاسه"
+    }
+   ]
+  },
+  {
+   "id": 1377,
+   "type": "message",
+   "date": "2026-10-07T16:02:31",
+   "date_unixtime": "1791376351",
+   "from": "علی رضایی",
+   "from_id": "user5265796435",
+   "reply_to_message_id": 1376,
+   "edited": "2026-10-07T16:03:26",
+   "edited_unixtime": "1791376406",
+   "text": [
+    "از cache برای pip استفاده کن، و تست‌های کند رو با ",
+    {
+     "type": "code",
+     "text": "pytest --durations=10"
+    },
+    " پیدا کن"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "از cache برای pip استفاده کن، و تست‌های کند رو با "
+    },
+    {
+     "type": "code",
+     "text": "pytest --durations=10"
+    },
+    {
+     "type": "plain",
+     "text": " پیدا کن"
+    }
+   ]
+  },
+  {
+   "id": 1378,
+   "type": "message",
+   "date": "2026-10-07T16:05:13",
+   "date_unixtime": "1791376513",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1377,
+   "text": "یه تست بود که به یه API بیرونی وصل می‌شد 🤦‍♂️ mock کردم درست شد",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "یه تست بود که به یه API بیرونی وصل می‌شد 🤦‍♂️ mock کردم درست شد"
+    }
+   ]
+  },
+  {
+   "id": 1379,
+   "type": "message",
+   "date": "2026-10-07T16:08:31",
+   "date_unixtime": "1791376711",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1378,
+   "text": "کلاسیک 😄 همیشه mock کن",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کلاسیک 😄 همیشه mock کن"
+    }
+   ]
+  },
+  {
+   "id": 1380,
+   "type": "message",
+   "date": "2026-10-07T17:30:27",
+   "date_unixtime": "1791381627",
+   "from": "Reza K",
+   "from_id": "user5091272307",
+   "text": "bachea man hanooz donbale dore am 😅 kasi chizi peyda nakard?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "bachea man hanooz donbale dore am 😅 kasi chizi peyda nakard?"
+    }
+   ]
+  },
+  {
+   "id": 1381,
+   "type": "message",
+   "date": "2026-10-07T17:31:35",
+   "date_unixtime": "1791381695",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "reply_to_message_id": 1380,
+   "text": "reza chand ta dore ba mentor hast, nazar e daneshjoohasho bepors bad tasmim begir",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "reza chand ta dore ba mentor hast, nazar e daneshjoohasho bepors bad tasmim begir"
+    }
+   ]
+  },
+  {
+   "id": 1382,
+   "type": "message",
+   "date": "2026-10-07T18:30:50",
+   "date_unixtime": "1791385250",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "کسی می‌دونه PyCon امسال آنلاین هم پخش میشه؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "کسی می‌دونه PyCon امسال آنلاین هم پخش میشه؟"
+    }
+   ]
+  },
+  {
+   "id": 1383,
+   "type": "message",
+   "date": "2026-10-07T18:32:55",
+   "date_unixtime": "1791385375",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": "آره یوتیوبشون لایو داره",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "آره یوتیوبشون لایو داره"
+    }
+   ]
+  },
+  {
+   "id": 1384,
+   "type": "message",
+   "date": "2026-10-07T18:34:14",
+   "date_unixtime": "1791385454",
+   "from": "پریسا",
+   "from_id": "user5787447262",
+   "text": "مرسی 🙏",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "مرسی 🙏"
+    }
+   ]
+  },
+  {
+   "id": 1385,
+   "type": "message",
+   "date": "2026-10-07T20:00:31",
+   "date_unixtime": "1791390631",
+   "from": "Sina",
+   "from_id": "user5724752681",
+   "text": "باز اینترنت قطع و وصله یا فقط منم؟",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "باز اینترنت قطع و وصله یا فقط منم؟"
+    }
+   ]
+  },
+  {
+   "id": 1386,
+   "type": "message",
+   "date": "2026-10-07T20:03:15",
+   "date_unixtime": "1791390795",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "reply_to_message_id": 1385,
+   "text": "همه‌جا هست",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "همه‌جا هست"
+    }
+   ]
+  },
+  {
+   "id": 1387,
+   "type": "message",
+   "date": "2026-10-07T20:06:50",
+   "date_unixtime": "1791391010",
+   "from": "جواد",
+   "from_id": "user5034913238",
+   "reply_to_message_id": 1385,
+   "text": "من که کلا رفتم رو اینترنت کبوتری 🕊️😂",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "من که کلا رفتم رو اینترنت کبوتری 🕊️😂"
+    }
+   ]
+  },
+  {
+   "id": 1388,
+   "type": "message",
+   "date": "2026-10-07T22:10:15",
+   "date_unixtime": "1791398415",
+   "from": "بهنام",
+   "from_id": "user5444055307",
+   "text": "امشب هم on-call ام 😩 خدا به داد برسه",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "امشب هم on-call ام 😩 خدا به داد برسه"
+    }
+   ]
+  },
+  {
+   "id": 1389,
+   "type": "message",
+   "date": "2026-10-07T22:14:25",
+   "date_unixtime": "1791398665",
+   "from": "Mehdi Tavakoli",
+   "from_id": "user5628314138",
+   "text": "قوی باش 💪",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "قوی باش 💪"
+    }
+   ]
+  },
+  {
+   "id": 1390,
+   "type": "message",
+   "date": "2026-10-07T23:30:23",
+   "date_unixtime": "1791403223",
+   "from": "Sara Mohammadi",
+   "from_id": "user5912735171",
+   "text": "شب بخیر بچه‌ها 🌙",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "شب بخیر بچه‌ها 🌙"
+    }
+   ]
+  },
+  {
+   "id": 1391,
+   "type": "message",
+   "date": "2026-10-07T23:32:38",
+   "date_unixtime": "1791403358",
+   "from": "گلناز",
+   "from_id": "user5088295561",
+   "reply_to_message_id": 1390,
+   "text": "شب بخیر 🌙",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "شب بخیر 🌙"
+    }
+   ]
+  }
+ ]
+}

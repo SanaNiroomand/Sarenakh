@@ -18,6 +18,7 @@ COPY backend/requirements.txt backend/requirements.txt
 RUN pip install -r backend/requirements.txt
 
 COPY backend/ backend/
+COPY samples/ samples/
 COPY --from=web /web/dist frontend/dist
 RUN mkdir -p /app/data
 
