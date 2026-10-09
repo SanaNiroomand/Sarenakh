@@ -1,0 +1,55 @@
+# Sarenakh — production values for `helm install -f values-production.yaml`.
+# Copy this file, then change the lines marked  # EDIT.
+# Never put the OpenAI key in this file: it goes in a Kubernetes Secret (see DEPLOY.md, step 2).
+
+image:
+  repository: ghcr.io/sananiroomand/sarenakh
+  tag: "0.2.0"
+
+# Only if the image on ghcr.io is private (see DEPLOY.md, step 3):
+# imagePullSecrets:
+#   - name: ghcr
+
+secret:
+  create: false
+  existingSecret: sarenakh-secrets      # created with kubectl in DEPLOY.md, step 2
+
+config:
+  # warn = the site always starts; if OpenAI is unreachable, new paid runs are refused with a clear
+  # message but the demo ("Try sample data") still works from the bundled cache.
+  MODEL_CHECK: "warn"
+  GLOBAL_SPEND_CAP_USD: "20"            # hard cap on total OpenAI spend for this deployment
+  DEFAULT_RUN_BUDGET_USD: "0.25"
+  MAX_RUN_BUDGET_USD: "1.00"
+  USER_DAILY_CAP_USD: "1.50"
+
+ingress:
+  enabled: true
+  className: nginx                      # EDIT if your ingress controller is not ingress-nginx
+  annotations:
+    # SSE live feed + uploads (these are also the chart defaults for ingress-nginx)
+    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-body-size: "16m"
+    cert-manager.io/cluster-issuer: letsencrypt-prod   # EDIT to your ClusterIssuer, or delete if you manage TLS yourself
+  hosts:
+    - host: sarenakh.example.com        # EDIT: the public domain
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: sarenakh-tls
+      hosts:
+        - sarenakh.example.com          # EDIT: same domain
+
+persistence:
+  size: 2Gi
+  storageClass: ""                      # EDIT only if the cluster has no default StorageClass
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    memory: 768Mi

@@ -63,6 +63,9 @@ make `sarenakh` public in the package settings, or use an image pull secret.
 
 ## Kubernetes (Helm)
 
+Step-by-step guide for whoever operates the cluster: [`deploy/helm/DEPLOY.md`](deploy/helm/DEPLOY.md)
+(with [`values-production.example.yaml`](deploy/helm/values-production.example.yaml)).
+
 The chart is in [`deploy/helm/sarenakh`](deploy/helm/sarenakh). Sarenakh deliberately runs as **one pod**
 (SQLite + in-process agent runs + SSE live feed); the chart enforces `replicaCount: 1`, uses the `Recreate`
 strategy and a `ReadWriteOnce` PVC that is kept on uninstall. The cluster must be outside Iran (OpenAI).
