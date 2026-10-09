@@ -124,7 +124,7 @@ async def execute_run(run_id: int, *, replay_delay: float | None = None, use_cac
     if replay_delay is not None:
         ctx.replay_delay = replay_delay
     t0 = time.time()
-    stats: dict[str, Any] = {"funnel": {}, "burn": [], "cache_hits": 0}
+    stats: dict[str, Any] = {**(run.stats or {}), "funnel": {}, "burn": [], "cache_hits": 0}  # keeps "replay"
     rec.update_run(status="running", started_at=t0)
     status, stop_reason, error = "done", None, None
 
