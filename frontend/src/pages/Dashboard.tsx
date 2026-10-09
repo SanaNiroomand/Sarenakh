@@ -53,7 +53,7 @@ export default function Dashboard() {
 
       <section className="mb-10">
         <h2 className="mb-1 font-bold">امتحان با داده نمونه</h2>
-        <p className="mb-3 text-sm text-ink-500">یک گروه تلگرام نمونه با ۳۹۱ پیام. یکی از محصول‌ها را انتخاب کنید.</p>
+        <p className="mb-3 text-sm text-ink-500">یک گروه تلگرام نمونه درباره برنامه‌نویسی. یکی از محصول‌ها را انتخاب کنید.</p>
         <SampleButtons />
         <p className="mt-3 text-xs text-ink-400">اطلاعات این دو محصول از سایت کوئرا و باسلام است و فقط برای نمایش استفاده شده.</p>
       </section>
