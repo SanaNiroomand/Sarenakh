@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
-import { Empty, LinkButton, Loading } from "./components/ui";
+import { Loading } from "./components/ui";
 import { AuthProvider, RequireAuth } from "./lib/auth";
 import { Login, Signup } from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -18,8 +18,7 @@ const ProductSetup = lazy(() => import("./pages/ProductSetup"));
 function NotFound() {
   return (
     <Layout>
-      <Empty icon="🪢" title="این رشته به جایی نمی‌رسد">صفحه‌ای که دنبالش بودید پیدا نشد.</Empty>
-      <div className="mt-4 text-center"><LinkButton to="/">صفحه اصلی</LinkButton></div>
+      <p>این صفحه پیدا نشد. <Link to="/" className="underline">صفحه اصلی</Link></p>
     </Layout>
   );
 }
