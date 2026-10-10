@@ -201,7 +201,7 @@ async def investigate(
                              cached=True, steps=result.get("steps", 0))
 
     instructions = INVESTIGATOR_SYSTEM.format(profile=profile_block(ctx.profile))
-    items: list[dict] = [{"role": "user", "content": _initial_context(ctx, cand, tri, others, fewshot)}]
+    items: list[dict] = [{"role": "user", "content": ctx.source_note() + _initial_context(ctx, cand, tri, others, fewshot)}]
     trace: list[dict] = []
     verdict: Verdict | None = None
     cost = 0.0

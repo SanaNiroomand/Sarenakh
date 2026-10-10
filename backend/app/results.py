@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 from .agents.scoring import temperature, weakest_axis
 from .agents.schemas import Verdict
 from .db import Analysis, Dataset, Feedback, Message, Product, Run
+from .sources.x import post_url
 
 TEMP_SCORE = {"cold": 1, "warm": 2, "hot": 3}
 FUNNEL_FA = {
@@ -56,7 +57,8 @@ def build_results(db: Session, run: Run, user_id: int) -> dict[str, Any]:
 
     def msg_brief(mid: int) -> dict | None:
         m = msgs.get(mid)
-        return {"msg_id": mid, "author": m.author, "date": m.date, "text": _snip(m.text, 220)} if m else None
+        return ({"msg_id": mid, "author": m.author, "date": m.date, "text": _snip(m.text, 220),
+                 "url": post_url(m.ext_id)} if m else None)
 
     leads, watch, rejected, opportunity = [], [], [], []
     triaged_n = sum(1 for a in analyses if a.triage)
@@ -68,7 +70,8 @@ def build_results(db: Session, run: Run, user_id: int) -> dict[str, Any]:
             continue
         base = {
             "msg_id": a.msg_id, "author": m.author, "author_id": m.author_id, "date": m.date,
-            "text": m.text, "lang": m.lang, "decision": a.decision, "why_not": a.why_not, "stage": a.stage,
+            "text": m.text, "lang": m.lang, "url": post_url(m.ext_id), "decision": a.decision,
+            "why_not": a.why_not, "stage": a.stage,
             "triage": a.triage, "fit": a.fit, "cached": a.cached,
             "cost_usd": round(a.cost_usd or 0, 6), "equiv_cost_usd": round((a.cost_usd or 0) + (a.saved_usd or 0), 6),
         }

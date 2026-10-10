@@ -50,6 +50,16 @@ Legend: `[x]` done · `[~]` in progress · `[ ]` todo · `[-]` cut
 - [x] scripts/eval.py (precision, recall, cost, cost/lead) — 9/9 and 5/5, 0 false positives
 - [ ] Repeat runs for variance numbers; golden cache shipped with the image (replay works without OpenAI)
 
+## Phase 6b — Product link + X (Twitter)
+- [x] Product from a link: safe page reader (public addresses only, size/time limits, cached a day),
+      facts extracted by the model (cached by page content) → first message of the profile chat
+- [x] X recent search (official API v2, pay-per-use): queries written per profile (topic AND need), cached;
+      posts cached per query, refresh fetches only newer posts; names looked up only for leads
+- [x] Agents told when posts come from X (Telegram prompts and caches unchanged); reply ≤ 260 chars
+- [x] Fix: a run no longer stops early while running investigations still hold budget reservations
+- [x] Tests with a fake X API; end-to-end check against a local fake X server
+- [ ] Live check with a real X bearer token
+
 ## Phase 7 — Production deploy + end-to-end test (incl. phone)
 ## Phase 8 — Polish
 ## Phase 9 — Docs (README, technical, business plan, pitch, video script)

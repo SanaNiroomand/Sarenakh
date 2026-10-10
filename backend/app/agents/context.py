@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import time
 from collections import defaultdict
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
@@ -153,6 +154,23 @@ def cache_put(key: str, stage: str, result: dict, cost: float) -> None:
             db.add(StageCache(key=key, stage=stage, result=result, cost_usd=cost))
 
 
+def cache_get_fresh(key: str, max_age_s: float) -> dict | None:
+    """Cached result younger than max_age_s (for data from outside that goes stale: pages, posts)."""
+    with session() as db:
+        row = db.get(StageCache, key)
+        return row.result if row and time.time() - row.created_at < max_age_s else None
+
+
+def cache_set(key: str, stage: str, result: dict, cost: float = 0.0) -> None:
+    """Insert or replace (cache_put keeps the first result; this one refreshes)."""
+    with session() as db:
+        row = db.get(StageCache, key)
+        if row is None:
+            db.add(StageCache(key=key, stage=stage, result=result, cost_usd=cost))
+        else:
+            row.result, row.cost_usd, row.created_at = result, cost, time.time()
+
+
 def profile_fingerprint(profile: Profile) -> str:
     return cache_key(profile.model_dump())[:24]
 
@@ -190,6 +208,7 @@ class RunContext:
     # Identity used in cache keys: the sample chat is keyed by its content hash (portable across
     # servers, invalidated when the data changes); user datasets by their id.
     dataset_key: str = ""
+    channel: str = "telegram"  # telegram | x
     embeddings: dict[int, np.ndarray] = field(default_factory=dict)
     fewshot: list[FewShot] = field(default_factory=list)
     use_cache: bool = True
@@ -198,3 +217,15 @@ class RunContext:
 
     def __post_init__(self) -> None:
         self.profile_fp = profile_fingerprint(self.profile)
+
+    def source_note(self) -> str:
+        """Prefix for model inputs when the messages are not a Telegram group (the system prompts
+        stay unchanged so cached Telegram results stay valid)."""
+        return X_NOTE if self.channel == "x" else ""
+
+
+X_NOTE = (
+    "SOURCE NOTE: these are public posts on X (Twitter) found by keyword search, not one group chat. "
+    "Posts next to each other in time are usually unrelated. A reply is a public reply to the post "
+    "(max 260 characters).\n\n"
+)

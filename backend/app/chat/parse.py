@@ -39,6 +39,7 @@ class ChatMessage:
     lang: str = "fa"
     forwarded_from: str | None = None
     emojis: int = 0
+    ext_id: str | None = None  # id in the source platform (e.g. X post id)
 
     def finish(self) -> "ChatMessage":
         self.norm = normalize(self.text)
@@ -60,7 +61,7 @@ class ChatMessage:
 @dataclass
 class ParsedChat:
     name: str
-    source: str  # telegram_json | pasted_text
+    source: str  # telegram_json | pasted_text | twitter
     messages: list[ChatMessage]
     skipped: int = 0
     warnings: list[str] = field(default_factory=list)

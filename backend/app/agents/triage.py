@@ -67,7 +67,7 @@ async def triage(ctx: RunContext, msgs: list[ChatMessage]) -> tuple[dict[int, Tr
             parsed, usage = await ctx.llm.structured(
                 model=ctx.settings.triage_model,
                 instructions=instructions,
-                input="Messages:\n" + "\n".join(_render(ctx, m) for m in batch),
+                input=ctx.source_note() + "Messages:\n" +"\n".join(_render(ctx, m) for m in batch),
                 output_type=TriageBatch,
                 reasoning=ctx.settings.triage_reasoning,
                 max_output_tokens=150 * len(batch) + 500,

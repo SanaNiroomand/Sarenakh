@@ -50,7 +50,7 @@ def store_parsed(
         {
             "dataset_id": ds.id, "msg_id": m.id, "ts": m.ts, "date": m.date, "author_id": m.author_id,
             "author": m.author, "text": m.text, "norm": m.norm, "reply_to": m.reply_to, "kind": m.kind,
-            "lang": m.lang, "forwarded_from": m.forwarded_from, "emojis": m.emojis,
+            "lang": m.lang, "forwarded_from": m.forwarded_from, "emojis": m.emojis, "ext_id": m.ext_id,
         }
         for m in parsed.messages
     ]

@@ -38,7 +38,7 @@ async def critique(
     result, cost = await charged(ctx.budget, "critic", res, ctx.llm.structured(
         model=ctx.settings.critic_model,
         instructions=CRITIC_SYSTEM.format(profile=profile_block(ctx.profile)),
-        input=text,
+        input=ctx.source_note() + text,
         output_type=CriticResult,
         reasoning=ctx.settings.agent_reasoning,
         max_output_tokens=1500,

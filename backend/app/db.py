@@ -60,6 +60,7 @@ class Product(Base):
     name: Mapped[str] = mapped_column(String(120), default="")
     description: Mapped[str] = mapped_column(Text, default="")
     sample_key: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    source_url: Mapped[str | None] = mapped_column(String(1000), nullable=True)  # product page it was read from
     # conversation with the profile agent: [{"role": "user"|"assistant", "content": str}]
     setup_chat: Mapped[list[Any]] = mapped_column(JSON, default=list)
     profile: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
@@ -95,6 +96,7 @@ class Message(Base):
     lang: Mapped[str] = mapped_column(String(10), default="fa")
     forwarded_from: Mapped[str | None] = mapped_column(String(200), nullable=True)
     emojis: Mapped[int] = mapped_column(Integer, default=0)
+    ext_id: Mapped[str | None] = mapped_column(String(40), nullable=True)  # e.g. the X post id
     embedding: Mapped[bytes | None] = mapped_column(LargeBinary, nullable=True)  # float32, cached
 
 

@@ -103,6 +103,8 @@ async def public_config():
         "default_run_budget_usd": s.default_run_budget_usd,
         "max_run_budget_usd": s.max_run_budget_usd,
         "models": {"triage": s.triage_model, "agent": s.investigator_model, "embedding": s.embedding_model},
+        "x": {"enabled": bool(s.x_bearer_token), "price_per_post_usd": s.x_price_per_post_usd,
+              "max_posts": s.x_max_posts},
     }
 
 

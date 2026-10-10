@@ -41,6 +41,8 @@ def _hard_issues(ctx: RunContext, draft: ReplyDraft, mode: str, allowed: set[int
     words = len(draft.reply.split())
     if words > 130:
         issues.append("پاسخ خیلی طولانی است؛ زیر ۹۰ کلمه کوتاهش کن.")
+    if ctx.channel == "x" and len(draft.reply) > 260:
+        issues.append("پاسخ در ایکس باید زیر ۲۶۰ نویسه باشد؛ کوتاهش کن.")
     return issues
 
 
@@ -59,7 +61,7 @@ async def draft_reply(
     facts_txt = "\n".join(f"[{i}] {f}" for i, f in facts) or "(none)"
     product = f"{ctx.profile.product_name} — {ctx.profile.one_liner}"
     thread = ctx.index.thread(cand.id)[:10]
-    user_input = "\n".join([
+    user_input = ctx.source_note() + "\n".join([
         f"MODE: {mode}",
         f"Person's language: {'Finglish' if cand.lang == 'finglish' else 'Persian'}",
         f"Their need (from the investigation): {verdict.stated_need}",

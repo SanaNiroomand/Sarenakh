@@ -7,13 +7,15 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from ..agents.context import GlobalSpend, record_spend
+from ..agents.product_reader import facts_to_description, read_product
 from ..agents.profile_agent import profile_turn
 from ..config import get_settings
 from ..db import Product, User, get_db, user_spend_since
 from ..llm import IncompleteOutputError, get_llm
 from ..samples import sample_products, sample_profile
-from ..schemas import ChatTurnIn, Profile, ProductIn
+from ..schemas import ChatTurnIn, ProductIn, ProductUrlIn, Profile
 from ..security import current_user, rate_limit
+from ..sources.web import PageError, fetch_page
 
 log = logging.getLogger("sarenakh.products")
 router = APIRouter(prefix="/api/products", tags=["products"])
@@ -25,7 +27,8 @@ def product_out(p: Product) -> dict[str, Any]:
         "id": p.id, "name": p.name, "description": p.description, "sample_key": p.sample_key,
         "profile": p.profile, "setup_chat": p.setup_chat or [], "created_at": p.created_at,
         "updated_at": p.updated_at,
-        "source": {"url": sp["source_url"], "checked_at": sp["checked_at"]} if sp else None,
+        "source": ({"url": sp["source_url"], "checked_at": sp["checked_at"]} if sp
+                   else {"url": p.source_url, "checked_at": None} if p.source_url else None),
     }
 
 
@@ -59,6 +62,53 @@ def create_product(body: ProductIn, user: User = Depends(current_user), db: Sess
     db.add(p)
     db.flush()
     return product_out(p)
+
+
+def check_paid_call(request: Request, db: Session, user: User) -> None:
+    """Guards before a paid model call made outside a run."""
+    s = get_settings()
+    ms = request.app.state.model_status
+    if not (ms.get("ok") or ms.get("skipped")):
+        raise HTTPException(503, "سرویس هوش مصنوعی موقتا در دسترس نیست. کمی بعد دوباره تلاش کنید.")
+    if GlobalSpend.get() >= s.global_spend_cap_usd:
+        raise HTTPException(403, "سقف هزینه این نسخه نمایشی پر شده است. از محصولات نمونه استفاده کنید.")
+    if user_spend_since(db, user.id, time.time() - 86400) >= s.user_daily_cap_usd:
+        raise HTTPException(429, "سقف هزینه روزانه شما پر شده است. فردا دوباره امتحان کنید.")
+
+
+@router.post("/from-url", dependencies=[Depends(rate_limit("from_url", 20, 3600, per="user"))])
+async def create_from_url(
+    body: ProductUrlIn, request: Request, user: User = Depends(current_user), db: Session = Depends(get_db)
+) -> dict:
+    """Read the product page, extract its facts, and start the profile chat with them."""
+    check_paid_call(request, db, user)
+    try:
+        page = await fetch_page(body.url)
+    except PageError as e:
+        raise HTTPException(400, str(e)) from e
+    if len(page.text) < 200 and not page.structured:
+        raise HTTPException(422, "این صفحه متن کافی نداشت (احتمالا با جاوااسکریپت ساخته می‌شود). محصول را چند خطی توضیح دهید.")
+    try:
+        facts, usage = await read_product(get_llm(), get_settings(), page)
+    except IncompleteOutputError as e:
+        record_spend(user.id, "page", e.usage)
+        raise HTTPException(502, "خواندن صفحه کامل نشد. دوباره تلاش کنید.") from e
+    except Exception as e:  # noqa: BLE001
+        log.warning("product page reader failed: %s", e)
+        raise HTTPException(502, "خواندن صفحه انجام نشد. چند لحظه بعد دوباره تلاش کنید.") from e
+    if usage:
+        record_spend(user.id, "page", usage)
+    if not facts.found or not facts.features:
+        raise HTTPException(422, "در این صفحه محصول مشخصی پیدا نشد. لینک صفحه خود محصول را بدهید یا توضیحش دهید.")
+    desc = facts_to_description(facts, page.url)
+    p = Product(user_id=user.id, name=facts.product_name[:120], description=desc, source_url=page.url[:1000],
+                setup_chat=[{"role": "user", "content": desc}])
+    db.add(p)
+    db.flush()
+    out = product_out(p)
+    out["facts"] = facts.model_dump()
+    out["read_cost_usd"] = round(usage.cost_usd, 6) if usage else 0.0
+    return out
 
 
 @router.post("/sample/{key}")
@@ -109,13 +159,7 @@ async def agent_turn(
         chat.append({"role": "user", "content": body.message.strip()})
     if chat[-1]["role"] != "user":
         raise HTTPException(400, "منتظر پاسخ شما به سوال عامل هستیم.")
-    ms = request.app.state.model_status
-    if not (ms.get("ok") or ms.get("skipped")):
-        raise HTTPException(503, "سرویس هوش مصنوعی موقتا در دسترس نیست. کمی بعد دوباره تلاش کنید.")
-    if GlobalSpend.get() >= s.global_spend_cap_usd:
-        raise HTTPException(403, "سقف هزینه این نسخه نمایشی پر شده است. از محصولات نمونه استفاده کنید.")
-    if user_spend_since(db, user.id, time.time() - 86400) >= s.user_daily_cap_usd:
-        raise HTTPException(429, "سقف هزینه روزانه شما پر شده است. فردا دوباره امتحان کنید.")
+    check_paid_call(request, db, user)
     try:
         turn, usage = await profile_turn(get_llm(), s, chat)
     except IncompleteOutputError as e:

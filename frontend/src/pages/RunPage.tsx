@@ -33,7 +33,7 @@ function ResultsView({ res, onClues }: { res: Results; onClues: (ids: number[], 
       {(() => {
         const summary = `${num(k.leads)} نفر از ${num(k.scanned)} پیام · هزینه ${usd(k.equivalent_cost_usd)}`
           + (k.cost_per_lead_usd != null ? ` · هر نفر ${usd(k.cost_per_lead_usd)}` : "")
-          + (k.saved_usd > 0 ? " · این بار رایگان" : "");
+          + (k.saved_usd > 0 ? (k.cost_usd > 0 ? ` · ${usd(k.saved_usd)} از حافظه` : " · این بار رایگان") : "");
         return <p className="truncate" title={summary}>{summary}</p>;
       })()}
 
@@ -86,6 +86,13 @@ function ResultsView({ res, onClues }: { res: Results; onClues: (ids: number[], 
                 <td className="py-1.5 text-ink-500">{usd(f.cost)}</td>
               </tr>
             ))}
+            {res.stats.stage_cost?.x_user > 0 && (
+              <tr className="border-b border-ink-100">
+                <td className="py-1.5">نام کاربری در ایکس</td>
+                <td className="py-1.5">{num(res.leads.length)} نفر</td>
+                <td className="py-1.5 text-ink-500">{usd(res.stats.stage_cost.x_user)}</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </section>

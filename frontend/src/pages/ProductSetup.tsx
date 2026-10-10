@@ -150,7 +150,9 @@ export default function ProductSetup() {
             <h1 className="text-xl font-bold">{product.profile ? product.name : "معرفی محصول"}</h1>
             {product.source && (
               <p className="mt-1 text-xs text-ink-400">
-                اطلاعات از <a href={product.source.url} target="_blank" rel="noopener noreferrer" className="underline">صفحه محصول</a>، فقط برای نمایش.
+                {product.sample_key ? "اطلاعات از " : "مشخصات از "}
+                <a href={product.source.url} target="_blank" rel="noopener noreferrer" className="underline">صفحه محصول</a>
+                {product.sample_key ? "، فقط برای نمایش." : " خوانده شد."}
               </p>
             )}
           </div>

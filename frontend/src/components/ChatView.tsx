@@ -45,7 +45,8 @@ export function ChatDrawer({ datasetId, center, highlight, onClose }: {
             return (
               <div key={m.msg_id} ref={(el) => { refs.current[m.msg_id] = el; }}
                 className={cx("rounded-lg px-3 py-2", hl.has(m.msg_id) && "bg-thread-100")}>
-                <div className="text-xs text-ink-500"><b className="text-ink-800">{m.author}</b> · #{mid(m.msg_id)} · {shortDate(m.date)}</div>
+                <div className="text-xs text-ink-500"><b className="text-ink-800">{m.author}</b> · #{mid(m.msg_id)} · {shortDate(m.date)}
+                  {m.url && <> · <a href={m.url} target="_blank" rel="noopener noreferrer" className="text-thread-700 hover:underline">ایکس</a></>}</div>
                 {parent && <div title={parent.text} className="truncate text-xs text-ink-400">در پاسخ به {parent.author}: {parent.text}</div>}
                 <div dir="auto" className="whitespace-pre-wrap leading-7">{m.text}</div>
               </div>

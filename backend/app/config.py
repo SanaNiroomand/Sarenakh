@@ -78,6 +78,14 @@ class Settings(BaseSettings):
     user_daily_cap_usd: float = 1.50  # paid spend per user per 24h (profile chat + runs)
     replay_delay_s: float = 0.7  # pacing of replayed (cached) agent steps in the live feed
 
+    # X (Twitter) official API, pay-per-use: billed per post read
+    x_bearer_token: str = ""
+    x_api_base: str = "https://api.x.com/2"
+    x_price_per_post_usd: float = 0.005
+    x_price_per_user_usd: float = 0.010
+    x_max_posts: int = 300  # per search
+    x_cache_hours: int = 24  # reuse search results and posts this long
+
     # Web
     session_secret: str = "dev-insecure-secret"
     cookie_secure: bool = False

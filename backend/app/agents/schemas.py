@@ -77,3 +77,25 @@ class ProfileTurn(BaseModel):
     action: Literal["ask", "profile"]
     question: str = Field(description="If action=ask: one short, friendly Persian question. Otherwise empty")
     profile: Profile | None = Field(description="If action=profile: the full profile. Otherwise null")
+
+
+class ProductFacts(BaseModel):
+    """What the product page says, extracted by the page reader."""
+
+    found: bool = Field(description="true if the page is about one specific product or service")
+    product_name: str = Field(description="Short product name as on the page")
+    seller: str = Field(description="Brand, shop or site selling it")
+    summary: str = Field(description="1-2 Persian sentences: what it is, what problem it solves for whom")
+    audience: str = Field(description="Who the page says it is for, or empty")
+    price: str = Field(description="Price as written on the page with currency, or empty")
+    features: list[str] = Field(description="4-12 short standalone Persian facts from the page, most concrete first")
+
+
+class XQuery(BaseModel):
+    why: str = Field(description="One short Persian line: whom this query finds")
+    topic: list[str] = Field(description="2-5 terms naming the subject the way people do")
+    need: list[str] = Field(description="3-8 terms showing a personal need")
+
+
+class XQueryPlan(BaseModel):
+    queries: list[XQuery]

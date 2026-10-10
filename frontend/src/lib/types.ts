@@ -32,7 +32,7 @@ export type Product = {
   profile: Profile | null;
   setup_chat: ChatTurn[];
   turn_cost_usd?: number;
-  source?: { url: string; checked_at: string } | null;
+  source?: { url: string; checked_at: string | null } | null;
 };
 
 export type SampleProduct = {
@@ -52,8 +52,17 @@ export type Dataset = {
     langs: Record<string, number>;
     first: string | null;
     last: string | null;
+    x?: XSearchStats;
   };
   warnings: string[];
+};
+
+export type XSearchStats = {
+  product_id: number;
+  queries: { q: string; why: string; found: number; new: number; from_cache: boolean }[];
+  posts: number;
+  new_posts: number;
+  cost_usd: number;
 };
 
 export type ChatMsg = {
@@ -66,6 +75,7 @@ export type ChatMsg = {
   kind: string;
   lang: string;
   forwarded_from: string | null;
+  url?: string | null;
 };
 
 export type RunSummary = {
@@ -117,6 +127,7 @@ export type LeadItem = {
   date: string;
   text: string;
   lang: string;
+  url?: string | null;
   decision: "lead" | "watch" | "rejected" | "skipped" | "pending";
   why_not: string | null;
   stage: string;
@@ -137,7 +148,7 @@ export type LeadItem = {
     thread_resolved: boolean;
     evidence_msg_ids: number[];
   };
-  evidence?: { msg_id: number; author: string; date: string; text: string }[];
+  evidence?: { msg_id: number; author: string; date: string; text: string; url?: string | null }[];
   reply?: Reply | null;
   critic?: { strongest_objection: string; survives: boolean; reason: string } | null;
   trace?: TraceStep[];

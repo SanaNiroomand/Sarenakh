@@ -6,6 +6,7 @@ import { api, errorText } from "../lib/api";
 import type { Product, SampleProduct } from "../lib/types";
 
 const shortName = (name: string) => name.split("—")[0].trim();
+const LINK = /^(https?:\/\/)?[^\s/]+\.[a-z]{2,}(\/\S*)?$/i;
 
 export default function NewSearch() {
   const nav = useNavigate();
@@ -14,6 +15,7 @@ export default function NewSearch() {
   const [desc, setDesc] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const isLink = LINK.test(desc.trim());
 
   useEffect(() => {
     api.get<SampleProduct[]>("/api/products/samples").then(setSamples).catch(() => undefined);
@@ -34,12 +36,18 @@ export default function NewSearch() {
   return (
     <Layout>
       <h1 className="text-xl font-bold">چه چیزی می‌فروشید؟</h1>
-      <p className="mb-3 mt-1 text-sm text-ink-500">با زبان ساده بنویسید: چه چیزی، برای چه کسی، و قیمتش.</p>
-      <TextArea rows={5} value={desc} onChange={(e) => setDesc(e.target.value)} aria-label="توضیح محصول"
-        placeholder="مثلا: دوره آنلاین طراحی UI برای تازه‌کارها، ۳ میلیون تومان" />
+      <p className="mb-3 mt-1 text-sm text-ink-500">لینک صفحه محصول را بدهید، یا ساده توضیحش دهید.</p>
+      <TextArea rows={4} value={desc} onChange={(e) => setDesc(e.target.value)} aria-label="لینک یا توضیح محصول" dir="auto"
+        placeholder="https://… یا مثلا: دوره آنلاین طراحی UI برای تازه‌کارها، ۳ میلیون تومان" />
       <div className="mt-3">
-        <Button onClick={() => open("own", () => api.post<Product>("/api/products", { description: desc.trim() }))}
-          loading={busy === "own"} disabled={desc.trim().length < 20 || !!busy}>ادامه</Button>
+        {isLink ? (
+          <Button onClick={() => open("own", () => api.post<Product>("/api/products/from-url", { url: desc.trim() }))}
+            loading={busy === "own"} disabled={!!busy}>خواندن صفحه</Button>
+        ) : (
+          <Button onClick={() => open("own", () => api.post<Product>("/api/products", { description: desc.trim() }))}
+            loading={busy === "own"} disabled={desc.trim().length < 20 || !!busy}>ادامه</Button>
+        )}
+        {busy === "own" && isLink && <span className="ms-3 text-sm text-ink-500">مشخصات محصول از صفحه خوانده می‌شود…</span>}
       </div>
       {error && <div className="mt-4"><ErrorBox message={error} /></div>}
 

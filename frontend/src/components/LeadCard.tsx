@@ -80,6 +80,9 @@ export function LeadCard({ lead, runId, onClues }: {
         <div>
           <span className="font-bold">{lead.author}</span>{" "}
           <TempBadge t={lead.temperature} />
+          {lead.url && (
+            <a href={lead.url} target="_blank" rel="noopener noreferrer" className="ms-2 text-sm text-thread-700 hover:underline">دیدن در ایکس</a>
+          )}
         </div>
         <FitScore fit={lead.fit} />
       </div>

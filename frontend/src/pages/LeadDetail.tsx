@@ -46,7 +46,10 @@ export default function LeadDetail() {
               {lead.temperature && <> · {TEMP[lead.temperature].label}</>}
             </p>
             <p dir="auto" className="mt-4 whitespace-pre-wrap border-s-2 border-ink-200 ps-3 leading-8">{lead.text}</p>
-            <p className="mt-1 text-xs text-ink-400">پیام #{mid(lead.msg_id)} · {shortDate(lead.date)}</p>
+            <p className="mt-1 text-xs text-ink-400">
+              پیام #{mid(lead.msg_id)} · {shortDate(lead.date)}
+              {lead.url && <> · <a href={lead.url} target="_blank" rel="noopener noreferrer" className="text-thread-700 hover:underline">دیدن در ایکس</a></>}
+            </p>
           </div>
 
           {v && (

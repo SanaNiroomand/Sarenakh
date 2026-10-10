@@ -109,3 +109,12 @@ class ChatTurnIn(BaseModel):
 class PasteIn(BaseModel):
     text: str = Field(min_length=10, max_length=400_000)
     name: str = Field(default="", max_length=200)
+
+
+class ProductUrlIn(BaseModel):
+    url: str = Field(min_length=4, max_length=1000)
+
+
+class XSearchIn(BaseModel):
+    product_id: int
+    max_posts: int = Field(default=100, ge=10, le=1000)

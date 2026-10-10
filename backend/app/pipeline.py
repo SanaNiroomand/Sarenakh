@@ -27,8 +27,9 @@ from .chat.parse import ChatMessage
 from .config import get_settings
 from .db import AgentEvent, Analysis, Dataset, Feedback, Message, Product, Run, session
 from .events import bus
-from .llm import get_llm
+from .llm import Usage, get_llm
 from .schemas import Profile
+from .sources.x import XClient, XError, author_label, resolve_authors
 
 log = logging.getLogger("sarenakh.pipeline")
 
@@ -94,7 +95,7 @@ def _load(run_id: int):
         fb = list(db.scalars(select(Feedback).where(Feedback.product_id == product.id, Feedback.embedding.is_not(None))))
         msgs = [ChatMessage(id=r.msg_id, ts=r.ts, date=r.date, author_id=r.author_id, author=r.author, text=r.text,
                             norm=r.norm, reply_to=r.reply_to, kind=r.kind, lang=r.lang,
-                            forwarded_from=r.forwarded_from, emojis=r.emojis) for r in rows]
+                            forwarded_from=r.forwarded_from, emojis=r.emojis, ext_id=r.ext_id) for r in rows]
         emb = {r.msg_id: np.frombuffer(r.embedding, dtype=np.float32) for r in rows if r.embedding}
         fewshot = [FewShot(text=f.message_text, vote=f.vote, agent_decision=f.agent_decision, note=f.note,
                            vec=np.frombuffer(f.embedding, dtype=np.float32)) for f in fb]
@@ -119,6 +120,7 @@ async def execute_run(run_id: int, *, replay_delay: float | None = None, use_cac
         run_id=run_id, user_id=run.user_id, product_id=product.id, dataset_id=ds.id,
         dataset_key=(f"sample:{ds.stats.get('source_hash')}" if ds.sample_key else f"ds:{ds.id}"), embeddings=emb,
         fewshot=fewshot, on_new_embeddings=lambda new: _persist_embeddings(ds.id, new),
+        channel="x" if ds.source == "twitter" else "telegram",
     )
     ctx.use_cache = use_cache
     if replay_delay is not None:
@@ -199,6 +201,9 @@ async def execute_run(run_id: int, *, replay_delay: float | None = None, use_cac
 
         # 4) investigate in priority order until the budget runs out ----------------------------
         stop_reason = await _investigate_all(ctx, rec, stats, cands, tri, others, snapshot)
+        if ctx.channel == "x":
+            await _name_x_leads(ctx, rec)
+            snapshot()
     except BudgetExceeded:
         stop_reason = "budget"
     except GlobalCapReached:
@@ -231,6 +236,39 @@ async def execute_run(run_id: int, *, replay_delay: float | None = None, use_cac
         await rec.emit("done", f"🏁 پایان: {leads} سرنخ واقعی، هزینه {cost_txt}" + (f" — {msg}" if msg else ""),
                        data={"status": status, "leads": leads, "cost_usd": round(budget.spent, 6),
                              "saved_usd": round(budget.saved, 6), "stop_reason": stop_reason})
+
+
+async def _name_x_leads(ctx: RunContext, rec: Recorder) -> None:
+    """Look up the X user names of this run's leads only (user reads are billed; cached a week)."""
+    s = ctx.settings
+    with session() as db:
+        aids = sorted({a.author_id for a in db.scalars(select(Analysis).where(
+            Analysis.run_id == ctx.run_id, Analysis.decision == "lead"))})
+    ids = [a[2:] for a in aids if a.startswith("x:") and a[2:].isdigit()]
+    if not ids or not s.x_bearer_token:
+        return
+    try:
+        res = ctx.budget.reserve(len(ids) * s.x_price_per_user_usd)
+    except (BudgetExceeded, GlobalCapReached):
+        return  # leads keep their post link
+    xc = XClient(s)
+    try:
+        async with xc:
+            users = await resolve_authors(xc, ids)
+    except XError as e:
+        log.warning("x user lookup failed: %s", e)
+        users = {}
+    finally:
+        if xc.cost_usd:
+            ctx.budget.charge("x_user", Usage(model="x-api", cost_usd=xc.cost_usd), res)
+        ctx.budget.release(res)
+    with session() as db:
+        for m in db.scalars(select(Message).where(Message.dataset_id == ctx.dataset_id,
+                                                  Message.author_id.in_([f"x:{i}" for i in users]))):
+            m.author = author_label(m.author_id[2:], users[m.author_id[2:]])[:120]
+    if users:
+        await rec.emit("stage", f"🪪 نام کاربری {len(users)} سرنخ از ایکس گرفته شد",
+                       data={"stage": "x_users", "count": len(users)}, cost=xc.cost_usd)
 
 
 async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: list[ChatMessage],
@@ -349,12 +387,19 @@ async def _investigate_all(ctx: RunContext, rec: Recorder, stats: dict, cands: l
             not_reached.append(cand)
             continue
         await sem.acquire()
-        try:
-            res = budget.reserve(0.0 if is_cached(ctx, cand) else estimate())
-        except BudgetExceeded:
-            stop_reason = "budget"
-        except GlobalCapReached:
-            stop_reason = "global_cap"
+        res = None
+        while res is None:
+            try:
+                res = budget.reserve(0.0 if is_cached(ctx, cand) else estimate())
+            except (BudgetExceeded, GlobalCapReached) as e:
+                # Running investigations hold reservations that are usually larger than what they end
+                # up spending; wait for one to settle and try again before declaring the budget gone.
+                running = [t for t in tasks if not t.done()]
+                if running:
+                    await asyncio.wait(running, return_when=asyncio.FIRST_COMPLETED)
+                    continue
+                stop_reason = "budget" if isinstance(e, BudgetExceeded) else "global_cap"
+                break
         if stop_reason:
             sem.release()
             not_reached.append(cand)

@@ -6,7 +6,9 @@ from __future__ import annotations
 from ..schemas import Profile
 
 # Bump a stage's version to invalidate only that stage's cache after changing its prompt.
-PROMPT_VERSIONS = {"triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v3"}
+PROMPT_VERSIONS = {
+    "triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v3", "page": "v1", "x_queries": "v2",
+}
 
 
 def profile_block(p: Profile, with_examples: bool = False) -> str:
@@ -129,3 +131,27 @@ PRODUCT
 
 PRODUCT FACTS
 {facts}"""
+
+
+PRODUCT_PAGE_SYSTEM = """You read the text of a product or service web page (usually Iranian, usually Persian) and extract what a sales team needs to know about it.
+- Use ONLY what the page says. Never invent prices, numbers, features, guarantees or discounts. Copy numbers and prices exactly as written.
+- Ignore menus, footers, ads, comments and other products listed on the page.
+- features: 4-12 short standalone Persian sentences, the most concrete facts first (what you get, format, size/duration, conditions, delivery, guarantee, refund).
+- summary: 1-2 Persian sentences: what it is and what problem it solves for whom.
+- audience: who the page says it is for ("" if the page does not say).
+- price: as written on the page, with currency ("" if absent).
+- found=false if the text is not about one specific product or service (a home page, a list of many products, an empty or error page)."""
+
+
+X_QUERY_SYSTEM = """You write search queries for X (Twitter) to find Persian posts written by people who need the product below. Each query costs money per post it returns, so precision matters, but a query that finds nothing is useless too.
+
+Write 4 queries. A post matches a query if it contains at least one TOPIC term AND at least one NEED term.
+- topic: 2-5 terms naming the subject the way people name it in tweets (include a common English or Finglish name if people use it, e.g. python). Not the brand or product name: people with the need rarely know it.
+- need: 3-8 terms showing a personal need in this situation: asking for advice (پیشنهاد، معرفی، کجا، چطوری)، being stuck (گیر کردم، بلد نیستم)، the pain itself (درد، می‌سوزه، خسته)، wanting to buy (بخرم، بگیرم، قیمت)، buying for someone (برای پسرم، کادو). Pick the ones that fit this product's customers.
+- Prefer single words. Multi-word terms match exactly, so keep them short and common. Add spelling variants with and without نیم‌فاصله as separate terms (می‌سوزه، میسوزه).
+- No words sellers use in ads (فروش، تخفیف ویژه، ارسال رایگان، سفارش).
+- Make the 4 queries cover different situations: asking for a recommendation, complaining about the pain, comparing options, buying for someone else.
+- why: one short Persian line on whom this query finds.
+
+PRODUCT PROFILE
+{profile}"""

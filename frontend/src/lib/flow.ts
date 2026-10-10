@@ -5,6 +5,7 @@ export type PublicConfig = {
   default_run_budget_usd: number;
   max_run_budget_usd: number;
   models: { triage: string; agent: string; embedding: string };
+  x: { enabled: boolean; price_per_post_usd: number; max_posts: number };
 };
 
 let configCache: Promise<PublicConfig> | null = null;
