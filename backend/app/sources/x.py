@@ -309,15 +309,21 @@ class Twscrape(_Source):
         return posts[:limit], {}
 
 
+SOURCE_LABEL = {"twitterapi": "twitterapi.io", "twscrape": "حساب ایکس", "official": "API رسمی ایکس"}
+
+
+def make_x_clients(settings: Settings, transport: httpx.AsyncBaseTransport | None = None) -> list[_Source]:
+    """One client per configured source, in the order they are tried."""
+    build = {"twitterapi": lambda: TwitterApiIo(settings, transport), "twscrape": lambda: Twscrape(settings),
+             "official": lambda: XClient(settings, transport)}
+    clients = [build[name]() for name in settings.x_chain()]
+    if not clients:
+        raise XError("جستجوی ایکس فعال نیست: کلید twitterapi.io، کوکی حساب ایکس یا توکن X تنظیم نشده است.")
+    return clients
+
+
 def make_x_client(settings: Settings, transport: httpx.AsyncBaseTransport | None = None) -> _Source:
-    source = settings.x_source()
-    if source == "twitterapi":
-        return TwitterApiIo(settings, transport)
-    if source == "twscrape":
-        return Twscrape(settings)
-    if source == "official":
-        return XClient(settings, transport)
-    raise XError("جستجوی ایکس فعال نیست: کلید twitterapi.io، کوکی حساب ایکس یا توکن X تنظیم نشده است.")
+    return make_x_clients(settings, transport)[0]
 
 
 def _post(p: dict) -> dict:
@@ -370,7 +376,7 @@ def _group(terms: list[str], limit: int) -> list[str]:
         t = " ".join(re.sub(r'["()]', " ", t).split())
         if t and t not in out:
             out.append(t)
-    return [f'"{t}"' if " " in t else t for t in out]
+    return [f'"{t}"' for t in out]  # quoted: X otherwise matches Persian words loosely (پایتون ~ پایت)
 
 
 def build_query(topic: list[str], need: list[str], suffix: str = XClient.suffix) -> str:
@@ -428,7 +434,7 @@ async def search_posts(xc: _Source, plan: list[dict], *, max_posts: int, cache_s
         q = build_query(item["topic"], item["need"], xc.suffix)
         if not q:
             continue
-        key = cache_key("x_search", xc.name, q)
+        key = cache_key("x_search", q)  # shared by sources with the same query syntax, so a fallback reuses it
         fresh = cache_get_fresh(key, cache_s)
         new: list[dict] = []
         if fresh is not None:
@@ -455,6 +461,27 @@ async def search_posts(xc: _Source, plan: list[dict], *, max_posts: int, cache_s
                             "from_cache": fresh is not None})
     out.posts.sort(key=lambda p: int(p["id"]), reverse=True)
     return out
+
+
+async def search_with_fallback(
+    clients: list[_Source], plan: list[dict], *, max_posts: int, cache_s: float, on_cost=None,
+) -> tuple[XSearch, _Source, list[str]]:
+    """Try each source in turn until one finishes the whole plan. Queries a failed source already
+    fetched are in the cache, so the next source picks up where it stopped.
+    Returns (found, the source that finished, ["<source>: <error>" for each one that failed])."""
+    failed: list[str] = []
+    for xc in clients:
+        try:
+            async with xc:
+                found = await search_posts(xc, plan, max_posts=max_posts, cache_s=cache_s)
+            return found, xc, failed
+        except XError as e:
+            log.warning("x source %s failed: %s", xc.name, e)
+            failed.append(f"{SOURCE_LABEL[xc.name]}: {e}")
+        finally:
+            if on_cost and xc.cost_usd:
+                on_cost(xc)  # billed even when it failed half way
+    raise XError(" · ".join(failed))
 
 
 async def resolve_authors(xc: _Source, author_ids: list[str]) -> dict[str, dict]:

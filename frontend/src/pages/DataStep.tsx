@@ -128,6 +128,11 @@ export default function DataStep() {
           <p className="mt-3 text-sm">
             {num(dataset.stats.messages)} {dataset.source === "twitter" ? "پست" : "پیام"} از {num(dataset.stats.authors)} نفر خوانده شد.
             {dataset.stats.x && <> هزینه ایکس: {usd(dataset.stats.x.cost_usd)}</>}
+            {dataset.stats.x?.fallback?.length ? (
+              <span title={dataset.stats.x.fallback.join("\n")} className="block truncate text-amber-800">
+                {dataset.stats.x.fallback.join(" · ")} — با منبع بعدی جستجو شد.
+              </span>
+            ) : null}
             {dataset.warnings.map((w) => <span key={w} title={w} className="block truncate text-amber-800">{w}</span>)}
           </p>
         )}

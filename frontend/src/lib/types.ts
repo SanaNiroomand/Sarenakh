@@ -63,6 +63,8 @@ export type XSearchStats = {
   posts: number;
   new_posts: number;
   cost_usd: number;
+  provider?: string;
+  fallback?: string[]; // sources that failed before the one that worked
 };
 
 export type ChatMsg = {

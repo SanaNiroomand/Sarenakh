@@ -14,7 +14,7 @@ from ..llm import IncompleteOutputError, Usage, get_llm
 from ..samples import ensure_sample_dataset, store_parsed
 from ..schemas import PasteIn, Profile, XSearchIn
 from ..security import current_user, rate_limit
-from ..sources.x import XError, make_x_client, plan_queries, post_url, search_posts, to_parsed
+from ..sources.x import XError, make_x_clients, plan_queries, post_url, search_with_fallback, to_parsed
 from .products import check_paid_call, own_product
 
 log = logging.getLogger("sarenakh.datasets")
@@ -116,23 +116,26 @@ async def twitter(
     if not queries:
         raise HTTPException(502, "عبارت جستجویی ساخته نشد. پروفایل را کامل‌تر کنید.")
 
-    xc = make_x_client(s)
+    spent: list[float] = []
+
+    def charge(xc) -> None:
+        spent.append(xc.cost_usd)
+        record_spend(user.id, "x_read", Usage(model=f"x-{xc.name}", cost_usd=xc.cost_usd))
+
     try:
-        async with xc:
-            found = await search_posts(xc, queries, max_posts=max_posts, cache_s=s.x_cache_hours * 3600)
+        found, xc, failed = await search_with_fallback(
+            make_x_clients(s), queries, max_posts=max_posts, cache_s=s.x_cache_hours * 3600, on_cost=charge)
     except XError as e:
         raise HTTPException(502, str(e)) from e
-    finally:
-        if xc.cost_usd:  # billed even if a later page failed
-            record_spend(user.id, "x_read", Usage(model="x-api", cost_usd=xc.cost_usd))
     if not found.posts:
-        raise HTTPException(404, "در هفت روز گذشته پستی با این عبارت‌ها پیدا نشد.")
+        raise HTTPException(404, "در روزهای اخیر پستی با این عبارت‌ها پیدا نشد.")
 
     parsed = to_parsed(found, name=f"ایکس: {profile.product_name}"[:200])
     ds = store_parsed(db, parsed, user_id=user.id, name=parsed.name)
     x_stats = {
         "product_id": p.id, "queries": found.queries, "posts": len(found.posts),
-        "new_posts": sum(q["new"] for q in found.queries), "cost_usd": round(xc.cost_usd, 6), "provider": xc.name,
+        "new_posts": sum(q["new"] for q in found.queries), "cost_usd": round(sum(spent), 6), "provider": xc.name,
+        "fallback": failed,
     }
     ds.stats = {**parsed.stats, "x": x_stats}
     db.flush()

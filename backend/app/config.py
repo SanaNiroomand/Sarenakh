@@ -80,7 +80,8 @@ class Settings(BaseSettings):
 
     # X (Twitter), one of: twitterapi.io (unofficial, ~33x cheaper than the official API, pays by crypto),
     # twscrape (free, crawls as a logged-in X account from its cookies), the official API v2 (prepaid).
-    # x_provider=auto picks the first one configured, in that order.
+    # Every configured one is used, in that order: if one fails (no credit, cookies expired...), the
+    # search continues with the next. x_provider puts one first.
     x_provider: Literal["auto", "twitterapi", "twscrape", "official"] = "auto"
     twitterapi_key: str = Field(default="", repr=False)
     twscrape_cookies: str = Field(default="", repr=False)  # "auth_token=...; ct0=..." of a spare X account
@@ -93,7 +94,7 @@ class Settings(BaseSettings):
     x_price_per_user_usd: float = 0.010
     x_max_posts: int = 300  # per search
     x_cache_hours: int = 24  # reuse search results and posts this long
-    x_window_days: int = 7  # how far back posts count as current (the official API stops at 7)
+    x_window_days: int = 30  # how far back posts count (Persian volume is low; the official API stops at 7)
 
     # Web
     session_secret: str = Field(default="dev-insecure-secret", repr=False)
@@ -117,12 +118,16 @@ class Settings(BaseSettings):
             out.setdefault(self.model_for(role), self.reasoning_for(role))
         return out
 
-    def x_source(self) -> Literal["twitterapi", "twscrape", "official"] | None:
+    def x_chain(self) -> list[str]:
+        """Configured X sources, the one to try first first."""
         ready = {"twitterapi": bool(self.twitterapi_key), "twscrape": bool(self.twscrape_cookies),
                  "official": bool(self.x_bearer_token)}
-        if self.x_provider != "auto":
-            return self.x_provider if ready[self.x_provider] else None
-        return next((name for name, ok in ready.items() if ok), None)
+        order = sorted(ready, key=lambda name: name != self.x_provider)  # stable: keeps the default order
+        return [name for name in order if ready[name]]
+
+    def x_source(self) -> Literal["twitterapi", "twscrape", "official"] | None:
+        chain = self.x_chain()
+        return chain[0] if chain else None  # type: ignore[return-value]
 
     def x_price_per_post(self) -> float:
         return {"twitterapi": self.twitterapi_price_per_tweet_usd, "twscrape": 0.0}.get(

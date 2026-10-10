@@ -93,8 +93,8 @@ class ProductFacts(BaseModel):
 
 class XQuery(BaseModel):
     why: str = Field(description="One short Persian line: whom this query finds")
-    topic: list[str] = Field(description="2-5 terms naming the subject the way people do")
-    need: list[str] = Field(description="3-8 terms showing a personal need")
+    topic: list[str] = Field(description="2-5 short terms (1-2 words) naming the subject the way people do")
+    need: list[str] = Field(description="0-8 short terms (1-2 words) showing a personal need; empty for query 1")
 
 
 class XQueryPlan(BaseModel):

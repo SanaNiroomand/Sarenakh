@@ -144,8 +144,8 @@ def _plan(*words):
 
 def test_build_query():
     q = x.build_query(["پایتون", "python", "پایتون"], ["پیشنهاد", 'گیر "کردم"'])
-    assert q == '(پایتون OR python) (پیشنهاد OR "گیر کردم") lang:fa -is:retweet -has:links'
-    assert x.build_query(["پایتون"], []) == "(پایتون) lang:fa -is:retweet -has:links"
+    assert q == '("پایتون" OR "python") ("پیشنهاد" OR "گیر کردم") lang:fa -is:retweet -has:links'
+    assert x.build_query(["پایتون"], []) == '("پایتون") lang:fa -is:retweet -has:links'
     long = x.build_query([f"موضوع شماره {i}" for i in range(5)], [f"عبارت خیلی طولانی شماره {i} " * 4 for i in range(8)])
     assert len(long) <= x.MAX_QUERY_CHARS and long.endswith("-has:links") and long.count("(") == 2
     assert x.build_query(["", "  "], ["کمک"]) == ""
@@ -277,7 +277,7 @@ def test_twitter_dataset(client, monkeypatch, xsettings):
 
     fake = FakeX(total=40)
     monkeypatch.setattr(datasets, "plan_queries", fake_plan)
-    monkeypatch.setattr(datasets, "make_x_client", lambda s: x.XClient(s, transport=httpx.MockTransport(fake.handler)))
+    monkeypatch.setattr(datasets, "make_x_clients", lambda s: [x.XClient(s, transport=httpx.MockTransport(fake.handler))])
     assert sample_profile("quera_python")
     r = client.post("/api/datasets/twitter", json={"product_id": pid, "max_posts": 30})
     assert r.status_code == 200, r.text
@@ -438,8 +438,9 @@ def test_twscrape_is_free_and_chosen_by_setting(tws, monkeypatch):
     assert tws.x_source() == "twitterapi"  # auto: twitterapi.io first
     monkeypatch.setattr(tws, "x_provider", "twscrape")
     assert tws.x_source() == "twscrape"
+    assert tws.x_chain() == ["twscrape", "twitterapi", "official"]  # the rest stay as fallbacks
     monkeypatch.setattr(tws, "twscrape_cookies", "")
-    assert tws.x_source() is None  # chosen explicitly but not configured
+    assert tws.x_source() == "twitterapi"  # chosen but not configured: the next one
 
 
 async def test_twscrape_search(tws):
@@ -474,3 +475,38 @@ async def test_twscrape_account_from_cookies(tws, monkeypatch, tmp_path):
     monkeypatch.setattr(tws, "twscrape_cookies", "just-garbage")
     with pytest.raises(x.XError, match="auth_token"):
         await x._twscrape_api(tws)
+
+
+async def test_falls_back_to_the_free_source(tws, monkeypatch):
+    """twitterapi.io runs out of credit half way: twscrape finishes, reusing what was already fetched."""
+    monkeypatch.setattr(tws, "twitterapi_key", "tapi-key")
+    assert tws.x_chain() == ["twitterapi", "twscrape", "official"]
+    fake = FakeTapi(total=10)
+    calls = {"n": 0}
+
+    def handler(request):
+        calls["n"] += 1
+        if calls["n"] > 1:
+            return httpx.Response(402, json={"error": 402, "message": "Credits not enough"})
+        return fake.handler(request)
+
+    tws_api = FakeTwscrapeApi([_tws_tweet(9101, 1)])
+    clients = [x.TwitterApiIo(tws, transport=httpx.MockTransport(handler)), x.Twscrape(tws, api=tws_api)]
+    charged = []
+    found, used, failed = await x.search_with_fallback(clients, _plan("الف", "ب"), max_posts=100, cache_s=3600,
+                                                       on_cost=lambda xc: charged.append((xc.name, xc.cost_usd)))
+    assert used.name == "twscrape" and failed == ["twitterapi.io: اعتبار twitterapi.io تمام شده است."]
+    assert charged == [("twitterapi", pytest.approx(10 * 0.00015))]  # the tweets it did return are paid
+    assert [q["from_cache"] for q in found.queries] == [True, False]  # query 1 came from twitterapi.io's run
+    assert len(tws_api.queries) == 1 and len(found.posts) == 11
+
+
+async def test_all_sources_failing_reports_each(tws, monkeypatch):
+    from twscrape.accounts_pool import NoAccountError
+
+    monkeypatch.setattr(tws, "twitterapi_key", "tapi-key")
+    clients = [x.TwitterApiIo(tws, transport=httpx.MockTransport(lambda r: httpx.Response(401, json={"error": 401}))),
+               x.Twscrape(tws, api=FakeTwscrapeApi(error=NoAccountError("none")))]
+    with pytest.raises(x.XError) as e:
+        await x.search_with_fallback(clients, _plan("ج"), max_posts=50, cache_s=3600)
+    assert "twitterapi.io: کلید" in str(e.value) and "حساب ایکس: حساب ایکس در دسترس نیست" in str(e.value)

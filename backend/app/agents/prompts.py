@@ -7,7 +7,7 @@ from ..schemas import Profile
 
 # Bump a stage's version to invalidate only that stage's cache after changing its prompt.
 PROMPT_VERSIONS = {
-    "triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v3", "page": "v1", "x_queries": "v3",
+    "triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v3", "page": "v1", "x_queries": "v5",
 }
 
 
@@ -143,14 +143,14 @@ PRODUCT_PAGE_SYSTEM = """You read the text of a product or service web page (usu
 - found=false if the text is not about one specific product or service (a home page, a list of many products, an empty or error page)."""
 
 
-X_QUERY_SYSTEM = """You write search queries for X (Twitter) to find Persian posts written by people who need the product below. Each query costs money per post it returns, so precision matters, but a query that finds nothing is useless too.
+X_QUERY_SYSTEM = """You write search queries for X (Twitter) to find Persian posts written by people who need the product below. Persian posts on any one subject are few, and our agents read every post afterwards and drop the irrelevant ones cheaply, so finding the right people matters more than keeping results clean. A query that finds nothing is the worst outcome.
 
-Write 4 queries. A post matches a query if it contains at least one TOPIC term AND at least one NEED term.
-- topic: 2-5 terms naming the subject the way people name it in tweets (include a common English or Finglish name if people use it, e.g. python). Not the brand or product name: people with the need rarely know it.
-- need: 3-8 terms showing a personal need in this situation: asking for advice (پیشنهاد، معرفی، کجا، چطوری)، being stuck (گیر کردم، بلد نیستم)، the pain itself (درد، می‌سوزه، خسته)، wanting to buy (بخرم، بگیرم، قیمت)، buying for someone (برای پسرم، کادو). Pick the ones that fit this product's customers.
-- Prefer single words. Multi-word terms match exactly, so keep them short and common. Add spelling variants with and without نیم‌فاصله as separate terms (می‌سوزه، میسوزه).
+Write 4 queries. A post matches a query if it contains one TOPIC term AND one NEED term (with no need terms, any post with a topic term matches). Every term is matched as an exact phrase, so keep terms SHORT: one word, or two words only when one word is ambiguous. Long phrases find nothing.
+- topic: 2-5 terms naming the subject the way people write it in tweets. Each term must mean only this subject: a word that also means something else matches unrelated posts (بلوک is also a concrete block and blocked money, so use «عینک بلوکات» or «بلوکات»). Not the brand or product name: people with the need rarely know it. No English word professionals use in everyday work talk (python mostly finds developers chatting); the Persian word is better.
+- need: 0-8 terms of 1-2 words that show a personal need, the way people tweet: یاد بگیرم، شروع کنم، پیشنهاد، معرفی، گیر کردم، ول کردم، میسوزه، خشکی، بخرم، بگیرم، کادو. Pick the ones that fit this product's customers. Add spelling variants as separate terms (یادبگیرم and یاد بگیرم، می‌سوزه and میسوزه).
+- Query 1: the most specific topic terms with NO need terms, to catch everyone talking about this kind of product.
+- Queries 2-4: different situations: wanting to start or asking for a recommendation, complaining about the pain or being stuck, buying for someone else.
 - No words sellers use in ads (فروش، تخفیف ویژه، ارسال رایگان، سفارش).
-- Make the 4 queries cover different situations: asking for a recommendation, complaining about the pain, comparing options, buying for someone else.
 - why: one short Persian line on whom this query finds.
 
 PRODUCT PROFILE

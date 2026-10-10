@@ -29,7 +29,7 @@ from .db import AgentEvent, Analysis, Dataset, Feedback, Message, Product, Run, 
 from .events import bus
 from .llm import Usage, get_llm
 from .schemas import Profile
-from .sources.x import UNNAMED, XError, author_label, make_x_client, resolve_authors
+from .sources.x import UNNAMED, XClient, XError, author_label, resolve_authors
 
 log = logging.getLogger("sarenakh.pipeline")
 
@@ -239,10 +239,10 @@ async def execute_run(run_id: int, *, replay_delay: float | None = None, use_cac
 
 
 async def _name_x_leads(ctx: RunContext, rec: Recorder) -> None:
-    """Look up the X user names of this run's leads that came without one (official API only: user
-    reads are billed there, so only leads are looked up; cached a week)."""
+    """Look up the X user names of this run's leads that came without one. Only posts from the official
+    API lack names; user reads are billed there, so only leads are looked up (cached a week)."""
     s = ctx.settings
-    if s.x_source() != "official":
+    if not s.x_bearer_token:
         return
     with session() as db:
         lead_ids = {a.author_id for a in db.scalars(select(Analysis).where(
@@ -257,7 +257,7 @@ async def _name_x_leads(ctx: RunContext, rec: Recorder) -> None:
         res = ctx.budget.reserve(len(ids) * s.x_price_per_user_usd)
     except (BudgetExceeded, GlobalCapReached):
         return  # leads keep their post link
-    xc = make_x_client(s)
+    xc = XClient(s)
     try:
         async with xc:
             users = await resolve_authors(xc, ids)
