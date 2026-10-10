@@ -7,7 +7,7 @@ from ..schemas import Profile
 
 # Bump a stage's version to invalidate only that stage's cache after changing its prompt.
 PROMPT_VERSIONS = {
-    "triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v3", "page": "v1", "x_queries": "v2",
+    "triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v3", "page": "v1", "x_queries": "v3",
 }
 
 

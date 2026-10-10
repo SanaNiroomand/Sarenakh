@@ -29,7 +29,7 @@ from .db import AgentEvent, Analysis, Dataset, Feedback, Message, Product, Run, 
 from .events import bus
 from .llm import Usage, get_llm
 from .schemas import Profile
-from .sources.x import XClient, XError, author_label, resolve_authors
+from .sources.x import UNNAMED, XError, author_label, make_x_client, resolve_authors
 
 log = logging.getLogger("sarenakh.pipeline")
 
@@ -239,19 +239,25 @@ async def execute_run(run_id: int, *, replay_delay: float | None = None, use_cac
 
 
 async def _name_x_leads(ctx: RunContext, rec: Recorder) -> None:
-    """Look up the X user names of this run's leads only (user reads are billed; cached a week)."""
+    """Look up the X user names of this run's leads that came without one (official API only: user
+    reads are billed there, so only leads are looked up; cached a week)."""
     s = ctx.settings
+    if s.x_source() != "official":
+        return
     with session() as db:
-        aids = sorted({a.author_id for a in db.scalars(select(Analysis).where(
-            Analysis.run_id == ctx.run_id, Analysis.decision == "lead"))})
+        lead_ids = {a.author_id for a in db.scalars(select(Analysis).where(
+            Analysis.run_id == ctx.run_id, Analysis.decision == "lead"))}
+        aids = sorted({m.author_id for m in db.scalars(select(Message).where(
+            Message.dataset_id == ctx.dataset_id, Message.author_id.in_(lead_ids)))
+            if m.author.startswith(UNNAMED)})
     ids = [a[2:] for a in aids if a.startswith("x:") and a[2:].isdigit()]
-    if not ids or not s.x_bearer_token:
+    if not ids:
         return
     try:
         res = ctx.budget.reserve(len(ids) * s.x_price_per_user_usd)
     except (BudgetExceeded, GlobalCapReached):
         return  # leads keep their post link
-    xc = XClient(s)
+    xc = make_x_client(s)
     try:
         async with xc:
             users = await resolve_authors(xc, ids)

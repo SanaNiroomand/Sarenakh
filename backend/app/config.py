@@ -10,7 +10,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Literal
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -54,7 +54,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=ROOT / ".env", env_file_encoding="utf-8", extra="ignore")
 
     # OpenAI
-    openai_api_key: str = ""
+    openai_api_key: str = Field(default="", repr=False)  # secrets stay out of logs and tracebacks
     openai_base_url: str = "https://api.openai.com/v1"
     openai_timeout_s: float = 90.0
 
@@ -78,16 +78,21 @@ class Settings(BaseSettings):
     user_daily_cap_usd: float = 1.50  # paid spend per user per 24h (profile chat + runs)
     replay_delay_s: float = 0.7  # pacing of replayed (cached) agent steps in the live feed
 
-    # X (Twitter) official API, pay-per-use: billed per post read
-    x_bearer_token: str = ""
+    # X (Twitter). twitterapi.io is used when its key is set (unofficial, ~33x cheaper, pays by crypto);
+    # otherwise the official API v2 (pay-per-use, needs prepaid credits).
+    twitterapi_key: str = Field(default="", repr=False)
+    twitterapi_base: str = "https://api.twitterapi.io"
+    twitterapi_price_per_tweet_usd: float = 0.00015
+    x_bearer_token: str = Field(default="", repr=False)
     x_api_base: str = "https://api.x.com/2"
     x_price_per_post_usd: float = 0.005
     x_price_per_user_usd: float = 0.010
     x_max_posts: int = 300  # per search
     x_cache_hours: int = 24  # reuse search results and posts this long
+    x_window_days: int = 7  # how far back posts count as current (the official API stops at 7)
 
     # Web
-    session_secret: str = "dev-insecure-secret"
+    session_secret: str = Field(default="dev-insecure-secret", repr=False)
     cookie_secure: bool = False
 
     # Paths
@@ -107,6 +112,14 @@ class Settings(BaseSettings):
         for role in ("triage", "profile", "investigator", "critic", "drafter"):
             out.setdefault(self.model_for(role), self.reasoning_for(role))
         return out
+
+    def x_source(self) -> Literal["twitterapi", "official"] | None:
+        if self.twitterapi_key:
+            return "twitterapi"
+        return "official" if self.x_bearer_token else None
+
+    def x_price_per_post(self) -> float:
+        return self.twitterapi_price_per_tweet_usd if self.x_source() == "twitterapi" else self.x_price_per_post_usd
 
     def prices(self) -> dict[str, Price]:
         table = dict(PRICES)

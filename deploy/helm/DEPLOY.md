@@ -14,9 +14,9 @@ to tune.
 | TLS | cert-manager with a ClusterIssuer, or your own TLS secret |
 | Storage | a StorageClass that can provide a 2 Gi `ReadWriteOnce` volume |
 | From the project owner | the **OpenAI API key** (sent privately — never in chat groups or files) and the **domain** to use |
-| Image | `ghcr.io/sananiroomand/sarenakh:0.2.0` (public, or see step 3) |
+| Image | `ghcr.io/sananiroomand/sarenakh:0.3.0` (public, or see step 3) |
 
-Files in this kit: `sarenakh-0.1.0.tgz` (the chart), `values-production.example.yaml`, this guide.
+Files in this kit: `sarenakh-0.2.0.tgz` (the chart), `values-production.example.yaml`, this guide.
 
 ---
 
@@ -31,15 +31,18 @@ kubectl create namespace sarenakh
 ```bash
 kubectl -n sarenakh create secret generic sarenakh-secrets \
   --from-literal=OPENAI_API_KEY='sk-...' \
-  --from-literal=SESSION_SECRET="$(openssl rand -base64 48)"
+  --from-literal=SESSION_SECRET="$(openssl rand -base64 48)" \
+  --from-literal=TWITTERAPI_KEY='...'
 ```
+
+The last line is optional: it turns on Twitter search (key from twitterapi.io). Leave it out if you don't have one.
 
 (Type the key in your own terminal. To avoid it landing in shell history, prefix the command with a space or
 use `--from-file`.)
 
 ## 3. Only if the image is private
 
-Check: `docker pull ghcr.io/sananiroomand/sarenakh:0.2.0` without logging in. If that fails with
+Check: `docker pull ghcr.io/sananiroomand/sarenakh:0.3.0` without logging in. If that fails with
 "unauthorized", either ask the owner to make the package public (GitHub → Packages → sarenakh → Package
 settings → Change visibility), or create a pull secret with a GitHub token that has `read:packages`:
 
@@ -62,7 +65,7 @@ StorageClass if the cluster has no default one.
 ## 5. Install
 
 ```bash
-helm install sarenakh ./sarenakh-0.1.0.tgz -n sarenakh -f values-production.yaml
+helm install sarenakh ./sarenakh-0.2.0.tgz -n sarenakh -f values-production.yaml
 ```
 
 Point the domain's DNS **A record** at the ingress controller's external IP
@@ -92,7 +95,7 @@ check. The site still runs and the sample flow still works; new paid runs are re
 **Upgrade to a newer image** (CI publishes `latest`, the app version, and `sha-<commit>`):
 
 ```bash
-helm upgrade sarenakh ./sarenakh-0.1.0.tgz -n sarenakh -f values-production.yaml --set image.tag=sha-abc1234
+helm upgrade sarenakh ./sarenakh-0.2.0.tgz -n sarenakh -f values-production.yaml --set image.tag=sha-abc1234
 ```
 
 The pod is recreated (never two at once — the database volume is single-writer); expect a few seconds of downtime.
@@ -134,7 +137,7 @@ delete it with `kubectl -n sarenakh delete pvc sarenakh-data` if you really want
 
 | value | default | meaning |
 |---|---|---|
-| `image.tag` | chart appVersion (`0.2.0`) | image version |
+| `image.tag` | chart appVersion (`0.3.0`) | image version |
 | `config.MODEL_CHECK` | `warn` | `strict` = refuse to start if the key/models fail |
 | `config.GLOBAL_SPEND_CAP_USD` | `20` | hard cap on total OpenAI spend |
 | `config.USER_DAILY_CAP_USD` | `1.50` | paid spend per user per 24 h (sample replays are free) |

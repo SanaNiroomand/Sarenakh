@@ -39,16 +39,19 @@ config:
 # Extra env vars, e.g. PRICES_JSON or proxies:  - name: HTTPS_PROXY  value: http://proxy:3128
 extraEnv: []
 
-# Secrets: OPENAI_API_KEY and SESSION_SECRET.
+# Secrets: OPENAI_API_KEY and SESSION_SECRET; optionally TWITTERAPI_KEY or X_BEARER_TOKEN for X search.
 secret:
   # Recommended: create it yourself so the key never sits in values files or shell history:
   #   kubectl create secret generic sarenakh-secrets \
-  #     --from-literal=OPENAI_API_KEY=sk-... --from-literal=SESSION_SECRET=$(openssl rand -base64 48)
+  #     --from-literal=OPENAI_API_KEY=sk-... --from-literal=SESSION_SECRET=$(openssl rand -base64 48) \
+  #     --from-literal=TWITTERAPI_KEY=...
   existingSecret: ""
   # Or let the chart create it (SESSION_SECRET is generated once and kept across upgrades if left empty).
   create: true
   openaiApiKey: ""
   sessionSecret: ""
+  twitterapiKey: ""   # optional, turns on X search through twitterapi.io
+  xBearerToken: ""    # optional, official X API (used only when twitterapiKey is empty)
 
 persistence:
   enabled: true

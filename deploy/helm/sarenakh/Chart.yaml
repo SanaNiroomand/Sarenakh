@@ -4,8 +4,8 @@ description: >-
   Sarenakh (سرنخ) — an AI agent that finds potential customers in Persian Telegram community chats,
   with evidence, help-first draft replies and per-message cost. One pod: FastAPI + SSE + React + SQLite.
 type: application
-version: 0.1.0
-appVersion: "0.2.0"
+version: 0.2.0
+appVersion: "0.3.0"
 keywords: [ai-agent, lead-generation, telegram, persian, fastapi]
 home: https://github.com/SanaNiroomand/Sarenakh
 sources:

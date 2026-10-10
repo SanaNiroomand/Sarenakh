@@ -14,7 +14,7 @@ from ..llm import IncompleteOutputError, Usage, get_llm
 from ..samples import ensure_sample_dataset, store_parsed
 from ..schemas import PasteIn, Profile, XSearchIn
 from ..security import current_user, rate_limit
-from ..sources.x import XClient, XError, plan_queries, post_url, search_posts, to_parsed
+from ..sources.x import XError, make_x_client, plan_queries, post_url, search_posts, to_parsed
 from .products import check_paid_call, own_product
 
 log = logging.getLogger("sarenakh.datasets")
@@ -90,14 +90,14 @@ async def twitter(
 ) -> dict:
     """Search recent Persian posts on X for people who may need this product; store them as a dataset."""
     s = get_settings()
-    if not s.x_bearer_token:
-        raise HTTPException(400, "جستجوی ایکس فعال نیست: توکن X تنظیم نشده است.")
+    if not s.x_source():
+        raise HTTPException(400, "جستجوی ایکس فعال نیست: کلید twitterapi.io یا توکن X تنظیم نشده است.")
     p = own_product(db, user, body.product_id)
     if not p.profile:
         raise HTTPException(400, "اول پروفایل مشتری را بسازید.")
     check_paid_call(request, db, user)
     max_posts = min(body.max_posts, s.x_max_posts)
-    worst = max_posts * s.x_price_per_post_usd
+    worst = max_posts * s.x_price_per_post()
     if GlobalSpend.get() + worst > s.global_spend_cap_usd:
         raise HTTPException(403, "سقف هزینه کل سامانه برای این جستجو کافی نیست.")
     if user_spend_since(db, user.id, time.time() - 86400) + worst > s.user_daily_cap_usd:
@@ -116,7 +116,7 @@ async def twitter(
     if not queries:
         raise HTTPException(502, "عبارت جستجویی ساخته نشد. پروفایل را کامل‌تر کنید.")
 
-    xc = XClient(s)
+    xc = make_x_client(s)
     try:
         async with xc:
             found = await search_posts(xc, queries, max_posts=max_posts, cache_s=s.x_cache_hours * 3600)
@@ -132,7 +132,7 @@ async def twitter(
     ds = store_parsed(db, parsed, user_id=user.id, name=parsed.name)
     x_stats = {
         "product_id": p.id, "queries": found.queries, "posts": len(found.posts),
-        "new_posts": xc.billed_posts, "cost_usd": round(xc.cost_usd, 6),
+        "new_posts": xc.billed_posts, "cost_usd": round(xc.cost_usd, 6), "provider": xc.name,
     }
     ds.stats = {**parsed.stats, "x": x_stats}
     db.flush()

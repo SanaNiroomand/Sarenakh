@@ -4,7 +4,7 @@
 
 image:
   repository: ghcr.io/sananiroomand/sarenakh
-  tag: "0.2.0"
+  tag: "0.3.0"
 
 # Only if the image on ghcr.io is private (see DEPLOY.md, step 3):
 # imagePullSecrets:
