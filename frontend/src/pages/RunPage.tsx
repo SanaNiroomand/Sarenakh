@@ -30,12 +30,12 @@ function ResultsView({ res, onClues }: { res: Results; onClues: (ids: number[], 
   const isSample = res.run.dataset?.sample_key && res.run.product?.sample_key;
   return (
     <div className="space-y-10">
-      <p className="leading-8">
-        {num(k.scanned)} پیام بررسی شد و {num(k.leads)} نفر پیدا شدند.
-        هزینه کل {usd(k.equivalent_cost_usd)}
-        {k.cost_per_lead_usd != null && <>، یعنی هر نفر {usd(k.cost_per_lead_usd)}</>}.
-        {k.saved_usd > 0 && <span className="text-ink-500"> (این بار از نتیجه‌های ذخیره‌شده خوانده شد و هزینه‌ای نداشت.)</span>}
-      </p>
+      {(() => {
+        const summary = `${num(k.leads)} نفر از ${num(k.scanned)} پیام · هزینه ${usd(k.equivalent_cost_usd)}`
+          + (k.cost_per_lead_usd != null ? ` · هر نفر ${usd(k.cost_per_lead_usd)}` : "")
+          + (k.saved_usd > 0 ? " · این بار رایگان" : "");
+        return <p className="truncate" title={summary}>{summary}</p>;
+      })()}
 
       <section>
         <h2 className="font-bold">کسانی که پیدا شدند</h2>
@@ -53,7 +53,7 @@ function ResultsView({ res, onClues }: { res: Results; onClues: (ids: number[], 
           <h2 className="mb-2 font-bold">شاید بعدا</h2>
           <ul className="space-y-1 text-sm">
             {res.watch.map((w) => (
-              <li key={w.msg_id}>
+              <li key={w.msg_id} title={w.why_not ?? undefined} className="truncate">
                 <Link to={`/app/runs/${res.run.id}/leads/${w.msg_id}`} className="font-bold hover:underline">{w.author}</Link>: {w.why_not}
               </li>
             ))}
@@ -65,7 +65,7 @@ function ResultsView({ res, onClues }: { res: Results; onClues: (ids: number[], 
         <h2 className="mb-2 font-bold">رد شدند</h2>
         <ul className="space-y-1 text-sm">
           {deepRejected.map((r) => (
-            <li key={r.msg_id}>
+            <li key={r.msg_id} title={r.why_not ?? undefined} className="truncate">
               <button onClick={() => onClues([r.msg_id], r.msg_id)} className="font-bold hover:underline">{r.author}</button>: {r.why_not ?? DECISION_FA[r.decision]}
             </li>
           ))}

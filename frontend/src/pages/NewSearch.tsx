@@ -36,7 +36,7 @@ export default function NewSearch() {
       <h1 className="text-xl font-bold">چه چیزی می‌فروشید؟</h1>
       <p className="mb-3 mt-1 text-sm text-ink-500">با زبان ساده بنویسید: چه چیزی، برای چه کسی، و قیمتش.</p>
       <TextArea rows={5} value={desc} onChange={(e) => setDesc(e.target.value)} aria-label="توضیح محصول"
-        placeholder="مثلا: یه دوره آنلاین طراحی UI داریم برای کسایی که از گرافیک می‌خوان وارد طراحی محصول بشن. قیمتش ۳ میلیون تومنه." />
+        placeholder="مثلا: دوره آنلاین طراحی UI برای تازه‌کارها، ۳ میلیون تومان" />
       <div className="mt-3">
         <Button onClick={() => open("own", () => api.post<Product>("/api/products", { description: desc.trim() }))}
           loading={busy === "own"} disabled={desc.trim().length < 20 || !!busy}>ادامه</Button>

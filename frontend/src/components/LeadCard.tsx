@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { api, errorText } from "../lib/api";
 import { TEMP, mid, num, usd } from "../lib/fmt";
 import type { LeadItem } from "../lib/types";
-import { Button, cx } from "./ui";
+import { Button, OneLine, cx } from "./ui";
 
 export async function copyText(text: string): Promise<boolean> {
   try {
@@ -35,7 +35,7 @@ export function ReplyBox({ reply }: { reply: NonNullable<LeadItem["reply"]> }) {
     <div className="rounded-xl bg-ink-50 p-3">
       <p dir="auto" className="whitespace-pre-wrap text-sm leading-7">{reply.reply}</p>
       <div className="mt-2 flex items-center justify-between gap-2">
-        <span className="text-xs text-ink-400">{reply.mode === "help_soft_mention" ? "کمک + معرفی محصول" : "فقط کمک، بدون معرفی محصول"}</span>
+        <span className="text-xs text-ink-400">{reply.mode === "help_soft_mention" ? "کمک + معرفی محصول" : "فقط کمک"}</span>
         <Button size="sm" variant="outline" onClick={async () => { setCopied(await copyText(reply.reply)); setTimeout(() => setCopied(false), 1800); }}>
           {copied ? "کپی شد" : "کپی پاسخ"}
         </Button>
@@ -83,7 +83,7 @@ export function LeadCard({ lead, runId, onClues }: {
         </div>
         <FitScore fit={lead.fit} />
       </div>
-      <p className="text-sm leading-7">{lead.verdict?.stated_need}</p>
+      {lead.verdict?.stated_need && <OneLine text={lead.verdict.stated_need} className="text-sm" />}
       <div className="text-sm text-ink-500">
         پیام‌ها:{" "}
         {clueIds.map((id) => (

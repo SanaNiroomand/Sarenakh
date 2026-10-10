@@ -77,7 +77,7 @@ export default function DataStep() {
 
         {source === "upload" && (
           <div className="space-y-2">
-            <p className="text-sm text-ink-500">در تلگرام دسکتاپ، داخل گروه از منو گزینه Export chat history را بزنید و فرمت JSON را انتخاب کنید.</p>
+            <p className="text-sm text-ink-500">تلگرام دسکتاپ ← منوی گروه ← Export chat history ← فرمت JSON</p>
             <input type="file" accept=".json,application/json" disabled={busy === "upload"} aria-label="فایل JSON"
               onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} className="text-sm" />
           </div>
@@ -86,7 +86,7 @@ export default function DataStep() {
         {source === "paste" && (
           <div className="space-y-2">
             <TextArea rows={7} value={pasted} onChange={(e) => setPasted(e.target.value)} dir="auto" aria-label="متن پیام‌ها"
-              placeholder={"سارا: سلام کسی دوره پایتون خوب سراغ داره؟\nعلی: من مکتب‌خونه رو دیدم…"} />
+              placeholder={"سارا: کسی دوره پایتون خوب سراغ داره؟"} />
             <Button variant="outline" onClick={() => load("paste", () => api.post<Dataset>("/api/datasets/paste", { text: pasted }))}
               loading={busy === "paste"} disabled={pasted.trim().length < 10}>خواندن</Button>
           </div>
@@ -96,7 +96,7 @@ export default function DataStep() {
         {dataset && (
           <p className="mt-3 text-sm">
             {num(dataset.stats.messages)} پیام از {num(dataset.stats.authors)} نفر خوانده شد.
-            {dataset.warnings.map((w) => <span key={w} className="block text-amber-800">{w}</span>)}
+            {dataset.warnings.map((w) => <span key={w} title={w} className="block truncate text-amber-800">{w}</span>)}
           </p>
         )}
       </div>

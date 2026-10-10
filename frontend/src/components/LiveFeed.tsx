@@ -56,7 +56,7 @@ export function LiveFeed({ events, running }: { events: AgentEvent[]; running: b
           b.kind === "stage" ? (
             <li key={b.key} className="relative py-1.5">
               <span className="absolute -start-[27px] top-3 h-3 w-3 rounded-full border-2 border-white bg-thread-400" aria-hidden />
-              <div className={cx("text-sm leading-7", b.ev.type === "done" ? "font-extrabold text-ink-900" : "text-ink-700",
+              <div title={b.ev.text} className={cx("truncate text-sm leading-7", b.ev.type === "done" ? "font-extrabold text-ink-900" : "text-ink-700",
                 b.ev.type === "error" && "text-red-700")}>
                 {b.ev.text}
                 {b.ev.cost_usd > 0 && <span className="ms-2 text-xs text-ink-400">({usd(b.ev.cost_usd)})</span>}
@@ -87,19 +87,19 @@ function ThreadCard({ b, running }: { b: Extract<Block, { kind: "thread" }>; run
     <li className="relative py-1.5">
       <span className={cx("absolute -start-[29px] top-4 flex h-4 w-4 items-center justify-center rounded-full border-2 border-white text-[9px]",
         decision === "lead" ? "bg-thread-500" : decision ? "bg-ink-300" : "bg-ink-900")} aria-hidden />
-      <div className={cx("rounded-xl border px-3 py-2", tone)}>
-        <div className="text-sm font-bold text-ink-900">{b.head?.text ?? `پیام #${mid(b.msgId)}`}</div>
+      <div className={cx("min-w-0 rounded-xl border px-3 py-2", tone)}>
+        <div title={b.head?.text} className="truncate text-sm font-bold text-ink-900">{b.head?.text ?? `پیام #${mid(b.msgId)}`}</div>
         {b.steps.length > 0 && (
           <ul className="mt-1 space-y-0.5 border-s border-ink-100 ps-3">
             {b.steps.map((s) => (
-              <li key={s.seq} className={cx("text-[13px] leading-6", STEP_TONE[s.type] ?? "text-ink-600")}>
+              <li key={s.seq} title={s.text} className={cx("truncate text-[13px] leading-6", STEP_TONE[s.type] ?? "text-ink-600")}>
                 {s.text}{s.data?.cached && <span className="ms-1 text-xs text-ink-400">(از حافظه)</span>}
               </li>
             ))}
           </ul>
         )}
         {b.verdict ? (
-          <div className={cx("mt-1.5 text-sm font-bold", decision === "lead" ? "text-thread-700" : "text-ink-600")}>
+          <div title={b.verdict.text} className={cx("mt-1.5 truncate text-sm font-bold", decision === "lead" ? "text-thread-700" : "text-ink-600")}>
             {b.verdict.text}
             {(d.equiv_cost ?? 0) > 0 && <span className="ms-2 text-xs font-normal text-ink-400">هزینه این رشته: {usd(d.equiv_cost)}</span>}
           </div>

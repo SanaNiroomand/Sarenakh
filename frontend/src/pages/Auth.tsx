@@ -45,7 +45,7 @@ export function Login() {
   };
 
   return (
-    <AuthShell title="ورود" sub="خوش برگشتید؛ سرنخ‌ها منتظرند.">
+    <AuthShell title="ورود" sub="خوش برگشتید.">
       <form onSubmit={submit} className="space-y-4" noValidate>
         <Field label="ایمیل" type="email" dir="ltr" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
         <Field label="رمز عبور" type="password" dir="ltr" autoComplete="current-password" required value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -84,7 +84,7 @@ export function Signup() {
   };
 
   return (
-    <AuthShell title="ثبت‌نام رایگان" sub="کمتر از یک دقیقه؛ بعدش با یک کلیک داده نمونه را امتحان کنید.">
+    <AuthShell title="ثبت‌نام رایگان" sub="کمتر از یک دقیقه طول می‌کشد.">
       <form onSubmit={submit} className="space-y-4" noValidate>
         <Field label="نام (اختیاری)" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} />
         <Field label="ایمیل" type="email" dir="ltr" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} />

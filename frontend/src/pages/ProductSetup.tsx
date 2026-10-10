@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Layout } from "../components/Layout";
-import { Button, ErrorBox, Field, LinkButton, Loading, Spinner, TextArea, cx } from "../components/ui";
+import { Button, ErrorBox, Field, LinkButton, Loading, OneLine, Spinner, TextArea, cx } from "../components/ui";
 import { api, errorText } from "../lib/api";
 import { AXES_FA, AXES_ORDER, num } from "../lib/fmt";
 import type { Axes, Product, Profile } from "../lib/types";
@@ -11,7 +11,7 @@ const LIST_FIELDS: { key: keyof Profile; label: string }[] = [
   { key: "buying_signals", label: "نشانه‌های اینکه کسی مشتری است" },
   { key: "signal_examples", label: "نمونه پیام‌هایی که مشتری ممکن است بنویسد" },
   { key: "disqualifiers", label: "چه کسانی مشتری نیستند" },
-  { key: "facts", label: "اطلاعات محصول (پاسخ‌ها فقط از این‌ها استفاده می‌کنند)" },
+  { key: "facts", label: "اطلاعات محصول" },
 ];
 
 function AgentChat({ product, onUpdate }: { product: Product; onUpdate: (p: Product) => void }) {
@@ -150,7 +150,7 @@ export default function ProductSetup() {
             <h1 className="text-xl font-bold">{product.profile ? product.name : "معرفی محصول"}</h1>
             {product.source && (
               <p className="mt-1 text-xs text-ink-400">
-                اطلاعات از <a href={product.source.url} target="_blank" rel="noopener noreferrer" className="underline">صفحه محصول</a> برداشته شده و فقط برای نمایش است.
+                اطلاعات از <a href={product.source.url} target="_blank" rel="noopener noreferrer" className="underline">صفحه محصول</a>، فقط برای نمایش.
               </p>
             )}
           </div>
@@ -161,7 +161,7 @@ export default function ProductSetup() {
             <>
               <section>
                 <h2 className="mb-1 font-bold">مشتری ایده‌آل شما</h2>
-                <p className="leading-8">{product.profile.persona}</p>
+                <OneLine text={product.profile.persona} />
                 <button className="mt-2 text-sm text-ink-500 hover:underline" onClick={() => setEditing(!editing)}>
                   {editing ? "بستن" : "ویرایش جزئیات"}
                 </button>

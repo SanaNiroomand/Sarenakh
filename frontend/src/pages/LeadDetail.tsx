@@ -4,7 +4,7 @@ import { LeadRadar } from "../components/charts";
 import { ChatDrawer } from "../components/ChatView";
 import { ReplyBox, Vote } from "../components/LeadCard";
 import { Layout } from "../components/Layout";
-import { ErrorBox, Loading } from "../components/ui";
+import { ErrorBox, Loading, OneLine } from "../components/ui";
 import { api, errorText } from "../lib/api";
 import { AXES_FA, AXES_ORDER, DECISION_FA, TEMP, mid, num, shortDate, usd } from "../lib/fmt";
 import type { Results } from "../lib/types";
@@ -52,13 +52,12 @@ export default function LeadDetail() {
           {v && (
             <section>
               <h2 className="mb-2 font-bold">چرا</h2>
-              <p className="leading-8">{v.reasoning}</p>
-              {v.disqualifiers_found.length > 0 && <p className="mt-2 text-sm">دلیل رد: {v.disqualifiers_found.join("، ")}</p>}
-              {lead.why_not && lead.decision !== "lead" && <p className="mt-2 text-sm">{lead.why_not}</p>}
+              <OneLine text={v.reasoning} />
+              {v.disqualifiers_found.length > 0 && <OneLine text={`دلیل رد: ${v.disqualifiers_found.join("، ")}`} className="mt-2 text-sm" />}
+              {lead.why_not && lead.decision !== "lead" && <OneLine text={lead.why_not} className="mt-2 text-sm" />}
               {lead.critic && (
-                <p className="mt-2 text-sm text-ink-500">
-                  یک بار هم سعی شد این نتیجه رد شود: «{lead.critic.strongest_objection}» نتیجه: {lead.critic.survives ? "ماند" : "رد شد"}.
-                </p>
+                <OneLine className="mt-2 text-sm text-ink-500"
+                  text={`منتقد (${lead.critic.survives ? "ماند" : "رد شد"}): ${lead.critic.strongest_objection}`} />
               )}
             </section>
           )}
@@ -80,9 +79,9 @@ export default function LeadDetail() {
               <ul className="space-y-3">
                 {lead.evidence!.map((e) => (
                   <li key={e.msg_id}>
-                    <button className="text-start hover:underline" onClick={() => setClues({ ids: evidenceIds, center: e.msg_id })}>
-                      <span className="text-sm text-ink-500">{e.author}: </span>
-                      <span dir="auto" className="text-sm">{e.text}</span>
+                    <button title={e.text} className="block w-full truncate text-start text-sm hover:underline"
+                      onClick={() => setClues({ ids: evidenceIds, center: e.msg_id })}>
+                      <span className="text-ink-500">{e.author}: </span>{e.text}
                     </button>
                   </li>
                 ))}
@@ -95,7 +94,7 @@ export default function LeadDetail() {
               <h2 className="mb-2 font-bold">کارهایی که عامل کرد</h2>
               <ul className="list-inside list-disc space-y-1 text-sm">
                 {lead.trace.map((t, i) => (
-                  <li key={i}>{TOOL_FA[t.tool] ?? t.tool}{t.args?.why ? ` (${t.args.why})` : ""}</li>
+                  <li key={i} className="truncate">{TOOL_FA[t.tool] ?? t.tool}{t.args?.why ? ` (${t.args.why})` : ""}</li>
                 ))}
               </ul>
             </section>

@@ -1,8 +1,17 @@
-import type { ButtonHTMLAttributes, InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from "react";
+import { useState, type ButtonHTMLAttributes, type InputHTMLAttributes, type ReactNode, type TextareaHTMLAttributes } from "react";
 import { Link } from "react-router-dom";
 
 const cx = (...c: (string | false | null | undefined)[]) => c.filter(Boolean).join(" ");
 export { cx };
+
+/** Shows text on a single line with "…"; click to see the whole text. */
+export function OneLine({ text, className }: { text: string; className?: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span title={open ? undefined : text} onClick={() => setOpen(!open)}
+      className={cx("block cursor-pointer", !open && "truncate", className)}>{text}</span>
+  );
+}
 
 type BtnProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "thread" | "ghost" | "outline" | "danger";

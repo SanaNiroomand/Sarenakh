@@ -48,10 +48,10 @@ function EvalView({ runId }: { runId: number }) {
         <Link to={`/app/runs/${ev.run_id}`} className="mt-2 inline-block text-sm text-thread-200 underline-offset-4 hover:underline">دیدن نتایج این اجرا ←</Link>
       </Card>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-        <Metric label="دقت (Precision)" value={pct(ev.precision)} sub="از سرنخ‌های اعلام‌شده چندتا درست بودند" />
-        <Metric label="بازیابی (Recall)" value={pct(ev.recall)} sub="از مشتری‌های واقعی چندتا پیدا شدند" />
+        <Metric label="دقت (Precision)" value={pct(ev.precision)} sub="چندتا از انتخاب‌ها درست بود" />
+        <Metric label="بازیابی (Recall)" value={pct(ev.recall)} sub="چندتا از مشتری‌ها پیدا شد" />
         <Metric label="هزینه کل" value={usd(ev.equivalent_cost_usd)} sub={`هزینه هر سرنخ: ${usd(ev.cost_per_lead_usd)}`} />
-        <Metric label="بازیابی پیش‌فیلتر" value={pct(ev.prefilter_recall)} sub="مشتری‌هایی که از فیلتر ارزان رد شدند" />
+        <Metric label="بازیابی پیش‌فیلتر" value={pct(ev.prefilter_recall)} sub="مشتری‌هایی که از فیلتر اول رد شدند" />
       </div>
 
       <Card>
@@ -64,7 +64,7 @@ function EvalView({ runId }: { runId: number }) {
                 <tr key={l.label}>
                   <td className={td}>{l.found ? "✅" : "❌"}</td>
                   <td className={cx(td, "font-bold")}>{l.author}<div className="text-xs font-normal text-ink-400">#{mid(l.msg_id)}</div></td>
-                  <td className={cx(td, "text-ink-600")}>{l.note}</td>
+                  <td className={cx(td, "max-w-xs truncate text-ink-600")} title={l.note}>{l.note}</td>
                   <td className={td}>{STAGE_FA[l.stage] ?? l.stage} · {DECISION_FA[l.decision] ?? l.decision}</td>
                   <td className={td}>{l.fit != null ? num(l.fit, 1) : "—"}</td>
                 </tr>
@@ -75,7 +75,7 @@ function EvalView({ runId }: { runId: number }) {
       </Card>
 
       <Card>
-        <SectionTitle title="تله‌ها (پیام‌های گمراه‌کننده)" sub="سینیورها، کسانی که قبلا خریده‌اند، طعنه، تبلیغ رقیب، فقط-رایگان…" />
+        <SectionTitle title="تله‌ها (پیام‌های گمراه‌کننده)" sub="پیام‌هایی که شبیه مشتری‌اند ولی نیستند" />
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead><tr><th className={th}></th><th className={th}>نفر</th><th className={th}>تله</th><th className={th}>کجا متوقف شد</th></tr></thead>
@@ -84,7 +84,7 @@ function EvalView({ runId }: { runId: number }) {
                 <tr key={d.label}>
                   <td className={td}>{d.fooled ? "❌ فریب خورد" : "✅"}</td>
                   <td className={cx(td, "font-bold")}>{d.author}<div className="text-xs font-normal text-ink-400">#{mid(d.msg_id)}</div></td>
-                  <td className={cx(td, "text-ink-600")}>{d.note}</td>
+                  <td className={cx(td, "max-w-xs truncate text-ink-600")} title={d.note}>{d.note}</td>
                   <td className={td}>{STAGE_FA[d.stage] ?? d.stage}{d.relevance != null ? ` (تریاژ ${num(d.relevance)})` : ""}</td>
                 </tr>
               ))}
@@ -109,8 +109,7 @@ export default function Evaluation() {
     <Layout>
       <h1 className="text-2xl font-extrabold">ارزیابی دقت</h1>
       <p className="mb-6 mt-1 text-ink-500">
-        در گفتگوی نمونه ۱۴ مشتری واقعی (۹ برای دوره پایتون، ۵ برای عینک) و ۱۶ تله کاشته‌ایم و پاسخ درست را می‌دانیم.
-        اینجا می‌بینید عامل چندتا را درست پیدا کرد، چندتا را اشتباه گرفت و با چه هزینه‌ای.
+        دقت عامل روی داده نمونه.
       </p>
       {error && <ErrorBox message={error} />}
       {!runs && !error && <Loading />}
