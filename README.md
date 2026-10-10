@@ -11,9 +11,9 @@ It doesn't send anything by itself. You decide who to reply to.
 
 ## Running it
 
-You need Python 3.11 and Node.js. Copy `.env.example` to `.env` and put your OpenAI key in it,
-then run `start.ps1`. The site opens at http://localhost:8000. Sign up and press the sample data
-button to see how it works.
+You need Python 3.11 and Node.js. Double-click `start.cmd`. The first time it creates `.env`;
+put your OpenAI key in it and double-click again. The site opens at http://localhost:8000.
+Sign up and press the sample data button to see how it works.
 
 ## Putting it online
 
