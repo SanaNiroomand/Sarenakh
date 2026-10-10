@@ -1,10 +1,13 @@
-"""Persian posts from X (Twitter), from one of two providers:
+"""Persian posts from X (Twitter), from one of three providers (Settings.x_source picks one):
 
-- twitterapi.io (used when TWITTERAPI_KEY is set): an unofficial reseller that scrapes X. About
-  $0.15 per 1,000 tweets, pays by card or crypto. Outside X's own terms; the owner chose it knowingly.
+- twitterapi.io (TWITTERAPI_KEY): an unofficial reseller that scrapes X. About $0.15 per 1,000
+  tweets, pays by card or crypto.
+- twscrape (TWSCRAPE_COOKIES): free. Crawls X's own web search as a logged-in X account, using that
+  account's browser cookies. The account may be suspended and the crawler breaks when X changes.
 - the official X API v2 (X_BEARER_TOKEN): $0.005 per post, needs prepaid credits, last 7 days only.
+The first two are outside X's own terms; the owner chose them knowingly.
 
-Both are paid per post returned, so spend is kept low on purpose:
+The paid ones bill per post returned, so spend is kept low on purpose:
 - the search phrases are written once per customer profile and cached;
 - each query keeps the posts it found in the stage cache. A repeat search within `x_cache_hours`
   costs nothing; a later one asks only for posts newer than the newest one already kept;
@@ -15,11 +18,15 @@ Both are paid per post returned, so spend is kept low on purpose:
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import html
+import logging
+import os
 import re
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from typing import Any
 
 import httpx
 
@@ -30,6 +37,8 @@ from ..chat.parse import TEHRAN, ChatMessage, ParsedChat
 from ..config import Settings
 from ..llm import LLM, Usage
 from ..schemas import Profile
+
+log = logging.getLogger("sarenakh.x")
 
 MAX_KEEP = 1000  # posts kept per query in the cache
 USER_TTL_S = 7 * 24 * 3600
@@ -72,19 +81,22 @@ class _Source:
     suffix = ""  # filters appended to every query
     page_min = 1  # smallest number of posts worth asking for
     window_s = 7 * 24 * 3600  # how far back posts count as current
+    pause_s = 0.0  # wait between queries
 
-    def __init__(self, settings: Settings, base_url: str, headers: dict, transport: httpx.AsyncBaseTransport | None):
+    def __init__(self, settings: Settings, base_url: str = "", headers: dict | None = None,
+                 transport: httpx.AsyncBaseTransport | None = None):
         self.s = settings
         self.billed_posts = 0
         self.billed_users = 0
         self.http = httpx.AsyncClient(base_url=base_url.rstrip("/") + "/", transport=transport, timeout=30.0,
-                                      headers={"User-Agent": "Sarenakh/1.0", **headers})
+                                      headers={"User-Agent": "Sarenakh/1.0", **(headers or {})}) if base_url else None
 
     async def __aenter__(self):
         return self
 
     async def __aexit__(self, *exc) -> None:
-        await self.http.aclose()
+        if self.http:
+            await self.http.aclose()
 
     @property
     def cost_usd(self) -> float:
@@ -225,13 +237,87 @@ class TwitterApiIo(_Source):
         return posts, {}
 
 
+TWSCRAPE_ACCOUNT = "sarenakh"
+_tws: dict[str, Any] = {}  # the twscrape API object, rebuilt when the cookies in .env change
+
+
+async def _twscrape_api(settings: Settings, refresh: bool = False):
+    """The shared twscrape API. refresh=True re-saves the account from .env, which also re-enables it
+    after twscrape switched it off on an error (a later bad answer switches it off again)."""
+    os.environ.setdefault("TWS_TELEMETRY", "0")  # the library can report usage stats; keep it off
+    from twscrape import API
+
+    fp = hashlib.sha256(f"{settings.twscrape_cookies}|{settings.twscrape_proxy}".encode()).hexdigest()
+    if _tws.get("fp") != fp:
+        _tws.update(fp=fp, api=API(str(settings.data_dir / "twscrape.db"), proxy=settings.twscrape_proxy or None,
+                                   raise_when_no_account=True))
+        refresh = True
+    if refresh:
+        try:
+            await _tws["api"].pool.add_account_cookies(TWSCRAPE_ACCOUNT, settings.twscrape_cookies)
+        except ValueError as e:
+            _tws.clear()
+            raise XError("کوکی‌های حساب ایکس باید auth_token و ct0 را داشته باشند.") from e
+    return _tws["api"]
+
+
+class Twscrape(_Source):
+    """Free: X's own web search through twscrape, as the X account whose cookies are in .env."""
+
+    name = "twscrape"
+    suffix = TwitterApiIo.suffix  # the same web search syntax
+    pause_s = 2.0  # go easy on the account
+    timeout_s = 120.0
+
+    def __init__(self, settings: Settings, api: Any = None):
+        if not settings.twscrape_cookies:
+            raise XError("جستجوی ایکس فعال نیست: کوکی‌های حساب ایکس تنظیم نشده است.")
+        super().__init__(settings)
+        self.window_s = max(1, settings.x_window_days) * 86400
+        self._api = api
+        self._fresh = True  # first query of this search re-enables the account
+
+    async def search(self, query: str, *, limit: int, since: dict | None = None) -> tuple[list[dict], dict[str, dict]]:
+        from twscrape.accounts_pool import NoAccountError
+
+        start = int(time.time()) - self.window_s
+        if since:
+            start = max(start, _ts(since["created_at"]) + 1)
+        api = self._api or await _twscrape_api(self.s, refresh=self._fresh)
+        self._fresh = False
+        posts: list[dict] = []
+
+        async def collect() -> None:
+            async for t in api.search(f"{query} since_time:{start}", limit=limit):
+                if not getattr(t, "retweetedTweet", None):
+                    posts.append(_post_tws(t))
+                if len(posts) >= limit:
+                    break
+
+        try:
+            await asyncio.wait_for(collect(), self.timeout_s)
+        except NoAccountError as e:
+            if not posts:
+                raise XError("حساب ایکس در دسترس نیست: کوکی‌ها منقضی شده یا حساب موقتا محدود شده است.") from e
+        except asyncio.TimeoutError as e:
+            if not posts:
+                raise XError("ایکس دیر جواب داد. چند دقیقه بعد دوباره امتحان کنید.") from e
+        except Exception as e:  # noqa: BLE001 — the crawler breaks when X changes its site
+            log.warning("twscrape search failed: %s", e)
+            if not posts:
+                raise XError("خواندن از ایکس انجام نشد؛ شاید ایکس چیزی را عوض کرده و twscrape باید به‌روز شود.") from e
+        return posts[:limit], {}
+
+
 def make_x_client(settings: Settings, transport: httpx.AsyncBaseTransport | None = None) -> _Source:
     source = settings.x_source()
     if source == "twitterapi":
         return TwitterApiIo(settings, transport)
+    if source == "twscrape":
+        return Twscrape(settings)
     if source == "official":
         return XClient(settings, transport)
-    raise XError("جستجوی ایکس فعال نیست: کلید twitterapi.io یا توکن X تنظیم نشده است.")
+    raise XError("جستجوی ایکس فعال نیست: کلید twitterapi.io، کوکی حساب ایکس یا توکن X تنظیم نشده است.")
 
 
 def _post(p: dict) -> dict:
@@ -257,6 +343,15 @@ def _post_tapi(t: dict) -> dict:
     return {"id": str(t["id"]), "text": t.get("text") or "", "author_id": str(a.get("id") or ""),
             "created_at": _iso(t.get("createdAt") or ""), "reply_to": str(t.get("inReplyToId") or "") or None,
             "username": a.get("userName") or "", "name": a.get("name") or ""}
+
+
+def _post_tws(t: Any) -> dict:
+    u = t.user
+    reply = getattr(t, "inReplyToTweetIdStr", None) or getattr(t, "inReplyToTweetId", None)
+    return {"id": str(t.id_str or t.id), "text": t.rawContent or "", "author_id": str(u.id_str or u.id) if u else "",
+            "created_at": t.date.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z"),
+            "reply_to": str(reply) if reply else None,
+            "username": u.username if u else "", "name": u.displayname if u else ""}
 
 
 def _ts(created_at: str) -> int:
@@ -329,7 +424,7 @@ async def search_posts(xc: _Source, plan: list[dict], *, max_posts: int, cache_s
     seen: set[str] = set()
     per_query = max(xc.page_min, max_posts // max(1, len(plan)))
     now = time.time()
-    for item in plan:
+    for n, item in enumerate(plan):
         q = build_query(item["topic"], item["need"], xc.suffix)
         if not q:
             continue
@@ -343,6 +438,8 @@ async def search_posts(xc: _Source, plan: list[dict], *, max_posts: int, cache_s
             posts = [p for p in old.get("posts") or [] if now - _ts(p["created_at"]) < xc.window_s]
             budget_left = max_posts - xc.billed_posts
             if budget_left >= xc.page_min:
+                if n and xc.pause_s:
+                    await asyncio.sleep(xc.pause_s)
                 # only what is newer than the newest post we already have (X rejects too-old since_ids)
                 newest = posts[0] if posts and now - _ts(posts[0]["created_at"]) < xc.window_s - 86400 else None
                 new, users = await xc.search(q, limit=min(per_query, budget_left), since=newest)

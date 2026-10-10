@@ -16,10 +16,15 @@ You need Python 3.11 and Node.js. Double-click `start.cmd`. The first time it cr
 put your OpenAI key in it and double-click again. The site opens at http://localhost:8000.
 Sign up and press the sample data button to see how it works.
 
-To search X, put a key in `.env`. We use `TWITTERAPI_KEY` from twitterapi.io. It isn't X's own API
-(it scrapes X), but it costs about $0.15 per 1,000 tweets and takes crypto. The official X API works too
-with `X_BEARER_TOKEN`, but it needs prepaid credit and costs about $0.005 per post. Either way the same
-search is reused for a day and later searches only fetch new posts.
+To search X, put one of these in `.env`:
+
+- `TWITTERAPI_KEY` from twitterapi.io. It isn't X's own API (it scrapes X), but it costs about $0.15 per
+  1,000 tweets and takes crypto.
+- `TWSCRAPE_COOKIES`, the login cookies of an X account. This is free: it searches X as that account.
+  Use a spare account, because X may block it. `.env.example` says how to copy the cookies.
+- `X_BEARER_TOKEN` for the official X API. It needs prepaid credit and costs about $0.005 per post.
+
+Whichever you use, the same search is reused for a day and later searches only fetch new posts.
 
 ## Putting it online
 

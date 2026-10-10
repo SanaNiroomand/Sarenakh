@@ -130,6 +130,8 @@ def xsettings(monkeypatch):
     s = get_settings()
     monkeypatch.setattr(s, "x_bearer_token", "test-token")
     monkeypatch.setattr(s, "twitterapi_key", "")  # tests must not depend on the local .env
+    monkeypatch.setattr(s, "twscrape_cookies", "")
+    monkeypatch.setattr(s, "x_provider", "auto")
     monkeypatch.setattr(x.XClient, "variant", 0)
     monkeypatch.setattr(x.TwitterApiIo, "retry_wait_s", 0)
     return s
@@ -392,3 +394,83 @@ async def test_twitterapi_never_passes_max_posts(tapi):
     async with x.make_x_client(tapi, transport=httpx.MockTransport(fake.handler)) as xc:
         found = await x.search_posts(xc, _plan("a", "b", "c", "d"), max_posts=50, cache_s=3600)
     assert xc.billed_posts <= 50 and [q["new"] for q in found.queries] == [20, 20, 0, 0]
+
+
+# --- twscrape -------------------------------------------------------------------------------------
+
+from types import SimpleNamespace
+
+
+def _tws_tweet(i: int, minutes_ago: int, retweet: bool = False, reply_to: int | None = None):
+    user = SimpleNamespace(id=i % 5, id_str=str(i % 5), username=f"acc{i % 5}", displayname=f"حساب {i % 5}")
+    return SimpleNamespace(
+        id=i, id_str=str(i), rawContent=f"کسی دوره پایتون سراغ داره؟ {i}", user=user,
+        date=datetime.now(timezone.utc) - timedelta(minutes=minutes_ago),
+        retweetedTweet=object() if retweet else None, inReplyToTweetIdStr=str(reply_to) if reply_to else None,
+    )
+
+
+class FakeTwscrapeApi:
+    def __init__(self, tweets=None, error: Exception | None = None):
+        self.tweets = tweets or []
+        self.error = error
+        self.queries: list[str] = []
+
+    async def search(self, q, limit=-1):
+        self.queries.append(q)
+        if self.error:
+            raise self.error
+        for t in self.tweets:
+            yield t
+
+
+@pytest.fixture
+def tws(monkeypatch, xsettings):
+    monkeypatch.setattr(xsettings, "twscrape_cookies", "auth_token=a; ct0=b")
+    monkeypatch.setattr(x.Twscrape, "pause_s", 0)
+    return xsettings
+
+
+def test_twscrape_is_free_and_chosen_by_setting(tws, monkeypatch):
+    assert tws.x_source() == "twscrape" and tws.x_price_per_post() == 0
+    assert isinstance(x.make_x_client(tws), x.Twscrape)
+    monkeypatch.setattr(tws, "twitterapi_key", "tapi-key")
+    assert tws.x_source() == "twitterapi"  # auto: twitterapi.io first
+    monkeypatch.setattr(tws, "x_provider", "twscrape")
+    assert tws.x_source() == "twscrape"
+    monkeypatch.setattr(tws, "twscrape_cookies", "")
+    assert tws.x_source() is None  # chosen explicitly but not configured
+
+
+async def test_twscrape_search(tws):
+    api = FakeTwscrapeApi([_tws_tweet(9003, 1), _tws_tweet(9002, 2, retweet=True), _tws_tweet(9001, 3, reply_to=9000)])
+    found = await x.search_posts(x.Twscrape(tws, api=api), _plan("پایتون"), max_posts=100, cache_s=3600)
+    assert [p["id"] for p in found.posts] == ["9003", "9001"]  # the retweet is dropped
+    assert "since_time:" in api.queries[0] and "-filter:retweets" in api.queries[0]
+    assert found.queries[0]["new"] == 2
+    parsed = x.to_parsed(found, "ایکس")
+    assert parsed.messages[-1].author == "حساب 3 (@acc3)" and parsed.messages[0].ext_id == "9001"
+
+
+async def test_twscrape_errors_are_persian(tws):
+    from twscrape.accounts_pool import NoAccountError
+
+    for err, word in [(NoAccountError("none"), "کوکی"), (RuntimeError("x changed"), "twscrape")]:
+        xc = x.Twscrape(tws, api=FakeTwscrapeApi(error=err))
+        with pytest.raises(x.XError, match=word):
+            await xc.search("q", limit=20)
+
+
+async def test_twscrape_account_from_cookies(tws, monkeypatch, tmp_path):
+    monkeypatch.setattr(tws, "data_dir", tmp_path)
+    monkeypatch.setattr(x, "_tws", {})
+    api = await x._twscrape_api(tws)  # offline: only writes the account to its own sqlite file
+    info = await api.pool.accounts_info()
+    assert [a["username"] for a in info] == [x.TWSCRAPE_ACCOUNT] and info[0]["active"]
+    assert await x._twscrape_api(tws) is api  # same cookies: reused
+    await api.pool.mark_inactive(x.TWSCRAPE_ACCOUNT, "Logged-out X web app")  # what twscrape does on an error
+    await x._twscrape_api(tws, refresh=True)  # a new search turns it back on
+    assert (await api.pool.accounts_info())[0]["active"]
+    monkeypatch.setattr(tws, "twscrape_cookies", "just-garbage")
+    with pytest.raises(x.XError, match="auth_token"):
+        await x._twscrape_api(tws)

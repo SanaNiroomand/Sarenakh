@@ -5,7 +5,7 @@ export type PublicConfig = {
   default_run_budget_usd: number;
   max_run_budget_usd: number;
   models: { triage: string; agent: string; embedding: string };
-  x: { enabled: boolean; provider: "twitterapi" | "official" | null; price_per_post_usd: number; max_posts: number };
+  x: { enabled: boolean; provider: "twitterapi" | "twscrape" | "official" | null; price_per_post_usd: number; max_posts: number };
 };
 
 let configCache: Promise<PublicConfig> | null = null;

@@ -78,9 +78,13 @@ class Settings(BaseSettings):
     user_daily_cap_usd: float = 1.50  # paid spend per user per 24h (profile chat + runs)
     replay_delay_s: float = 0.7  # pacing of replayed (cached) agent steps in the live feed
 
-    # X (Twitter). twitterapi.io is used when its key is set (unofficial, ~33x cheaper, pays by crypto);
-    # otherwise the official API v2 (pay-per-use, needs prepaid credits).
+    # X (Twitter), one of: twitterapi.io (unofficial, ~33x cheaper than the official API, pays by crypto),
+    # twscrape (free, crawls as a logged-in X account from its cookies), the official API v2 (prepaid).
+    # x_provider=auto picks the first one configured, in that order.
+    x_provider: Literal["auto", "twitterapi", "twscrape", "official"] = "auto"
     twitterapi_key: str = Field(default="", repr=False)
+    twscrape_cookies: str = Field(default="", repr=False)  # "auth_token=...; ct0=..." of a spare X account
+    twscrape_proxy: str = ""  # optional proxy for twscrape, e.g. http://user:pass@host:port
     twitterapi_base: str = "https://api.twitterapi.io"
     twitterapi_price_per_tweet_usd: float = 0.00015
     x_bearer_token: str = Field(default="", repr=False)
@@ -113,13 +117,16 @@ class Settings(BaseSettings):
             out.setdefault(self.model_for(role), self.reasoning_for(role))
         return out
 
-    def x_source(self) -> Literal["twitterapi", "official"] | None:
-        if self.twitterapi_key:
-            return "twitterapi"
-        return "official" if self.x_bearer_token else None
+    def x_source(self) -> Literal["twitterapi", "twscrape", "official"] | None:
+        ready = {"twitterapi": bool(self.twitterapi_key), "twscrape": bool(self.twscrape_cookies),
+                 "official": bool(self.x_bearer_token)}
+        if self.x_provider != "auto":
+            return self.x_provider if ready[self.x_provider] else None
+        return next((name for name, ok in ready.items() if ok), None)
 
     def x_price_per_post(self) -> float:
-        return self.twitterapi_price_per_tweet_usd if self.x_source() == "twitterapi" else self.x_price_per_post_usd
+        return {"twitterapi": self.twitterapi_price_per_tweet_usd, "twscrape": 0.0}.get(
+            self.x_source() or "", self.x_price_per_post_usd)
 
     def prices(self) -> dict[str, Price]:
         table = dict(PRICES)

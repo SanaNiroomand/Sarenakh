@@ -91,7 +91,7 @@ async def twitter(
     """Search recent Persian posts on X for people who may need this product; store them as a dataset."""
     s = get_settings()
     if not s.x_source():
-        raise HTTPException(400, "جستجوی ایکس فعال نیست: کلید twitterapi.io یا توکن X تنظیم نشده است.")
+        raise HTTPException(400, "جستجوی ایکس فعال نیست: کلید twitterapi.io، کوکی حساب ایکس یا توکن X تنظیم نشده است.")
     p = own_product(db, user, body.product_id)
     if not p.profile:
         raise HTTPException(400, "اول پروفایل مشتری را بسازید.")
@@ -132,7 +132,7 @@ async def twitter(
     ds = store_parsed(db, parsed, user_id=user.id, name=parsed.name)
     x_stats = {
         "product_id": p.id, "queries": found.queries, "posts": len(found.posts),
-        "new_posts": xc.billed_posts, "cost_usd": round(xc.cost_usd, 6), "provider": xc.name,
+        "new_posts": sum(q["new"] for q in found.queries), "cost_usd": round(xc.cost_usd, 6), "provider": xc.name,
     }
     ds.stats = {**parsed.stats, "x": x_stats}
     db.flush()

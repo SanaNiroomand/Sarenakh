@@ -97,7 +97,11 @@ export default function DataStep() {
                 جستجو در ایکس
               </Button>
             </div>
-            <p className="text-xs text-ink-400">حداکثر {usd(posts * xcfg.price_per_post_usd)} · جستجوی تکراری تا یک روز رایگان است</p>
+            <p className="text-xs text-ink-400">
+              {xcfg.price_per_post_usd > 0
+                ? <>حداکثر {usd(posts * xcfg.price_per_post_usd)} · جستجوی تکراری تا یک روز رایگان است</>
+                : <>رایگان، با حساب ایکس خودتان · ممکن است یک دقیقه طول بکشد</>}
+            </p>
           </div>
         )}
 
