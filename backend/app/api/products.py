@@ -7,7 +7,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from ..agents.context import GlobalSpend, record_spend
-from ..agents.product_reader import facts_to_description, read_product
+from ..agents.product_reader import facts_to_description, name_only_description, read_product
 from ..agents.profile_agent import profile_turn
 from ..config import get_settings
 from ..db import Product, User, get_db, user_spend_since
@@ -15,7 +15,7 @@ from ..llm import IncompleteOutputError, get_llm
 from ..samples import sample_products, sample_profile
 from ..schemas import ChatTurnIn, ProductIn, ProductUrlIn, Profile
 from ..security import current_user, rate_limit
-from ..sources.web import PageError, fetch_page
+from ..sources.web import PageError, fetch_page, product_name_guess
 
 log = logging.getLogger("sarenakh.products")
 router = APIRouter(prefix="/api/products", tags=["products"])
@@ -80,33 +80,38 @@ def check_paid_call(request: Request, db: Session, user: User) -> None:
 async def create_from_url(
     body: ProductUrlIn, request: Request, user: User = Depends(current_user), db: Session = Depends(get_db)
 ) -> dict:
-    """Read the product page, extract its facts, and start the profile chat with them."""
+    """Read the product page, extract its facts, and start the profile chat with them. If only the
+    product's name can be read, start with the name and let the profile chat ask for the rest."""
     check_paid_call(request, db, user)
     try:
         page = await fetch_page(body.url)
     except PageError as e:
         raise HTTPException(400, str(e)) from e
-    if len(page.text) < 200 and not page.structured:
-        raise HTTPException(422, "این صفحه متن کافی نداشت (احتمالا با جاوااسکریپت ساخته می‌شود). محصول را چند خطی توضیح دهید.")
-    try:
-        facts, usage = await read_product(get_llm(), get_settings(), page)
-    except IncompleteOutputError as e:
-        record_spend(user.id, "page", e.usage)
-        raise HTTPException(502, "خواندن صفحه کامل نشد. دوباره تلاش کنید.") from e
-    except Exception as e:  # noqa: BLE001
-        log.warning("product page reader failed: %s", e)
-        raise HTTPException(502, "خواندن صفحه انجام نشد. چند لحظه بعد دوباره تلاش کنید.") from e
-    if usage:
-        record_spend(user.id, "page", usage)
-    if not facts.found or not facts.features:
-        raise HTTPException(422, "در این صفحه محصول مشخصی پیدا نشد. لینک صفحه خود محصول را بدهید یا توضیحش دهید.")
-    desc = facts_to_description(facts, page.url)
-    p = Product(user_id=user.id, name=facts.product_name[:120], description=desc, source_url=page.url[:1000],
+    facts, usage = None, None
+    if page.readable:
+        try:
+            facts, usage = await read_product(get_llm(), get_settings(), page)
+        except IncompleteOutputError as e:
+            record_spend(user.id, "page", e.usage)
+            raise HTTPException(502, "خواندن صفحه کامل نشد. دوباره تلاش کنید.") from e
+        except Exception as e:  # noqa: BLE001
+            log.warning("product page reader failed: %s", e)
+            raise HTTPException(502, "خواندن صفحه انجام نشد. چند لحظه بعد دوباره تلاش کنید.") from e
+        if usage:
+            record_spend(user.id, "page", usage)
+    if facts and facts.found and facts.features:
+        name, desc = facts.product_name, facts_to_description(facts, page.url)
+    elif name := product_name_guess(page):
+        desc = name_only_description(name, page.url)
+    else:
+        raise HTTPException(422, "این صفحه را نتوانستیم بخوانیم. لینک صفحه خود محصول را بدهید یا محصول را چند خطی توضیح دهید.")
+    p = Product(user_id=user.id, name=name[:120], description=desc, source_url=page.url[:1000],
                 setup_chat=[{"role": "user", "content": desc}])
     db.add(p)
     db.flush()
     out = product_out(p)
-    out["facts"] = facts.model_dump()
+    out["facts"] = facts.model_dump() if facts and facts.found else None
+    out["name_only"] = out["facts"] is None
     out["read_cost_usd"] = round(usage.cost_usd, 6) if usage else 0.0
     return out
 

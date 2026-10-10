@@ -7,7 +7,7 @@ from ..schemas import Profile
 
 # Bump a stage's version to invalidate only that stage's cache after changing its prompt.
 PROMPT_VERSIONS = {
-    "triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v3", "page": "v1", "x_queries": "v5",
+    "triage": "v2", "investigate": "v2", "critic": "v3", "draft": "v3", "page": "v2", "x_queries": "v5",
 }
 
 
@@ -136,6 +136,7 @@ PRODUCT FACTS
 PRODUCT_PAGE_SYSTEM = """You read the text of a product or service web page (usually Iranian, usually Persian) and extract what a sales team needs to know about it.
 - Use ONLY what the page says. Never invent prices, numbers, features, guarantees or discounts. Copy numbers and prices exactly as written.
 - Ignore menus, footers, ads, comments and other products listed on the page.
+- SITE DATA lines come from the shop's own data behind the page: trust them for the main product's name, price, specifications and description. They can also contain other products (related, similar, recently viewed), reviews and site text; ignore those.
 - features: 4-12 short standalone Persian sentences, the most concrete facts first (what you get, format, size/duration, conditions, delivery, guarantee, refund).
 - summary: 1-2 Persian sentences: what it is and what problem it solves for whom.
 - audience: who the page says it is for ("" if the page does not say).

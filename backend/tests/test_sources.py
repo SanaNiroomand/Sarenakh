@@ -85,6 +85,89 @@ async def test_non_html_is_refused():
         await web.fetch_page("https://example.com/file.pdf", transport=t, use_cache=False)
 
 
+# --- shops that build their pages in the browser -------------------------------------------------
+
+DK_API = {"data": {"product": {
+    "id": 123, "title_fa": "هدفون بلوتوثی انکر مدل R60i NC", "title_en": "Anker R60i NC", "status": "marketable",
+    "brand": {"title_fa": "انکر"}, "category": {"title_fa": "هدفون، هدست و هندزفری"},
+    "default_variant": {"price": {"selling_price": 53261000, "rrp_price": 78110000, "discount_percent": 32},
+                        "warranty": {"title_fa": "گارانتی 18 ماهه شرکتی"}},
+    "rating": {"rate": 89.6, "count": 1579},
+    "specifications": [{"title": "مشخصات", "attributes": [{"title": "عمر باتری", "values": ["50 ساعت "]}]}],
+    "pros_and_cons": {"advantages": ["حذف نویز خوب"], "disadvantages": []},
+    "expert_reviews": {"description": "<p>یک گزینه <b>خوش‌ساخت</b> برای شنیدن موسیقی.</p>"},
+    "images": {"main": {"url": ["https://dkstatics/x.jpg"]}},
+}}}
+
+SHELL = "<html><head><title>فروشگاه اینترنتی</title></head><body><div id=app></div></body></html>"
+
+
+def _shop_transport(api_status=200, api_body=None, html=SHELL, html_status=200):
+    calls = []
+
+    def handler(request):
+        calls.append(request.url.host)
+        if request.url.host.startswith("api"):
+            return httpx.Response(api_status, json=api_body if api_body is not None else DK_API)
+        return httpx.Response(html_status, html=html)
+
+    return httpx.MockTransport(handler), calls
+
+
+async def test_digikala_is_read_from_its_product_api():
+    t, calls = _shop_transport()
+    page = await web.fetch_page("https://www.digikala.com/product/dkp-123/هدفون-انکر", transport=t, use_cache=False)
+    assert calls == ["api.digikala.com"] and page.readable
+    assert page.title == "هدفون بلوتوثی انکر مدل R60i NC (Anker R60i NC)"
+    for line in ("قیمت: 5,326,100 تومان", "گارانتی: گارانتی 18 ماهه شرکتی", "عمر باتری: 50 ساعت",
+                 "نقطه قوت: حذف نویز خوب", "امتیاز خریداران: 4.5 از ۵ (1579 رأی)", "یک گزینه خوش‌ساخت"):
+        assert line in page.embedded
+    assert "dkstatics" not in page.embedded and "SITE DATA" in page.for_model()
+
+
+async def test_shop_api_failure_falls_back_to_the_page():
+    t, calls = _shop_transport(api_status=500, html=PAGE)
+    page = await web.fetch_page("https://www.digikala.com/product/dkp-123/", transport=t, use_cache=False)
+    assert calls == ["api.digikala.com", "www.digikala.com"] and page.title == "دوره پایتون | سایت"
+
+
+async def test_snappshop_price_in_toman():
+    body = {"data": {"content": {"title_fa": "میکروفون بیرداینامیک", "description": ""}, "brand": {"title_fa": "بیرداینامیک"},
+                     "categories": [{"title": "اسنپ شاپ"}, {"title": "میکروفون"}], "variants": [{"id": 1}],
+                     "attributes": [{"title": "وزن", "value": "270 گرم"}],
+                     "page": {"json_ld": [{"@type": "Product", "offers": {"price": "38400000", "priceCurrency": "IRR"}}]}}}
+    t, _ = _shop_transport(api_body=body)
+    page = await web.fetch_page("https://snappshop.ir/product/snp-99", transport=t, use_cache=False)
+    assert "قیمت: 3,840,000 تومان" in page.embedded and "وزن: 270 گرم" in page.embedded
+
+
+async def test_bot_checks_get_a_clear_message():
+    for status, html in [(490, "<html><title>x</title></html>"), (200, "<html><title>آیا شما یک ربات هستید؟</title></html>")]:
+        t, _ = _shop_transport(html=html, html_status=status)
+        with pytest.raises(web.PageError, match="ربات"):
+            await web.fetch_page("https://torob.com/p/abc/", transport=t, use_cache=False)
+
+
+def test_embedded_next_data_is_read_when_the_page_is_empty():
+    data = {"props": {"pageProps": {"product": {
+        "id": 77, "title": "عسل چهل گیاه سبلان", "price": 1597000, "imageUrl": "https://cdn/x.jpg",
+        "attributes": [{"name": "وزن", "value": "2 کیلوگرم"}], "seo": {"title": "خرید عسل | فروشگاه"},
+        "rating": 4.6, "slug": "asal-sabalan"}}}}
+    html = f'<html><body><div id="__next"></div><script id="__NEXT_DATA__" type="application/json">{json.dumps(data)}</script></body></html>'
+    p = web.parse_html("https://shop.example/p/77", html)
+    assert p.readable is False or p.embedded  # thin text, so the site data is read
+    assert "title: عسل چهل گیاه سبلان" in p.embedded and "price: 1597000" in p.embedded and "value: 2 کیلوگرم" in p.embedded
+    assert "cdn" not in p.embedded and "خرید عسل | فروشگاه" not in p.embedded and "77" not in p.embedded
+
+
+def test_nuxt_payload_is_rebuilt():
+    payload = [["ShallowReactive", 1], {"data": 2}, {"course": 3}, {"title": 4, "price": 5, "tags": 6}, "دوره اکسل",
+               4900000, [7], "مقدماتی"]
+    html = f'<html><body><script type="application/json" id="__NUXT_DATA__">{json.dumps(payload, ensure_ascii=False)}</script></body></html>'
+    p = web.parse_html("https://maktab.example/course/1", html)
+    assert "title: دوره اکسل" in p.embedded and "price: 4900000" in p.embedded and "tags: مقدماتی" in p.embedded
+
+
 # --- X --------------------------------------------------------------------------------------------
 
 
@@ -258,6 +341,25 @@ def test_product_from_link(client, monkeypatch):
     monkeypatch.setattr(products, "fetch_page", empty_fetch)
     r = client.post("/api/products/from-url", json={"url": "https://example.com/spa"})
     assert r.status_code == 422 and "توضیح" in r.json()["detail"]
+
+    async def name_only_fetch(url):  # unreadable, but the title names the product
+        return web.parse_html("https://okala.example/product/13632",
+                              "<html><title>خرید و قیمت مایع سفید کننده دامستوس 750 میلی | اکالا</title><body></body></html>")
+
+    monkeypatch.setattr(products, "fetch_page", name_only_fetch)
+    r = client.post("/api/products/from-url", json={"url": "https://okala.example/product/13632"})
+    assert r.status_code == 200 and r.json()["name_only"] and r.json()["name"] == "مایع سفید کننده دامستوس 750 میلی"
+    assert "فقط اسمش خوانده شد" in r.json()["description"]
+
+
+@pytest.mark.parametrize("title,url,name", [
+    ("خرید و قیمت عسل چهل گیاه سبلان | باسلام", "https://x.ir/p/1", "عسل چهل گیاه سبلان"),
+    ("فروشگاه اینترنتی دیجی‌استایل", "https://www.digistyle.com/product/4762419-کفش-مردانه-اورز-مدل-master", "کفش مردانه اورز مدل master"),
+    ("فروشگاه اینترنتی دیجی‌استایل", "https://www.digistyle.com/product/8557975", ""),
+    ("", "https://faradars.org/courses/fvpht9808-basic-of-python-programming", ""),
+])
+def test_product_name_guess(title, url, name):
+    assert web.product_name_guess(web.Page(url=url, title=title)) == name
 
 
 def test_twitter_dataset(client, monkeypatch, xsettings):

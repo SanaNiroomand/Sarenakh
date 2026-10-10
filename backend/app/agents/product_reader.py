@@ -30,6 +30,12 @@ async def read_product(llm: LLM, settings: Settings, page: Page) -> tuple[Produc
     return facts, usage
 
 
+def name_only_description(name: str, url: str) -> str:
+    """When only the product's name could be read: the profile chat asks the owner for the rest."""
+    return (f"محصول: {name}\n(از صفحه محصول فقط اسمش خوانده شد: {url})\n"
+            "قیمت، ویژگی‌های مهم و مشتری‌های این محصول را هنوز نمی‌دانم.")
+
+
 def facts_to_description(f: ProductFacts, url: str) -> str:
     """The extracted facts written as the owner's first message to the profile agent."""
     lines = [f"محصول: {f.product_name}" + (f" ({f.seller})" if f.seller else ""), f.summary]
