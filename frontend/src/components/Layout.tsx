@@ -4,7 +4,12 @@ import { useAuth } from "../lib/auth";
 import { cx } from "./ui";
 
 export function Brand() {
-  return <Link to="/" className="text-lg font-bold">سرنخ</Link>;
+  return (
+    <Link to="/" className="flex items-center gap-2 text-lg font-bold">
+      <img src="/logo.svg" alt="" className="h-7 w-7" />
+      سرنخ
+    </Link>
+  );
 }
 
 export function Layout({ children }: { children: ReactNode; wide?: boolean }) {
